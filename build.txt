@@ -1,0 +1,3 @@
+displayName = Medallion Of Urdveil
+author = Royal Moon Team
+version = 0.1
