@@ -584,6 +584,11 @@
     <None Remove="TilesNew\Fable\wall7_S.png" />
     <None Remove="TilesNew\FogSpawnerBlock.png" />
     <None Remove="TilesNew\FogSpawnerTile.png" />
+    <None Remove="TilesNew\SpringHills\SpringTree.png" />
+    <None Remove="TilesNew\SpringHills\SpringTree_Top.png" />
+    <None Remove="TilesNew\SpringHills\StoneObelisk_S.png" />
+    <None Remove="TilesNew\SpringHills\StoneTomb_S.png" />
+    <None Remove="TilesNew\SpringHills\StoneUnder_S.png" />
     <None Remove="Tiles\Furniture\NestBossRelic.png" />
     <None Remove="Tiles\ShrineBreakers\Govheil\ShrineAlcaPowderC.png" />
     <None Remove="Tiles\ShrineBreakers\Govheil\ShrineBUAN.png" />
