@@ -1,0 +1,585 @@
+VoidMinionBuff: {
+}
+
+TheBurningRodMinionBuff: {
+}
+
+SwarmerMinionBuff: {
+	Description: Getting swarmed
+	DisplayName: Swarmer Minion Buff
+}
+
+SolMothMinionBuff: {
+}
+
+ProbeMinionBuff: {
+}
+
+MushroomStaveMinionBuff: {
+}
+
+ManaWandMinionBuff: {
+}
+
+LifeWandMinionBuff: {
+}
+
+JellyMinionBuff: {
+}
+
+IvyakenMinionBuff: {
+}
+
+IrradiatedCreeperMinionBuff: {
+}
+
+IceboundMinionBuff: {
+}
+
+HMMinionBuff: {
+}
+
+FCMinionBuff: {
+}
+
+DripplerMinionBuff: {
+}
+
+AuroranSeekerMinionBuff: {
+}
+
+ArncharMinionBuff: {
+}
+
+Wounded: {
+}
+
+Whipdeath: {
+}
+
+MorrowWhipDebuff: {
+	Description: Morrowed whip
+	DisplayName: Debuffs you while whipping.
+}
+
+Morrow: {
+}
+
+SnowFlame: {
+}
+
+Rekin: {
+}
+
+PocketSandBuff: {
+	Description: Sneaky sand
+	DisplayName: Pocket Sand Buff
+}
+
+Love: {
+}
+
+Irradiation: {
+}
+
+Harvester: {
+}
+
+Gintzingwinds: {
+}
+
+GintzeSeen: {
+}
+
+GintzelSheildCD: {
+}
+
+GintzelSheild: {
+}
+
+Elegance: {
+}
+
+VoiddDust: {
+	Description: Mods.Urdveil.Buffs.VoiddDust.Description
+	DisplayName: Voidd Dust
+}
+
+TrickDust: {
+	Description: Mods.Urdveil.Buffs.TrickDust.Description
+	DisplayName: Trick Dust
+}
+
+SongDust: {
+	Description: Mods.Urdveil.Buffs.SongDust.Description
+	DisplayName: Song Dust
+}
+
+ShadeDust: {
+	Description: Mods.Urdveil.Buffs.ShadeDust.Description
+	DisplayName: Shade Dust
+}
+
+KaevDust: {
+	Description: Mods.Urdveil.Buffs.KaevDust.Description
+	DisplayName: Kaev Dust
+}
+
+IceDust: {
+	Description: Mods.Urdveil.Buffs.IceDust.Description
+	DisplayName: Ice Dust
+}
+
+GrassBuff: {
+	Description: Mods.Urdveil.Buffs.GrassBuff.Description
+	DisplayName: Grass Buff
+}
+
+GovheilDust: {
+	Description: Mods.Urdveil.Buffs.GovheilDust.Description
+	DisplayName: Govheil Dust
+}
+
+FlowerBuff: {
+	Description: Mods.Urdveil.Buffs.FlowerBuff.Description
+	DisplayName: Flower Buff
+}
+
+FlameDust: {
+	Description: Mods.Urdveil.Buffs.FlameDust.Description
+	DisplayName: Flame Dust
+}
+
+EXPtime4: {
+	Description: Mods.Urdveil.Buffs.EXPtime4.Description
+	DisplayName: E X Ptime4
+}
+
+EXPtime3: {
+	Description: Mods.Urdveil.Buffs.EXPtime3.Description
+	DisplayName: E X Ptime3
+}
+
+EXPtime2: {
+	Description: Mods.Urdveil.Buffs.EXPtime2.Description
+	DisplayName: E X Ptime2
+}
+
+EXPtime: {
+	Description: Mods.Urdveil.Buffs.EXPtime.Description
+	DisplayName: E X Ptime
+}
+
+CrystalDust: {
+	Description: Mods.Urdveil.Buffs.CrystalDust.Description
+	DisplayName: Crystal Dust
+}
+
+CoalBuff: {
+	Description: Mods.Urdveil.Buffs.CoalBuff.Description
+	DisplayName: Coal Buff
+}
+
+AlcadDust: {
+	Description: Mods.Urdveil.Buffs.AlcadDust.Description
+	DisplayName: Alcad Dust
+}
+
+AivanDust: {
+	Description: Mods.Urdveil.Buffs.AivanDust.Description
+	DisplayName: Aivan Dust
+}
+
+Dusted: {
+}
+
+DeathMultiplierBloodLamp: {
+	Description: Hit with blood lamp
+	DisplayName: Death Multiplier Blood Lamp
+}
+
+DeathMultiplier: {
+}
+
+DarkHold: {
+	Description: Something has a grasp on your eyes. Hurts at nighttime...
+	DisplayName: Dark Hold
+}
+
+VixedB: {
+}
+
+VerliaBroo: {
+}
+
+StoneB: {
+}
+
+Spragald: {
+}
+
+Slimee: {
+}
+
+MalB: {
+}
+
+IceBrooch: {
+}
+
+GovheilB: {
+}
+
+Goldren: {
+}
+
+GintBroo: {
+}
+
+Flyfish: {
+}
+
+DreadB: {
+}
+
+Diarii: {
+}
+
+BurningGB: {
+}
+
+BearB: {
+}
+
+AurelusB: {
+}
+
+AmethystBroo: {
+}
+
+AssassinsSlashBuff: {
+}
+
+ArcaneDust: {
+}
+
+AcidFlame: {
+}
+
+AbyssalFlame: {
+}
+
+VehementMinionBuff: {
+}
+
+VampireTorchMinionBuff: {
+}
+
+ToxicHornetMinionBuff: {
+	Description: This minion is eager to miss.
+	DisplayName: Toxic Hornet Minion Buff
+}
+
+HallowWandMinionBuff: {
+}
+
+FireflyMinionBuff: {
+}
+
+CloudMinionBuff: {
+}
+
+ChromaCutterMinionBuff: {
+}
+
+AlcadWandMinionBuff: {
+}
+
+CameraMinBuff: {
+}
+
+LaceratorDebuff: {
+	Description: Laced up
+	DisplayName: Lacerator Debuff
+}
+
+DarkWhipDebuff: {
+	Description: Darkwhipped. Truly the sentence of all time
+	DisplayName: Dark Whip Debuff
+}
+
+VialedUp: {
+}
+
+Starbombin: {
+}
+
+ShadowBoost: {
+}
+
+Sected: {
+}
+
+MiracleBoost: {
+}
+
+MasteryMagic: {
+}
+
+Liberator: {
+}
+
+Lacerated: {
+}
+
+Genesis: {
+}
+
+Friendzied: {
+}
+
+Executor: {
+}
+
+UseIgniter: {
+	Description: Hold and Use your igniter right now!
+	DisplayName: Use Igniter
+}
+
+SpiritDust: {
+	Description: Mods.Urdveil.Buffs.SpiritDust.Description
+	DisplayName: Spirit Dust
+}
+
+JungleDust: {
+	Description: Mods.Urdveil.Buffs.JungleDust.Description
+	DisplayName: Jungle Dust
+}
+
+EldritchDust: {
+	Description: Mods.Urdveil.Buffs.EldritchDust.Description
+	DisplayName: Eldritch Dust
+}
+
+AgreviDust: {
+	Description: Mods.Urdveil.Buffs.AgreviDust.Description
+	DisplayName: Agrevi Dust
+}
+
+SandyB: {
+}
+
+RoseB: {
+}
+
+MagicalBroo: {
+}
+
+LuckyB: {
+}
+
+JellyB: {
+}
+
+BonedB: {
+}
+
+Chained: {
+}
+
+CannotUseFlask: {
+}
+
+Alcadded: {
+}
+
+BucketScrapperMinionBuff: {
+}
+
+Zuid: {
+}
+
+VillagersB: {
+}
+
+AmberB: {
+}
+
+SFBuff: {
+}
+
+AuroreanStarballDebuff: {
+}
+
+ReflectionSeekerBuff: {
+	DisplayName: Reflection Seeker Buff
+	Description: Mods.Urdveil.Buffs.ReflectionSeekerBuff.Description
+}
+
+TwinStarbombasDebuff: {
+}
+
+SupernovaChained: {
+}
+
+ThePollinatorDebuff: {
+}
+
+BlackballDebuff: {
+}
+
+MiracleLiquid: {
+}
+
+SplashAttackDebuff: {
+	DisplayName: Splash Attack Debuff
+	Description: Splashy
+}
+
+SineSireDebuff: {
+}
+
+IllurianB: {
+}
+
+FlowerPower: {
+}
+
+SigfriedsInsanity: {
+}
+
+ShadeWrath: {
+}
+
+ShadeWrathCooldown: {
+}
+
+BabySwarmerMinionBuff: {
+}
+
+FlamesOfIlluria: {
+}
+
+ISHNYIREShow: {
+}
+
+IshShow: {
+}
+
+VireShow: {
+}
+
+YireShow: {
+}
+
+ColdheartAnklebiterDebuff: {
+	DisplayName: Coldheart Anklebiter Debuff
+	Description: Gettin bitten
+}
+
+IlluBuff: {
+	DisplayName: Illu Buff
+	Description: Illusive
+}
+
+IshyBuff: {
+	DisplayName: Ishy Buff
+	Description: Mods.Urdveil.Buffs.IshyBuff.Description
+}
+
+MushyBuff: {
+	DisplayName: Mushy Buff
+	Description: Mods.Urdveil.Buffs.MushyBuff.Description
+}
+
+RibbonWrapped: {
+}
+
+StarSuper: {
+}
+
+VixylDodgeBuff: {
+}
+
+JacksonPollockMinionBuff: {
+}
+
+PotOfGreedMinionBuff: {
+}
+
+ReflectionSeekerMinionBuff: {
+	DisplayName: Reflection Seeker Minion Buff
+	Description: Why are you staring at yourself?
+}
+
+XScissorMinionBuff: {
+}
+
+SerpentMinionBuff: {
+}
+
+IlluriasBlessing: {
+}
+
+PegasusMinionBuff: {
+}
+
+WoodyB: {
+}
+
+CentipedeMinionBuff: {
+}
+
+MoonFlame: {
+}
+
+IridineNecklaceCDBuff: {
+}
+
+MarksMan: {
+}
+
+OrbMaster: {
+}
+
+Overheated: {
+}
+
+GothivianFlames: {
+}
+
+HolyAnxiety: {
+}
+
+WillOWispMinionBuff: {
+}
+
+RadiatingLantern: {
+}
+
+CrystalLuck: {
+}
+
+RoyalPalaceScorpionMountBuff: {
+}
+
+RoyalPalaceScorpionTagDebuff: {
+}
+
+OreKingdomScorpionMountBuff: {
+}
+
+CannotUseStaminaPotion: {
+}
+
+VampiricFlames: {
+}
+
+Clouded: {
+}
+
+RevengenceMinionBuff: {
+}
+
+StringMinionBuff: {
+}

@@ -1,0 +1,3746 @@
+Common: {
+	SimpleBrooch: Simple Brooch!
+	RadiantBrooch: Radiant Brooch!
+	RadiantBackpack: You need an Radiant Brooches Backpack for this!
+	AdvancedBrooch: Advanced Brooch!
+	AdvancedBackpack: You need an Advanced Brooches Backpack for this!
+	NoStack: These do not stack!
+	Insource: Use this to put inside of your Xixian flask and when you drink it, the effects of this insource is used!
+	Stein: Stein Weapon Type
+	Greatsword: Greatsword Weapon Type
+	Safunai: Safunai Weapon Type
+	Orb: Orb Weapon Type
+	Juggler: Juggler Weapon Type
+	JugglerHelp:
+		'''
+		Throws out a projectile that bounces off the enemy
+		After it bounces, click it again midair to ricochet back again
+		Keep the combo going to gain a damage multiplier!
+		'''
+	CanSwapped: Can be changed to{0}!
+	TypeSwapped: Damage Type Swapped!
+	PowderDamage: Increases igniter card damage by {0}%!
+	PowderEquip: Equip this powder to a card!
+	IgniterCard: When it hits an enemy, it explodes with the effects of all the powders equipped to it!
+	IgniterCardHelp: Right click in your inventory to put powders on your card!,f
+	GenericDamage: " generic damage"
+	Lantern: Lantern Light Pet
+	LanternHelp: Put it in your light pet slot or right click it to use it for more range!
+	Disc: Music Disc
+	DiscHelp: Works like a music box, but you can also throw it with right click!
+	ScorpionSummonHelp:
+		'''
+		-1 Summon when equipped
+		-1 Summon for each gun equipped
+		'''
+	ScorpionSummonHolsterHelp:
+		'''
+		You can ride this as a mount to kill your enemies, and equip it with gun holster guns under summon damage
+		If your big gun hits a summon, it will increase their damage by 25% 
+		'''
+	ScorpionRightClickHelp: "Right click in inventory to open your gun slots "
+	Crossbow: Crossbow Weapon Type
+	CrossbowHelp:
+		'''
+		Use to load an arrow into the crossbow
+		Use again to fire a powerful sniper-like arrow!
+		'''
+	StyleSword: Sword Attack Style
+	BasicSlash: Basic Slash: {0}
+	StaminaSlash: Stamina Slash: {0}
+	WeaponTypeSword: Sword Weapon Type
+	WeaponTypeKnives: Knives Weapon Type
+}
+
+SetBonus: {
+}
+
+ExampleScriptureItem: {
+}
+
+VeiledScriptureAzurerin: {
+}
+
+VeiledScriptureCozmire: {
+}
+
+VeiledScriptureGothivia: {
+}
+
+VeiledScriptureLumi: {
+}
+
+VeiledScriptureSigfried: {
+}
+
+QuestResetter: {
+}
+
+PlaceItem: {
+}
+
+SaveItem: {
+}
+
+AcidStaketers: {
+}
+
+AlcaricQuiver: {
+}
+
+BlackManaRose: {
+}
+
+BlackRose: {
+}
+
+LittleWand: {
+}
+
+Alcanine: {
+}
+
+AquaCrystal: {
+}
+
+AquaticHealingNecklace: {
+}
+
+ArncharSuperCharger: {
+}
+
+BottleOfGrail: {
+}
+
+AdvancedBroochesBackpack: {
+}
+
+AmberBroochA: {
+}
+
+AmethystBroochA: {
+}
+
+AurelusBlightBroochA: {
+}
+
+AurockBroochA: {
+}
+
+BearBroochA: {
+}
+
+BonedThrowBroochA: {
+}
+
+BurningGBroochA: {
+}
+
+DefensiveGraditudeBroochA: {
+}
+
+DiariBroochA: {
+}
+
+DreadBroochA: {
+}
+
+FlyingFishBroochA: {
+}
+
+FrileBroochA: {
+}
+
+GintzlBroochA: {
+}
+
+GovheilHolsterBroochA: {
+}
+
+GovheilWarriorBroochA: {
+}
+
+HeatedVerliaBroochA: {
+}
+
+IllurianBroochA: {
+}
+
+KilliaBroochA: {
+}
+
+LuckyWinnerBroochA: {
+}
+
+MagicalBroochA: {
+}
+
+MalShieldBroochA: {
+}
+
+MorrowedBroochA: {
+}
+
+MorrowedJelliesBroochA: {
+}
+
+RadiatedBroochesBackpack: {
+}
+
+RoseBroochA: {
+}
+
+SandyBearBroochA: {
+}
+
+SandyBroochA: {
+}
+
+SlimeBroochA: {
+}
+
+SpragaldBroochA: {
+}
+
+StoniaBroochA: {
+}
+
+StoningFlyBroochA: {
+}
+
+VerliaBroochA: {
+}
+
+VillagersBroochA: {
+}
+
+VixedBroochA: {
+}
+
+WoodyBroochA: {
+}
+
+BurningScarf: {
+}
+
+AquaticEmblem: {
+}
+
+Barry: {
+}
+
+Bar: {
+}
+
+Bonfire: {
+}
+
+Cleats: {
+}
+
+FireEmblem: {
+}
+
+FlamecrestShield: {
+}
+
+IcarusFeather: {
+}
+
+OceancrestShield: {
+}
+
+Panacea: {
+}
+
+SpikedEmblem: {
+}
+
+TyphoonInABottle: {
+}
+
+WaterproofHeadphones: {
+}
+
+CelestiasWeddingRing: {
+}
+
+CharmofRot: {
+}
+
+CinderedQuiver: {
+}
+
+ClamsPearl: {
+}
+
+CoralBand: {
+}
+
+ElectricCrystal: {
+}
+
+FiveAdvance: {
+}
+
+BowledCream: {
+}
+
+Bread: {
+}
+
+FoxMark: {
+}
+
+GovhenShield: {
+}
+
+Heatspot: {
+}
+
+HikersBackpack: {
+}
+
+IceClimbers: {
+}
+
+BonedExtenderPowder: {
+}
+
+GrailedExtenderPowder: {
+}
+
+GremoryExtenderPowder: {
+}
+
+MidfortuneExtenderPowder: {
+}
+
+MushyExtenderPowder: {
+}
+
+OceanicExtenderPowder: {
+}
+
+ReverieExtenderPowder: {
+}
+
+TomedDustingFlames: {
+}
+
+TomedDustingMagic: {
+}
+
+IllurianLoveLocket: {
+}
+
+IllurineHoops: {
+}
+
+IllusionistBook: {
+}
+
+IridineNecklace: {
+}
+
+JellyfishTissue: {
+}
+
+KnivedQuiver: {
+}
+
+LeatherGlove: {
+}
+
+LittleScissor: {
+}
+
+LunarBand: {
+}
+
+MOTT: {
+}
+
+OceanScroll: {
+}
+
+OceansTrinket: {
+}
+
+OnionOfHeight: {
+}
+
+OnionOfSight: {
+}
+
+OnionOfStrength: {
+}
+
+OnionOfUselessness: {
+}
+
+PaperPaws: {
+}
+
+PicturePerfectI: {
+}
+
+PicturePerfectII: {
+}
+
+PicturePerfectIII: {
+}
+
+PlantH: {
+}
+
+RadiantsparkBoots: {
+}
+
+RuneOfCorsage: {
+}
+
+RuneOfDetonation: {
+}
+
+RuneOfReality: {
+}
+
+RuneOfShade: {
+}
+
+RuneOfStealth: {
+}
+
+RuneOfWind: {
+}
+
+SapContainer: {
+}
+
+SawtoothNecklace: {
+}
+
+SewingKit: {
+}
+
+ShadeCharm: {
+}
+
+ShadeScarf: {
+}
+
+ShadowCloak: {
+}
+
+ShellSheid: {
+}
+
+SirestiasMask: {
+}
+
+SoulStrideres: {
+}
+
+SpiritPendent: {
+}
+
+StarflareBand: {
+}
+
+Steali: {
+}
+
+SunGlyph: {
+}
+
+ThornedBook: {
+}
+
+TomeofRaining: {
+}
+
+VampireCharm: {
+}
+
+WindedQuiver: {
+}
+
+AntlionWings: {
+}
+
+DirtWings: {
+}
+
+GothinWings: {
+}
+
+MiracleWings: {
+}
+
+RadianuiWings: {
+}
+
+SerpentWings: {
+}
+
+ShadeWraithWings: {
+}
+
+ZuiBomb: {
+}
+
+PrimeRing: {
+}
+
+AdamantiteBullet: {
+}
+
+DriveRound: {
+}
+
+EldritchArrow: {
+}
+
+IrradiatedArrow: {
+}
+
+LiliumArrow: {
+}
+
+RadiantArrow: {
+}
+
+SpacialDistortionBullet: {
+}
+
+TitaniumBullet: {
+}
+
+VirulentArmor: {
+}
+
+VirulentHelm: {
+}
+
+VirulentLegs: {
+}
+
+AlcaliteMask: {
+}
+
+AlcaliteRobe: {
+}
+
+AlcaliteTrunks: {
+}
+
+AlsisChestplate: {
+}
+
+AlsisGreaves: {
+}
+
+AlsisMask: {
+}
+
+AppretienceBreastplate: {
+}
+
+AppretienceHat: {
+}
+
+AppretiencePants: {
+}
+
+ArtisanBreastplate: {
+}
+
+ArtisanMask: {
+}
+
+ArtisanThighs: {
+}
+
+AstrasilkBody: {
+}
+
+AstrasilkHead: {
+}
+
+AstrasilkLegs: {
+}
+
+CelestiaMoonBreastplate: {
+}
+
+CelestiaMoonHelmet: {
+}
+
+CelestiaMoonLegs: {
+}
+
+CelestiaMoonMask: {
+}
+
+DaedenChestplate: {
+}
+
+DaedenLegs: {
+}
+
+DaedenMask: {
+}
+
+DaediaBreastplate: {
+}
+
+DaediaMask: {
+}
+
+DaediaThighs: {
+}
+
+DucanblitzBreastplate: {
+}
+
+DucanblitzCap: {
+}
+
+DucanblitzThighs: {
+}
+
+ElagentBody: {
+}
+
+ElagentHead: {
+}
+
+ElagentLegs: {
+}
+
+EldritchianCloak: {
+}
+
+EldritchianHood: {
+}
+
+EldritchianLegs: {
+}
+
+FlowerHat: {
+}
+
+FlowerPants: {
+}
+
+FlowerRobe: {
+}
+
+ForestCoreBody: {
+}
+
+ForestCoreHead: {
+}
+
+ForestCoreLegs: {
+}
+
+GarbageChestplate: {
+}
+
+GarbageMask: {
+}
+
+GarbagePants: {
+}
+
+GovheilBreastplate: {
+}
+
+GovheilChainplate: {
+}
+
+GovheilHelmet: {
+}
+
+GovheilMask: {
+}
+
+GovheilThighs: {
+}
+
+HeavyMetalBody: {
+}
+
+HeavyMetalHead: {
+}
+
+HeavyMetalLegs: {
+}
+
+HuntrianBoots: {
+}
+
+HuntrianChestplate: {
+}
+
+HuntrianHelmet: {
+}
+
+IllurianCrestmask: {
+}
+
+IllurianCrestpants: {
+}
+
+IllurianCrestplate: {
+}
+
+IllurianWarriorChestplate: {
+}
+
+IllurianWarriorGreaves: {
+}
+
+IllurianWarriorHelm: {
+}
+
+JianxinCoat: {
+}
+
+JianxinMask: {
+}
+
+JianxinPants: {
+}
+
+LeatherBody: {
+}
+
+LeatherHead: {
+}
+
+LeatherLegs: {
+}
+
+LovestruckBreastplate: {
+}
+
+LovestruckLegs: {
+}
+
+LovestruckMask: {
+}
+
+LunarianVoidBody: {
+}
+
+LunarianVoidHead: {
+}
+
+LunarianVoidLegs: {
+}
+
+MardenthMask: {
+}
+
+MardenthPants: {
+}
+
+MardenthRobe: {
+}
+
+MiracleBody: {
+}
+
+MiracleHead: {
+}
+
+GintzeMask: {
+}
+
+ScissorianChestplate: {
+}
+
+ScissorianGreaves: {
+}
+
+ScissorianMask: {
+}
+
+ScrappyBody: {
+}
+
+ScrappyHead: {
+}
+
+ScrappyLegs: {
+}
+
+ShadeWraithBody: {
+}
+
+ShadeWraithHead: {
+}
+
+ShadeWraithLegs: {
+}
+
+StoniaBoots: {
+}
+
+StoniaChestplate: {
+}
+
+StoniaHat: {
+}
+
+TerricBody: {
+}
+
+TerricHead: {
+}
+
+TerricLegs: {
+}
+
+UlvenChestplate: {
+}
+
+UlvenGreaves: {
+}
+
+UlvenHelmet: {
+}
+
+AimacraWig: {
+}
+
+AstolfoBody: {
+}
+
+AstolfoMask: {
+}
+
+AstolfoSkirt: {
+}
+
+AzaleanChestplate: {
+}
+
+AzaleanHat: {
+}
+
+AzaleanLeggings: {
+}
+
+GiaPants: {
+}
+
+GiaSuit: {
+}
+
+GiaWig: {
+}
+
+Twirlers: {
+}
+
+NyxiaHat: {
+}
+
+NyxiaRobe: {
+}
+
+NyxiaThighs: {
+}
+
+SolarianChestplate: {
+}
+
+SolarianHat: {
+}
+
+SolarianPants: {
+}
+
+MagiciansCodeHat: {
+}
+
+VerliaHat: {
+}
+
+VerlBreastplate: {
+}
+
+VerlHat: {
+}
+
+VerlLeggings: {
+}
+
+VerlMask: {
+}
+
+VextinBoots: {
+}
+
+VextinMask: {
+}
+
+VextinRobe: {
+}
+
+WindmillionBoots: {
+}
+
+WindmillionHat: {
+}
+
+WindmillionRobe: {
+}
+
+WinterbornBody: {
+}
+
+WinterbornHead: {
+}
+
+WinterbornLegs: {
+}
+
+WitchenHat: {
+}
+
+WitchenPants: {
+}
+
+WitchenRobe: {
+}
+
+XexterianHat: {
+}
+
+XexterianHeatplate: {
+}
+
+XexterianLeggings: {
+}
+
+CatacombsKey: {
+	DisplayName: Catacombs Key
+	Tooltip: ""
+}
+
+CrystalStar: {
+}
+
+CursedShard: {
+	DisplayName: Cursed Shard
+	Tooltip: ""
+}
+
+DaedusBag: {
+	DisplayName: Daedus Bag
+	Tooltip: ""
+}
+
+DreadMedalion: {
+	DisplayName: Dread Medalion
+	Tooltip: ""
+}
+
+DreadmireBag: {
+	DisplayName: Dreadmire Bag
+	Tooltip: ""
+}
+
+EDR: {
+	DisplayName: E D R
+	Tooltip: ""
+}
+
+FenixBag: {
+	DisplayName: Fenix Bag
+	Tooltip: ""
+}
+
+FocalCrystalFire: {
+}
+
+FocalCrystalTrap: {
+}
+
+FocalCrystalWater: {
+}
+
+Gambit: {
+	DisplayName: Gambit
+	Tooltip: ""
+}
+
+GambitToken: {
+	DisplayName: Gambit Token
+	Tooltip: ""
+}
+
+GildedBag1: {
+	DisplayName: Gilded Bag1
+	Tooltip: ""
+}
+
+GintziaBossBag: {
+	DisplayName: Gintzia Boss Bag
+	Tooltip: ""
+}
+
+GlisteningPearl: {
+}
+
+GothiviaBag: {
+	DisplayName: Gothivia Bag
+	Tooltip: ""
+}
+
+GothiviaIyxBag: {
+	DisplayName: Gothivia Iyx Bag
+	Tooltip: ""
+}
+
+GothiviasSeal: {
+	DisplayName: Gothivias Seal
+	Tooltip: ""
+}
+
+IllurineBrew: {
+}
+
+IshtarKey: {
+	DisplayName: Ishtar Key
+	Tooltip: ""
+}
+
+JackoBag: {
+	DisplayName: Jacko Bag
+	Tooltip: ""
+}
+
+MoonflameLantern: {
+	DisplayName: Moonflame Lantern
+	Tooltip: ""
+}
+
+NestBag: {
+	DisplayName: Nest Bag
+	Tooltip: ""
+}
+
+RadianceStone: {
+	DisplayName: Radiance Stone
+	Tooltip: ""
+}
+
+ScrapToken: {
+	DisplayName: Scrap Token
+	Tooltip: ""
+}
+
+ShopNote: {
+	DisplayName: Shop Note
+	Tooltip: ""
+}
+
+SigfriedsPhotoAlbum: {
+	DisplayName: Sigfrieds Photo Album
+	Tooltip: ""
+}
+
+SingularityBag: {
+	DisplayName: Singularity Bag
+	Tooltip: ""
+}
+
+SirestiasStarterBag: {
+	DisplayName: Sirestias Starter Bag
+	Tooltip: ""
+}
+
+STARBLOCKER: {
+	DisplayName: S T A R B L O C K E R
+	Tooltip: ""
+}
+
+StoneKey: {
+}
+
+SunStalkerBag: {
+	DisplayName: Sun Stalker Bag
+	Tooltip: ""
+}
+
+SupernovaBag: {
+	DisplayName: Supernova Bag
+	Tooltip: ""
+}
+
+SyliaBag: {
+	DisplayName: Sylia Bag
+	Tooltip: ""
+}
+
+TempleKeyMold: {
+	DisplayName: Temple Key Mold
+	Tooltip: ""
+}
+
+TempleKeyPart: {
+	DisplayName: Temple Key Part
+	Tooltip: ""
+}
+
+TreasureBoxFire: {
+	DisplayName: Treasure Box Fire
+	Tooltip: ""
+}
+
+TreasureBoxTrap: {
+	DisplayName: Treasure Box Trap
+	Tooltip: ""
+}
+
+TreasureBoxWater: {
+	DisplayName: Treasure Box Water
+	Tooltip: ""
+}
+
+VeribossBag: {
+	DisplayName: Veriboss Bag
+	Tooltip: ""
+}
+
+VerliaBossBag: {
+	DisplayName: Verlia Boss Bag
+	Tooltip: ""
+}
+
+VoidalPassageway: {
+	DisplayName: Voidal Passageway
+	Tooltip: ""
+}
+
+VoidKey: {
+	DisplayName: Void Key
+	Tooltip: ""
+}
+
+VoidLantern: {
+	DisplayName: Void Lantern
+	Tooltip: ""
+}
+
+WanderingEssence: {
+	DisplayName: Wandering Essence
+	Tooltip: ""
+}
+
+AcidicNightmaresDisc: {
+}
+
+AcidicTerrorsDisc: {
+}
+
+ADemiseDisc: {
+}
+
+AlcadizHurricaneDisc: {
+}
+
+AlcaricFoxDisc: {
+}
+
+AshotiDisc: {
+}
+
+AurelusTempleDisc: {
+}
+
+BloodCathedralDisc: {
+}
+
+Boss6Disc: {
+}
+
+CatacombsDisc: {
+}
+
+CindersparkDisc: {
+}
+
+CountingStarsDisc: {
+}
+
+DaedusDisc: {
+}
+
+DreadHeartDisc: {
+}
+
+EndingDisc: {
+}
+
+EreshkigalDisc: {
+}
+
+GintzicaneDisc: {
+}
+
+GothiviaDisc: {
+}
+
+GovheilCastleDisc: {
+}
+
+HidingInTheShadowsDisc: {
+}
+
+IrradiaDisc: {
+}
+
+IshtarDisc: {
+}
+
+EpsidonInsource: {
+}
+
+FloweredInsource: {
+}
+
+HealthyInsource: {
+}
+
+VialedInsource: {
+}
+
+VitalityInsource: {
+}
+
+XixianFlask: {
+}
+
+AlcadizMetal: {
+	DisplayName: Alcadiz Metal
+	Tooltip: ""
+}
+
+Bagitem: {
+	DisplayName: Bagitem
+	Tooltip: ""
+}
+
+Cinderscrap: {
+}
+
+CondensedDirt: {
+	DisplayName: Condensed Dirt
+	Tooltip: ""
+}
+
+FlowerBatch: {
+	DisplayName: Flower Batch
+	Tooltip: ""
+}
+
+Morrowshroom: {
+	DisplayName: Morrowshroom
+	Tooltip: ""
+}
+
+Mushroom: {
+	DisplayName: Mushroom
+	Tooltip: ""
+}
+
+ViolinStick: {
+	DisplayName: Violin Stick
+	Tooltip: ""
+}
+
+WickofSorcery: {
+	DisplayName: Wickof Sorcery
+	Tooltip: ""
+}
+
+AcidicalDirtBlock: {
+}
+
+AlcadizScrap: {
+}
+
+AlcadzBlock: {
+}
+
+AlcaricMush: {
+}
+
+AncientLunarStone: {
+}
+
+ArnchaliteBar: {
+	DisplayName: Arnchalite Bar
+	Tooltip: ""
+}
+
+ArncharChunk: {
+	DisplayName: Arnchar Chunk
+	Tooltip: ""
+}
+
+AuroreanStarI: {
+	DisplayName: Aurorean Star I
+	Tooltip: ""
+}
+
+BlackWallBlock: {
+}
+
+CarianWood: {
+}
+
+CarianWoodWall: {
+}
+
+CatacombAquaStoneBlock: {
+}
+
+CatacombHeatStoneBlock: {
+}
+
+CatacombTrapStoneBlock: {
+}
+
+Catagrass: {
+}
+
+ChiseledStoneBlock: {
+}
+
+CompletionIdol: {
+	DisplayName: Completion Idol
+	Tooltip: ""
+}
+
+ConvulgingMater: {
+}
+
+DarkEssence: {
+	DisplayName: Dark Essence
+	Tooltip: ""
+}
+
+DrakonicBlock: {
+}
+
+DreadFoil: {
+	DisplayName: Dread Foil
+	Tooltip: ""
+}
+
+EldritchSoul: {
+	DisplayName: Eldritch Soul
+	Tooltip: ""
+}
+
+EmptyMoonflameLantern: {
+	DisplayName: Empty Moonflame Lantern
+	Tooltip: ""
+}
+
+GovheilBlock: {
+}
+
+GovheilPlatformBlock: {
+}
+
+GraftedSoul: {
+	DisplayName: Grafted Soul
+	Tooltip: ""
+}
+
+HuntiacBlock: {
+}
+
+HuntiacwallBlock: {
+}
+
+IlluriaDirtBlock: {
+}
+
+IlluriaDirtWallBlock: {
+}
+
+IlluriaGrassBlock: {
+}
+
+IlluriaLeaves: {
+}
+
+IlluriaRuneBlock: {
+}
+
+IlluriaWoodBlock: {
+}
+
+IllurineScale: {
+}
+
+IshtarBlock: {
+}
+
+IshtarCandle: {
+	DisplayName: Ishtar Candle
+	Tooltip: ""
+}
+
+Ivythorn: {
+}
+
+LaboratoryBlock: {
+	DisplayName: Laboratory Block
+	Tooltip: ""
+}
+
+LostScrap: {
+	DisplayName: Lost Scrap
+	Tooltip: ""
+}
+
+LunarStone: {
+}
+
+ManifestedAnxiety: {
+	DisplayName: Manifested Anxiety
+	Tooltip: ""
+}
+
+ManifestedBravery: {
+	DisplayName: Manifested Bravery
+	Tooltip: ""
+}
+
+ManifestedCommitment: {
+	DisplayName: Manifested Commitment
+	Tooltip: ""
+}
+
+ManifestedHumility: {
+	DisplayName: Manifested Humility
+	Tooltip: ""
+}
+
+ManifestedLove: {
+	DisplayName: Manifested Love
+	Tooltip: ""
+}
+
+Medal: {
+}
+
+MiracleThread: {
+}
+
+BlankAccessory: {
+}
+
+BlankBag: {
+}
+
+BlankBow: {
+}
+
+BlankBrooch: {
+}
+
+BlankCard: {
+}
+
+BlankCrossbow: {
+}
+
+BlankGun: {
+}
+
+BlankJuggler: {
+}
+
+BlankOrb: {
+}
+
+BlankRune: {
+}
+
+BlankSafunai: {
+}
+
+BlankShield: {
+}
+
+BlankStaff: {
+}
+
+BlankStein: {
+}
+
+BlankSword: {
+}
+
+MoldTooltipItem: {
+}
+
+MoltenScrap: {
+	DisplayName: Molten Scrap
+	Tooltip: ""
+}
+
+MossyStones: {
+}
+
+NoxianWood: {
+}
+
+OvermorrowDirt: {
+}
+
+OvermorrowdirtwallBlock: {
+}
+
+OvermorrowWall: {
+}
+
+OvermorrowWood: {
+}
+
+PearlescentScrap: {
+	DisplayName: Pearlescent Scrap
+	Tooltip: ""
+}
+
+PureHeart: {
+	DisplayName: Pure Heart
+	Tooltip: ""
+}
+
+RareLunarStone: {
+}
+
+RippedFabric: {
+	DisplayName: Ripped Fabric
+	Tooltip: ""
+}
+
+RobedCatastone: {
+}
+
+RobedSandstone: {
+}
+
+SeavathanBlock: {
+}
+
+SpacialDistortionFragments: {
+	DisplayName: Spacial Distortion Fragments
+	Tooltip: ""
+}
+
+StarbloomBlock: {
+}
+
+StarbloomDirtBlock: {
+}
+
+StarbloomTempleBlock: {
+}
+
+STARCORE: {
+	DisplayName: S T A R C O R E
+	Tooltip: ""
+}
+
+StarSilk: {
+	DisplayName: Star Silk
+	Tooltip: ""
+}
+
+Stelleanbrick: {
+}
+
+Superfragment: {
+	DisplayName: Superfragment
+	Tooltip: ""
+}
+
+ArmorDrive: {
+	DisplayName: Armor Drive
+	Tooltip: ""
+}
+
+BasicGunParts: {
+	DisplayName: Basic Gun Parts
+	Tooltip: ""
+}
+
+BrokenTech: {
+	DisplayName: Broken Tech
+	Tooltip: ""
+}
+
+DriveConstruct: {
+	DisplayName: Drive Construct
+	Tooltip: ""
+}
+
+FocusingCrystal: {
+	DisplayName: Focusing Crystal
+	Tooltip: ""
+}
+
+MetallicOmniSource: {
+	DisplayName: Metallic Omni Source
+	Tooltip: ""
+}
+
+UnknownCircuitry: {
+	DisplayName: Unknown Circuitry
+	Tooltip: ""
+}
+
+WeaponDrive: {
+	DisplayName: Weapon Drive
+	Tooltip: ""
+}
+
+TerrorFragments: {
+}
+
+VeilBrick: {
+}
+
+VerianRuneBlock: {
+}
+
+VerianWood: {
+}
+
+VeriplantDirtBlock: {
+}
+
+VeriplantGrassBlock: {
+}
+
+VeriplantGrassWall: {
+}
+
+VirulentPlating: {
+	DisplayName: Virulent Plating
+	Tooltip: ""
+}
+
+WanderingFlame: {
+	DisplayName: Wandering Flame
+	Tooltip: ""
+}
+
+WinterbornShard: {
+}
+
+SynergyTooltipItem: {
+}
+
+BloodletSepter: {
+}
+
+CelestiaWand: {
+}
+
+ChalicemanSepter: {
+}
+
+CrescentStaff: {
+}
+
+CrowEggStaff: {
+}
+
+FoxNMagic: {
+}
+
+Ghettingberg: {
+}
+
+GoldWand: {
+}
+
+HexxingStaff: {
+}
+
+IronWand: {
+}
+
+LeadWand: {
+}
+
+MirrorStaff: {
+}
+
+MothwingStaff: {
+}
+
+PlatinumWand: {
+}
+
+RainsyStaff: {
+}
+
+RewinderStaff: {
+}
+
+SilverWand: {
+}
+
+Snowflake: {
+}
+
+ThePingler: {
+}
+
+TungstenWand: {
+}
+
+WillowOfTheSouls: {
+}
+
+ArtisanBar: {
+	DisplayName: Artisan Bar
+	Tooltip: ""
+}
+
+FrileBar: {
+}
+
+FrileOre: {
+}
+
+GintzlMetal: {
+}
+
+GlisteningBar: {
+}
+
+GlisteningOre: {
+}
+
+GrailBar: {
+}
+
+KaleidoscopicInk: {
+}
+
+RadianuiBar: {
+	DisplayName: Radianui Bar
+	Tooltip: ""
+}
+
+VerianBar: {
+}
+
+VerianOre: {
+}
+
+AlciteI: {
+}
+
+AowerBottomI: {
+}
+
+AowerTopI: {
+}
+
+CurtainLeftRCI: {
+}
+
+CurtainRightRCI: {
+}
+
+CurtainTopI: {
+}
+
+RectiteI: {
+}
+
+SkullpileI: {
+}
+
+AlcaologyI: {
+}
+
+AurelusBanner2i: {
+}
+
+AurelusBanneri: {
+}
+
+AurelusBorderI: {
+}
+
+AurelusChesti: {
+}
+
+AurelusDoor: {
+}
+
+AurelusPosti: {
+}
+
+AurelusSummoni: {
+}
+
+Bench: {
+}
+
+BroochesTableI: {
+}
+
+CatacombsDoor: {
+}
+
+CatacombsSummoni: {
+	DisplayName: Catacombs Summoni
+	Tooltip: ""
+}
+
+AurelusTempleTile: {
+}
+
+CathediteBlock: {
+}
+
+CathediteGrassBlock: {
+}
+
+CathediteGrassWall: {
+}
+
+CathediteWall: {
+}
+
+CathedralChestI: {
+}
+
+Crystal1I: {
+}
+
+Crystal2I: {
+}
+
+FlowerMultiI: {
+}
+
+GovheilCastleBlock: {
+}
+
+Orb1I: {
+}
+
+ShrineI: {
+}
+
+ChiseledSandstone: {
+}
+
+CinderChesti: {
+}
+
+CommanderGintziaBossRel: {
+}
+
+DaedusBossRel: {
+}
+
+DreadBossRel: {
+}
+
+FenixBossRel: {
+}
+
+Flowersummon: {
+}
+
+GintzeBossRel: {
+}
+
+GothiviaBossRel: {
+}
+
+CurtainLeftI: {
+}
+
+CurtainRightI: {
+}
+
+GothivA: {
+	DisplayName: Gothiv A
+	Tooltip: ""
+}
+
+GothWall: {
+}
+
+GovheilBoreI: {
+}
+
+GovheilHallI: {
+}
+
+GovheilWallsI: {
+}
+
+MasistLI: {
+}
+
+MasistRI: {
+}
+
+VheilCurtainLI: {
+}
+
+VheilCurtainRI: {
+}
+
+WeiI: {
+}
+
+ZebiI: {
+}
+
+GrassBig: {
+}
+
+GrassMoss: {
+}
+
+GustbeakBossRel: {
+}
+
+IlluriaChesti: {
+}
+
+IlluriaTreeBigI: {
+}
+
+IlluriaTreeMedI: {
+}
+
+IlluriaTreeSmallI: {
+}
+
+IrradiaBossRel: {
+}
+
+BushyEyesI: {
+}
+
+BushySticksI: {
+}
+
+BushyWebs: {
+}
+
+IshtarDoor: {
+	DisplayName: Ishtar Door
+	Tooltip: ""
+}
+
+IshtarLockedChest: {
+}
+
+IshtarPainting: {
+}
+
+Robi: {
+}
+
+JackBossRel: {
+}
+
+GLabCrystal: {
+	DisplayName: G Lab Crystal
+	Tooltip: ""
+}
+
+LabHall: {
+}
+
+Log: {
+}
+
+MagicCauldron: {
+}
+
+DrakonicCageI: {
+}
+
+DrakonicHallI: {
+}
+
+DrakonicSileI: {
+}
+
+MechanicI: {
+}
+
+MediumPot: {
+}
+
+MorrowChesti: {
+}
+
+MorrowChestKey: {
+}
+
+MorrowDeath: {
+}
+
+MorrowDeath2: {
+}
+
+MorrowSpike: {
+}
+
+MorrowStone: {
+}
+
+MushroomBig: {
+}
+
+NestBossRel: {
+}
+
+NiiviBossRel: {
+}
+
+RalladI: {
+}
+
+RekBossRel: {
+}
+
+RunicTablel: {
+}
+
+SmallShroom: {
+}
+
+SOMBossRel: {
+}
+
+StandN: {
+}
+
+STARBOMBERBossRel: {
+}
+
+StoneChesti: {
+}
+
+SunSall: {
+	DisplayName: Sun Sall
+	Tooltip: ""
+}
+
+SunsBossRel: {
+}
+
+SupernovaBossRel: {
+}
+
+SyliaBossRel: {
+}
+
+AzurerinPaintingI: {
+}
+
+CozmirePaintingI: {
+}
+
+GothiviaPaintingI: {
+}
+
+LumiPaintingI: {
+}
+
+SigfriedPaintingI: {
+}
+
+SmallVeilPottery: {
+}
+
+VeilBanner2i: {
+}
+
+VeilBanneri: {
+}
+
+VeilPot: {
+}
+
+VeilScriptureI: {
+}
+
+VeriBossRel: {
+}
+
+VerliBossRel: {
+}
+
+walla: {
+}
+
+wallb: {
+}
+
+wallc: {
+}
+
+walld: {
+}
+
+walle: {
+}
+
+wallf: {
+}
+
+wallg: {
+}
+
+WeddingDay: {
+}
+
+ZuiBossRel: {
+}
+
+StaminaBrew: {
+}
+
+StaminaPotion: {
+}
+
+RottenHeart: {
+	DisplayName: Rotten Heart
+	Tooltip: ""
+}
+
+ExploreMorrowedVillage: {
+	DisplayName: Explore Morrowed Village
+	Tooltip: ""
+}
+
+ExploreMorrowedVillageC: {
+	DisplayName: Explore Morrowed Village C
+	Tooltip: ""
+}
+
+Give100DustBags: {
+	DisplayName: Give100 Dust Bags
+	Tooltip: ""
+}
+
+Give100DustBagsC: {
+	DisplayName: Give100 Dust Bags C
+	Tooltip: ""
+}
+
+KillVerlia: {
+	DisplayName: Kill Verlia
+	Tooltip: ""
+}
+
+KillVerliaC: {
+	DisplayName: Kill Verlia C
+	Tooltip: ""
+}
+
+MakeMagicPaper: {
+	DisplayName: Make Magic Paper
+	Tooltip: ""
+}
+
+MakeMagicPaperC: {
+	DisplayName: Make Magic Paper C
+	Tooltip: ""
+}
+
+MakeUltimateScroll: {
+	DisplayName: Make Ultimate Scroll
+	Tooltip: ""
+}
+
+OldCarianTome: {
+	DisplayName: Old Carian Tome
+	Tooltip: ""
+}
+
+OrbOfTheMorrow: {
+	DisplayName: Orb Of The Morrow
+	Tooltip: ""
+}
+
+StolenMagicTome: {
+	DisplayName: Stolen Magic Tome
+	Tooltip: ""
+}
+
+TomeOfInfiniteSorcery: {
+	DisplayName: Tome Of Infinite Sorcery
+	Tooltip: ""
+}
+
+CompletedCollectorsBag: {
+	DisplayName: Completed Collectors Bag
+	Tooltip: ""
+}
+
+CompletedFlowerBag: {
+	DisplayName: Completed Flower Bag
+	Tooltip: ""
+}
+
+EmptyCollectorsBag: {
+	DisplayName: Empty Collectors Bag
+	Tooltip: ""
+}
+
+EmptyFlowerBag: {
+	DisplayName: Empty Flower Bag
+	Tooltip: ""
+}
+
+TornCarianPage: {
+	DisplayName: Torn Carian Page
+	Tooltip: ""
+}
+
+JPost: {
+	DisplayName: J Post
+	Tooltip: ""
+}
+
+RestingGroundsI: {
+	DisplayName: Resting Grounds I
+	Tooltip: ""
+}
+
+ShrineAI: {
+}
+
+ShrineBUANI: {
+}
+
+ShrineGardenWreckerI: {
+}
+
+ShrineHalhurishI: {
+}
+
+ShrineLifeCI: {
+}
+
+ShrineLightsI: {
+}
+
+ShrineSolMothI: {
+}
+
+ShrineBridgetI: {
+}
+
+URift: {
+	DisplayName: U Rift
+	Tooltip: ""
+}
+
+AnotherRock: {
+	DisplayName: Another Rock
+	Tooltip: ""
+}
+
+ExampleDialogueItem: {
+}
+
+VeiledScriptureMiner1: {
+}
+
+VeiledScriptureMiner10: {
+}
+
+VeiledScriptureMiner2: {
+}
+
+VeiledScriptureMiner3: {
+}
+
+VeiledScriptureMiner4: {
+}
+
+VeiledScriptureMiner5: {
+}
+
+VeiledScriptureMiner6: {
+}
+
+VeiledScriptureMiner7: {
+}
+
+VeiledScriptureMiner8: {
+}
+
+VeiledScriptureMiner9: {
+}
+
+SiresMail: {
+}
+
+ColosseumResetter: {
+}
+
+ExtraBlockRange: {
+}
+
+HavocSignaler: {
+}
+
+ToolbarEnabler: {
+}
+
+IlluriteDrill: {
+}
+
+RadiantLantern: {
+}
+
+AlcadzianCard: {
+}
+
+BOMBERCard: {
+}
+
+BonePicklerCard: {
+}
+
+BurningCard: {
+}
+
+CinderedCard: {
+}
+
+DaedCard: {
+}
+
+DungeonedRockCard: {
+}
+
+EYIgniter: {
+}
+
+FenixxCard: {
+}
+
+FloweredCard: {
+}
+
+FrostCard: {
+}
+
+GintzeCard: {
+}
+
+GrailedCard: {
+}
+
+IllureCard: {
+}
+
+IshtarCard: {
+}
+
+LarvaedCard: {
+}
+
+LovestruckCard: {
+}
+
+MetallianCard: {
+}
+
+MushyCard: {
+}
+
+Neptune8Card: {
+}
+
+ScorcheCard: {
+}
+
+StarrCard: {
+}
+
+StarterCard: {
+}
+
+StyngerCard: {
+}
+
+TheSunAndMoonCard: {
+}
+
+WCIgniter: {
+}
+
+ZuiCard: {
+}
+
+AlcadBomb: {
+}
+
+Aquamare: {
+}
+
+Aquarius: {
+}
+
+AzuretoothNecklace: {
+}
+
+Bincle: {
+}
+
+BlackEye: {
+}
+
+BlossomingScissor: {
+}
+
+Bongos: {
+}
+
+BookOfSkullsII: {
+}
+
+BurnedCarianTome: {
+}
+
+CinderedLantern: {
+}
+
+Combuster: {
+}
+
+Dulahaun: {
+}
+
+FrameStaff: {
+}
+
+FungalFlace: {
+}
+
+FurihaMKIII: {
+}
+
+GildedStaff: {
+}
+
+GraftedWaxMelter: {
+}
+
+GreekLantern: {
+}
+
+IllurianBible: {
+}
+
+ImperfectionStaff: {
+}
+
+IyxTheInfamous: {
+}
+
+LanternOfAFallen: {
+}
+
+LarveinScripute: {
+}
+
+MagicalAxe: {
+}
+
+Mordred: {
+}
+
+PerfectionStaff: {
+}
+
+Pericarditis: {
+}
+
+PieceOfArt: {
+}
+
+Poya: {
+}
+
+Relagis: {
+}
+
+Rhamenthal: {
+}
+
+RibbonStaff: {
+}
+
+ShadegraveStaff: {
+}
+
+Splitflame: {
+}
+
+StaffOFlame: {
+}
+
+StaffoftheIrradiaflare: {
+}
+
+StarFlowerStaff: {
+}
+
+StarringBalls: {
+}
+
+Friedstein: {
+}
+
+Gothinstein: {
+}
+
+Hultinstein: {
+}
+
+Iknoctstein: {
+}
+
+Mardenstein: {
+}
+
+Voltenstein: {
+}
+
+SunBlastStaff: {
+}
+
+SupernovaSitar: {
+}
+
+SuperStaff: {
+}
+
+SwarmerStaff: {
+}
+
+Swingaling: {
+}
+
+TheAurora: {
+}
+
+TheMarksman: {
+}
+
+TheShrieker: {
+}
+
+TomeOfTheSingularity: {
+}
+
+Aneuriliac: {
+}
+
+Astalaiya: {
+}
+
+CocoSpark: {
+}
+
+MothlightStar: {
+}
+
+SandStorm: {
+}
+
+ShadeHandTome: {
+}
+
+ShinobiTome: {
+}
+
+StormWelder: {
+}
+
+TheDeafen: {
+}
+
+VoidsGrasp: {
+}
+
+WintersStom: {
+}
+
+TorrentialLance: {
+}
+
+TwilitTome: {
+}
+
+Voyager: {
+}
+
+AltrideSlicer: {
+}
+
+Angelenthal: {
+}
+
+ArchariliteRaysword: {
+}
+
+Bridget: {
+}
+
+BridgetII: {
+}
+
+Curlistine: {
+}
+
+DevilsPeak: {
+}
+
+DreadsVile: {
+}
+
+EventHorizon: {
+}
+
+EverneanSlicer: {
+}
+
+FrostBringer: {
+}
+
+FrostSwing: {
+}
+
+Gintelze: {
+}
+
+GrailAxe: {
+}
+
+GraveShaper: {
+}
+
+Chillrend: {
+}
+
+DelgrimsHammer: {
+}
+
+IshNYire: {
+}
+
+Maelstrom: {
+}
+
+NoxianRider: {
+}
+
+SingularDive: {
+}
+
+TheFirstAurora: {
+}
+
+Tulahal: {
+}
+
+Volcant: {
+}
+
+Zhielhander: {
+}
+
+Gutinier: {
+}
+
+RuneSmasher: {
+}
+
+Helios: {
+}
+
+HolmbergScythe: {
+}
+
+HornedNail: {
+}
+
+InkingSpire: {
+}
+
+IronHook: {
+}
+
+Kilvier: {
+}
+
+LightKnives: {
+}
+
+WoodenSaber: {
+}
+
+Pearling: {
+}
+
+Vaikus: {
+}
+
+MooningSlicer: {
+}
+
+MorrowRapier: {
+}
+
+MorrowSword: {
+}
+
+MorrowValswa: {
+}
+
+Myocardia: {
+}
+
+Nekomara: {
+}
+
+NiceBusterr: {
+}
+
+PointedEdge: {
+}
+
+Reavestor: {
+}
+
+Ripper: {
+}
+
+Alcarish: {
+}
+
+Blackwhip: {
+}
+
+Halhurish: {
+}
+
+Kaevine: {
+}
+
+Parendine: {
+}
+
+Rinavine: {
+}
+
+Vinger: {
+}
+
+ScarecrowSaber: {
+}
+
+ScytheOfSouls: {
+}
+
+DaedussSiegShield: {
+}
+
+EnergizedNail: {
+}
+
+GintzelShield: {
+}
+
+SteamedNail: {
+}
+
+WoodShield: {
+}
+
+Sirius: {
+}
+
+CrystalPointer: {
+}
+
+GladiatorSpear: {
+}
+
+Infernis: {
+}
+
+StalkersTallon: {
+}
+
+TheIrradiaspear: {
+}
+
+StarKeeper: {
+}
+
+SwordOfTheJungleGoddess: {
+}
+
+AssassinsSlash: {
+}
+
+Auroran: {
+}
+
+CinderBraker: {
+}
+
+CrystallineSlasher: {
+}
+
+LightSpand: {
+}
+
+Starvast: {
+}
+
+Vael: {
+}
+
+WarriorsGrace: {
+}
+
+Verstibloom: {
+}
+
+VerstiDance: {
+}
+
+Vixyl: {
+}
+
+VulcanBreaker: {
+}
+
+Yumiko: {
+}
+
+AbyssalPowder: {
+}
+
+AgreviPowder: {
+}
+
+AivanPowder: {
+}
+
+AlcadizPowder: {
+}
+
+ArcanalPowder: {
+}
+
+ArtoriaIllurePowder: {
+}
+
+BloodPowder: {
+}
+
+CrystalPowder: {
+}
+
+EreshkinPowder: {
+}
+
+FlamePowder: {
+}
+
+FrostedPowder: {
+}
+
+GovheilPowder: {
+}
+
+GrassDirtPowder: {
+}
+
+IllusionistPowder: {
+}
+
+LenaSongPowder: {
+}
+
+MushyPowder: {
+}
+
+PoisonedPowder: {
+}
+
+SpiritPowder: {
+}
+
+TrickPowder: {
+}
+
+Verstidust: {
+}
+
+ArchariliteEnergyShot: {
+}
+
+AssassinsDischarge: {
+}
+
+IronBall: {
+}
+
+BoneNail: {
+}
+
+BrokenWrath: {
+}
+
+BubbleBlasher: {
+}
+
+BurningAngel: {
+}
+
+ClockworkCity: {
+}
+
+CogBomber: {
+}
+
+CoralCrossbow: {
+}
+
+DesertCrossbow: {
+}
+
+DungeonCrossbow: {
+}
+
+FrostyCrossbow: {
+}
+
+JadeJungleCrossbow: {
+}
+
+MerchantCrossbow: {
+}
+
+MorrowedCrossbow: {
+}
+
+SpiderillaCrossbow: {
+}
+
+TON618Crossbow: {
+}
+
+WoodenCrossbow: {
+}
+
+Cryal: {
+}
+
+Crysalizer: {
+}
+
+DeathShot: {
+}
+
+Dunderbustion: {
+}
+
+Ebistar: {
+}
+
+EckasectSire: {
+}
+
+EelInfinite: {
+}
+
+FireflyCannon: {
+}
+
+FlameBuster: {
+}
+
+Galvinie: {
+}
+
+GardenWrecker: {
+}
+
+GearGutter: {
+}
+
+GintzlsSteed: {
+}
+
+GlocketRouncher: {
+}
+
+AssassinsRecharge: {
+}
+
+BasterParty: {
+}
+
+BubbleBussy: {
+}
+
+BurnBlast: {
+}
+
+CarrotPatrol: {
+}
+
+CinderNeedle: {
+}
+
+Devolver: {
+}
+
+Drygan: {
+}
+
+Eagle: {
+}
+
+Electrifying: {
+}
+
+Gordon: {
+}
+
+GunHolster: {
+}
+
+MeredaX: {
+}
+
+MintyBlast: {
+}
+
+MsFreeze: {
+}
+
+Obel: {
+}
+
+Piken: {
+}
+
+Piranha: {
+}
+
+PoisonPistol: {
+}
+
+Pulsing: {
+}
+
+RavestBlast: {
+}
+
+Rhino: {
+}
+
+RocketLauncher: {
+}
+
+ShottyPitol: {
+}
+
+SrTetanus: {
+}
+
+STARBUST: {
+}
+
+TheReaving: {
+}
+
+HarmonicBlasphemy: {
+}
+
+HeatGlider: {
+}
+
+Hitme: {
+}
+
+Hornet: {
+}
+
+IceCubeMaker: {
+}
+
+IcelockLongbow: {
+}
+
+IceWalker: {
+}
+
+Ikaniye: {
+}
+
+Incinerator: {
+}
+
+IrradieagleWrath: {
+}
+
+IvynShot: {
+}
+
+JackoShot: {
+}
+
+JellyBow: {
+}
+
+LarveinGreatbow: {
+}
+
+M38F30: {
+}
+
+M61X: {
+}
+
+MagnusMagnum: {
+}
+
+MahoganyStorm: {
+}
+
+MiniPistol: {
+}
+
+MorrowSalface: {
+}
+
+MushroomGreatbow: {
+}
+
+Pearlinator: {
+}
+
+Photobomb: {
+}
+
+PoisonedAngel: {
+}
+
+Polaris: {
+}
+
+RazzleDazzle: {
+}
+
+RustedSniper: {
+}
+
+RustlockPistol: {
+}
+
+Rustvolver: {
+}
+
+Shredder: {
+}
+
+TecnoBlaster: {
+}
+
+Teraciz: {
+}
+
+Test: {
+}
+
+TheRedSkull: {
+}
+
+TheTingler: {
+}
+
+TheTraumatizer: {
+}
+
+TheWiggler: {
+}
+
+Tociflare: {
+	DisplayName: Tociflare
+	Tooltip: ""
+}
+
+VacuumDrill: {
+}
+
+VampiricVine: {
+}
+
+Venatici: {
+}
+
+VeroshotBow: {
+}
+
+Vhel: {
+}
+
+Violar: {
+}
+
+VoidBlaster: {
+}
+
+WaterGun: {
+}
+
+WaterSong: {
+}
+
+WiggleDiggle: {
+}
+
+WingedFury: {
+}
+
+wowgun: {
+}
+
+XX4160: {
+}
+
+YuriFury: {
+}
+
+OreKingdomScorpion: {
+}
+
+RoyalPalaceScorpion: {
+}
+
+AlcadizDagger: {
+}
+
+ArncharRemote: {
+}
+
+AuroranSeeker: {
+}
+
+BabySwarmerStaff: {
+}
+
+BucketScrapper: {
+}
+
+CanOfLeaves: {
+}
+
+CentipedeStaff: {
+}
+
+ChromaCutter: {
+}
+
+DripplerStaff: {
+}
+
+FireflyStaff: {
+}
+
+IceboundStaff: {
+}
+
+IrradiatedCreeperStaff: {
+}
+
+IvyakenStaff: {
+}
+
+JacksonPollock: {
+}
+
+JellyStaff: {
+}
+
+MushroomStave: {
+}
+
+AuroreanStarball: {
+}
+
+BlackBall: {
+}
+
+SineSire: {
+}
+
+TheActualMoon: {
+}
+
+ThePollinator: {
+}
+
+TwinStarbombas: {
+}
+
+Pegasus: {
+}
+
+PotionOfLifeWand: {
+}
+
+PotionOfManaWand: {
+}
+
+PotOfGreed: {
+}
+
+SerpentStaff: {
+}
+
+SolMothStaff: {
+}
+
+StarCall: {
+}
+
+SwordsOfRevengence: {
+}
+
+TheBurningRod: {
+}
+
+Thunderstaff: {
+}
+
+Valtotude: {
+}
+
+VampireScepter: {
+}
+
+VehementRhapsody: {
+}
+
+VoidStaff: {
+}
+
+WillOWisp: {
+}
+
+X3144: {
+}
+
+XScissor: {
+}
+
+ArtistsHeart: {
+}
+
+AssassinsKnife: {
+}
+
+AssassinsShuriken: {
+}
+
+BurningFlask: {
+}
+
+CleanestCleaver: {
+}
+
+ComicalTrident: {
+}
+
+DarkButcher: {
+}
+
+DogmaBalls: {
+}
+
+FableKnives: {
+}
+
+GintzlSpear: {
+}
+
+Hookarama: {
+}
+
+Hyua: {
+}
+
+IgniterCards: {
+}
+
+IgniterCardsMKII: {
+}
+
+IvythornShuriken: {
+}
+
+BasicBaseball: {
+}
+
+CinderBomber: {
+}
+
+DaggerDagger: {
+}
+
+FlinchMachine: {
+}
+
+LilStinger: {
+}
+
+SpikedLobber: {
+}
+
+StickyCards: {
+}
+
+LarvaedSpear: {
+}
+
+LifeSeekingVial: {
+}
+
+Orion: {
+}
+
+Plate: {
+}
+
+PumkinPopper: {
+}
+
+PunkedUpChops: {
+}
+
+RazorBragett: {
+}
+
+Scatterbombs: {
+}
+
+SpiritCapsule: {
+}
+
+TheButcher: {
+}
+
+ThePenetrator: {
+}
+
+WindmillShuriken: {
+}
+
+YourFired: {
+}
+
+ZenoviasPikpikGlove: {
+}
+
+SandWalkerItem: {
+}
+
+SnowWalkerItem: {
+}
+
+ExampleDecorativeWallItem: {
+}
+
+AnimatedBackgroundWallTestItem: {
+}
+
+BloodFlower1Item: {
+}
+
+BloodFlower2Item: {
+}
+
+BloodFlower3Item: {
+}
+
+BloodFlower4Item: {
+}
+
+BloodFlower5Item: {
+}
+
+BloodHallItem: {
+}
+
+GintzeSpectatorItem1: {
+}
+
+GintzeSpectatorItem2: {
+}
+
+GintzeSpectatorItem3: {
+}
+
+GintzeSpectatorItem4: {
+}
+
+GintzeSpectatorItem5: {
+}
+
+GintzeSpectatorItem6: {
+}
+
+GintzeSpectatorItem7: {
+}
+
+FogSpawnerBlock: {
+}
+
+FogSpawnerWallItem: {
+}
+
+FableBarItem: {
+}
+
+FableBenchItem: {
+}
+
+FableBigMushroomItem: {
+}
+
+FableBookshelf1Item: {
+}
+
+FableBookshelf2Item: {
+}
+
+FableBookshelf3Item: {
+}
+
+FableGGrassMossItem: {
+}
+
+FableGrassMossBigItem: {
+}
+
+FableLogItem: {
+}
+
+FablePikeBigItem: {
+}
+
+FablePikeItem: {
+}
+
+FableSmallMushroomItem: {
+}
+
+FableSpikesItem: {
+}
+
+FableStonesItem: {
+}
+
+FableTableItem: {
+}
+
+wall1Item: {
+}
+
+wall2Item: {
+}
+
+wall3Item: {
+}
+
+wall4Item: {
+}
+
+wall5Item: {
+}
+
+wall6Item: {
+}
+
+wall7Item: {
+}
+
+BorealReinforcementBlock: {
+}
+
+IceyAlterBlock: {
+}
+
+LargeIceyStoneBlock: {
+}
+
+MediumIceyStoneBlock: {
+}
+
+RunicIceBlock: {
+}
+
+SmallIceyStoneBlock: {
+}
+
+DelgrimShopItem: {
+}
+
+GiantCrystal1Item: {
+}
+
+GiantCrystal2Item: {
+}
+
+MedCrystal1Item: {
+}
+
+MedCrystal2Item: {
+}
+
+MothlightBrickBlock: {
+}
+
+MothlightGrassBlock: {
+}
+
+MothlightBannerBlock: {
+}
+
+MothlightBannerHangerBlock: {
+}
+
+MothlightBannerSmallBlock: {
+}
+
+MothlightBookshelfBlock: {
+}
+
+MothlightBowlBlock: {
+}
+
+MothlightChairLeftBlock: {
+}
+
+MothlightChairRightBlock: {
+}
+
+MothlightClockBlock: {
+}
+
+MothlightDoorBlock: {
+}
+
+MothlightFloorBlock: {
+}
+
+MothlightFlowerbedBlock: {
+}
+
+MothlightHangerBlock: {
+}
+
+MothlightHighTableBlock: {
+}
+
+MothlightLeftStairsBlock: {
+}
+
+MothlightPalendineBlock: {
+}
+
+MothlightRightStairsBlock: {
+}
+
+MothlightTableBlock: {
+}
+
+MothlightWallBlock: {
+}
+
+MothlightWindowBlock: {
+}
+
+MothlightMushroomBlock: {
+}
+
+MothlightSpawnerBrickBlock: {
+}
+
+WindmillTopItem: {
+}
+
+RainforestGrassBlock: {
+}
+
+RainforestTreeAcorn: {
+}
+
+SpringGrassBlock: {
+}
+
+EreshkigalStatueItem: {
+}
+
+FuneralBedItem: {
+}
+
+TheSeededTreeItem: {
+}
+
+ModelizingPlacer: {
+}
+
+DisplayName: Modelizing Saver
+
+ModelizingSaver: {
+}
+
+VeilGenTester: {
+}

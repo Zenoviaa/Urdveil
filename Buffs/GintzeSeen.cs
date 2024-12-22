@@ -1,0 +1,19 @@
+﻿using Terraria;
+using Terraria.ModLoader;
+
+namespace Urdveil.Buffs
+{
+    public class GintzeSeen : ModBuff
+    {
+        public override void SetStaticDefaults()
+        {
+            // DisplayName.SetDefault("Seen");
+            // Description.SetDefault("'Seen'");
+            Main.debuff[Type] = true;
+            Main.pvpBuff[Type] = true;
+            Main.buffNoTimeDisplay[Type] = false;
+        }
+
+
+    }
+}

@@ -1,0 +1,36 @@
+﻿using Microsoft.Xna.Framework;
+using Urdveil.Helpers;
+using Terraria;
+using Terraria.ModLoader;
+
+namespace Urdveil.Buffs
+{
+    internal class MoonFlame : ModBuff
+    {
+        public override void SetStaticDefaults()
+        {
+            Main.debuff[Type] = true;
+            Main.pvpBuff[Type] = true;
+            Main.buffNoTimeDisplay[Type] = false;
+        }
+
+        public override void Update(NPC npc, ref int buffIndex)
+        {
+            if (npc.life > npc.lifeMax / 2)
+            {
+                npc.life = npc.lifeMax / 2;
+            }
+
+            npc.lifeRegen -= 8;
+            if (Main.rand.NextBool(3))
+            {
+                for (int i = 0; i < 1; i++)
+                {
+                    int d = Dust.NewDust(npc.position, npc.width, npc.height, ModContent.DustType<Dusts.GlowDust>(), newColor: ColorFunctions.Niivin, Scale: 0.33f);
+                    Main.dust[d].rotation = (Main.dust[d].position - npc.position).ToRotation() - MathHelper.PiOver4;
+                    Main.dust[d].velocity *= 0.5f;
+                }
+            }
+        }
+    }
+}

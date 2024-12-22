@@ -1,0 +1,309 @@
+EnchantmentCommonTooltip: Enchantment
+EnchantmentCommonHelp: Insert into a staff to enchant your spell
+EnchantmentCommonTimed: This effect activates after {0} ticks
+EnchantmentCommonMana: "{0}% increased mana cost"
+EnchantmentCommonStaff: Staff Weapon Type
+EnchantmentCommonStaffHelp: Right click to open the enchanting menu
+EnchantmentCommonSynergy: Synergy! {0}% increased damage!
+EnchantmentCommonNoSynergy: No Synergy...
+EnchantmentCommonFailSynergy: Anti Synergy! {0}% decreased damage!
+
+FlameLashEnchantment: {
+}
+
+PuppetMasterEnchantment: {
+}
+
+WindCloudEnchantment: {
+}
+
+MoonFinderEnchantment: {
+}
+
+WaveSpeedEnchantment: {
+}
+
+BloodyHeartEnchantment: {
+}
+
+ShadowAttackEnchantment: {
+}
+
+SpikyBarnEnchantment: {
+}
+
+TentaclingHoneEnchantment: {
+}
+
+BloodlustEnchantment: {
+}
+
+SizerEnchantment: {
+}
+
+SharpenEnchantment: {
+}
+
+FloralBlastEnchantment: {
+}
+
+FlowerfallEnchantment: {
+}
+
+WorldToucherEnchantment: {
+}
+
+FlashpointEnchantment: {
+}
+
+HurricaneEnchantment: {
+}
+
+TyphoonWaverEnchantment: {
+}
+
+RadioSilenceEnchantment: {
+}
+
+SecondWindEnchantment: {
+}
+
+MoonlightSwirlEnchantment: {
+}
+
+ReverseMoonEnchantment: {
+}
+
+BloodThinningEnchantment: {
+}
+
+PhasingMoonEnchantment: {
+}
+
+MesmerizerStatusEnchantment: {
+}
+
+SpellMistEnchantment: {
+}
+
+PheonixSwirlEnchantment: {
+}
+
+LampFormEnchantment: {
+}
+
+TreeSplitEnchantment: {
+}
+
+ArrowFormEnchantment: {
+}
+
+BowArrowFormEnchantment: {
+}
+
+CrescentFormEnchantment: {
+}
+
+FairyFormEnchantment: {
+}
+
+HammerFormEnchantment: {
+}
+
+KnifeFormEnchantment: {
+}
+
+OctopusFormEnchantment: {
+}
+
+RunicFormEnchantment: {
+}
+
+SnakeFormEnchantment: {
+}
+
+SnowglobeFormEnchantment: {
+}
+
+SpineFormEnchantment: {
+}
+
+StarFormEnchantment: {
+}
+
+TriangleFormEnchantment: {
+}
+
+VaseFormEnchantment: {
+}
+
+HallowPurpleEnchantment: {
+}
+
+TsunamiEnchantment: {
+}
+
+WaterDrillEnchantment: {
+}
+
+MetalForceEnchantment: {
+}
+
+MagicMissileEnchantment: {
+}
+
+ExplosiveMordorEnchantment: {
+}
+
+MEGAEnchantment: {
+}
+
+BloodVesselEnchantment: {
+}
+
+HeatSeakerEnchantment: {
+}
+
+DreadSwitcherEnchantment: {
+}
+
+RoyalMagicSwitcherEnchantment: {
+}
+
+VeilSwitcherEnchantment: {
+}
+
+WindSwitcherEnchantment: {
+}
+
+NaturalSwitcherEnchantment: {
+}
+
+MoonSwitcherEnchantment: {
+}
+
+RadianceSwitcherEnchantment: {
+}
+
+IceSwitcherEnchantment: {
+}
+
+SlothEnchantment: {
+}
+
+SpinbackEnchantment: {
+}
+
+ShadowStepEnchantment: {
+}
+
+BruteForceEnchantment: {
+}
+
+BowFormEnchantment: {
+}
+
+CoinFormEnchantment: {
+}
+
+LanternFormEnchantment: {
+}
+
+SkullFormEnchantment: {
+}
+
+SquidFormEnchantment: {
+}
+
+CoagulateEnchantment: {
+}
+
+HeavyMetalEnchantment: {
+}
+
+SharpTurnEnchantment: {
+}
+
+ReverserOfVeilEnchantment: {
+}
+
+ReverserOfDreadEnchantment: {
+}
+
+ReverserOfRoyalMagicEnchantment: {
+}
+
+ReverserOfWindEnchantment: {
+}
+
+ReverserOfNatureEnchantment: {
+}
+
+ReverserOfRadianceEnchantment: {
+}
+
+ReverserOfMoonEnchantment: {
+}
+
+ReverserOfIceEnchantment: {
+}
+
+RechargingShadowsEnchantment: {
+}
+
+AdditorVeilEnchantment: {
+}
+
+PhaseTurnEnchantment: {
+}
+
+SubtractorMoonEnchantment: {
+}
+
+OppositeFlamesEnchantment: {
+}
+
+StarTurnEnchantment: {
+}
+
+FlowingBloodEnchantment: {
+}
+
+TrailerEnchantment: {
+}
+
+GroundEaterEnchantment: {
+}
+
+GamblerEnchantment: {
+}
+
+MimicryEnchantment: {
+}
+
+SwirlerBwirlerEnchantment: {
+}
+
+ShriekerEnchantment: {
+}
+
+FlameWheelEnchantment: {
+}
+
+ArterySplitEnchantment: {
+}
+
+The4MistsEnchantment: {
+}
+
+DichotamyEnchantment: {
+}
+
+HeartBurnBlastEnchantment: {
+}
+
+SparksSplitEnchantment: {
+}
+
+ShitgunEnchantment: {
+}
