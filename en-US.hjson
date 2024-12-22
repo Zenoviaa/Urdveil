@@ -5496,6 +5496,16 @@ Mods: {
 				DisplayName: Spring Flower Item
 				Tooltip: ""
 			}
+
+			SpectralEntranceBlock: {
+				Tooltip: ""
+				DisplayName: Spectral Entrance Block
+			}
+
+			SpectralEntranceItem: {
+				DisplayName: Spectral Entrance Item
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {
@@ -5650,6 +5660,7 @@ Mods: {
 			RainforestTree.MapEntry: Rainforest Tree
 			RainforestTreeBase.MapEntry: Rainforest Tree Base
 			RainforestTreeSapling.MapEntry: Rainforest Tree Sapling
+			SpectralEntranceTile.MapEntry: Spectral Entrance Tile
 		}
 
 		Buffs: {
