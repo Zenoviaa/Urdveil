@@ -585,6 +585,8 @@
     <None Remove="TilesNew\FogSpawnerBlock.png" />
     <None Remove="TilesNew\FogSpawnerTile.png" />
     <None Remove="TilesNew\SpringHills\SpringTree.png" />
+    <None Remove="TilesNew\SpringHills\SpringTreeSapling.png" />
+    <None Remove="TilesNew\SpringHills\SpringTree_Branches.png" />
     <None Remove="TilesNew\SpringHills\SpringTree_Top.png" />
     <None Remove="TilesNew\SpringHills\StoneObelisk_S.png" />
     <None Remove="TilesNew\SpringHills\StoneTomb_S.png" />
