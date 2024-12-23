@@ -35,10 +35,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -67,10 +67,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -99,10 +99,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -132,10 +132,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -164,10 +164,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -197,10 +197,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -229,10 +229,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
     public class SpringFlowerRedBushItem : DecorativeWallItem
@@ -260,10 +260,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -293,10 +293,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -325,10 +325,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -357,10 +357,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -389,10 +389,10 @@ namespace Urdveil.TilesNew.SpringHills
             WindSwayOffset = 0f;
 
             //The max it can sway
-            WindSwayMagnitude = 0.1f;
+            WindSwayMagnitude = 0.2f;
 
             //How fast it sways
-            WindSwaySpeed = 0.01f;
+            WindSwaySpeed = 0.02f;
         }
     }
 }
