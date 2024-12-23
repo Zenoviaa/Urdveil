@@ -4,6 +4,7 @@ using Urdveil.Helpers;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System;
 
 namespace Urdveil.Tiles
 {
@@ -79,6 +80,11 @@ namespace Urdveil.Tiles
         public float FrameSpeed { get; set; } = 1f;
         public bool DesyncAnimations { get; set; } = false;
         public float DrawScale { get; set; } = 1f;
+        public float WindSwayOffset { get; set; } = 0f;
+        public float WindSwayMagnitude { get; set; } = 0f;
+        public float WindSwaySpeed { get; set; } = 0f;
+        public bool BlackIsTransparency { get; set; } = false;
+        public bool IgnoreLightning { get; set; } = false;
         public override void SetStaticDefaults()
         {
             StructureColor = Color.White;
@@ -108,6 +114,11 @@ namespace Urdveil.Tiles
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
             return false;
+        }
+
+        private float GetLeafSway(float offset, float magnitude, float speed)
+        {
+            return (float)Math.Sin(Main.GameUpdateCount * speed + offset) * magnitude;
         }
 
         public void DrawDecor(int i, int j, SpriteBatch spriteBatch)
@@ -154,9 +165,20 @@ namespace Urdveil.Tiles
                     drawOrigin = new Vector2(drawFrame.Width / 2, drawFrame.Height / 2);
                     break;
             }
+            Color drawColor = StructureColor;
+            if (!IgnoreLightning)
+            {
+                drawColor = drawColor.MultiplyRGB(color2);
+            }
+            if (BlackIsTransparency)
+            {
+                drawColor.A = 0;
+            }
+
+            float leafSway = GetLeafSway(WindSwayOffset, WindSwayMagnitude, WindSwaySpeed);
             spriteBatch.Draw(texture,
                 drawPos - Main.screenPosition,
-                drawFrame, color2.MultiplyRGB(StructureColor), 0, drawOrigin, DrawScale, SpriteEffects.None, 0);
+                drawFrame, drawColor, leafSway, drawOrigin, DrawScale, SpriteEffects.None, 0);
         }
     }
 
@@ -180,6 +202,17 @@ namespace Urdveil.Tiles
         public float FrameSpeed { get; set; } = 1f;
         public bool DesyncAnimations { get; set; } = false;
         public float DrawScale { get; set; } = 1f;
+        public bool BlackIsTransparency { get; set; } = false;
+        public bool IgnoreLightning { get; set; } = false;
+        public float WindSwayOffset { get; set; } = 0f;
+        public float WindSwayMagnitude { get; set; } = 0f;
+        public float WindSwaySpeed { get; set; } = 0f;
+
+        public float GetLeafSway(float offset, float magnitude, float speed)
+        {
+            return (float)Math.Sin(Main.GameUpdateCount * speed + offset) * magnitude;
+        }
+
         public override void SetStaticDefaults()
         {
             StructureColor = Color.White;
@@ -212,7 +245,7 @@ namespace Urdveil.Tiles
 
         }
 
-        public void DrawDecor(int i, int j, SpriteBatch spriteBatch)
+        public virtual void DrawDecor(int i, int j, SpriteBatch spriteBatch)
         {
             Color color2 = Lighting.GetColor(i, j);
             Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
@@ -254,10 +287,20 @@ namespace Urdveil.Tiles
                     drawOrigin = new Vector2(drawFrame.Width / 2, drawFrame.Height / 2);
                     break;
             }
-
+            float leafSway = GetLeafSway(WindSwayOffset, WindSwayMagnitude, WindSwaySpeed);
+            Color drawColor = StructureColor;
+            if (!IgnoreLightning)
+            {
+                drawColor = drawColor.MultiplyRGB(color2);
+            }
+            if (BlackIsTransparency)
+            {
+                drawColor.A = 0;
+            }
+    
             spriteBatch.Draw(texture,
                 drawPos - Main.screenPosition,
-                drawFrame, color2.MultiplyRGB(StructureColor), 0, drawOrigin, DrawScale, GetSpriteEffects(i, j), 0);
+                drawFrame, drawColor, leafSway, drawOrigin, DrawScale, GetSpriteEffects(i, j), 0);
         }
 
         public virtual SpriteEffects GetSpriteEffects(int i, int j)
