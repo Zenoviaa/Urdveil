@@ -53,17 +53,6 @@ namespace Urdveil.BiomesNew
 
             int spawnChance = -1;
             //CHERRY BLOSSOM
-            if (Main._shouldUseWindyDayMusic)
-            {
-                spawnChance = Cherryblossom.SpawnChance(Player);
-                if (spawnChance != -1 && Main.rand.NextBool(spawnChance))
-                {
-                    bool spawnForegroundItem = true;
-                    bool spawnOnPlayerLayer = true;
-                    Vector2 pos = Player.Center - new Vector2(Main.rand.Next(-(int)(Main.screenWidth * 2f), (int)(Main.screenWidth * 2f)), Main.screenHeight * 0.52f);
-                    ForegroundHelper.AddItem(new Cherryblossom(pos), spawnForegroundItem, spawnOnPlayerLayer);
-                }
-            }
 
             spawnChance = Cherryblossom.SpawnChance(Player);
             if (spawnChance != -1 && Main.rand.NextBool(spawnChance))

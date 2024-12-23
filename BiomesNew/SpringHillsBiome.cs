@@ -15,7 +15,7 @@ namespace Urdveil.BiomesNew
         public override CaptureBiome.TileColorStyle TileColorStyle => CaptureBiome.TileColorStyle.Normal;
         // Select Music
         public override SceneEffectPriority Priority => SceneEffectPriority.BiomeHigh;
-        public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/ADemise");
+        public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/SpringFields");
         public override void SpecialVisuals(Player player, bool isActive)
         {
 
