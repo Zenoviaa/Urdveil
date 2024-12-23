@@ -39,6 +39,11 @@ namespace Urdveil.UI.StructureSelector
                 _userInterface.Update(gameTime);
             }
 
+            if(_saveUserInterface?.CurrentState != null)
+            {
+                _saveUserInterface.Update(gameTime);
+            }
+
 
             if (Main.LocalPlayer.HeldItem.type == ModContent.ItemType<ModelizingPlacer>())
             {
