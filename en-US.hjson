@@ -5571,6 +5571,11 @@ Mods: {
 				DisplayName: Tree Grower
 				Tooltip: ""
 			}
+
+			BrokenCarraigeBlock: {
+				DisplayName: Broken Carraige Block
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {
