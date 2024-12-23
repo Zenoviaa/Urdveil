@@ -33,12 +33,6 @@ namespace Urdveil.UI.StructureSelector
         {
             base.DrawSelf(spriteBatch);
             Rectangle rectangle = GetDimensions().ToRectangle();
-            bool contains = ContainsPoint(Main.MouseScreen);
-            if (contains && !PlayerInput.IgnoreMouseInterface)
-            {
-                Main.LocalPlayer.mouseInterface = true;
-            }
-
 
             //Draw Backing
             Color color2 = Main.inventoryBack;
