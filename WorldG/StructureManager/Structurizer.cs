@@ -744,6 +744,15 @@ namespace Urdveil.WorldG.StructureManager
             if (player.altFunctionUse == 2)
             {
                 Structurizer.FlipStructure = !Structurizer.FlipStructure;
+                if (Structurizer.FlipStructure)
+                {
+                    Main.NewText("Flip Structure ON");
+                }
+                else
+                {
+                    Main.NewText("Flip Structure OFF");
+                }
+
             }
             else
             {
