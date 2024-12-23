@@ -31,7 +31,6 @@ namespace Urdveil.UI.StructureSelector
             Top.Pixels = RelativeTop;
             BackgroundColor = Color.Transparent;
             BorderColor = Color.Transparent;
-            IgnoresMouseInteraction = true;
 
             _saveStructureButton.Width.Pixels = 16;
             _saveStructureButton.Height.Pixels = 16;

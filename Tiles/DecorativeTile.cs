@@ -63,7 +63,8 @@ namespace Urdveil.Tiles
             return false;
         }
     }
-    internal abstract class BehindDecorativeWall : BaseSpecialWall
+
+    internal abstract class SpecialDecorativeWall : BaseSpecialWall
     {
         public enum DrawOrigin
         {
@@ -176,153 +177,43 @@ namespace Urdveil.Tiles
                 drawColor.A = 0;
             }
 
+            if (_drawAlpha)
+            {
+                drawColor *= 0.5f;
+                _drawAlpha = false;
+            }
+
             float offset = WindSwayOffset;
             offset += i * 10;
             offset += j * 10;
             float leafSway = GetLeafSway(offset, WindSwayMagnitude, WindSwaySpeed);
 
-            spriteBatch.Draw(texture,
-                drawPos - Main.screenPosition,
-                drawFrame, drawColor, leafSway, drawOrigin, DrawScale, SpriteEffects.None, 0);
-        }
-        
-    }
-
-    internal abstract class DecorativeWall : BaseSpecialWall
-    {
-        public static Vector2 TileAdj => (Lighting.Mode == Terraria.Graphics.Light.LightMode.Retro || Lighting.Mode == Terraria.Graphics.Light.LightMode.Trippy) ? Vector2.Zero : Vector2.One * 12;
-
-        public enum DrawOrigin
-        {
-            BottomUp,
-            TopDown,
-            Center
-        }
-        public Color StructureColor { get; set; }
-        public override string Texture => (this.GetType().FullName + "_S").Replace(".","/");
-        public string StructureTexture { get; set; }
-        public DrawOrigin Origin { get; set; } = DrawOrigin.BottomUp;
-        public int FrameCount { get; set; } = 1;
-        public int HorizontalFrameCount { get; set; } = 1;
-        public int VerticalFrameCount { get; set; } = 1;
-        public float FrameSpeed { get; set; } = 1f;
-        public bool DesyncAnimations { get; set; } = false;
-        public float DrawScale { get; set; } = 1f;
-        public bool BlackIsTransparency { get; set; } = false;
-        public bool IgnoreLightning { get; set; } = false;
-        public float WindSwayOffset { get; set; } = 0f;
-        public float WindSwayMagnitude { get; set; } = 0f;
-        public float WindSwaySpeed { get; set; } = 0f;
-
-        public float GetLeafSway(float offset, float magnitude, float speed)
-        {
-            return (float)Math.Sin(Main.GameUpdateCount * speed + offset) * magnitude;
-        }
-
-        public override void SetStaticDefaults()
-        {
-            StructureColor = Color.White;
-            StructureTexture = this.GetType().FullName + "_S";
-            StructureTexture = StructureTexture.Replace(".", "/");
-            Main.wallHouse[Type] = false;
-            AddMapEntry(new Color(200, 200, 200));
-        }
-
-        public void DrawItem(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
-        {
-            Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
-            int textureWidth = texture.Width;
-            int textureHeight = texture.Height;
-            Rectangle drawFrame = texture.GetFrame(0, FrameCount);
-
-            if (HorizontalFrameCount > 1)
-            {
-                drawFrame = texture.GetFrame(0, HorizontalFrameCount, VerticalFrameCount);
-            }
-
-            Vector2 drawOrigin = drawFrame.Size() / 2f;
-
-            spriteBatch.Draw(texture, position, drawFrame, drawColor, 0, drawOrigin, scale * 0.5f, SpriteEffects.None, 0);
-        }
-        public override bool CanExplode(int i, int j) => false;
-
-        public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
-        {
-            return false;
-        }
-
-        public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
-        {
-            base.PostDraw(i, j, spriteBatch);
-
-        }
-
-        public virtual void DrawDecor(int i, int j, SpriteBatch spriteBatch)
-        {
-            Color color2 = Lighting.GetColor(i, j);
-            Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
-            int textureWidth = texture.Width;
-            int textureHeight = texture.Height;
-
-            Rectangle drawFrame = texture.GetFrame(0, FrameCount);
-            if (FrameCount > 1)
-            {
-                //Let's use main global time wrappy
-                float timer = Main.GlobalTimeWrappedHourly;
-                timer *= FrameSpeed;
-                int time = (int)timer;
-                if (DesyncAnimations)
-                {
-                    time += i * 10;
-                    time += j * 10;
-                }
-
-                int frame = (int)(time % FrameCount);
-                drawFrame = texture.GetFrame(frame, FrameCount);
-                if (HorizontalFrameCount > 1)
-                {
-                    drawFrame = texture.GetFrame(frame, HorizontalFrameCount, VerticalFrameCount);
-                }
-            }
-
-            Vector2 drawPos = (new Vector2(i, j)) * 16;
-            Vector2 drawOrigin = new Vector2(drawFrame.Width / 2, drawFrame.Height);
-            switch (Origin)
-            {
-                case DrawOrigin.BottomUp:
-                    drawOrigin = new Vector2(drawFrame.Width / 2, drawFrame.Height);
-                    break;
-                case DrawOrigin.TopDown:
-                    drawOrigin = new Vector2(drawFrame.Width / 2, 0);
-                    break;
-                case DrawOrigin.Center:
-                    drawOrigin = new Vector2(drawFrame.Width / 2, drawFrame.Height / 2);
-                    break;
-            }
-            float offset = WindSwayOffset;
-            offset += i * 10;
-            offset += j * 10;
-
-            float leafSway = GetLeafSway(offset, WindSwayMagnitude, WindSwaySpeed);
-   
-            Color drawColor = StructureColor;
-            if (!IgnoreLightning)
-            {
-                drawColor = drawColor.MultiplyRGB(color2);
-            }
-            if (BlackIsTransparency)
-            {
-                drawColor.A = 0;
-            }
-    
             spriteBatch.Draw(texture,
                 drawPos - Main.screenPosition,
                 drawFrame, drawColor, leafSway, drawOrigin, DrawScale, GetSpriteEffects(i, j), 0);
         }
-
+        private bool _drawAlpha;
+        public override void DrawPreview(int i, int j)
+        {
+            base.DrawPreview(i, j);
+            _drawAlpha = true;
+            DrawDecor(i, j, Main.spriteBatch);
+        }
         public virtual SpriteEffects GetSpriteEffects(int i, int j)
         {
             return SpriteEffects.None;
         }
+
+    }
+
+    internal abstract class BehindDecorativeWall : SpecialDecorativeWall
+    {
+
+
+    }
+    internal abstract class DecorativeWall : SpecialDecorativeWall
+    {
+
+
     }
 }

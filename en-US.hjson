@@ -8232,6 +8232,7 @@ Mods: {
 			VaikusExplode.DisplayName: Vaikus Explode
 			Save.DisplayName: Save
 			StructurePoint.DisplayName: Structure Point
+			TilePainterPreview.DisplayName: Tile Painter Preview
 		}
 	}
 
