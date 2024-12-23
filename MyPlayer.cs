@@ -655,6 +655,7 @@ namespace Urdveil
         public static float AuroreanB = 0.5f;
         public override void PostUpdateMiscEffects()
         {
+            /*
 
             Player.ManageSpecialBiomeVisuals("Urdveil:VeilSky", ZoneVeil);
             base.Player.ManageSpecialBiomeVisuals("Urdveil:GovheilSky", ZoneFable);
@@ -670,11 +671,11 @@ namespace Urdveil
             //    base.Player.ManageSpecialBiomeVisuals("Urdveil:Acid", ZoneAcid);
             base.Player.ManageSpecialBiomeVisuals("Urdveil:Lab", ZoneLab);
             base.Player.ManageSpecialBiomeVisuals("Urdveil:Ishtar", ZoneIshtar);
-            base.Player.ManageSpecialBiomeVisuals("Urdveil:Veriplant", ZoneVeri);
+           // base.Player.ManageSpecialBiomeVisuals("Urdveil:Veriplant", ZoneVeri);
             //   base.Player.ManageSpecialBiomeVisuals("Urdveil:Gintzing", EventWorld.Gintzing);
             base.Player.ManageSpecialBiomeVisuals("Urdveil:Govheil", ZoneGovheil);
             base.Player.ManageSpecialBiomeVisuals("Urdveil:Verlia", NPC.AnyNPCs(ModContent.NPCType<VerliaB>()));
-            base.Player.ManageSpecialBiomeVisuals("Urdveil:Mechanics", ZoneMechanics);
+            base.Player.ManageSpecialBiomeVisuals("Urdveil:Mechanics", ZoneMechanics);*/
         }
 
         public override void OnEnterWorld()
