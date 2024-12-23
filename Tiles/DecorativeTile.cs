@@ -5,6 +5,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using System;
+using Urdveil.TilesNew;
 
 namespace Urdveil.Tiles
 {
@@ -62,7 +63,7 @@ namespace Urdveil.Tiles
             return false;
         }
     }
-    internal abstract class BehindDecorativeWall : ModWall
+    internal abstract class BehindDecorativeWall : BaseSpecialWall
     {
         public enum DrawOrigin
         {
@@ -71,7 +72,7 @@ namespace Urdveil.Tiles
             Center
         }
         public Color StructureColor { get; set; }
-        public override string Texture => "Urdveil/Tiles/InvisibleWall";
+        public override string Texture => (this.GetType().FullName + "_S").Replace(".", "/");
         public string StructureTexture { get; set; }
         public DrawOrigin Origin { get; set; } = DrawOrigin.BottomUp;
         public int FrameCount { get; set; } = 1;
@@ -184,9 +185,10 @@ namespace Urdveil.Tiles
                 drawPos - Main.screenPosition,
                 drawFrame, drawColor, leafSway, drawOrigin, DrawScale, SpriteEffects.None, 0);
         }
+        
     }
 
-    internal abstract class DecorativeWall : ModWall
+    internal abstract class DecorativeWall : BaseSpecialWall
     {
         public static Vector2 TileAdj => (Lighting.Mode == Terraria.Graphics.Light.LightMode.Retro || Lighting.Mode == Terraria.Graphics.Light.LightMode.Trippy) ? Vector2.Zero : Vector2.One * 12;
 
@@ -197,7 +199,7 @@ namespace Urdveil.Tiles
             Center
         }
         public Color StructureColor { get; set; }
-        public override string Texture => "Urdveil/Tiles/InvisibleWall";
+        public override string Texture => (this.GetType().FullName + "_S").Replace(".","/");
         public string StructureTexture { get; set; }
         public DrawOrigin Origin { get; set; } = DrawOrigin.BottomUp;
         public int FrameCount { get; set; } = 1;
@@ -243,6 +245,12 @@ namespace Urdveil.Tiles
             spriteBatch.Draw(texture, position, drawFrame, drawColor, 0, drawOrigin, scale * 0.5f, SpriteEffects.None, 0);
         }
         public override bool CanExplode(int i, int j) => false;
+
+        public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
+        {
+            return false;
+        }
+
         public override void PostDraw(int i, int j, SpriteBatch spriteBatch)
         {
             base.PostDraw(i, j, spriteBatch);

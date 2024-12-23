@@ -11,16 +11,24 @@ namespace Urdveil.UI.ToolsSystem
     {
         private GameTime _lastUpdateUiGameTime;
         private UserInterface _userInterface;
+        private UserInterface _tilePainterUserInterface;
         public static string RootTexturePath => "Urdveil/UI/ToolsSystem/";
 
         public ToolsUIState toolsUIState;
+        public TilePainterUIState tilePainterUIState;
         public override void OnModLoad()
         {
             base.OnModLoad();
             _userInterface = new UserInterface();
+            _tilePainterUserInterface = new UserInterface();
+
             toolsUIState = new ToolsUIState();
             toolsUIState.Activate();
+
+            tilePainterUIState = new TilePainterUIState();
+            tilePainterUIState.Activate();
             _userInterface.SetState(null);
+            _tilePainterUserInterface.SetState(null);
         }
 
         public override void UpdateUI(GameTime gameTime)
@@ -31,6 +39,20 @@ namespace Urdveil.UI.ToolsSystem
             {
                 _userInterface.Update(gameTime);
             }
+            if (_tilePainterUserInterface?.CurrentState != null)
+            {
+                _tilePainterUserInterface.Update(gameTime);
+            }
+            if(Main.LocalPlayer.HeldItem.type == ModContent.ItemType<TilePainterTool>())
+            {
+                ToggleTilePainterUI(true);
+            }
+            else
+            {
+                ToggleTilePainterUI(false);
+            }
+
+
         }
 
         internal void ToggleUI()
@@ -50,10 +72,32 @@ namespace Urdveil.UI.ToolsSystem
             _userInterface.SetState(toolsUIState);
         }
 
-        private void CloseUI()
+        public void CloseUI()
         {
             _userInterface.SetState(null);
         }
+
+        public void OpenTilePainterUI()
+        {
+            _tilePainterUserInterface.SetState(tilePainterUIState);
+        }
+
+        public void CloseTilePainterUI()
+        {
+            _tilePainterUserInterface.SetState(null);
+        }
+        internal void ToggleTilePainterUI(bool isOn)
+        {
+            if (_tilePainterUserInterface?.CurrentState != null && !isOn)
+            {
+                CloseTilePainterUI();
+            }
+            else if (_tilePainterUserInterface?.CurrentState == null && isOn)
+            {
+                OpenTilePainterUI();
+            }
+        }
+
 
 
         public override void PreSaveAndQuit()
@@ -77,6 +121,10 @@ namespace Urdveil.UI.ToolsSystem
                         if (_lastUpdateUiGameTime != null && _userInterface?.CurrentState != null)
                         {
                             _userInterface.Draw(Main.spriteBatch, _lastUpdateUiGameTime);
+                        }
+                        if (_lastUpdateUiGameTime != null && _tilePainterUserInterface?.CurrentState != null)
+                        {
+                            _tilePainterUserInterface.Draw(Main.spriteBatch, _lastUpdateUiGameTime);
                         }
                         return true;
                     },

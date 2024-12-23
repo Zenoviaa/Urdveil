@@ -5561,6 +5561,16 @@ Mods: {
 				DisplayName: Spring Flower White Item
 				Tooltip: ""
 			}
+
+			TilePainterTool: {
+				DisplayName: Tile Painter Tool
+				Tooltip: ""
+			}
+
+			TreeGrower: {
+				DisplayName: Tree Grower
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {
