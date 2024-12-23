@@ -36,11 +36,11 @@ namespace Urdveil.UI.ToolsSystem
             // We can do stuff in here!
             if (ModTile != null)
             {
-                TilePainterTool.SelectedTile = ModTile;
+                TilePainterTool.SelectTile(ModTile);
             }
             else if (ModWall != null)
             {
-                TilePainterTool.SelectedWall = ModWall;
+                TilePainterTool.SelectWall(ModWall);
             }
             SoundEngine.PlaySound(SoundID.MenuTick);
         }

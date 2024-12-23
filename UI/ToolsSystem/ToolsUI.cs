@@ -24,8 +24,8 @@ namespace Urdveil.UI.ToolsSystem
         {
             base.OnInitialize();
             _scale = 1f;
-            Width.Pixels = 48 * 5f;
-            Height.Pixels = 48 * 16;
+            Width.Pixels = 240;
+            Height.Pixels = 64;
             Left.Pixels = RelativeLeft;
             Top.Pixels = RelativeTop;
             BackgroundColor = Color.Transparent;

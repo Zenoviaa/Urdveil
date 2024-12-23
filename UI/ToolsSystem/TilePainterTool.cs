@@ -1,10 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -47,15 +42,16 @@ namespace Urdveil.UI.ToolsSystem
             SpriteBatch spriteBatch = Main.spriteBatch;
             Color drawColor = Color.White * 0.5f;
             Vector2 drawPos = Projectile.position - Main.screenPosition;
-            if(TilePainterTool.SelectedTile != null)
+            if (TilePainterTool.SelectedTile != null)
             {
-                if(TilePainterTool.SelectedTile is BaseSpecialTile specialTile)
+                if (TilePainterTool.SelectedTile is BaseSpecialTile specialTile)
                 {
                     int i = (int)(Projectile.position.X / 16);
                     int j = (int)(Projectile.position.Y / 16);
                     specialTile.DrawPreview(i, j);
                 }
-            } else if (TilePainterTool.SelectedWall != null)
+            }
+            else if (TilePainterTool.SelectedWall != null)
             {
                 if (TilePainterTool.SelectedWall is BaseSpecialWall specialTile)
                 {
@@ -84,12 +80,12 @@ namespace Urdveil.UI.ToolsSystem
             Item.autoReuse = true;
         }
 
-        public void SelectTile(ModTile modTile)
+        public static void SelectTile(ModTile modTile)
         {
             SelectedTile = modTile;
             SelectedWall = null;
         }
-        public void SelectWall(ModWall modWall)
+        public static void SelectWall(ModWall modWall)
         {
             SelectedWall = modWall;
             SelectedTile = null;
@@ -120,6 +116,7 @@ namespace Urdveil.UI.ToolsSystem
             return true;
         }
 
+
         public override bool? UseItem(Player player)
         {
             if (player.altFunctionUse == 2)
@@ -143,7 +140,7 @@ namespace Urdveil.UI.ToolsSystem
                 {
                     int i = (int)Main.MouseWorld.X / 16;
                     int j = (int)Main.MouseWorld.Y / 16;
-                    WorldGen.PlaceTile(i, j, SelectedTile.Type);
+                    SelectedTile.PlaceInWorld(i, j, Item);
                 }
                 else if (SelectedWall != null)
                 {

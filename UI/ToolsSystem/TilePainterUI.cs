@@ -27,7 +27,7 @@ namespace Urdveil.UI.ToolsSystem
         public TilePainterUI() : base()
         {
             _grid = new();
-            var modTiles = Urdveil.Instance.GetContent<BaseSpecialTile>().ToArray();
+            var modTiles = Urdveil.Instance.GetContent<ModTile>().ToArray();
             for(int i = 0; i < modTiles.Length; i++)
             {
                 ModTile modTile = modTiles[i];
@@ -35,7 +35,7 @@ namespace Urdveil.UI.ToolsSystem
                 _grid.Add(slot);    
             }
 
-            var modWalls = Urdveil.Instance.GetContent<BaseSpecialWall>().ToArray();
+            var modWalls = Urdveil.Instance.GetContent<ModWall>().ToArray();
             for (int i = 0; i < modWalls.Length; i++)
             {
                 ModWall modWall = modWalls[i];
