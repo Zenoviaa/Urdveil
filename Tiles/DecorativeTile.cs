@@ -100,7 +100,13 @@ namespace Urdveil.Tiles
             StructureTexture = this.GetType().FullName + "_S";
             StructureTexture = StructureTexture.Replace(".", "/");
             Main.wallHouse[Type] = false;
+
             AddMapEntry(new Color(200, 200, 200));
+        }
+
+        public override bool Drop(int i, int j, ref int type)
+        {
+            return false;
         }
 
         public void DrawItem(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)

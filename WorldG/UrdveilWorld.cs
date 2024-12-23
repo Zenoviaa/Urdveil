@@ -171,6 +171,13 @@ namespace Urdveil.WorldG
             int bottom = Loc.Y + 345;
 
             //Place Walls
+            int[] walls = new int[]
+            {
+                WallID.FlowerUnsafe,
+                WallID.GrassUnsafe,
+                WallID.LivingLeaf
+            };
+
             for(int i = left; i < right; i++)
             {
                 for(int j = top; j < bottom; j++)
@@ -178,9 +185,10 @@ namespace Urdveil.WorldG
                     Point tilePoint = new Point(i, j);
                     if(WorldGen.genRand.NextBool(4) && Main.tile[i,j].TileType == ModContent.TileType<SpringGrass>())
                     {
+                        int wallType = walls[Main.rand.Next(0, walls.Length)];
                         WorldUtils.Gen(tilePoint, new Shapes.Circle(WorldGen.genRand.Next(1, 4)), Actions.Chain(new GenAction[]
                         {
-                            new Actions.PlaceWall(WallID.FlowerUnsafe),
+                            new Actions.PlaceWall((ushort)wallType),
                             new Actions.Smooth(true)
                         }));
                     }

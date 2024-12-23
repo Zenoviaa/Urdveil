@@ -247,8 +247,8 @@ Mods: {
 			}
 
 			SpringHillsBiome: {
-				TownNPCDialogueName: the Spring Hills Biome
-				DisplayName: Spring Hills Biome
+				TownNPCDialogueName: the Spring Hills
+				DisplayName: Spring Hills
 			}
 		}
 

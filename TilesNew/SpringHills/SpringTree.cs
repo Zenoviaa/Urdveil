@@ -20,7 +20,7 @@ namespace Urdveil.TilesNew.SpringHills
 
         public override void SetStaticDefaults() => GrowsOnTileId = new int[] { ModContent.TileType<SpringGrass>() };
         public override int CreateDust() => 22;
-        public override int DropWood() => ModContent.ItemType<CarianWood>();
+        public override int DropWood() => ModContent.ItemType<Ivythorn>();
         public override Asset<Texture2D> GetTexture() => ModContent.Request<Texture2D>("Urdveil/TilesNew/SpringHills/SpringTree");
         public override Asset<Texture2D> GetTopTextures() => ModContent.Request<Texture2D>("Urdveil/TilesNew/SpringHills/SpringTree_Top");
         public override Asset<Texture2D> GetBranchTextures() => ModContent.Request<Texture2D>("Urdveil/TilesNew/SpringHills/SpringTree_Branches");

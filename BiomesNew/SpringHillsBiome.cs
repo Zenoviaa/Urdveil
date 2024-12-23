@@ -4,10 +4,11 @@ using Terraria;
 using Terraria.Graphics.Capture;
 using Terraria.Graphics.Effects;
 using Terraria.ModLoader;
+using Urdveil.UI.TitleSystem;
 
 namespace Urdveil.BiomesNew
 {
-    public class SpringHillsBiome : ModBiome
+    public class SpringHillsBiome : BaseUrdveilBiome
     {
         // Select all the scenery
         public override ModSurfaceBackgroundStyle SurfaceBackgroundStyle => ModContent.Find<ModSurfaceBackgroundStyle>("Urdveil/StarbloomBackgroundStyle");
@@ -32,7 +33,16 @@ namespace Urdveil.BiomesNew
         }
 
 
-        public override void OnEnter(Player player) => player.GetModPlayer<BiomePlayer>().ZoneSpringHills = true;
-        public override void OnLeave(Player player) => player.GetModPlayer<BiomePlayer>().ZoneSpringHills = false;
+        public override void OnEnter(Player player)
+        {
+            base.OnEnter(player);
+            player.GetModPlayer<BiomePlayer>().ZoneSpringHills = true;
+ 
+        }
+        public override void OnLeave(Player player)
+        {
+            base.OnLeave(player);
+            player.GetModPlayer<BiomePlayer>().ZoneSpringHills = false;
+        }
     }
 }
