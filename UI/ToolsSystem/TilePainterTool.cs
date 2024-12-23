@@ -102,7 +102,10 @@ namespace Urdveil.UI.ToolsSystem
                 int x = (int)Main.MouseWorld.X / 16;
                 int y = (int)Main.MouseWorld.Y / 16;
                 Dust.QuickBox(new Vector2(x, y) * 16, new Vector2(x + 1, y + 1) * 16, 2, Color.Red, null);
-
+                if (player.ownedProjectileCounts[ModContent.ProjectileType<TilePainterPreview>()] == 0)
+                {
+                    Projectile.NewProjectile(player.GetSource_FromThis(), player.position, Vector2.Zero, ModContent.ProjectileType<TilePainterPreview>(), 1, 1, player.whoAmI);
+                }
 
             }
             else

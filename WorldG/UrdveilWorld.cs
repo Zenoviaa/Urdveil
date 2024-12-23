@@ -11,6 +11,7 @@ using Terraria.ID;
 using Terraria.IO;
 using Terraria.ModLoader;
 using Terraria.WorldBuilding;
+using Urdveil.TilesNew.SpringHills;
 
 namespace Urdveil.WorldG
 {
@@ -114,8 +115,9 @@ namespace Urdveil.WorldG
             if (terrainIndex != -1)
             {
                 tasks.Insert(terrainIndex + 1, new VanillaTerrainPass());
+                tasks.Insert(terrainIndex + 2, new PassLegacy("Springing", PlaceSpringHills));
             }
-
+            
             int IceGen = FindIndex(tasks, "Tunnels");
             if (IceGen != -1)
             {
@@ -133,11 +135,105 @@ namespace Urdveil.WorldG
                 tasks.Insert(IceGen + 12, new PassLegacy("Ice Crystals Spwning", IceCrystalsSpawning));
                 tasks.Insert(IceGen + 13, new PassLegacy("Ice Fog", IceFog));
                 tasks.Insert(IceGen + 14, new PassLegacy("Boreal Trees!", BorealTreeSpawning));
+            
             }
+            
+
         }
 
         Point AbysmStart;
         Point AbysmStart2;
+
+        #region Spring Hills Generation
+        
+        private void PlaceSpringHills(GenerationProgress progress, GameConfiguration configuration)
+        {
+            progress.Message = "Making the Spring Hills";
+            string path = "Structures/BigSprings";//
+
+            int spawnX = Main.maxTilesX / 2;
+            int spawnY = (int)GenVars.worldSurfaceHigh - 600;
+            while (!WorldGen.SolidTile(spawnX, spawnY) && spawnY <= Main.UnderworldLayer)
+            {
+                //seperation
+                spawnY += 1;
+            }
+
+            Point Loc = new Point(spawnX, spawnY);
+            Loc.Y += 3;
+            Loc.X -= 750;
+            Structurizer.ProtectStructure(Loc, path);
+            int[] ChestIndexs = Structurizer.ReadStruct(Loc, path);
+
+            int left = Loc.X ;
+            int right = Loc.X + 1500;
+            int top = Loc.Y - 345;
+            int bottom = Loc.Y + 345;
+
+            //Place Walls
+            for(int i = left; i < right; i++)
+            {
+                for(int j = top; j < bottom; j++)
+                {
+                    Point tilePoint = new Point(i, j);
+                    if(WorldGen.genRand.NextBool(4) && Main.tile[i,j].TileType == ModContent.TileType<SpringGrass>())
+                    {
+                        WorldUtils.Gen(tilePoint, new Shapes.Circle(WorldGen.genRand.Next(1, 4)), Actions.Chain(new GenAction[]
+                        {
+                            new Actions.PlaceWall(WallID.FlowerUnsafe),
+                            new Actions.Smooth(true)
+                        }));
+                    }
+                }
+            }
+
+            //Place Flowers
+            int[] tilesToChooseFrom = new int[]
+
+            {   
+                ModContent.WallType<SpringFlower>(),
+                ModContent.WallType<SpringFlowerBlueBush>(),
+                ModContent.WallType<SpringFlowerDarkPurple>(),
+                ModContent.WallType<SpringFlowerGrass>(),
+                ModContent.WallType<SpringFlowerPurpleBush>(),
+                ModContent.WallType<SpringFlowerPurpleLeaf>(),
+                ModContent.WallType<SpringFlowerRedBush>(),
+                ModContent.WallType<SpringFlowerVine>(),
+                ModContent.WallType<SpringFlowerWhite>(),
+                ModContent.WallType<SpringFlowerWhiteBud>(),
+                ModContent.WallType<SpringFlowerWhiteBudSmall>(),
+            };
+
+            for (int i = left; i < right; i++)
+            {
+                for (int j = top; j < bottom; j++)
+                {
+                    Point tilePoint = new Point(i, j);
+                    Tile tile = Main.tile[i, j];
+                    Tile tileAbove = Main.tile[i, j - 1];
+                    Tile tileBelow = Main.tile[i, j + 1];
+
+                    //And above tile is air
+                    if (tile.TileType == ModContent.TileType<SpringGrass>() && !tileAbove.HasTile && Main.tile[i, j].Slope == SlopeType.Solid)
+                    {
+                        int wall = tilesToChooseFrom[WorldGen.genRand.Next(0, tilesToChooseFrom.Length)];
+                        WorldGen.KillWall(i, j);
+                        WorldGen.PlaceWall(i, j, wall);
+                    }
+
+                    //Place Tree
+                    if(!tile.HasTile && tileBelow.HasTile)
+                    {
+                        if (WorldGen.genRand.NextBool(4))
+                        {
+                            WorldGen.PlaceTile(i, j, ModContent.TileType<SpringTreeSapling>());
+                            WorldGen.GrowTree(i, j);
+                        }
+                    }
+                }
+            }
+        }
+        #endregion
 
         #region IceBiomeGeneration
 
