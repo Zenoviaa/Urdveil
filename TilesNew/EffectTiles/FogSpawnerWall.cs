@@ -66,7 +66,7 @@ namespace Urdveil.TilesNew.EffectTiles
             fog.startColor = Color.White;
             fog.startScale = new Vector2(Main.rand.NextFloat(0.75f, 1.0f), Main.rand.NextFloat(0.7f, 0.9f)) * 0.9f;
             fog.pulseWidth = Main.rand.NextFloat(0.96f, 0.98f);
-            fog.texture = TrailRegistry.Clouds3;
+            fog.texture = TextureRegistry.Clouds6;
             fog.rotation = Main.rand.NextFloat(-1f, 1f);
             fog.offset = Main.rand.NextVector2Circular(16, 16);
         }
@@ -80,7 +80,7 @@ namespace Urdveil.TilesNew.EffectTiles
         public virtual BaseShader FogShaderFunction()
         {
             var fogShader = FogShader.Instance;
-            fogShader.FogTexture = TrailRegistry.Clouds3;
+            fogShader.FogTexture = TextureRegistry.Clouds6;
             fogShader.ProgressPower = 0.75f;
             fogShader.EdgePower = 1f;
             fogShader.Speed = 1f;
