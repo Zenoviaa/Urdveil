@@ -30,7 +30,7 @@ namespace Urdveil.TilesNew.EffectTiles
             fog.blendState = BlendState.Additive;
             fog.texture = ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/Godray");
             fog.startColor = Color.Transparent;
-            fog.startScale = new Vector2(Main.rand.NextFloat(0.35f, 1.0f), Main.rand.NextFloat(0.3f, 0.9f)) * 2.9f;
+            fog.startScale = new Vector2(Main.rand.NextFloat(0.35f, 1.0f), Main.rand.NextFloat(0.3f, 0.9f)) * 3.5f;
             fog.pulseWidth = Main.rand.NextFloat(0.96f, 0.98f);
             fog.rotation = Main.rand.NextFloat(-0.05f, 0.05f);
             fog.offset = Main.rand.NextVector2Circular(16, 16);
