@@ -5576,6 +5576,16 @@ Mods: {
 				DisplayName: Broken Carraige Block
 				Tooltip: ""
 			}
+
+			StoneObeliskBlock: {
+				DisplayName: Stone Obelisk Block
+				Tooltip: ""
+			}
+
+			StoneTombBlock: {
+				DisplayName: Stone Tomb Block
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {
