@@ -40,11 +40,21 @@ namespace Urdveil.UI.ToolsSystem
             _grid.ListPadding = 2f;
             Append(_grid);
 
-            FogButton fogButton = new FogButton();
+            var fogButton = new FogButton();
             _grid.Add(fogButton);
 
-            UndoButton undoButton = new UndoButton();
+            var undoButton = new UndoButton();
             _grid.Add(undoButton);
+
+            var tilePainterButton = new TilePainterButton();
+            _grid.Add(tilePainterButton);
+
+            var hitboxButton = new HitboxButton();
+            _grid.Add(hitboxButton);
+
+
+            var structureButton = new StructureSelectorButton();
+            _grid.Add(structureButton);
         }
 
         public override void Update(GameTime gameTime)

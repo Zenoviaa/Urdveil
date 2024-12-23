@@ -245,6 +245,11 @@ Mods: {
 				DisplayName: Xix Village
 				TownNPCDialogueName: the Xix Village
 			}
+
+			SpringHillsBiome: {
+				TownNPCDialogueName: the Spring Hills
+				DisplayName: Spring Hills
+			}
 		}
 
 		Items: {
@@ -5584,6 +5589,11 @@ Mods: {
 
 			StoneTombBlock: {
 				DisplayName: Stone Tomb Block
+				Tooltip: ""
+			}
+
+			GodraySpawnerItem: {
+				DisplayName: Godray Spawner Item
 				Tooltip: ""
 			}
 		}

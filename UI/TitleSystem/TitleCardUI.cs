@@ -4,6 +4,7 @@ using Urdveil.Helpers;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
+using ReLogic.Content;
 
 namespace Urdveil.UI.TitleSystem
 {
@@ -21,10 +22,12 @@ namespace Urdveil.UI.TitleSystem
         internal int RelativeTop => 0 + 32;
 
         public bool IsFinished => _timer >= _duration;
+        public Asset<Texture2D> LineTexture;
 
         public override void OnInitialize()
         {
             base.OnInitialize();
+            LineTexture = ModContent.Request<Texture2D>(TitleCardUISystem.RootTexturePath + "Underline");
             Width.Pixels = 48 * 5f;
             Height.Pixels = 48 * 16;
             Left.Pixels = RelativeLeft;
@@ -78,7 +81,7 @@ namespace Urdveil.UI.TitleSystem
 
             float progress = _timer / _duration;
             float easedProgress = Easing.SpikeOutCirc(progress);
-            Texture2D texture = ModContent.Request<Texture2D>(TitleCardUISystem.RootTexturePath + "Underline").Value;
+            Texture2D texture = LineTexture.Value;
 
             float startY = (float)64 / (float)Main.screenHeight;
             float endY = (float)128 / (float)Main.screenHeight;

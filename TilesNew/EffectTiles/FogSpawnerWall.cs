@@ -6,6 +6,9 @@ using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Urdveil.Common.Shaders;
+using Urdveil.Trails;
+using Urdveil.UI.ToolsSystem;
 
 namespace Urdveil.TilesNew.EffectTiles
 {
@@ -46,17 +49,43 @@ namespace Urdveil.TilesNew.EffectTiles
             FogSystem fogSystem = ModContent.GetInstance<FogSystem>();
             Point point = new Point(i, j);
             Fog fog = fogSystem.SetupFog(point, FogCreateFunction);
-            return base.PreDraw(i, j, spriteBatch);
+            fog.updateFunc = FogUpdateFunction;
+            fog.shaderFunc = FogShaderFunction;
+
+            ToolsUISystem uiSystem = ModContent.GetInstance<ToolsUISystem>();
+            if (uiSystem.ShowHitboxes)
+            {
+                TileHelper.DrawInvisTile(i, j, spriteBatch);
+            }
+            return false;
         }
 
-        private void FogCreateFunction(Fog fog)
+        public virtual void FogCreateFunction(Fog fog)
         {
+        
             fog.startColor = Color.White;
             fog.startScale = new Vector2(Main.rand.NextFloat(0.75f, 1.0f), Main.rand.NextFloat(0.7f, 0.9f)) * 0.9f;
             fog.pulseWidth = Main.rand.NextFloat(0.96f, 0.98f);
             fog.texture = TextureRegistry.Clouds6;
             fog.rotation = Main.rand.NextFloat(-1f, 1f);
             fog.offset = Main.rand.NextVector2Circular(16, 16);
+        }
+
+
+        public virtual void FogUpdateFunction(Fog fog)
+        {
+     
+        }
+
+        public virtual BaseShader FogShaderFunction()
+        {
+            var fogShader = FogShader.Instance;
+            fogShader.FogTexture = TrailRegistry.Clouds3;
+            fogShader.ProgressPower = 0.75f;
+            fogShader.EdgePower = 1f;
+            fogShader.Speed = 1f;
+            fogShader.Apply();
+            return fogShader;
         }
     }
 }

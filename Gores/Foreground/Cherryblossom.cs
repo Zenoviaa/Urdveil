@@ -15,13 +15,7 @@ namespace Urdveil.Gores.Foreground
 
         public static int SpawnChance(Player p)
         {
-
-            if (Main.raining)
-                return 5;
-            if (Main._shouldUseWindyDayMusic)
-                return 5;
-
-            return -1;
+            return 5;
         }
 
         public Cherryblossom(Vector2 pos) : base(pos, Vector2.Zero, 1f, "Cherryblossom")

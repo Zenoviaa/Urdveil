@@ -16,6 +16,8 @@ namespace Urdveil.UI.ToolsSystem
 
         public ToolsUIState toolsUIState;
         public TilePainterUIState tilePainterUIState;
+        public bool ShouldDraw => _tilePainterUserInterface.CurrentState != null;
+        public bool ShowHitboxes;
         public override void OnModLoad()
         {
             base.OnModLoad();
@@ -43,14 +45,7 @@ namespace Urdveil.UI.ToolsSystem
             {
                 _tilePainterUserInterface.Update(gameTime);
             }
-            if(Main.LocalPlayer.HeldItem.type == ModContent.ItemType<TilePainterTool>())
-            {
-                ToggleTilePainterUI(true);
-            }
-            else
-            {
-                ToggleTilePainterUI(false);
-            }
+   
 
 
         }
@@ -77,6 +72,17 @@ namespace Urdveil.UI.ToolsSystem
             _userInterface.SetState(null);
         }
 
+        public void ToggleTilePainterUI()
+        {
+            if (_tilePainterUserInterface?.CurrentState != null)
+            {
+                CloseTilePainterUI();
+            }
+            else
+            {
+                OpenTilePainterUI();
+            }
+        }
         public void OpenTilePainterUI()
         {
             _tilePainterUserInterface.SetState(tilePainterUIState);

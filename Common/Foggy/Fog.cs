@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using System;
+using Urdveil.Common.Shaders;
 using Urdveil.Helpers;
 using Urdveil.Systems.MiscellaneousMath;
 
@@ -9,6 +11,11 @@ namespace Urdveil.Common.Foggy
     internal class Fog
     {
         public Asset<Texture2D> texture;
+        public Action<Fog> updateFunc;
+        public Func<BaseShader> shaderFunc;
+        public BlendState blendState;
+        public BaseShader shader;
+        public string texturePath;
         public Point tilePosition;
         public Vector2 position;
         public Vector2 scale;
@@ -19,6 +26,10 @@ namespace Urdveil.Common.Foggy
         public float rotation;
         public float scrollSpeed;
         public float pulseWidth;
+        public Fog()
+        {
+            blendState = BlendState.AlphaBlend;
+        }
 
         public void Update()
         {
@@ -26,6 +37,10 @@ namespace Urdveil.Common.Foggy
             float ep = Easing.SpikeOutCirc(p);
             color = Color.Lerp(startColor * 0.95f, startColor, ep);
             scale = Vector2.Lerp(startScale * pulseWidth, startScale, ep);
+            if(updateFunc != null)
+            {
+                updateFunc(this);
+            }
         }
     }
 }

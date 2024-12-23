@@ -20,8 +20,8 @@ namespace Urdveil.UI.StructureSelector
         internal const int width = 480;
         internal const int height = 155;
 
-        internal int RelativeLeft => 470 + 108;
-        internal int RelativeTop => 0 + 12;
+        internal int RelativeLeft => Main.screenWidth / 2 - (int)Width.Pixels / 2;
+        internal int RelativeTop => Main.screenHeight / 2 - (int)Height.Pixels/ 2;
 
         public StructureSelectorUI() : base()
         {
@@ -88,6 +88,8 @@ namespace Urdveil.UI.StructureSelector
             Left.Pixels = RelativeLeft;
             Top.Pixels = RelativeTop;
             _panel.Height.Pixels = _grid.GetTotalHeight() + 32;
+        
+            _panel.BackgroundColor = Color.Transparent;
             float progress = _panel.Height.Pixels / Height.Pixels;
             progress = MathHelper.Clamp(progress, 0f, 1f);
             _scrollbar.Height.Set(Height.Pixels * progress, 0);

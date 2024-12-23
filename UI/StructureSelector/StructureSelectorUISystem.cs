@@ -43,25 +43,15 @@ namespace Urdveil.UI.StructureSelector
             {
                 _saveUserInterface.Update(gameTime);
             }
-
-
-            if (Main.LocalPlayer.HeldItem.type == ModContent.ItemType<ModelizingPlacer>())
-            {
-                ToggleUI(true);
-            }
-            else
-            {
-                ToggleUI(false);
-            }
         }
 
-        internal void ToggleUI(bool isOn)
+        internal void ToggleUI()
         {
-            if (_userInterface?.CurrentState != null && !isOn)
+            if (_userInterface?.CurrentState != null)
             {
                 CloseUI();
             }
-            else if (_userInterface?.CurrentState == null && isOn)
+            else if (_userInterface?.CurrentState == null)
             {
                 OpenUI();
             }

@@ -81,6 +81,7 @@
     <None Remove="Effects\CrystalShaders\Fog.fx" />
     <None Remove="Effects\CrystalShaders\Foggy.fx" />
     <None Remove="Effects\CrystalShaders\GlowPillar.fx" />
+    <None Remove="Effects\CrystalShaders\Godray.fx" />
     <None Remove="Effects\CrystalShaders\L.png" />
     <None Remove="Effects\CrystalShaders\LightningBolt.fx" />
     <None Remove="Effects\CrystalShaders\MagicIce.fx" />
@@ -563,6 +564,7 @@
     <None Remove="TilesNew\AnimatedBackgroundWallTest_S.png" />
     <None Remove="TilesNew\EffectTiles\FogSpawnerBlock.png" />
     <None Remove="TilesNew\EffectTiles\FogSpawnerWallItem.png" />
+    <None Remove="TilesNew\EffectTiles\GodraySpawnerItem.png" />
     <None Remove="TilesNew\Fable\FableBar_S.png" />
     <None Remove="TilesNew\Fable\FableBench_S.png" />
     <None Remove="TilesNew\Fable\FableBigMushroom_S.png" />

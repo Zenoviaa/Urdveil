@@ -6,6 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using Urdveil.TilesNew;
+using Urdveil.Common.Foggy;
+using Urdveil.UI.ToolsSystem;
 
 namespace Urdveil.Tiles
 {
@@ -72,6 +74,8 @@ namespace Urdveil.Tiles
             TopDown,
             Center
         }
+        private float _hoverLerp;
+        private bool _shouldClick;
         public Color StructureColor { get; set; }
         public override string Texture => (this.GetType().FullName + "_S").Replace(".", "/");
         public string StructureTexture { get; set; }
@@ -87,13 +91,22 @@ namespace Urdveil.Tiles
         public float WindSwaySpeed { get; set; } = 0f;
         public bool BlackIsTransparency { get; set; } = false;
         public bool IgnoreLightning { get; set; } = false;
+        public Color ClickColor { get; set; }
+        public Action HoverFunc { get; set; }
+        public Action ClickFunc { get; set; }
         public override void SetStaticDefaults()
         {
             StructureColor = Color.White;
             StructureTexture = this.GetType().FullName + "_S";
             StructureTexture = StructureTexture.Replace(".", "/");
             Main.wallHouse[Type] = false;
+
             AddMapEntry(new Color(200, 200, 200));
+        }
+
+        public override bool Drop(int i, int j, ref int type)
+        {
+            return false;
         }
 
         public void DrawItem(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
@@ -125,6 +138,8 @@ namespace Urdveil.Tiles
 
         public void DrawDecor(int i, int j, SpriteBatch spriteBatch)
         {
+    
+
             Color color2 = Lighting.GetColor(i, j);
             Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
             int textureWidth = texture.Width;
@@ -187,10 +202,79 @@ namespace Urdveil.Tiles
             offset += i * 10;
             offset += j * 10;
             float leafSway = GetLeafSway(offset, WindSwayMagnitude, WindSwaySpeed);
+            bool isMouseHovering = false;
+            if(ClickFunc != null)
+            {
 
+                Rectangle rectangle = new Rectangle((int)(drawPos.X - drawOrigin.X), (int)(drawPos.Y - drawOrigin.Y), texture.Width, texture.Height);
+                isMouseHovering = rectangle.Contains(Main.MouseWorld.ToPoint());
+                if (isMouseHovering)
+                {
+                    if (Main.mouseLeft)
+                    {
+                        _shouldClick = true;
+                    }
+                    if(Main.mouseLeftRelease && _shouldClick)
+                    {
+                        ClickFunc();
+                        _shouldClick = false;
+                    }
+                }
+                else
+                {
+           
+                }
+                drawColor = drawColor.MultiplyRGB(Color.Lerp(Color.White, Color.Goldenrod, _hoverLerp * 5));
+            }
+
+            if (isMouseHovering)
+            {
+                float o = 2;
+                var shader = ShaderRegistry.MiscSilPixelShader;
+                Color outlineColor = new Color(255, 246, 0);
+
+                //The color to lerp to
+                shader.UseColor(outlineColor);
+
+                //Should be between 0-1
+                //1 being fully opaque
+                //0 being the original color
+                shader.UseSaturation(1f);
+
+                // Call Apply to apply the shader to the SpriteBatch. Only 1 shader can be active at a time.
+                shader.Apply(null);
+
+                spriteBatch.Restart(sortMode: SpriteSortMode.Immediate, blendState: BlendState.AlphaBlend, effect: shader.Shader);
+
+                spriteBatch.Draw(texture,
+                        drawPos - Main.screenPosition + Vector2.UnitX * o,
+                        drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition - Vector2.UnitX * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition + Vector2.UnitY * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition - Vector2.UnitY * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+
+                spriteBatch.RestartDefaults();
+                if(HoverFunc != null)
+                {
+                    HoverFunc();
+                }
+   
+            }
             spriteBatch.Draw(texture,
                 drawPos - Main.screenPosition,
-                drawFrame, drawColor, leafSway, drawOrigin, DrawScale, GetSpriteEffects(i, j), 0);
+                drawFrame, drawColor, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+
+            ToolsUISystem uiSystem = ModContent.GetInstance<ToolsUISystem>();
+            if (uiSystem.ShowHitboxes)
+            {
+                TileHelper.DrawInvisTileNoAdj(i, j, spriteBatch);
+            }
         }
         private bool _drawAlpha;
         public override void DrawPreview(int i, int j)

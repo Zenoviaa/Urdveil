@@ -37,12 +37,8 @@ namespace Urdveil.Backgrounds
 
         public override int ChooseCloseTexture(ref float scale, ref double parallax, ref float a, ref float b)
         {
-
-
-            scale = 0.66f;
             parallax = 0.3;
             //b = 1400;
-
             return BackgroundTextureLoader.GetBackgroundSlot("Urdveil/Assets/Textures/Backgrounds/StarbloomBiomeBackground");
 
 

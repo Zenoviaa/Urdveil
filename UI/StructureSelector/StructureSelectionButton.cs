@@ -6,6 +6,7 @@ using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.UI;
+using Urdveil.Helpers;
 
 namespace Urdveil.UI.StructureSelector
 {
@@ -17,6 +18,7 @@ namespace Urdveil.UI.StructureSelector
         private readonly UIPanel _panel;
         internal const int width = 420;
         internal const int height = 28;
+
         public StructureSelectionButton(string structurePath)
         {
             _structurePath = structurePath.Replace(".str", "");
@@ -68,6 +70,7 @@ namespace Urdveil.UI.StructureSelector
             if (IsMouseHovering)
             {
                 _panel.BackgroundColor = Color.Lerp(_panel.BackgroundColor, Color.Goldenrod * 0.5f, 0.1f);
+     
             }
             else
             {

@@ -10,6 +10,58 @@ namespace Urdveil.Common.Skies
 {
     public class CloudySky : CustomSky
     {
+        private float DayProgress
+        {
+            get
+            {
+                if (Main.dayTime)
+                {
+                    float dayProgress = (float)Main.time / (float)Main.dayLength;
+                    return dayProgress;
+                }
+                else if (!Main.dayTime)
+                {
+                    float dayProgress = (float)Main.time / (float)Main.nightLength;
+                    return dayProgress;
+                }
+                else
+                {
+                    return 0f;
+                }
+
+            }
+        }
+        private Color LightColor
+        {
+            get
+            {
+
+                Color lightColor;
+                if (Main.dayTime)
+                {
+                    Color startColor = Color.Lerp(Color.Purple, Color.White, DayProgress * 4);
+
+                    float endProgress = 0f;
+                    if(DayProgress > 0.9f)
+                    {
+                        endProgress = (DayProgress - 0.9f) / 0.1f;
+                    }
+                    Color endColor = Color.Lerp(Color.OrangeRed, Color.Violet, endProgress);
+                    lightColor = Color.Lerp(startColor, endColor, DayProgress);
+                    lightColor *= 0.5f;
+                }
+                else
+                {
+                    Color startColor = Color.Lerp(Color.Violet, Color.White, DayProgress * 4);
+                    Color endColor = Color.Lerp(Color.White, Color.Purple, DayProgress);
+                    lightColor = Color.Lerp(startColor, endColor, DayProgress);
+                    lightColor *= 0.24f;
+                }
+
+                return lightColor;
+            }
+        }
+        private Color CloudColor;
         private Vector2 _parallax;
         private Vector2 _lastCameraPos;
         private bool _active;
@@ -41,6 +93,7 @@ namespace Urdveil.Common.Skies
         {
             Parallax();
             Wind();
+            CloudColor = Color.Lerp(CloudColor, LightColor, 0.1f);
         }
 
         private void Parallax()
@@ -95,7 +148,7 @@ namespace Urdveil.Common.Skies
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, eff.Shader, Main.BackgroundViewMatrix.TransformationMatrix);
 
-            spriteBatch.Draw(texture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * 0.3f);
+            spriteBatch.Draw(texture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), CloudColor);
 
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.BackgroundViewMatrix.TransformationMatrix);
@@ -107,9 +160,6 @@ namespace Urdveil.Common.Skies
             var texture = ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/Clouds3");
             var cloudTexture = ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/ColorMap");
             MiscShaderData eff = ShaderRegistry.CloudsShader;
-            if (!Main.dayTime)
-                eff = ShaderRegistry.NightCloudsShader;
-
             eff.UseImage1(texture);
             eff.UseImage2(cloudTexture);
             eff.Shader.Parameters["uImageOffset"].SetValue(-_parallax * 0.0005f);
@@ -124,7 +174,7 @@ namespace Urdveil.Common.Skies
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, eff.Shader, Main.BackgroundViewMatrix.TransformationMatrix);
 
-            spriteBatch.Draw(texture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * 0.3f);
+            spriteBatch.Draw(texture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), CloudColor);
 
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.BackgroundViewMatrix.TransformationMatrix);
@@ -135,8 +185,6 @@ namespace Urdveil.Common.Skies
             var texture = ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/Clouds2");
             var cloudTexture = ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/ColorMap");
             MiscShaderData eff = ShaderRegistry.CloudsShader;
-            if (!Main.dayTime)
-                eff = ShaderRegistry.NightCloudsShader;
 
             eff.UseImage1(texture);
             eff.UseImage2(cloudTexture);
@@ -152,7 +200,7 @@ namespace Urdveil.Common.Skies
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, eff.Shader, Main.BackgroundViewMatrix.TransformationMatrix);
 
-            spriteBatch.Draw(texture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * 0.3f);
+            spriteBatch.Draw(texture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), CloudColor);
 
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.BackgroundViewMatrix.TransformationMatrix);
@@ -168,7 +216,6 @@ namespace Urdveil.Common.Skies
             eff.UseImage2(cloudTexture);
             eff.Shader.Parameters["uImageOffset"].SetValue(-_parallax * 0.0011f);
 
-
             float opacity = !Main.dayTime ? 0.06f : 1.0f;
             eff.Shader.Parameters["uIntensity"].SetValue(opacity);
             eff.Shader.Parameters["uProgress"].SetValue(0.15f);
@@ -178,7 +225,7 @@ namespace Urdveil.Common.Skies
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, eff.Shader, Main.BackgroundViewMatrix.TransformationMatrix);
 
-            spriteBatch.Draw(texture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), Color.White * 0.3f);
+            spriteBatch.Draw(texture.Value, new Rectangle(0, 0, Main.screenWidth, Main.screenHeight), CloudColor);
 
             spriteBatch.End();
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, Main.DefaultSamplerState, DepthStencilState.None, Main.Rasterizer, null, Main.BackgroundViewMatrix.TransformationMatrix);
