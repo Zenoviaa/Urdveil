@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿
+using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,16 +28,22 @@ namespace Urdveil.UI.ToolsSystem
         public TilePainterUI() : base()
         {
             _grid = new();
-            var modTiles = Urdveil.Instance.GetContent<ModTile>().ToArray();
-            for(int i = 0; i < modTiles.Length; i++)
+            var modTiles = Urdveil.Instance.GetContent<ModTile>().ToList();
+            var modWalls = Urdveil.Instance.GetContent<ModWall>().ToList();
+
+            modTiles.Sort((x, y) => x.Name.CompareTo(y.Name));
+
+            modWalls.Sort((x, y) => x.Name.CompareTo(y.Name));
+            for (int i = 0; i < modTiles.Count; i++)
             {
                 ModTile modTile = modTiles[i];
+          
                 TilePainterSlot slot = new TilePainterSlot(tileType: modTile.Type);
                 _grid.Add(slot);    
             }
 
-            var modWalls = Urdveil.Instance.GetContent<ModWall>().ToArray();
-            for (int i = 0; i < modWalls.Length; i++)
+          
+            for (int i = 0; i < modWalls.Count; i++)
             {
                 ModWall modWall = modWalls[i];
                 TilePainterSlot slot = new TilePainterSlot(wallType: modWall.Type);

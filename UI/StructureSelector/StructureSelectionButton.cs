@@ -6,6 +6,7 @@ using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.UI;
+using Urdveil.Helpers;
 
 namespace Urdveil.UI.StructureSelector
 {
@@ -61,7 +62,7 @@ namespace Urdveil.UI.StructureSelector
         {
             base.Update(gameTime);
             bool contains = ContainsPoint(Main.MouseScreen);
-            if (contains && !PlayerInput.IgnoreMouseInterface && Parent.Parent.ContainsPoint(Main.MouseScreen))
+            if (contains && !PlayerInput.IgnoreMouseInterface)
             {
                 Main.LocalPlayer.mouseInterface = true;
             }
@@ -69,6 +70,7 @@ namespace Urdveil.UI.StructureSelector
             if (IsMouseHovering)
             {
                 _panel.BackgroundColor = Color.Lerp(_panel.BackgroundColor, Color.Goldenrod * 0.5f, 0.1f);
+     
             }
             else
             {

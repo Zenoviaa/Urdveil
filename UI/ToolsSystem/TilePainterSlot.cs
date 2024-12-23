@@ -77,6 +77,13 @@ namespace Urdveil.UI.ToolsSystem
             if (IsMouseHovering)
             {
                 DrawColor = Color.Lerp(DrawColor, Color.Goldenrod, 0.1f);
+                string name = ModWall != null ? ModWall.Name : string.Empty;
+                if(string.IsNullOrEmpty(name))
+                    name = ModTile != null ? ModTile.Name : string.Empty;
+                Player player = Main.LocalPlayer;
+                player.cursorItemIconID = -1;
+                player.cursorItemIconText = name;
+                player.cursorItemIconEnabled = true;
             }
             else
             {

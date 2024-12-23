@@ -78,7 +78,7 @@ namespace Urdveil.UI.ToolsSystem
             if (!ShouldDraw)
                 return;
 
-            if (Main.mouseLeft)
+            if (Main.LocalPlayer.controlUseItem && Main.mouseLeft)
             {
                 if (SelectedTile != null)
                 {
@@ -97,7 +97,7 @@ namespace Urdveil.UI.ToolsSystem
                     WorldGen.PlaceWall(i, j, SelectedWall.Type);
                 }
             }
-            else if (Main.mouseRight)
+            else if (Main.LocalPlayer.controlUseItem && Main.mouseRight)
             {
             
                 if (SelectedTile != null)
