@@ -16,21 +16,15 @@ namespace Urdveil.TilesNew.SpringHills
             Main.tileMergeDirt[Type] = true;
             Main.tileBlockLight[Type] = true;
             RegisterItemDrop(ModContent.ItemType<SpringGrassBlock>());
-            // DustType = Main.rand.Next(110, 113);
-
             MineResist = 1f;
             MinPick = 50;
-
             AddMapEntry(new Color(110, 74, 51));
-
-            // TODO: implement
-            // SetModTree(new Trees.ExampleTree());
         }
+
         public override void NumDust(int i, int j, bool fail, ref int num)
         {
             num = fail ? 1 : 3;
         }
-        public override bool CanExplode(int i, int j) => false;
 
         public override void RandomUpdate(int i, int j)
         {
