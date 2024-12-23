@@ -5596,6 +5596,11 @@ Mods: {
 				DisplayName: Godray Spawner Item
 				Tooltip: ""
 			}
+
+			TheUrdveilDoorItem: {
+				DisplayName: The Urdveil Door Item
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {

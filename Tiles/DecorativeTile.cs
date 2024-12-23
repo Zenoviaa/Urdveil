@@ -91,6 +91,8 @@ namespace Urdveil.Tiles
         public float WindSwaySpeed { get; set; } = 0f;
         public bool BlackIsTransparency { get; set; } = false;
         public bool IgnoreLightning { get; set; } = false;
+
+        public float Alpha { get; set; } = 1f;
         public Color ClickColor { get; set; }
         public Action HoverFunc { get; set; }
         public Action ClickFunc { get; set; }
@@ -197,7 +199,7 @@ namespace Urdveil.Tiles
                 drawColor *= 0.5f;
                 _drawAlpha = false;
             }
-
+      
             float offset = WindSwayOffset;
             offset += i * 10;
             offset += j * 10;
@@ -226,6 +228,7 @@ namespace Urdveil.Tiles
                 }
                 drawColor = drawColor.MultiplyRGB(Color.Lerp(Color.White, Color.Goldenrod, _hoverLerp * 5));
             }
+            drawColor *= Alpha;
 
             if (isMouseHovering)
             {

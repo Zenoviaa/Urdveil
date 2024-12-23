@@ -1,11 +1,21 @@
 ﻿using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
+using Terraria.ModLoader;
 using Urdveil.Helpers;
 using Urdveil.Tiles;
 
 namespace Urdveil.TilesNew.EffectTiles
 {
+    internal class TheUrdveilDoorItem : DecorativeWallItem
+    {
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Item.createWall = ModContent.WallType<TheUrdveilDoor>();
+        }
+    }
+
     internal class TheUrdveilDoor : DecorativeWall
     {
         public override void SetStaticDefaults()
@@ -13,6 +23,7 @@ namespace Urdveil.TilesNew.EffectTiles
             base.SetStaticDefaults();
             //Number of frames in the animation
             FrameCount = 1;
+   
             Origin = DrawOrigin.BottomUp;
             ClickFunc = UseDoor;
             HoverFunc = HoverOver;

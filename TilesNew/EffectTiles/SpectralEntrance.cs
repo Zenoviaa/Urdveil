@@ -35,7 +35,7 @@ namespace Urdveil.TilesNew.EffectTiles
             HorizontalFrameCount = 5;
             VerticalFrameCount = 8;
             Origin = DrawOrigin.BottomUp;
-
+            Alpha = 0.5f;
             //How fast the animation is
             FrameSpeed = 30;
 
@@ -45,7 +45,6 @@ namespace Urdveil.TilesNew.EffectTiles
             //If this is set to true, wall tiles will offset their animation so they're not all synced
             DesyncAnimations = false;
             BlackIsTransparency = true;
-            IgnoreLightning = true;
         }
 
     }
