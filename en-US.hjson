@@ -5486,6 +5486,11 @@ Mods: {
 				DisplayName: Veil Gen Tester
 				Tooltip: ""
 			}
+
+			StoneUnderBlock: {
+				DisplayName: Stone Under Block
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {
