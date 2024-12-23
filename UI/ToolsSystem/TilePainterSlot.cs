@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
-using Terraria.GameContent;
 using Terraria.GameInput;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -36,11 +35,11 @@ namespace Urdveil.UI.ToolsSystem
             // We can do stuff in here!
             if (ModTile != null)
             {
-                TilePainterTool.SelectTile(ModTile);
+                Main.LocalPlayer.GetModPlayer<TilePainterPlayer>().SelectTile(ModTile);
             }
             else if (ModWall != null)
             {
-                TilePainterTool.SelectWall(ModWall);
+                Main.LocalPlayer.GetModPlayer<TilePainterPlayer>().SelectWall(ModWall);
             }
             SoundEngine.PlaySound(SoundID.MenuTick);
         }

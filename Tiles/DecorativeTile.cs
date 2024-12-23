@@ -6,6 +6,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System;
 using Urdveil.TilesNew;
+using Urdveil.Common.Foggy;
+using Urdveil.UI.ToolsSystem;
 
 namespace Urdveil.Tiles
 {
@@ -125,6 +127,8 @@ namespace Urdveil.Tiles
 
         public void DrawDecor(int i, int j, SpriteBatch spriteBatch)
         {
+    
+
             Color color2 = Lighting.GetColor(i, j);
             Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
             int textureWidth = texture.Width;
@@ -191,6 +195,12 @@ namespace Urdveil.Tiles
             spriteBatch.Draw(texture,
                 drawPos - Main.screenPosition,
                 drawFrame, drawColor, leafSway, drawOrigin, DrawScale, GetSpriteEffects(i, j), 0);
+
+            ToolsUISystem uiSystem = ModContent.GetInstance<ToolsUISystem>();
+            if (uiSystem.ShowHitboxes)
+            {
+                TileHelper.DrawInvisTileNoAdj(i, j, spriteBatch);
+            }
         }
         private bool _drawAlpha;
         public override void DrawPreview(int i, int j)

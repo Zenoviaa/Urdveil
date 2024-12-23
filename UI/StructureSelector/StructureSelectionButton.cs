@@ -17,6 +17,7 @@ namespace Urdveil.UI.StructureSelector
         private readonly UIPanel _panel;
         internal const int width = 420;
         internal const int height = 28;
+
         public StructureSelectionButton(string structurePath)
         {
             _structurePath = structurePath.Replace(".str", "");
@@ -60,7 +61,7 @@ namespace Urdveil.UI.StructureSelector
         {
             base.Update(gameTime);
             bool contains = ContainsPoint(Main.MouseScreen);
-            if (contains && !PlayerInput.IgnoreMouseInterface)
+            if (contains && !PlayerInput.IgnoreMouseInterface && Parent.Parent.ContainsPoint(Main.MouseScreen))
             {
                 Main.LocalPlayer.mouseInterface = true;
             }

@@ -45,6 +45,12 @@ namespace Urdveil.UI.ToolsSystem
 
             UndoButton undoButton = new UndoButton();
             _grid.Add(undoButton);
+
+            TilePainterButton tilePainterButton = new TilePainterButton();
+            _grid.Add(tilePainterButton);
+
+            HitboxButton hitboxButton = new HitboxButton();
+            _grid.Add(hitboxButton);
         }
 
         public override void Update(GameTime gameTime)

@@ -5586,6 +5586,11 @@ Mods: {
 				DisplayName: Stone Tomb Block
 				Tooltip: ""
 			}
+
+			GodraySpawnerItem: {
+				DisplayName: Godray Spawner Item
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {

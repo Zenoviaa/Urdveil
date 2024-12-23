@@ -25,7 +25,8 @@ namespace Urdveil.UI.ToolsSystem
         public override void AI()
         {
             base.AI();
-            if (Owner.HeldItem.type != ModContent.ItemType<TilePainterTool>())
+            TilePainterPlayer painter = Owner.GetModPlayer<TilePainterPlayer>();
+            if (!painter.ShouldDraw)
                 Projectile.Kill();
 
 
@@ -42,18 +43,19 @@ namespace Urdveil.UI.ToolsSystem
             SpriteBatch spriteBatch = Main.spriteBatch;
             Color drawColor = Color.White * 0.5f;
             Vector2 drawPos = Projectile.position - Main.screenPosition;
-            if (TilePainterTool.SelectedTile != null)
+            TilePainterPlayer painter = Owner.GetModPlayer<TilePainterPlayer>();
+            if (painter.SelectedTile != null)
             {
-                if (TilePainterTool.SelectedTile is BaseSpecialTile specialTile)
+                if (painter.SelectedTile is BaseSpecialTile specialTile)
                 {
                     int i = (int)(Projectile.position.X / 16);
                     int j = (int)(Projectile.position.Y / 16);
                     specialTile.DrawPreview(i, j);
                 }
             }
-            else if (TilePainterTool.SelectedWall != null)
+            else if (painter.SelectedWall != null)
             {
-                if (TilePainterTool.SelectedWall is BaseSpecialWall specialTile)
+                if (painter.SelectedWall is BaseSpecialWall specialTile)
                 {
                     int i = (int)(Projectile.position.X / 16);
                     int j = (int)(Projectile.position.Y / 16);
@@ -63,93 +65,76 @@ namespace Urdveil.UI.ToolsSystem
             return base.PreDraw(ref lightColor);
         }
     }
-    internal class TilePainterTool : ModItem
+    internal class TilePainterPlayer : ModPlayer
     {
-        private bool _erase;
-        public static ModTile SelectedTile { get; set; }
-        public static ModWall SelectedWall { get; set; }
-        public override void SetDefaults()
+        public ModTile SelectedTile { get; set; }
+        public ModWall SelectedWall { get; set; }
+        public bool ShouldDraw => SelectedTile != null || SelectedWall != null && ModContent.GetInstance<ToolsUISystem>().ShouldDraw;
+
+        public override void PostUpdate()
         {
-            base.SetDefaults();
-            Item.width = 16;
-            Item.height = 16;
-            Item.useAnimation = 1;
-            Item.useTime = 1;
-            Item.useStyle = ItemUseStyleID.Swing;
-            Item.channel = true;
-            Item.autoReuse = true;
-        }
+            base.PostUpdate();
+            bool shouldDraw = SelectedTile != null || SelectedWall != null;
+            if (!ShouldDraw)
+                return;
 
-        public static void SelectTile(ModTile modTile)
-        {
-            SelectedTile = modTile;
-            SelectedWall = null;
-        }
-        public static void SelectWall(ModWall modWall)
-        {
-            SelectedWall = modWall;
-            SelectedTile = null;
-        }
-        public override void UpdateInventory(Player player)
-        {
-            base.UpdateInventory(player);
-            if (player.HeldItem.type == Type)
-            {
-                int x = (int)Main.MouseWorld.X / 16;
-                int y = (int)Main.MouseWorld.Y / 16;
-                Dust.QuickBox(new Vector2(x, y) * 16, new Vector2(x + 1, y + 1) * 16, 2, Color.Red, null);
-                if (player.ownedProjectileCounts[ModContent.ProjectileType<TilePainterPreview>()] == 0)
-                {
-                    Projectile.NewProjectile(player.GetSource_FromThis(), player.position, Vector2.Zero, ModContent.ProjectileType<TilePainterPreview>(), 1, 1, player.whoAmI);
-                }
-
-            }
-            else
-            {
-
-            }
-        }
-
-
-        public override bool AltFunctionUse(Player player)
-        {
-            return true;
-        }
-
-
-        public override bool? UseItem(Player player)
-        {
-            if (player.altFunctionUse == 2)
+            if (Main.mouseLeft)
             {
                 if (SelectedTile != null)
                 {
+                    Player.itemAnimation = 12;
+                    Player.itemTime = 12;
+                    int i = (int)Main.MouseWorld.X / 16;
+                    int j = (int)Main.MouseWorld.Y / 16;
+                    SelectedTile.PlaceInWorld(i, j, new Item(0));
+                }
+                else if (SelectedWall != null)
+                {
+                    Player.itemAnimation = 12;
+                    Player.itemTime = 12;
+                    int i = (int)Main.MouseWorld.X / 16;
+                    int j = (int)Main.MouseWorld.Y / 16;
+                    WorldGen.PlaceWall(i, j, SelectedWall.Type);
+                }
+            }
+            else if (Main.mouseRight)
+            {
+            
+                if (SelectedTile != null)
+                {
+                    Player.itemAnimation = 12;
+                    Player.itemTime = 12;
                     int i = (int)Main.MouseWorld.X / 16;
                     int j = (int)Main.MouseWorld.Y / 16;
                     WorldGen.KillTile(i, j);
                 }
                 else if (SelectedWall != null)
                 {
+                    Player.itemAnimation = 12;
+                    Player.itemTime = 12;
                     int i = (int)Main.MouseWorld.X / 16;
                     int j = (int)Main.MouseWorld.Y / 16;
                     WorldGen.KillWall(i, j);
                 }
             }
-            else
+
+            int x = (int)Main.MouseWorld.X / 16;
+            int y = (int)Main.MouseWorld.Y / 16;
+            Dust.QuickBox(new Vector2(x, y) * 16, new Vector2(x + 1, y + 1) * 16, 2, Color.Red, null);
+            if (Player.ownedProjectileCounts[ModContent.ProjectileType<TilePainterPreview>()] == 0)
             {
-                if (SelectedTile != null)
-                {
-                    int i = (int)Main.MouseWorld.X / 16;
-                    int j = (int)Main.MouseWorld.Y / 16;
-                    SelectedTile.PlaceInWorld(i, j, Item);
-                }
-                else if (SelectedWall != null)
-                {
-                    int i = (int)Main.MouseWorld.X / 16;
-                    int j = (int)Main.MouseWorld.Y / 16;
-                    WorldGen.PlaceWall(i, j, SelectedWall.Type);
-                }
+                Projectile.NewProjectile(Player.GetSource_FromThis(), Player.position, Vector2.Zero, ModContent.ProjectileType<TilePainterPreview>(), 1, 1, Player.whoAmI);
             }
-            return true;
+        }
+        public void SelectTile(ModTile modTile)
+        {
+            SelectedTile = modTile;
+            SelectedWall = null;
+        }
+        public void SelectWall(ModWall modWall)
+        {
+            SelectedWall = modWall;
+            SelectedTile = null;
         }
     }
 }
