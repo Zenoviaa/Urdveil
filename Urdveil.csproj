@@ -81,6 +81,7 @@
     <None Remove="Effects\CrystalShaders\Fog.fx" />
     <None Remove="Effects\CrystalShaders\Foggy.fx" />
     <None Remove="Effects\CrystalShaders\GlowPillar.fx" />
+    <None Remove="Effects\CrystalShaders\Godray.fx" />
     <None Remove="Effects\CrystalShaders\L.png" />
     <None Remove="Effects\CrystalShaders\LightningBolt.fx" />
     <None Remove="Effects\CrystalShaders\MagicIce.fx" />
