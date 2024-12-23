@@ -245,6 +245,11 @@ Mods: {
 				DisplayName: Xix Village
 				TownNPCDialogueName: the Xix Village
 			}
+
+			SpringHillsBiome: {
+				TownNPCDialogueName: the Spring Hills Biome
+				DisplayName: Spring Hills Biome
+			}
 		}
 
 		Items: {

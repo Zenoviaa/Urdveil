@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
-using Urdveil.Helpers;
 using System;
 using Terraria;
-
+using Urdveil.Helpers;
 namespace Urdveil.Gores.Foreground
 {
-
-
-
-    public class Cherryblossom : ParallaxHelper
+    public class SpringFallingFlower : ParallaxHelper
     {
         private int timer = 0;
         private int offscreenTimer = 0;
@@ -18,19 +14,11 @@ namespace Urdveil.Gores.Foreground
             return 5;
         }
 
-        public Cherryblossom(Vector2 pos) : base(pos, Vector2.Zero, 1f, "Cherryblossom")
+        public SpringFallingFlower(Vector2 pos) : base(pos, Vector2.Zero, 1f, "SpringFallingFlower")
         {
             parallax = Main.rand.Next(25, 150) * 0.01f;
             scale = parallax + 0.5f;
-
-            source = new Rectangle(0, 0, 20, 22);
-            int r = Main.rand.Next(30);
-            if (r < 4)
-                source.Y = 23;
-            else if (r > 25)
-                source.Y = 46;
-            else
-                source.Y = Main.rand.NextBool() ? 0 : 69;
+            source = new Rectangle(0, Main.rand.Next(9) * 16, 16, 16);
         }
 
         public override void Update()
@@ -56,7 +44,6 @@ namespace Urdveil.Gores.Foreground
             Color lightColour = Lighting.GetColor((int)(drawPosition.X / 16f), (int)(drawPosition.Y / 16f));
             Color frontColour = (position.Y / 16f < Main.worldSurface) ? Main.ColorOfTheSkies : new Color(85, 85, 85);
             drawColor = Color.Lerp(lightColour, frontColour, (parallax - (0.25f)) / 1.25f);
-
             base.Draw();
         }
     }
