@@ -40,6 +40,7 @@ namespace Urdveil.TilesNew.SpringHills
 
             //How fast it sways
             WindSwaySpeed = 0.01f;
+
         }
     }
 }

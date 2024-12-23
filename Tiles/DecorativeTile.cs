@@ -175,7 +175,11 @@ namespace Urdveil.Tiles
                 drawColor.A = 0;
             }
 
-            float leafSway = GetLeafSway(WindSwayOffset, WindSwayMagnitude, WindSwaySpeed);
+            float offset = WindSwayOffset;
+            offset += i * 10;
+            offset += j * 10;
+            float leafSway = GetLeafSway(offset, WindSwayMagnitude, WindSwaySpeed);
+
             spriteBatch.Draw(texture,
                 drawPos - Main.screenPosition,
                 drawFrame, drawColor, leafSway, drawOrigin, DrawScale, SpriteEffects.None, 0);
@@ -287,7 +291,12 @@ namespace Urdveil.Tiles
                     drawOrigin = new Vector2(drawFrame.Width / 2, drawFrame.Height / 2);
                     break;
             }
-            float leafSway = GetLeafSway(WindSwayOffset, WindSwayMagnitude, WindSwaySpeed);
+            float offset = WindSwayOffset;
+            offset += i * 10;
+            offset += j * 10;
+
+            float leafSway = GetLeafSway(offset, WindSwayMagnitude, WindSwaySpeed);
+   
             Color drawColor = StructureColor;
             if (!IgnoreLightning)
             {
