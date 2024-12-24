@@ -158,12 +158,16 @@ namespace Urdveil.WorldG
                 //seperation
                 spawnY += 1;
             }
-
+        
             Point Loc = new Point(spawnX, spawnY);
             Loc.Y += 12;
             Loc.X -= 750;
             Structurizer.ProtectStructure(Loc, path);
-            int[] ChestIndexs = Structurizer.ReadStruct(Loc, path);
+            int[] tileBlend = new int[]
+            {
+                TileID.RubyGemspark
+            };
+            int[] ChestIndexs = Structurizer.ReadStruct(Loc, path, tileBlend);
 
             int left = Loc.X ;
             int right = Loc.X + 1500;

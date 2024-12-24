@@ -43,6 +43,10 @@ namespace Urdveil.TilesNew.EffectTiles
         }
 
         public override bool CanExplode(int i, int j) => false;
+        public override bool Drop(int i, int j, ref int type)
+        {
+            return false;
+        }
 
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
