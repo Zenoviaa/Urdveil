@@ -5601,6 +5601,86 @@ Mods: {
 				DisplayName: The Urdveil Door Item
 				Tooltip: ""
 			}
+
+			HangingSpringPotFlowerItem: {
+				Tooltip: ""
+				DisplayName: Hanging Spring Pot Flower Item
+			}
+
+			HangingSpringPotFlowerBlueItem: {
+				Tooltip: ""
+				DisplayName: Hanging Spring Pot Flower Blue Item
+			}
+
+			HangingSpringPotFlowerPinkItem: {
+				DisplayName: Hanging Spring Pot Flower Pink Item
+				Tooltip: ""
+			}
+
+			HangingSpringPotFlowerRedItem: {
+				DisplayName: Hanging Spring Pot Flower Red Item
+				Tooltip: ""
+			}
+
+			SpringPatch1Item: {
+				DisplayName: Spring Patch1 Item
+				Tooltip: ""
+			}
+
+			SpringPatch2Item: {
+				DisplayName: Spring Patch2 Item
+				Tooltip: ""
+			}
+
+			SpringPatch3Item: {
+				DisplayName: Spring Patch3 Item
+				Tooltip: ""
+			}
+
+			SpringPotFlowerBlueItem: {
+				DisplayName: Spring Pot Flower Blue Item
+				Tooltip: ""
+			}
+
+			SpringPotFlowerItem: {
+				DisplayName: Spring Pot Flower Item
+				Tooltip: ""
+			}
+
+			SpringPotFlowerPinkItem: {
+				DisplayName: Spring Pot Flower Pink Item
+				Tooltip: ""
+			}
+
+			SpringPotFlowerRedItem: {
+				DisplayName: Spring Pot Flower Red Item
+				Tooltip: ""
+			}
+
+			SpringRockItem: {
+				DisplayName: Spring Rock Item
+				Tooltip: ""
+			}
+
+			SpringRockMossyItem: {
+				DisplayName: Spring Rock Mossy Item
+				Tooltip: ""
+			}
+
+			SpringRockPinkItem: {
+				DisplayName: Spring Rock Pink Item
+				Tooltip: ""
+			}
+
+			SpringRockTinyItem: {
+				DisplayName: Spring Rock Tiny Item
+				Tooltip: ""
+			}
+
+			SpringTabletItem: {
+				DisplayName: Spring Tablet Item
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {
