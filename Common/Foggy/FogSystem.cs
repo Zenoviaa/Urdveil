@@ -76,7 +76,7 @@ namespace Urdveil.Common.Foggy
             orig(self);
             if (doDraws)
             {
-                var texture = TrailRegistry.Clouds3;
+                var texture = TextureRegistry.Clouds6;
                 SpriteBatch spriteBatch = Main.spriteBatch;
 
 
@@ -97,12 +97,12 @@ namespace Urdveil.Common.Foggy
                 foreach (var kvp in _fogIndex)
                 {
                     var fog = kvp.Value;
-         
 
-                    if(blendState != fog.blendState || fog.shaderFunc() != currentShader)
+                    BaseShader newShader = fog.shaderFunc();
+                    if(blendState != fog.blendState || newShader != currentShader)
                     {
                         currentTexture = fog.texture;
-                        currentShader = fog.shaderFunc();
+                        currentShader = newShader;
                         blendState = fog.blendState;
     
                         Effect effect = null;
