@@ -59,8 +59,8 @@ namespace Urdveil.NPCs.Town
 
         public override void SetDefaults()
         {
-            NPC.width = 96;
-            NPC.height = 128;
+            NPC.width = 152;
+            NPC.height = 82;
             NPC.aiStyle = -1;
             NPC.damage = 90;
             NPC.defense = 42;
