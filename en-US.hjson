@@ -5681,6 +5681,11 @@ Mods: {
 				DisplayName: Spring Tablet Item
 				Tooltip: ""
 			}
+
+			SpringTrap: {
+				DisplayName: Spring Trap
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {
@@ -8343,6 +8348,7 @@ Mods: {
 			Save.DisplayName: Save
 			StructurePoint.DisplayName: Structure Point
 			TilePainterPreview.DisplayName: Tile Painter Preview
+			SpringArrow.DisplayName: Spring Arrow
 		}
 	}
 
