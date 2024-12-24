@@ -160,7 +160,7 @@ namespace Urdveil.WorldG
             }
 
             Point Loc = new Point(spawnX, spawnY);
-            Loc.Y += 3;
+            Loc.Y += 12;
             Loc.X -= 750;
             Structurizer.ProtectStructure(Loc, path);
             int[] ChestIndexs = Structurizer.ReadStruct(Loc, path);
@@ -183,10 +183,15 @@ namespace Urdveil.WorldG
                 for(int j = top; j < bottom; j++)
                 {
                     Point tilePoint = new Point(i, j);
-                    if(WorldGen.genRand.NextBool(4) && Main.tile[i,j].TileType == ModContent.TileType<SpringGrass>())
+                    if(WorldGen.genRand.NextBool(4) && Main.tile[i,j].TileType == ModContent.TileType<SpringGrass>()  && Main.tile[i,j].WallType == WallID.FlowerUnsafe)
                     {
                         int wallType = walls[Main.rand.Next(0, walls.Length)];
-                        WorldUtils.Gen(tilePoint, new Shapes.Circle(WorldGen.genRand.Next(1, 4)), Actions.Chain(new GenAction[]
+                        int size = WorldGen.genRand.Next(1, 4);
+                        WorldUtils.Gen(tilePoint, new Shapes.Circle(size), Actions.Chain(new GenAction[]
+                        {
+                            new Actions.ClearWall()
+                        }));
+                        WorldUtils.Gen(tilePoint, new Shapes.Circle(size), Actions.Chain(new GenAction[]
                         {
                             new Actions.PlaceWall((ushort)wallType),
                             new Actions.Smooth(true)
