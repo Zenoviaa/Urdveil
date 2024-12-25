@@ -36,6 +36,7 @@ namespace Urdveil.Common.Bases
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             base.ModifyTooltips(tooltips);
+            return;
             TooltipLine line = new TooltipLine(Mod, "WeaponType", LangText.Common("WeaponType" + meleeWeaponType.ToString()));
             line.OverrideColor = ColorFunctions.GreatswordWeaponType;
             tooltips.Add(line);

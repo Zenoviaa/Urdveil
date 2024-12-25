@@ -97,8 +97,12 @@ namespace Urdveil.Common.Foggy
                 foreach (var kvp in _fogIndex)
                 {
                     var fog = kvp.Value;
-
-                    BaseShader newShader = fog.shaderFunc();
+                    BaseShader newShader = null;
+                    if (fog.shaderFunc != null)
+                    {
+                        newShader = fog.shaderFunc();
+                    }
+                 
                     if(blendState != fog.blendState || newShader != currentShader)
                     {
                         currentTexture = fog.texture;

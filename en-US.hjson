@@ -5686,6 +5686,16 @@ Mods: {
 				DisplayName: Spring Trap
 				Tooltip: ""
 			}
+
+			StarrVeriplantBarrierBlockItem: {
+				Tooltip: ""
+				DisplayName: Starr Veriplant Barrier Block Item
+			}
+
+			BossBarrierBlockItem: {
+				DisplayName: Boss Barrier Block Item
+				Tooltip: ""
+			}
 		}
 
 		Tiles: {
@@ -5841,6 +5851,8 @@ Mods: {
 			RainforestTreeBase.MapEntry: Rainforest Tree Base
 			RainforestTreeSapling.MapEntry: Rainforest Tree Sapling
 			SpectralEntranceTile.MapEntry: Spectral Entrance Tile
+			StarrVeriplantBarrierBlock.MapEntry: Starr Veriplant Barrier Block
+			BossBarrierBlock.MapEntry: Boss Barrier Block
 		}
 
 		Buffs: {

@@ -1,10 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.GameInput;
@@ -12,29 +7,26 @@ using Terraria.ModLoader;
 using Terraria.UI;
 using Urdveil.Common.Foggy;
 
-namespace Urdveil.UI.ToolsSystem
+namespace Urdveil.UI
 {
-    internal class HitboxButton : UIPanel
+    internal abstract class UIButtonIcon : UIPanel
     {
-
-        private UIPanel _button;
+        public string Texture => (GetType().Namespace+"."+GetType().Name).Replace('.', '/');
+        public string SelectedTexture => Texture + "_Selected";
         public override void OnInitialize()
         {
             base.OnInitialize();
-
-            Width.Pixels = 40;
-            Height.Pixels = 40;
+            Width.Pixels = 48;
+            Height.Pixels = 48;
             BackgroundColor = Color.Transparent;
             BorderColor = Color.Transparent;
             OnLeftClick += OnButtonClick;
         }
 
-        private void OnButtonClick(UIMouseEvent evt, UIElement listeningElement)
+        public virtual void OnButtonClick(UIMouseEvent evt, UIElement listeningElement)
         {
-            ToolsUISystem uiSystem = ModContent.GetInstance<ToolsUISystem>();
-            uiSystem.ShowHitboxes = !uiSystem.ShowHitboxes;
+
         }
-            // We can do stuff in here
 
         public override void Update(GameTime gameTime)
         {
@@ -55,11 +47,11 @@ namespace Urdveil.UI.ToolsSystem
             Texture2D textureToDraw;
             if (IsMouseHovering)
             {
-                textureToDraw = ModContent.Request<Texture2D>(ToolsUISystem.RootTexturePath + "HitboxButtonSelected").Value;
+                textureToDraw = ModContent.Request<Texture2D>(SelectedTexture).Value;
             }
             else
             {
-                textureToDraw = ModContent.Request<Texture2D>(ToolsUISystem.RootTexturePath + "HitboxButton").Value;
+                textureToDraw = ModContent.Request<Texture2D>(Texture).Value;
             }
             spriteBatch.Draw(textureToDraw, new Rectangle(point.X, point.Y, textureToDraw.Width, textureToDraw.Height), null, Color.White);
         }

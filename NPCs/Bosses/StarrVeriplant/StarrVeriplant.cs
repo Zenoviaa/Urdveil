@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Urdveil.Helpers;
-using Urdveil.Items.Consumables;
-using Urdveil.Items.Placeable;
-using Urdveil.NPCs.Bosses.StarrVeriplant.Projectiles;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,6 +10,12 @@ using Terraria.GameContent.Bestiary;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Urdveil.Helpers;
+using Urdveil.Items.Consumables;
+using Urdveil.Items.Placeable;
+using Urdveil.NPCs.BossBars;
+using Urdveil.NPCs.Bosses.EliteCommander.Projectiles;
+using Urdveil.NPCs.Bosses.StarrVeriplant.Projectiles;
 
 namespace Urdveil.NPCs.Bosses.StarrVeriplant
 {
@@ -77,7 +79,6 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
             NPC.width = 80;
             NPC.height = 44;
             NPC.damage = 25;
-            NPC.defense = 5;
             NPC.lifeMax = 600;
             NPC.HitSound = new SoundStyle("Urdveil/Assets/Sounds/Gintze_Hit") with { PitchVariance = 0.1f };
             NPC.DeathSound = new SoundStyle("Urdveil/Assets/Sounds/Gintze_Death") with { PitchVariance = 0.1f };
@@ -97,7 +98,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
             NPC.aiStyle = -1;
 
             // Custom boss bar
-            //  NPC.BossBar = ModContent.GetInstance<MiniBossBar>();
+            NPC.BossBar = ModContent.GetInstance<MiniBossBar>();
 
             // The following code assigns a music track to the boss in a simple way.
             if (!Main.dedServ)
@@ -477,19 +478,21 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                             Dust.NewDustPerfect(NPC.Bottom + offset, ModContent.DustType<Dusts.TSmokeDust>(), velocity, 0, Color.Black * 0.5f,
                                 Main.rand.NextFloat(0.3f, 0.7f));
                         }
-
                         if (StellaMultiplayer.IsHost)
                         {
-                            Vector2 projVelocity = Vector2.UnitX * 10;
-                            Vector2 spawnOffset = -Vector2.UnitY * 32;
-                            int projType = ModContent.ProjectileType<StompShockwave>();
-                            int projDamage = 10;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom + spawnOffset, projVelocity, projType, projDamage, KnockBack: 1, Main.myPlayer);
-
-                            projVelocity = -projVelocity;
-                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom + spawnOffset, projVelocity, projType, projDamage, KnockBack: 1, Main.myPlayer);
+                            //This is the part where you spawn the cool ahh shockwaves
+                            //But we have to make cool ahh shockwaves :(
+                            int shockwaveDamage = 10;
+                            int knockback = 1;
+                            Vector2 velocity = Vector2.UnitX;
+                            velocity *= 4;
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom, velocity,
+                                ModContent.ProjectileType<WindShockwave>(), shockwaveDamage, knockback, Main.myPlayer);
+                            velocity = -velocity;
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom, velocity,
+                                ModContent.ProjectileType<WindShockwave>(), shockwaveDamage, knockback, Main.myPlayer);
                         }
-
+       
                         //Stomp happens, so the code would be here
                         NPC.velocity.Y = 0;
                         Timer = 0;
