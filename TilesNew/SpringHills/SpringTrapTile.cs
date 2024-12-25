@@ -1,14 +1,29 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ObjectData;
+using Urdveil.Common.Shaders;
+using Urdveil.Dusts;
+using Urdveil.Helpers;
+using Urdveil.Trails;
 
 namespace Urdveil.TilesNew.SpringHills
 {
     public class SpringArrow : ModProjectile
     {
+        private ref float Timer => ref Projectile.ai[0];
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            ProjectileID.Sets.TrailCacheLength[Type] = 16;
+            ProjectileID.Sets.TrailingMode[Type] = 2;
+        }
+
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -21,7 +36,68 @@ namespace Urdveil.TilesNew.SpringHills
         public override void AI()
         {
             base.AI();
+            Timer++;
+            if(Timer % 16 == 0)
+            {
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<GlyphDust>(), 
+                    (Vector2.One * Main.rand.NextFloat(0.2f, 1f)).RotatedByRandom(19.0), 0, Color.LightPink, Main.rand.NextFloat(0.2f, 0.4f)).noGravity = true;
+            }
             Projectile.rotation = Projectile.velocity.ToRotation();
+        }
+
+        public PrimDrawer TrailDrawer { get; private set; } = null;
+        public float WidthFunction(float completionRatio)
+        {
+            float baseWidth = Projectile.scale * Projectile.width;
+            return MathHelper.SmoothStep(baseWidth, 3.5f, completionRatio);
+        }
+
+        public Color ColorFunction(float completionRatio)
+        {
+            return Color.Lerp(Color.LightPink, Color.Transparent, completionRatio) * 0.7f;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            SpriteBatch spriteBatch = Main.spriteBatch;
+            TrailDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["VampKnives:BasicTrail"]);
+            GameShaders.Misc["VampKnives:BasicTrail"].SetShaderTexture(TrailRegistry.LoveTrail);
+            TrailDrawer.DrawPrims(Projectile.oldPos, Projectile.Size * 0.5f - Main.screenPosition, 155);
+
+            Vector2 drawPos = Projectile.Center - Main.screenPosition;
+            Texture2D texture = TextureAssets.Projectile[Type].Value;
+            Vector2 drawOrigin = texture.Size() / 2;
+            float drawRotation = Projectile.rotation;
+            Color drawColor = Color.White.MultiplyRGB(lightColor);
+            float drawScale = Projectile.scale;
+            SpriteEffects spriteEffects = Projectile.spriteDirection == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None;
+            spriteBatch.Draw(texture, drawPos, null, drawColor, drawRotation, drawOrigin, drawScale, spriteEffects, 0);
+            return false;
+
+        }
+
+        public override void OnKill(int timeLeft)
+        {
+            base.OnKill(timeLeft);
+            for (float f = 0; f < 2; f++)
+            {
+                Dust.NewDustPerfect(Projectile.Center, ModContent.DustType<GlyphDust>(),
+                    (Vector2.One * Main.rand.NextFloat(0.2f, 5f)).RotatedByRandom(19.0), 0, Color.LightPink, Main.rand.NextFloat(0.3f, 0.5f)).noGravity = true;
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                //Old velocity is the velocity before this tick, so it won't be zero or whatever
+                Vector2 velocity = -Projectile.oldVelocity.RotatedByRandom(MathHelper.ToRadians(30)).SafeNormalize(Vector2.Zero) * Main.rand.NextFloat(5, 15);
+
+                //I love this particle type
+                var particle = FXUtil.GlowStretch(Projectile.Center, velocity);
+                particle.InnerColor = Color.White;
+                particle.GlowColor = Color.LightCyan;
+                particle.OuterGlowColor = Color.Black;
+                particle.Duration = Main.rand.NextFloat(25, 50);
+                particle.BaseSize = Main.rand.NextFloat(0.04f, 0.09f);
+                particle.VectorScale *= 0.5f;
+            }
         }
     }
 
