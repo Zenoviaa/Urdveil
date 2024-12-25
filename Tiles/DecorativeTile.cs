@@ -113,7 +113,7 @@ namespace Urdveil.Tiles
 
         public void DrawItem(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
+            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
             int textureWidth = texture.Width;
             int textureHeight = texture.Height;
             Rectangle drawFrame = texture.GetFrame(0, FrameCount);
@@ -143,7 +143,7 @@ namespace Urdveil.Tiles
     
 
             Color color2 = Lighting.GetColor(i, j);
-            Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
+            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
             int textureWidth = texture.Width;
             int textureHeight = texture.Height;
 
@@ -207,13 +207,20 @@ namespace Urdveil.Tiles
             bool isMouseHovering = false;
             if(ClickFunc != null)
             {
-
+                Player player = Main.LocalPlayer;
+                float distanceToPlayer = Vector2.Distance(player.position, drawPos);
+ 
                 Rectangle rectangle = new Rectangle((int)(drawPos.X - drawOrigin.X), (int)(drawPos.Y - drawOrigin.Y), texture.Width, texture.Height);
-                isMouseHovering = rectangle.Contains(Main.MouseWorld.ToPoint());
+
+                //Check for collision last so it's optimized
+                isMouseHovering = rectangle.Contains(Main.MouseWorld.ToPoint()) 
+                    && distanceToPlayer < 160 && Collision.CanHitLine(player.position, 1, 1, rectangle.Center.ToVector2(), 1, 1);
                 if (isMouseHovering)
                 {
+                    Main.LocalPlayer.mouseInterface = true;
                     if (Main.mouseLeft)
                     {
+                
                         _shouldClick = true;
                     }
                     if(Main.mouseLeftRelease && _shouldClick)

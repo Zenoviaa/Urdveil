@@ -290,10 +290,12 @@
     <None Remove="Items\Weapons\Scorpions\RoyalPalace\RoyalPalaceScorpionMount_Front.png" />
     <None Remove="Items\Weapons\Summon\WindPortal.png" />
     <None Remove="Localization\en-US\Mods.Urdveil.ArmorReforge.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Configs.UrdveilServerConfig.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Dialogue.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Elements.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Enchantments.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Quests.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Tablets.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.TownDialogue.hjson" />
     <None Remove="NPCs\BossBars\MiniBossBar.png" />
     <None Remove="NPCs\Bosses\CommanderGintzia\CommanderGintziaTaunting.png" />
@@ -591,6 +593,8 @@
     <None Remove="TilesNew\Fable\wall7_S.png" />
     <None Remove="TilesNew\FogSpawnerBlock.png" />
     <None Remove="TilesNew\FogSpawnerTile.png" />
+    <None Remove="TilesNew\SpringHills\BaseTablet_S.png" />
+    <None Remove="TilesNew\SpringHills\SpringTabletXixianFlask.png" />
     <None Remove="TilesNew\SpringHills\SpringTree.png" />
     <None Remove="TilesNew\SpringHills\SpringTreeSapling.png" />
     <None Remove="TilesNew\SpringHills\SpringTree_Branches.png" />

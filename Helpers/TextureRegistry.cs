@@ -1,11 +1,22 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
+using System;
 using Terraria.ModLoader;
 
 namespace Urdveil.Helpers
 {
     internal static class TextureRegistry
     {
+        public static string MyDirectory(this object obj)
+        {
+            return PathHere(obj.GetType());
+        }
+
+        public static string PathHere(Type type)
+        {
+            string path = (type.Namespace).Replace('.', '/');
+            return path;
+        }
         public static string PathHere(this ModType t)
         {
             string path = (t.GetType().Namespace).Replace('.', '/');

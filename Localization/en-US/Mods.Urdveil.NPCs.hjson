@@ -3,6 +3,7 @@ RoyalHorsemage.DisplayName: Royal Horsemage
 WitchesCauldron: {
 	Button: Brew
 	Basic1: *Bubble Bubble Goop Blip Blop*
+	DisplayName: Witches Cauldron
 }
 
 DaedusLibrarian: {
@@ -12,6 +13,7 @@ DaedusLibrarian: {
 	Basic1: Hi I'm Daedus!
 	Basic2: Hi I'm Daedus!
 	Challenge: Daedus zaps in!
+	DisplayName: Daedus Librarian
 }
 
 JackReading: {
@@ -21,6 +23,7 @@ JackReading: {
 	Basic1: Hi I'm Jack!
 	Basic2: Hi I'm Jack!
 	Challenge: Jack readies himself!
+	DisplayName: Jack Reading
 }
 
 CommanderGintziaTaunting: {
@@ -41,6 +44,7 @@ CommanderGintziaTaunting: {
 	Death4: This is why us armless are superior.
 	Death5: Ha!
 	Death6: I bet you thought you were special.
+	DisplayName: Commander Gintzia Taunting
 }
 
 LonelySorceress: {
@@ -108,6 +112,7 @@ GoliathCryogenicJellyfish.DisplayName: Goliath Cryogenic Jellyfish
 WinterSoul3.DisplayName: Winter Soul
 WinterSoul2.DisplayName: Winter Soul
 WinterSoul1.DisplayName: Winter Soul
+WinterSoul.DisplayName: Winter Soul
 WinterBornSlime.DisplayName: Winter Born Slime
 WinterbornBat.DisplayName: Winterborn Bat
 HarvestVirulent.DisplayName: Harvest Virulent
@@ -136,16 +141,41 @@ GovheilGuardian: {
 	Bestiary: Guardians who are ready to die for Gothivia?
 }
 
-Gintzling.Bestiary: Lowest of the Gintze but can wipe you out fast! They need food too yknow :(
-GintzeSolider.Bestiary: A Captain of Gofria's ranks, be careful
-GintzeCaptain.Bestiary: A Captain of Gothivia's ranks, be careful
-GintziaHand.Bestiary: A scarecrow reanimated by the passion of wandering flames
+Gintzling: {
+	Bestiary: Lowest of the Gintze but can wipe you out fast! They need food too yknow :(
+	DisplayName: Gintzling
+}
+
+GintzeSolider: {
+	Bestiary: A Captain of Gofria's ranks, be careful
+	DisplayName: Gintze Solider
+}
+
+GintzeCaptain: {
+	Bestiary: A Captain of Gothivia's ranks, be careful
+	DisplayName: Gintze Captain
+}
+
+GintziaHand: {
+	Bestiary: A scarecrow reanimated by the passion of wandering flames
+	DisplayName: Gintzia Hand
+}
+
 StarSlime.DisplayName: Star Slime
 DiceinNPC.DisplayName: Dicein
 Shrewmet.DisplayName: Shrewmet
 Shrewder.DisplayName: Shrewder
-SnowWalkerNPC.Bestiary: The most adorable goodest spicy child. Do not dare be mean to him!
-SandWalkerNPC.Bestiary: The most adorable goodest spicy child. Do not dare be mean to him!
+
+SnowWalkerNPC: {
+	Bestiary: The most adorable goodest spicy child. Do not dare be mean to him!
+	DisplayName: Snow Walker N P C
+}
+
+SandWalkerNPC: {
+	Bestiary: The most adorable goodest spicy child. Do not dare be mean to him!
+	DisplayName: Sand Walker N P C
+}
+
 THEGREATDEVOURER.DisplayName: THE GREAT DEVOURER
 FlamingWitch.DisplayName: Flaming Witch
 CinderCrawlerTail.DisplayName: Cinder Crawler Tail
@@ -173,8 +203,17 @@ BlazingSerpentTail.DisplayName: Blazing Serpent Tail
 BlazingSerpentBody.DisplayName: Blazing Serpent Body
 BlazeBeamWarn.DisplayName: Blaze Beam Warn
 CatacombsBossSpawn.DisplayName: Catacombs Boss Spawner
-StarteV.Bestiary: Clone of a powerful sexy goddess :)
-CloneV.Bestiary: Clone of a powerful sexy goddess :)
+
+StarteV: {
+	Bestiary: Clone of a powerful sexy goddess :)
+	DisplayName: Starte V
+}
+
+CloneV: {
+	Bestiary: Clone of a powerful sexy goddess :)
+	DisplayName: Clone V
+}
+
 Zapwarn.DisplayName: Zapwarn
 Veiizal.DisplayName: Veiizal
 VoidWall.DisplayName: Void Wall
@@ -399,6 +438,7 @@ BlazingSerpentHead: {
 StarrVeriplant: {
 	BossChecklistIntegration.SpawnInfo: Interact with the Old Guard's Shrine. After using the [i:Urdveil/AnotherRock] in your Starter bag.
 	Bestiary: A beloved magical stone guardian, protected the natural life and would petrify anyone who disturbs it.
+	DisplayName: Starr Veriplant
 }
 
 Sylia: {
@@ -411,6 +451,7 @@ Sylia: {
 VerliaB: {
 	BossChecklistIntegration.SpawnInfo: Use a [i:Urdveil/MoonflameLantern] at a shrine in the Cathedral over the ice biome!
 	Bestiary: Verlia, The Empress of the Stars and moon, Vixyl's sister and a master magic swordswoman.
+	DisplayName: Verlia B
 }
 
 SingularityFragment: {
@@ -424,18 +465,21 @@ EliteCommander: {
 	BossChecklistIntegration.SpawnInfo: Fight him in the colosseum!
 	Bestiary: Placeholder text
 	Bestiary2: Elite Commander
+	DisplayName: Elite Commander
 }
 
 Gustbeak: {
 	BossChecklistIntegration.SpawnInfo: Fight him in the silver ring of the colosseum!
 	Bestiary: Placeholder text
 	Bestiary2: Gustbeak
+	DisplayName: Gustbeak
 }
 
 CommanderGintzia: {
 	BossChecklistIntegration.SpawnInfo: Fight him in the gold ring of the colosseum!
 	Bestiary: He's evil yet so weak. This fellow betrayed Gothivia during their war against Fenix and his part of the army joined the other side for power.
 	Bestiary2: Commander Gintzia, the betrayer
+	DisplayName: Commander Gintzia
 }
 
 DaedusR: {
@@ -447,6 +491,21 @@ DaedusR: {
 
 Aimacra: {
 	TownNPCMood: {
+		Princess_LovesNPC: I like {NPCName}.
+		LikeNPC_Princess: I like {NPCName}.
+		HateNPC: I hate {NPCName}.
+		DislikeNPC: I dislike {NPCName}.
+		LikeNPC: I like {NPCName}.
+		LoveNPC: I love {NPCName}.
+		DislikeBiome: I dislike {BiomeName}.
+		LikeBiome: I like {BiomeName}.
+		LoveBiome: I love {BiomeName}.
+		HateCrowded: I hate how crowded I am.
+		DislikeCrowded: I dislike how crowded I am.
+		LoveSpace: I love having so much space.
+		FarFromHome: I am too far from home.
+		NoHome: I hate not having a home.
+		Content: I am content.
 	}
 
 	Bestiary: Aimacra??? From Diari?? Crazy
@@ -472,6 +531,7 @@ Aimacra: {
 	Special8: I totally haven't been playing geometry dash.
 	Special9: I've seen some weird things in my life, but never would I have thought Fenix would be more chronically horny than Sirestias, but to be fair Sirestias just gets more power doing that.
 	Special10: I hate being part human.
+	DisplayName: Aimacra
 }
 
 Bordoc: {
@@ -570,10 +630,26 @@ Delgrim: {
 	Special28: You know, maybe I should have travelled with the rest of the members of the morrow, many of us split up in our escape, many died, hell, maybe I'm the only standing survivor, but I'm here.
 	Special29: My creations that I make now are from my explorations, I will find Irradia again, I need to apologize, to say something. These are all for her anyway. If only I could have stopped this from getting this way, maybe I could have stayed against her will.
 	Special30: Of all my years to live and ever to live, I will never understand things like Fenix, her torturous additude, why she went to such lengths to kill us, why the infection was so hard to fend off, and why I couldn't stay, these are all for you, Irradia.
+	DisplayName: Delgrim
 }
 
 Gambit: {
 	TownNPCMood: {
+		Princess_LovesNPC: I like {NPCName}.
+		LikeNPC_Princess: I like {NPCName}.
+		HateNPC: I hate {NPCName}.
+		DislikeNPC: I dislike {NPCName}.
+		LikeNPC: I like {NPCName}.
+		LoveNPC: I love {NPCName}.
+		DislikeBiome: I dislike {BiomeName}.
+		LikeBiome: I like {BiomeName}.
+		LoveBiome: I love {BiomeName}.
+		HateCrowded: I hate how crowded I am.
+		DislikeCrowded: I dislike how crowded I am.
+		LoveSpace: I love having so much space.
+		FarFromHome: I am too far from home.
+		NoHome: I hate not having a home.
+		Content: I am content.
 	}
 
 	Bestiary: She loves those ruin medals huh?, so much so that she is now attracted to you :(
@@ -602,6 +678,7 @@ Gambit: {
 		Awaaaaaaaaaaaaaaaaaaaaaaaa~
 		(Zielie is too flustered to continue)
 		'''
+	DisplayName: Gambit
 }
 
 Gia: {
@@ -642,10 +719,26 @@ Gia: {
 	Special4: I give you my thanks for this Overworld artifact, it'll help further my reserch to fixing this mess!
 	Special5: I give you my thanks for this Ocean artifact, I'll research it greatly, heres something in return...
 	Special6: I give you my thanks for this Jungle artifact, it'll help further my reserch to fixing this mess!
+	DisplayName: Gia
 }
 
 Ginztel: {
 	TownNPCMood: {
+		Princess_LovesNPC: I like {NPCName}.
+		LikeNPC_Princess: I like {NPCName}.
+		HateNPC: I hate {NPCName}.
+		DislikeNPC: I dislike {NPCName}.
+		LikeNPC: I like {NPCName}.
+		LoveNPC: I love {NPCName}.
+		DislikeBiome: I dislike {BiomeName}.
+		LikeBiome: I like {BiomeName}.
+		LoveBiome: I love {BiomeName}.
+		HateCrowded: I hate how crowded I am.
+		DislikeCrowded: I dislike how crowded I am.
+		LoveSpace: I love having so much space.
+		FarFromHome: I am too far from home.
+		NoHome: I hate not having a home.
+		Content: I am content.
 	}
 
 	Bestiary: Dumbfounded by your strength, the commander retired and came to your base for a visit and a free hotel.
@@ -656,6 +749,7 @@ Ginztel: {
 	Basic5: If you can kill Gothivia for us we can scavange and steal their items, please help us do that
 	Basic6: We may be weak but we still give all of our little praise to Verlia, hence why we stole from her sister..
 	Basic7: Could you murder Gothivia in the most brutal fashion possible? She is way too dauntless and carefree, we hate her and she took our home...
+	DisplayName: Ginztel
 }
 
 Merena: {
@@ -720,6 +814,7 @@ Zui: {
 	Special9: My graditude is of the utmost thanks, in return you can have anything in my shop! And I'll help you out personally sometime if you need me ;p
 	Special10: Hiya! I think that's all the things I need, you can get some stuff in my shop but thanks babe!
 	Special11: Hey you wanna do a quest? I'll open up my expansive magic shop for you if you do.. I have quite some great goodies in store but I want to become the best witch in all of the Lunar Veil, and I want you to help me make a tome, but first I need you to kill Verlia first for me.
+	DisplayName: Zui
 }
 
 AbandonedMinor.DisplayName: Abandoned Minor
@@ -744,6 +839,7 @@ Steeru.DisplayName: Steeru
 ZuiTheTraveller: {
 	Bestiary: Zui, not exactly someone that can be killed but loves to play around I guess? Sirestias is closely accompanied with her
 	Bestiary2: Zui the Radiance
+	DisplayName: Zui The Traveller
 }
 
 TestLaserNPC.DisplayName: Test Laser N P C
@@ -758,11 +854,16 @@ UnknownSignal: {
 AlcaricVoidBig.DisplayName: Alcaric Void Big
 LuminullSpiritCrystal.DisplayName: Luminull Spirit Crystal
 IceRune.DisplayName: Ice Rune
-DeathVerlia.Bestiary: Clone of a powerful sexy goddess :)
+
+DeathVerlia: {
+	Bestiary: Clone of a powerful sexy goddess :)
+	DisplayName: Death Verlia
+}
 
 Niivi: {
 	BossChecklistIntegration.SpawnInfo: Deal enough damage to Niivi to anger her, you may find her flying around The Great Illuria! -or sleeping...
 	Bestiary: Niivi, The First Dragon
+	DisplayName: Niivi
 }
 
 IllurianMage: {
@@ -801,6 +902,7 @@ Veldris: {
 	Special8: Interestingly enough me and Sylia have fun sometimes, shes pretty nice once you get to know her, sadly she stays away from her sister Merena and the rest of the capital, she's pretty chill. Kind of wanna travel with her though.
 	Special9: The small joys of life comes from not having your house destroyed by some malevolent gods throwing down their trap cards when youre trying to sleep. It makes me annoyed when I have to peek out my window to make sure the black hole isn't going to hit my house.
 	Special10: You knowww, I was named Veldris by my friend, I always grew up without a name since my parents died by a stupid raging black hole guy, name was Sepsis I believe? He killed off so much 30 years ago yet I remember it like yesterday.
+	DisplayName: Veldris
 }
 
 SupernovaZapwarn.DisplayName: Supernova Zapwarn
@@ -849,6 +951,7 @@ Sirestias: {
 	Downed17: Ok ok we got some good stuff done. Time for Gothivia as she's not particularly the worst but she keeps inspiring bad people to do ad things and we need to teach her not to do that.
 	Downed18: Maybe we shouldn't have killed her, I don't know if there was a reason to kill Niivi. You just wanted weapons and gear? I mean if it helps I guess. She was doing more good than harm
 	Downed19: Okie dokie, Gothivia has agree to stay calm so we aren't going to assassinate her anymore, I feel bad for killing her sister now. I hope Vixyl doesn't find out.
+	DisplayName: Sirestias
 }
 
 JellyGlow.DisplayName: Jelly Glow
@@ -874,6 +977,7 @@ IrradiaIdle: {
 	Basic3: I miss them
 	Basic4: ... Delgrim...
 	Special1: Stop bothering me, you don't deserve to die.
+	DisplayName: Irradia Idle
 }
 
 Ishtar: {
@@ -888,6 +992,7 @@ Irradia: {
 	BossChecklistIntegration.SpawnInfo: Give Irradia a [i:Urdveil/ManifestedBravery] at a bottom of the Govheil Castle, underneath the Virulent.
 	Bestiary: The most committed protector of the Govhiel. She just wishes to see her friend's and village again.
 	Bestiary2: Irradia N Havoc
+	DisplayName: Irradia
 }
 
 DreadMireR: {
@@ -898,7 +1003,11 @@ DreadMireR: {
 }
 
 DreadMirePentagramV2.DisplayName: Dread Mire Pentagram V2
-StartIrradia.Bestiary: Start to something bad
+
+StartIrradia: {
+	Bestiary: Start to something bad
+	DisplayName: Start Irradia
+}
 
 GraveShard: {
 	DisplayName: Grave Shard
@@ -931,6 +1040,7 @@ Mardenth: {
 	Special8: I would want to be more powerful but that takes a lot of training. Anyone who dares to take more than what they are given should be punished.
 	Special9: Those guys in the well? They are trapped down there because they made some goofy deals in their lives to get more power and just like the great Veil people we are, we trapped them away for good.
 	Special10: I don't know what the outside world is like.
+	DisplayName: Mardenth
 }
 
 Ordin: {
@@ -954,6 +1064,7 @@ Ordin: {
 	Special8: Manifest their souls and bring them to my company. You shall be rewarded until the rekoning begs for your place to be silenced.
 	Special9: Niivi, the protector of the lands of the veil, yet curse all upon thy brother to be selfish and steal among those of power and wealth. He was greedy and in his expense payed the lovers' prison.
 	Special10: Now I sit ill waiting for the lands of the veil to change.
+	DisplayName: Ordin
 }
 
 DustNadoSpawner.DisplayName: Dust Nado Spawn
@@ -962,12 +1073,14 @@ RekSnake: {
 	BossChecklistIntegration.SpawnInfo: Gothivia's sworn protector, you must take him down before you can get to Gothivia.
 	Bestiary: A special snake from the Cinderspark that was atop it's food chain and took a liking to Gothivia. Eventually it became her guardian.
 	Bestiary2: Rek, The Sun Serpent
+	DisplayName: Rek Snake
 }
 
 GothiviaIyx: {
 	BossChecklistIntegration.SpawnInfo: After killing her friend Irradia, Green sun will start and she will await your arrival, kill Rek to challenge her.
 	Bestiary: Empress of the Green sun and nature. Everything empowering and living falls under her reign.
 	Bestiary2: Gothivia, One of the Green Sun
+	DisplayName: Gothivia Iyx
 }
 
 SupernovaZapwarnFinal.DisplayName: Supernova Zapwarn Final
@@ -981,9 +1094,14 @@ GothiviaIdle: {
 	Basic3: A monster you are
 	Basic4: ...Interesting...
 	Special1: You're not worth the effort, Rek can avenge them for me. Idiot.
+	DisplayName: Gothivia Idle
 }
 
-StartGoth.Bestiary: Start to something bad
+StartGoth: {
+	Bestiary: Start to something bad
+	DisplayName: Start Goth
+}
+
 CentipedeTail.DisplayName: Centipede Tail
 CentipedeHead.DisplayName: Centipede Head
 CentipedeBody.DisplayName: Centipede Body
@@ -1032,3 +1150,73 @@ Azurerin: {
 	DisplayName: Azurerin
 	Bestiary: A scarecrow reanimated by the passion of wandering flames
 }
+
+HeatBombRayLight.DisplayName: Heat Bomb Ray Light
+HeatBombLighting.DisplayName: Heat Bomb Lighting
+DreadFireBombG.DisplayName: Dread Fire Bomb G
+Mordred.DisplayName: Mordred
+Manman.DisplayName: Manman
+RareChest.DisplayName: Rare Chest
+MythicalChest.DisplayName: Mythical Chest
+CommonChest.DisplayName: Common Chest
+TopazBeetle.DisplayName: Topaz Beetle
+SapphireBeetle.DisplayName: Sapphire Beetle
+RubyBeetle.DisplayName: Ruby Beetle
+EmeraldBeetle.DisplayName: Emerald Beetle
+AmethystBeetle.DisplayName: Amethyst Beetle
+StalkerSpawner.DisplayName: Stalker Spawner
+Stalker.DisplayName: Stalker
+RedLightBig.DisplayName: Red Light Big
+GreenLightBig.DisplayName: Green Light Big
+BlueLightBig.DisplayName: Blue Light Big
+BabySwarmerSummon.DisplayName: Baby Swarmer Summon
+BabySwarmer.DisplayName: Baby Swarmer
+GintzeWindRider.DisplayName: Gintze Wind Rider
+GintzeWarrior.DisplayName: Gintze Warrior
+GintzeTumbleWeed.DisplayName: Gintze Tumble Weed
+GintzeSpearman.DisplayName: Gintze Spearman
+SpawnerNPC.DisplayName: Spawner N P C
+SilverGong.DisplayName: Silver Gong
+GoldGong.DisplayName: Gold Gong
+CoinSpawnerNPC.DisplayName: Coin Spawner N P C
+BronzeGong.DisplayName: Bronze Gong
+ZuiLASERWARN.DisplayName: Zui L A S E R W A R N
+ZuiDeath.DisplayName: Zui Death
+GoldBeamWarn.DisplayName: Gold Beam Warn
+VerliaSpawn.DisplayName: Verlia Spawn
+VerliaDP.DisplayName: Verlia D P
+Viola.DisplayName: Viola
+Sword3.DisplayName: Sword3
+Sword2.DisplayName: Sword2
+Sword1.DisplayName: Sword1
+GhostCharger.DisplayName: Ghost Charger
+Bossdeath1.DisplayName: Bossdeath1
+NiiviCrystalStars.DisplayName: Niivi Crystal Stars
+NiiviCrystalLightning.DisplayName: Niivi Crystal Lightning
+NiiviCrystalFrost.DisplayName: Niivi Crystal Frost
+NiiviRoaming.DisplayName: Niivi Roaming
+JackTheScholar.DisplayName: Jack The Scholar
+IrradiaSpikeBox.DisplayName: Irradia Spike Box
+IrradiaElectricBoxNode.DisplayName: Irradia Electric Box Node
+HavocSignal.DisplayName: Havoc Signal
+Havoc.DisplayName: Havoc
+RekSnakeIdle.DisplayName: Rek Snake Idle
+RekFireEye.DisplayName: Rek Fire Eye
+RekFireCrystal.DisplayName: Rek Fire Crystal
+Sun2.DisplayName: Sun2
+Sun.DisplayName: Sun
+CarmodyGreen.DisplayName: Carmody Green
+Carmody.DisplayName: Carmody
+GothiviaDeath.DisplayName: Gothivia Death
+ElectricSingularity.DisplayName: Electric Singularity
+DaedusTheDevoted.DisplayName: Daedus The Devoted
+ScissorHand.DisplayName: Scissor Hand
+OpenPalm.DisplayName: Open Palm
+OkHand.DisplayName: Ok Hand
+HandShake.DisplayName: Hand Shake
+Fist.DisplayName: Fist
+FingerGun.DisplayName: Finger Gun
+ComeHere.DisplayName: Come Here
+EvilCarpet.DisplayName: Evil Carpet
+TericGramNPC2.DisplayName: Teric Gram N P C2
+TericGramNPC.DisplayName: Teric Gram N P C

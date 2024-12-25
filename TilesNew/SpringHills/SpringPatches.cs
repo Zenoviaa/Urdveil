@@ -24,7 +24,14 @@ namespace Urdveil.TilesNew.SpringHills
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
+            //idk
+            WindSwayOffset = 0f;
 
+            //The max it can sway
+            WindSwayMagnitude = 0.2f;
+
+            //How fast it sways
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -48,7 +55,14 @@ namespace Urdveil.TilesNew.SpringHills
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
+            //idk
+            WindSwayOffset = 0f;
 
+            //The max it can sway
+            WindSwayMagnitude = 0.2f;
+
+            //How fast it sways
+            WindSwaySpeed = 0.02f;
         }
     }
 
@@ -72,7 +86,14 @@ namespace Urdveil.TilesNew.SpringHills
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
+            //idk
+            WindSwayOffset = 0f;
 
+            //The max it can sway
+            WindSwayMagnitude = 0.2f;
+
+            //How fast it sways
+            WindSwaySpeed = 0.02f;
         }
     }
 }
