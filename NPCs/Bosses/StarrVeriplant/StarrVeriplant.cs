@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using Terraria;
 using Terraria.Audio;
 using Terraria.GameContent;
@@ -16,6 +17,7 @@ using Urdveil.Items.Placeable;
 using Urdveil.NPCs.BossBars;
 using Urdveil.NPCs.Bosses.EliteCommander.Projectiles;
 using Urdveil.NPCs.Bosses.StarrVeriplant.Projectiles;
+using Urdveil.UI.Systems;
 
 namespace Urdveil.NPCs.Bosses.StarrVeriplant
 {
@@ -27,7 +29,8 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
             Spawn,
             Idle,
             Stomp,
-            Stomp_Multi
+            Stomp_Multi,
+            Stomp_Super
         }
 
         private ActionState State
@@ -43,6 +46,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
         private Player Target => Main.player[NPC.target];
         private bool InPhase2 => NPC.life < NPC.lifeMax / 2;
         private bool HasDoneStomp;
+        private bool CanSuperStomp;
         private bool CanMultiStomp;
         private bool DrawOutline;
         private float OutlineOpacity;
@@ -52,7 +56,17 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
 
         public override bool CanHitPlayer(Player target, ref int cooldownSlot)
         {
-            return Spawner > 30;
+            bool isInStompState = State == ActionState.Stomp || State == ActionState.Stomp_Multi || State == ActionState.Stomp_Super;
+            switch (State)
+            {
+                case ActionState.Stomp:
+                    return AttackCounter == 2;
+                case ActionState.Stomp_Multi:
+                    return AttackCounter == 1;
+                case ActionState.Stomp_Super:
+                    return AttackCounter == 2;
+            }
+            return false;
         }
 
         public override void SetStaticDefaults()
@@ -145,6 +159,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
             writer.Write(StompSpeed);
             writer.Write(HasDoneStomp);
             writer.Write(CanMultiStomp);
+            writer.Write(CanSuperStomp);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -154,6 +169,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
             StompSpeed = reader.ReadSingle();
             HasDoneStomp = reader.ReadBoolean();
             CanMultiStomp = reader.ReadBoolean();
+            CanSuperStomp = reader.ReadBoolean();
         }
 
         public override void ApplyDifficultyAndPlayerScaling(int numPlayers, float balance, float bossAdjustment)
@@ -228,6 +244,9 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                 case ActionState.Stomp_Multi:
                     AI_MultiStomp();
                     break;
+                case ActionState.Stomp_Super:
+                    AI_StompSuper();
+                    break;
             }
         }
 
@@ -296,11 +315,16 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                     //We want him to always use multi stomp the moment he goes into phase 2
                     //So we have a bool for that
                     bool doStomp = (!HasDoneStomp || (Main.rand.NextBool(3) && CanMultiStomp));
+                    bool doSuperStomp = Main.rand.NextBool(2) && CanSuperStomp;
                     if (InPhase2 && doStomp)
                     {
                         CanMultiStomp = false;
                         HasDoneStomp = true;
                         SwitchState(ActionState.Stomp_Multi);
+                    } else if (InPhase2 && doSuperStomp)
+                    {
+                        CanSuperStomp = false;
+                        SwitchState(ActionState.Stomp_Super);
                     }
                     else
                     {
@@ -384,7 +408,10 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                     {
                         MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
                         myPlayer.ShakeAtPosition(NPC.Center, 1024f, 30f);
-
+                        ShakeModSystem.Shake = 2;
+                        SoundStyle boom = SoundID.DD2_ExplosiveTrapExplode;
+                        boom.PitchVariance = 0.3f;
+                        SoundEngine.PlaySound(boom, NPC.position);
                         for (int i = 0; i < 16; i++)
                         {
                             float radius = 150;
@@ -397,6 +424,37 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                             Dust.NewDustPerfect(NPC.Bottom + offset, ModContent.DustType<Dusts.TSmokeDust>(), velocity, 0, Color.Black * 0.5f,
                                 Main.rand.NextFloat(0.3f, 0.7f));
                         }
+
+                        FXUtil.GlowCircleBoom(NPC.Bottom,
+                           innerColor: Color.White,
+                           glowColor: Color.Black,
+                           outerGlowColor: Color.Black, duration: 25, baseSize: 0.24f);
+                        for (float i = 0; i < 4; i++)
+                        {
+                            float progress = i / 4f;
+                            float rot = progress * MathHelper.ToRadians(240);
+                            Vector2 offset = rot.ToRotationVector2() * 24;
+                            var particle = FXUtil.GlowCircleDetailedBoom1(NPC.Bottom,
+                                innerColor: Color.White,
+                                glowColor: Color.Black,
+                                outerGlowColor: Color.Black,
+                                baseSize: 0.24f);
+                            particle.Rotation = rot + MathHelper.ToRadians(45);
+                        }
+
+                        for (int i = 0; i < 7; i++)
+                        {
+                            Vector2 velocity = -Vector2.UnitY.RotatedByRandom(MathHelper.ToRadians(30)) * Main.rand.NextFloat(15f, 35f);
+                            var particle = FXUtil.GlowStretch(NPC.Bottom, velocity);
+                            particle.InnerColor = Color.White;
+                            particle.GlowColor = Color.LightCyan;
+                            particle.OuterGlowColor = Color.Black;
+                            particle.Duration = Main.rand.NextFloat(25, 50);
+                            particle.BaseSize = Main.rand.NextFloat(0.045f, 0.09f);
+                            particle.VectorScale *= 0.5f;
+                        }
+
+                        SoundEngine.PlaySound(new SoundStyle("Urdveil/Assets/Sounds/Vinger"), NPC.position);
                         //Stomp happens, so the code would be here
                         NPC.velocity.Y = 0;
                         Timer = 0;
@@ -428,7 +486,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                     if (Timer == 1)
                     {
                         NPC.TargetClosest();
-                        StompPos = NPC.Center + new Vector2(0, -164 - StompCounter * 16);
+                        StompPos = NPC.Center + new Vector2(0, -252 - StompCounter * 16);
                         SoundEngine.PlaySound(SoundID.Item69, NPC.position);
                     }
 
@@ -465,7 +523,10 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                     {
                         MyPlayer myPlayer = Main.LocalPlayer.GetModPlayer<MyPlayer>();
                         myPlayer.ShakeAtPosition(NPC.Center, 1024f, 30f);
-
+                        ShakeModSystem.Shake = 2;
+                        SoundStyle boom = SoundID.DD2_ExplosiveTrapExplode;
+                        boom.PitchVariance = 0.3f;
+                        SoundEngine.PlaySound(boom, NPC.position);
                         for (int i = 0; i < 16; i++)
                         {
                             float radius = 150;
@@ -492,7 +553,36 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                             Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom, velocity,
                                 ModContent.ProjectileType<WindShockwave>(), shockwaveDamage, knockback, Main.myPlayer);
                         }
-       
+
+                        FXUtil.GlowCircleBoom(NPC.Bottom,
+                           innerColor: Color.White,
+                           glowColor: Color.Black,
+                           outerGlowColor: Color.Black, duration: 25, baseSize: 0.18f);
+                        for (float i = 0; i < 4; i++)
+                        {
+                            float progress = i / 4f;
+                            float rot = progress * MathHelper.ToRadians(240);
+                            Vector2 offset = rot.ToRotationVector2() * 24;
+                            var particle = FXUtil.GlowCircleDetailedBoom1(NPC.Bottom,
+                                innerColor: Color.White,
+                                glowColor: Color.Black,
+                                outerGlowColor: Color.Black,
+                                baseSize: 0.24f);
+                            particle.Rotation = rot + MathHelper.ToRadians(45);
+                        }
+
+                        for (int i = 0; i < 4; i++)
+                        {
+                            Vector2 velocity = -Vector2.UnitY.RotatedByRandom(MathHelper.ToRadians(30)) * Main.rand.NextFloat(15f, 50f);
+                            var particle = FXUtil.GlowStretch(NPC.Bottom, velocity);
+                            particle.InnerColor = Color.White;
+                            particle.GlowColor = Color.LightCyan;
+                            particle.OuterGlowColor = Color.Black;
+                            particle.Duration = Main.rand.NextFloat(25, 50);
+                            particle.BaseSize = Main.rand.NextFloat(0.045f, 0.09f);
+                            particle.VectorScale *= 0.5f;
+                        }
+
                         //Stomp happens, so the code would be here
                         NPC.velocity.Y = 0;
                         Timer = 0;
@@ -500,6 +590,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                     }
                     break;
                 case 2:
+                    CanSuperStomp = true;
                     StompCounter++;
                     if (StompCounter >= 3)
                     {
@@ -514,6 +605,173 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
             }
         }
 
+        private void AI_StompSuper()
+        {
+            switch (AttackCounter)
+            {
+                case 0:
+                    //Target a player
+                    Timer++;
+                    DrawOutline = true;
+                    if (Timer == 1)
+                    {
+                        NPC.TargetClosest();
+                        SoundEngine.PlaySound(SoundID.Item69, NPC.position);
+                    }
+
+                    //Hover up
+                    Vector2 targetPos = Target.Center + new Vector2(0, -384);
+                    Vector2 targetVelocity = (targetPos - NPC.Center).SafeNormalize(Vector2.Zero);
+                    float distanceToTarget = Vector2.Distance(NPC.Center, targetPos);
+                    float moveSpeed = MathF.Min(distanceToTarget, 12);
+                    targetVelocity *= moveSpeed;
+                    NPC.velocity = targetVelocity;
+                    if (distanceToTarget <= 2 || Timer > 60)
+                    {
+                        Timer = 0;
+                        AttackCounter++;
+                        NPC.velocity.X = 0;
+                        NPC.velocity.Y = 0;
+                    }
+                    break;
+
+                case 1:
+                    //Hover Left/Right
+                    Timer++;
+                    Vector2 horizontalVelocity = (Target.Center - NPC.Center);
+                    float xMove = horizontalVelocity.X;
+
+                    if (Timer > 60 * StompSpeed)
+                    {
+                        NPC.velocity.X *= 0.95f;
+                    }
+                    else
+                    {
+                        NPC.velocity.X = xMove;
+                    }
+
+                    if (Timer >= 150 * StompSpeed)
+                    {
+                        NPC.velocity.X = 0;
+                        Timer = 0;
+                        AttackCounter++;
+                    }
+                    break;
+
+                case 2:
+                    Timer++;
+                    DrawOutline = false;
+
+                    //Give some initial velocity
+                    if (Timer == 1)
+                    {
+
+                        NPC.velocity.Y = 1;
+                    }
+
+                    //Calculate Stomp Velocity
+                    if (Timer < 8)
+                    {
+                        NPC.velocity.Y *= 1.5f;
+                    }
+
+                    if (NPC.collideY || Timer > 60)
+                    {
+                        for (int i = 0; i < 16; i++)
+                        {
+                            float radius = 150;
+                            Vector2 offset = Vector2.UnitX * Main.rand.Next(-1, 1);
+                            offset *= Main.rand.NextFloat(1f, radius);
+                            offset += new Vector2(radius / 2, 0);
+
+                            Vector2 velocity = Vector2.UnitX * Main.rand.Next(-1, 1);
+                            velocity *= Main.rand.NextFloat(1f, 2f);
+                            Dust.NewDustPerfect(NPC.Bottom + offset, ModContent.DustType<Dusts.TSmokeDust>(), velocity, 0, Color.Black * 0.5f,
+                                Main.rand.NextFloat(0.3f, 0.7f));
+                        }
+
+                        for (int i = 0; i < 16; i++)
+                        {
+                            float radius = 150;
+                            Vector2 offset = Vector2.UnitX * Main.rand.Next(-1, 1);
+                            offset *= Main.rand.NextFloat(1f, radius);
+                            offset += new Vector2(radius / 2, 0);
+
+                            Vector2 velocity = Vector2.UnitX * Main.rand.Next(-1, 1);
+                            velocity *= Main.rand.NextFloat(1f, 2f);
+                            Dust.NewDustPerfect(NPC.Bottom + offset, ModContent.DustType<Dusts.TSmokeDust>(), velocity, 0, Color.Black * 0.5f,
+                                Main.rand.NextFloat(0.3f, 0.7f));
+                        }
+
+                        FXUtil.GlowCircleBoom(NPC.Bottom,
+                           innerColor: Color.White,
+                           glowColor: Color.Black,
+                           outerGlowColor: Color.Black, duration: 25, baseSize: 0.34f);
+                        for (float i = 0; i < 4; i++)
+                        {
+                            float progress = i / 4f;
+                            float rot = progress * MathHelper.ToRadians(240);
+                            Vector2 offset = rot.ToRotationVector2() * 24;
+                            var particle = FXUtil.GlowCircleDetailedBoom1(NPC.Bottom,
+                                innerColor: Color.White,
+                                glowColor: Color.Black,
+                                outerGlowColor: Color.Black,
+                                baseSize: 0.34f);
+                            particle.Rotation = rot + MathHelper.ToRadians(45);
+                        }
+
+                        for (int i = 0; i < 15; i++)
+                        {
+                            Vector2 velocity = -Vector2.UnitY.RotatedByRandom(MathHelper.ToRadians(30)) * Main.rand.NextFloat(15f, 50f);
+                            var particle = FXUtil.GlowStretch(NPC.Bottom, velocity);
+                            particle.InnerColor = Color.White;
+                            particle.GlowColor = Color.LightCyan;
+                            particle.OuterGlowColor = Color.Black;
+                            particle.Duration = Main.rand.NextFloat(25, 50);
+                            particle.BaseSize = Main.rand.NextFloat(0.045f, 0.09f);
+                            particle.VectorScale *= 0.5f;
+                        }
+
+
+                        ShakeModSystem.Shake = 16;
+                        FXUtil.ShakeCamera(NPC.position, 1024, 129);
+                        SoundStyle boom = new SoundStyle("Urdveil/Assets/Sounds/RocketExplosion");
+                        boom.PitchVariance = 0.3f;
+                        SoundEngine.PlaySound(boom, NPC.position);
+                        if (StellaMultiplayer.IsHost)
+                        {
+                            //This is the part where you spawn the cool ahh shockwaves
+                            //But we have to make cool ahh shockwaves :(
+                            int shockwaveDamage = 20;
+                            int knockback = 1;
+                            Vector2 velocity = Vector2.UnitX;
+                            velocity *= 4;
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom, velocity,
+                                ModContent.ProjectileType<SuperShockwave>(), shockwaveDamage, knockback, Main.myPlayer);
+                            velocity = -velocity;
+                            Projectile.NewProjectile(NPC.GetSource_FromThis(), NPC.Bottom, velocity,
+                                ModContent.ProjectileType<SuperShockwave>(), shockwaveDamage, knockback, Main.myPlayer);
+                        }
+
+                        //Stomp happens, so the code would be here
+                        NPC.velocity.Y = 0;
+                        Timer = 0;
+                        AttackCounter++;
+                    }
+                    break;
+                case 3:
+                    NPC.velocity.X = 0;
+                    NPC.velocity.Y = 0;
+                    CanMultiStomp = true;
+                    Timer++;
+                    if (Timer >= 24 * StompSpeed)
+                    {
+                        //Stomp
+                        SwitchState(ActionState.Idle);
+                    }
+                    break;
+            }
+        }
         private void SwitchState(ActionState state)
         {
             State = state;
