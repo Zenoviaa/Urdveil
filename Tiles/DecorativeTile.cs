@@ -236,6 +236,44 @@ namespace Urdveil.Tiles
                 drawColor = drawColor.MultiplyRGB(Color.Lerp(Color.White, Color.Goldenrod, _hoverLerp * 5));
             }
             drawColor *= Alpha;
+            if (ClickFunc != null && MathF.Sin(Main.GlobalTimeWrappedHourly * 8) < 0f)
+            {
+                float o = 2;
+                var shader = ShaderRegistry.MiscSilPixelShader;
+                //The color to lerp to
+                shader.UseColor(Color.White);
+
+                //Should be between 0-1
+                //1 being fully opaque
+                //0 being the original color
+                shader.UseSaturation(1f);
+
+                // Call Apply to apply the shader to the SpriteBatch. Only 1 shader can be active at a time.
+                shader.Apply(null);
+
+                spriteBatch.Restart(sortMode: SpriteSortMode.Immediate, blendState: BlendState.AlphaBlend, effect: shader.Shader);
+
+
+                spriteBatch.Draw(texture,
+                        drawPos - Main.screenPosition + Vector2.UnitX * o,
+                        drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition - Vector2.UnitX * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition + Vector2.UnitY * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition - Vector2.UnitY * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+
+                spriteBatch.RestartDefaults();
+                if (HoverFunc != null)
+                {
+                    HoverFunc();
+                }
+
+            }
 
             if (isMouseHovering)
             {
@@ -255,6 +293,7 @@ namespace Urdveil.Tiles
                 shader.Apply(null);
 
                 spriteBatch.Restart(sortMode: SpriteSortMode.Immediate, blendState: BlendState.AlphaBlend, effect: shader.Shader);
+
 
                 spriteBatch.Draw(texture,
                         drawPos - Main.screenPosition + Vector2.UnitX * o,
