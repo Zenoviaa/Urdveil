@@ -5495,3 +5495,8 @@ SpringTabletDashItem: {
 	DisplayName: Spring Tablet Dash Item
 	Tooltip: ""
 }
+
+XixianFlaskCollectibleItem: {
+	DisplayName: Xixian Flask Collectible Item
+	Tooltip: ""
+}

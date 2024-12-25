@@ -140,8 +140,8 @@ namespace Urdveil.Tiles
 
         public void DrawDecor(int i, int j, SpriteBatch spriteBatch)
         {
-    
 
+      
             Color color2 = Lighting.GetColor(i, j);
             Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
             int textureWidth = texture.Width;
