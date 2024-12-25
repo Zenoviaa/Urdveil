@@ -17,6 +17,7 @@ namespace Urdveil.UI.StructureSelector
 
         public StructureSelectorUIState selectorUIState;
         public StructureSaveUIState saveUIState;
+        public MagicWandUIState magicWandUIState;
         public override void OnModLoad()
         {
             base.OnModLoad();
@@ -24,8 +25,14 @@ namespace Urdveil.UI.StructureSelector
             _userInterface = new UserInterface();
             selectorUIState = new StructureSelectorUIState();
             selectorUIState.Activate();
+
             saveUIState = new StructureSaveUIState();
             saveUIState.Activate();
+            
+            magicWandUIState = new MagicWandUIState();
+            magicWandUIState.Activate();
+
+
             _userInterface.SetState(null);
             _saveUserInterface.SetState(null);
         }
@@ -55,6 +62,15 @@ namespace Urdveil.UI.StructureSelector
             {
                 OpenUI();
             }
+        }
+
+        internal void OpenMagicWandUI()
+        {
+            _saveUserInterface.SetState(magicWandUIState);
+        }
+        internal void CloseMagicWandUI()
+        {
+            _saveUserInterface.SetState(null);
         }
 
         internal void OpenSaveUI()

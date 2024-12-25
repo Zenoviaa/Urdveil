@@ -290,11 +290,14 @@
     <None Remove="Items\Weapons\Scorpions\RoyalPalace\RoyalPalaceScorpionMount_Front.png" />
     <None Remove="Items\Weapons\Summon\WindPortal.png" />
     <None Remove="Localization\en-US\Mods.Urdveil.ArmorReforge.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Configs.UrdveilServerConfig.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Dialogue.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Elements.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Enchantments.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Quests.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Tablets.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.TownDialogue.hjson" />
+    <None Remove="NPCs\BossBars\MiniBossBar.png" />
     <None Remove="NPCs\Bosses\CommanderGintzia\CommanderGintziaTaunting.png" />
     <None Remove="NPCs\Bosses\CommanderGintzia\Hands\FingerBlast.png" />
     <None Remove="NPCs\Bosses\CommanderGintzia\Hands\ScissorBlast.png" />
@@ -562,9 +565,13 @@
     <None Remove="Projectiles\WataBoom2.png" />
     <None Remove="Projectiles\ZuiRay.png" />
     <None Remove="TilesNew\AnimatedBackgroundWallTest_S.png" />
+    <None Remove="TilesNew\EffectTiles\BossBarrierBlock.png" />
+    <None Remove="TilesNew\EffectTiles\BossBarrierBlockItem.png" />
     <None Remove="TilesNew\EffectTiles\FogSpawnerBlock.png" />
     <None Remove="TilesNew\EffectTiles\FogSpawnerWallItem.png" />
     <None Remove="TilesNew\EffectTiles\GodraySpawnerItem.png" />
+    <None Remove="TilesNew\EffectTiles\StarrVeriplantBarrierBlock.png" />
+    <None Remove="TilesNew\EffectTiles\StarrVeriplantBarrierBlockItem.png" />
     <None Remove="TilesNew\Fable\FableBar_S.png" />
     <None Remove="TilesNew\Fable\FableBench_S.png" />
     <None Remove="TilesNew\Fable\FableBigMushroom_S.png" />
@@ -586,6 +593,8 @@
     <None Remove="TilesNew\Fable\wall7_S.png" />
     <None Remove="TilesNew\FogSpawnerBlock.png" />
     <None Remove="TilesNew\FogSpawnerTile.png" />
+    <None Remove="TilesNew\SpringHills\BaseTablet_S.png" />
+    <None Remove="TilesNew\SpringHills\SpringTabletXixianFlask.png" />
     <None Remove="TilesNew\SpringHills\SpringTree.png" />
     <None Remove="TilesNew\SpringHills\SpringTreeSapling.png" />
     <None Remove="TilesNew\SpringHills\SpringTree_Branches.png" />
@@ -625,6 +634,7 @@
     <Folder Include="Assets\Textures\Menu\" />
     <Folder Include="Items\Accessories\Shields\" />
     <Folder Include="Items\Shrines\UnderworldRuins\" />
+    <Folder Include="NewFolder\" />
     <Folder Include="NPCs\Event\Gintzearmy\BossGintze\" />
     <Folder Include="Projectiles\Hostile\" />
     <Folder Include="Projectiles\FX\" />
@@ -632,6 +642,7 @@
     <Folder Include="Projectiles\Slashers\X3107\" />
     <Folder Include="Projectiles\Swords\Slashes\" />
     <Folder Include="Structures\Catacombs\" />
+    <Folder Include="Structures\NewFolder\" />
     <Folder Include="Tiles\Structures\UnderworldRuins\" />
   </ItemGroup>
   <ItemGroup>

@@ -9,301 +9,501 @@ EnchantmentCommonNoSynergy: No Synergy...
 EnchantmentCommonFailSynergy: Anti Synergy! {0}% decreased damage!
 
 FlameLashEnchantment: {
+	Tooltip: ""
+	DisplayName: Flame Lash Enchantment
 }
 
 PuppetMasterEnchantment: {
+	Tooltip: ""
+	DisplayName: Puppet Master Enchantment
 }
 
 WindCloudEnchantment: {
+	Tooltip: ""
+	DisplayName: Wind Cloud Enchantment
 }
 
 MoonFinderEnchantment: {
+	Tooltip: ""
+	DisplayName: Moon Finder Enchantment
 }
 
 WaveSpeedEnchantment: {
+	Tooltip: ""
+	DisplayName: Wave Speed Enchantment
 }
 
 BloodyHeartEnchantment: {
+	Tooltip: ""
+	DisplayName: Bloody Heart Enchantment
 }
 
 ShadowAttackEnchantment: {
+	Tooltip: ""
+	DisplayName: Shadow Attack Enchantment
 }
 
 SpikyBarnEnchantment: {
+	Tooltip: ""
+	DisplayName: Spiky Barn Enchantment
 }
 
 TentaclingHoneEnchantment: {
+	Tooltip: ""
+	DisplayName: Tentacling Hone Enchantment
 }
 
 BloodlustEnchantment: {
+	Tooltip: ""
+	DisplayName: Bloodlust Enchantment
 }
 
 SizerEnchantment: {
+	Tooltip: ""
+	DisplayName: Sizer Enchantment
 }
 
 SharpenEnchantment: {
+	Tooltip: ""
+	DisplayName: Sharpen Enchantment
 }
 
 FloralBlastEnchantment: {
+	Tooltip: ""
+	DisplayName: Floral Blast Enchantment
 }
 
 FlowerfallEnchantment: {
+	Tooltip: ""
+	DisplayName: Flowerfall Enchantment
 }
 
 WorldToucherEnchantment: {
+	Tooltip: ""
+	DisplayName: World Toucher Enchantment
 }
 
 FlashpointEnchantment: {
+	Tooltip: ""
+	DisplayName: Flashpoint Enchantment
 }
 
 HurricaneEnchantment: {
+	Tooltip: ""
+	DisplayName: Hurricane Enchantment
 }
 
 TyphoonWaverEnchantment: {
+	Tooltip: ""
+	DisplayName: Typhoon Waver Enchantment
 }
 
 RadioSilenceEnchantment: {
+	Tooltip: ""
+	DisplayName: Radio Silence Enchantment
 }
 
 SecondWindEnchantment: {
+	Tooltip: ""
+	DisplayName: Second Wind Enchantment
 }
 
 MoonlightSwirlEnchantment: {
+	Tooltip: ""
+	DisplayName: Moonlight Swirl Enchantment
 }
 
 ReverseMoonEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverse Moon Enchantment
 }
 
 BloodThinningEnchantment: {
+	Tooltip: ""
+	DisplayName: Blood Thinning Enchantment
 }
 
 PhasingMoonEnchantment: {
+	Tooltip: ""
+	DisplayName: Phasing Moon Enchantment
 }
 
 MesmerizerStatusEnchantment: {
+	Tooltip: ""
+	DisplayName: Mesmerizer Status Enchantment
 }
 
 SpellMistEnchantment: {
+	Tooltip: ""
+	DisplayName: Spell Mist Enchantment
 }
 
 PheonixSwirlEnchantment: {
+	Tooltip: ""
+	DisplayName: Pheonix Swirl Enchantment
 }
 
 LampFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Lamp Form Enchantment
 }
 
 TreeSplitEnchantment: {
+	Tooltip: ""
+	DisplayName: Tree Split Enchantment
 }
 
 ArrowFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Arrow Form Enchantment
 }
 
 BowArrowFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Bow Arrow Form Enchantment
 }
 
 CrescentFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Crescent Form Enchantment
 }
 
 FairyFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Fairy Form Enchantment
 }
 
 HammerFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Hammer Form Enchantment
 }
 
 KnifeFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Knife Form Enchantment
 }
 
 OctopusFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Octopus Form Enchantment
 }
 
 RunicFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Runic Form Enchantment
 }
 
 SnakeFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Snake Form Enchantment
 }
 
 SnowglobeFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Snowglobe Form Enchantment
 }
 
 SpineFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Spine Form Enchantment
 }
 
 StarFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Star Form Enchantment
 }
 
 TriangleFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Triangle Form Enchantment
 }
 
 VaseFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Vase Form Enchantment
 }
 
 HallowPurpleEnchantment: {
+	Tooltip: ""
+	DisplayName: Hallow Purple Enchantment
 }
 
 TsunamiEnchantment: {
+	Tooltip: ""
+	DisplayName: Tsunami Enchantment
 }
 
 WaterDrillEnchantment: {
+	Tooltip: ""
+	DisplayName: Water Drill Enchantment
 }
 
 MetalForceEnchantment: {
+	Tooltip: ""
+	DisplayName: Metal Force Enchantment
 }
 
 MagicMissileEnchantment: {
+	Tooltip: ""
+	DisplayName: Magic Missile Enchantment
 }
 
 ExplosiveMordorEnchantment: {
+	Tooltip: ""
+	DisplayName: Explosive Mordor Enchantment
 }
 
 MEGAEnchantment: {
+	Tooltip: ""
+	DisplayName: M E G A Enchantment
 }
 
 BloodVesselEnchantment: {
+	Tooltip: ""
+	DisplayName: Blood Vessel Enchantment
 }
 
 HeatSeakerEnchantment: {
+	Tooltip: ""
+	DisplayName: Heat Seaker Enchantment
 }
 
 DreadSwitcherEnchantment: {
+	Tooltip: ""
+	DisplayName: Dread Switcher Enchantment
 }
 
 RoyalMagicSwitcherEnchantment: {
+	Tooltip: ""
+	DisplayName: Royal Magic Switcher Enchantment
 }
 
 VeilSwitcherEnchantment: {
+	Tooltip: ""
+	DisplayName: Veil Switcher Enchantment
 }
 
 WindSwitcherEnchantment: {
+	Tooltip: ""
+	DisplayName: Wind Switcher Enchantment
 }
 
 NaturalSwitcherEnchantment: {
+	Tooltip: ""
+	DisplayName: Natural Switcher Enchantment
 }
 
 MoonSwitcherEnchantment: {
+	Tooltip: ""
+	DisplayName: Moon Switcher Enchantment
 }
 
 RadianceSwitcherEnchantment: {
+	Tooltip: ""
+	DisplayName: Radiance Switcher Enchantment
 }
 
 IceSwitcherEnchantment: {
+	Tooltip: ""
+	DisplayName: Ice Switcher Enchantment
 }
 
 SlothEnchantment: {
+	Tooltip: ""
+	DisplayName: Sloth Enchantment
 }
 
 SpinbackEnchantment: {
+	Tooltip: ""
+	DisplayName: Spinback Enchantment
 }
 
 ShadowStepEnchantment: {
+	Tooltip: ""
+	DisplayName: Shadow Step Enchantment
 }
 
 BruteForceEnchantment: {
+	Tooltip: ""
+	DisplayName: Brute Force Enchantment
 }
 
 BowFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Bow Form Enchantment
 }
 
 CoinFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Coin Form Enchantment
 }
 
 LanternFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Lantern Form Enchantment
 }
 
 SkullFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Skull Form Enchantment
 }
 
 SquidFormEnchantment: {
+	Tooltip: ""
+	DisplayName: Squid Form Enchantment
 }
 
 CoagulateEnchantment: {
+	Tooltip: ""
+	DisplayName: Coagulate Enchantment
 }
 
 HeavyMetalEnchantment: {
+	Tooltip: ""
+	DisplayName: Heavy Metal Enchantment
 }
 
 SharpTurnEnchantment: {
+	Tooltip: ""
+	DisplayName: Sharp Turn Enchantment
 }
 
 ReverserOfVeilEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverser Of Veil Enchantment
 }
 
 ReverserOfDreadEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverser Of Dread Enchantment
 }
 
 ReverserOfRoyalMagicEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverser Of Royal Magic Enchantment
 }
 
 ReverserOfWindEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverser Of Wind Enchantment
 }
 
 ReverserOfNatureEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverser Of Nature Enchantment
 }
 
 ReverserOfRadianceEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverser Of Radiance Enchantment
 }
 
 ReverserOfMoonEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverser Of Moon Enchantment
 }
 
 ReverserOfIceEnchantment: {
+	Tooltip: ""
+	DisplayName: Reverser Of Ice Enchantment
 }
 
 RechargingShadowsEnchantment: {
+	Tooltip: ""
+	DisplayName: Recharging Shadows Enchantment
 }
 
 AdditorVeilEnchantment: {
+	Tooltip: ""
+	DisplayName: Additor Veil Enchantment
 }
 
 PhaseTurnEnchantment: {
+	Tooltip: ""
+	DisplayName: Phase Turn Enchantment
 }
 
 SubtractorMoonEnchantment: {
+	Tooltip: ""
+	DisplayName: Subtractor Moon Enchantment
 }
 
 OppositeFlamesEnchantment: {
+	Tooltip: ""
+	DisplayName: Opposite Flames Enchantment
 }
 
 StarTurnEnchantment: {
+	Tooltip: ""
+	DisplayName: Star Turn Enchantment
 }
 
 FlowingBloodEnchantment: {
+	Tooltip: ""
+	DisplayName: Flowing Blood Enchantment
 }
 
 TrailerEnchantment: {
+	Tooltip: ""
+	DisplayName: Trailer Enchantment
 }
 
 GroundEaterEnchantment: {
+	Tooltip: ""
+	DisplayName: Ground Eater Enchantment
 }
 
 GamblerEnchantment: {
+	Tooltip: ""
+	DisplayName: Gambler Enchantment
 }
 
 MimicryEnchantment: {
+	Tooltip: ""
+	DisplayName: Mimicry Enchantment
 }
 
 SwirlerBwirlerEnchantment: {
+	Tooltip: ""
+	DisplayName: Swirler Bwirler Enchantment
 }
 
 ShriekerEnchantment: {
+	Tooltip: ""
+	DisplayName: Shrieker Enchantment
 }
 
 FlameWheelEnchantment: {
+	Tooltip: ""
+	DisplayName: Flame Wheel Enchantment
 }
 
 ArterySplitEnchantment: {
+	Tooltip: ""
+	DisplayName: Artery Split Enchantment
 }
 
 The4MistsEnchantment: {
+	Tooltip: ""
+	DisplayName: The4 Mists Enchantment
 }
 
 DichotamyEnchantment: {
+	Tooltip: ""
+	DisplayName: Dichotamy Enchantment
 }
 
 HeartBurnBlastEnchantment: {
+	Tooltip: ""
+	DisplayName: Heart Burn Blast Enchantment
 }
 
 SparksSplitEnchantment: {
+	Tooltip: ""
+	DisplayName: Sparks Split Enchantment
 }
 
 ShitgunEnchantment: {
+	Tooltip: ""
+	DisplayName: Shitgun Enchantment
 }

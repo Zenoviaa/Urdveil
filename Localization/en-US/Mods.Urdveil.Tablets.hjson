@@ -1,0 +1,9 @@
+SpringTabletXixianFlask: {
+	Message: Your Xixian Flask is a very valuable reusable healing item! You can put an insource inside of it by right clicking on it in your inventory and dragging the insource inside. After you do that, try using your flask in the heat of battle!
+	Title: Xixian Flask
+}
+
+SpringTabletDash: {
+	Title: Dash!
+	Message: You can dash through obstacles and attacks by double-tapping a direction or pressing the dash keybind! Each dash uses a point and recharges over time, so be sure to use them carefully! Try dashing through the trap up ahead...
+}

@@ -113,7 +113,7 @@ namespace Urdveil.Tiles
 
         public void DrawItem(SpriteBatch spriteBatch, Vector2 position, Rectangle frame, Color drawColor, Color itemColor, Vector2 origin, float scale)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
+            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
             int textureWidth = texture.Width;
             int textureHeight = texture.Height;
             Rectangle drawFrame = texture.GetFrame(0, FrameCount);
@@ -143,7 +143,7 @@ namespace Urdveil.Tiles
     
 
             Color color2 = Lighting.GetColor(i, j);
-            Texture2D texture = ModContent.Request<Texture2D>(StructureTexture).Value;
+            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
             int textureWidth = texture.Width;
             int textureHeight = texture.Height;
 
@@ -207,13 +207,20 @@ namespace Urdveil.Tiles
             bool isMouseHovering = false;
             if(ClickFunc != null)
             {
-
+                Player player = Main.LocalPlayer;
+                float distanceToPlayer = Vector2.Distance(player.position, drawPos);
+ 
                 Rectangle rectangle = new Rectangle((int)(drawPos.X - drawOrigin.X), (int)(drawPos.Y - drawOrigin.Y), texture.Width, texture.Height);
-                isMouseHovering = rectangle.Contains(Main.MouseWorld.ToPoint());
+
+                //Check for collision last so it's optimized
+                isMouseHovering = rectangle.Contains(Main.MouseWorld.ToPoint()) 
+                    && distanceToPlayer < 160 && Collision.CanHitLine(player.position, 1, 1, rectangle.Center.ToVector2(), 1, 1);
                 if (isMouseHovering)
                 {
+                    Main.LocalPlayer.mouseInterface = true;
                     if (Main.mouseLeft)
                     {
+                
                         _shouldClick = true;
                     }
                     if(Main.mouseLeftRelease && _shouldClick)
@@ -229,6 +236,44 @@ namespace Urdveil.Tiles
                 drawColor = drawColor.MultiplyRGB(Color.Lerp(Color.White, Color.Goldenrod, _hoverLerp * 5));
             }
             drawColor *= Alpha;
+            if (ClickFunc != null && MathF.Sin(Main.GlobalTimeWrappedHourly * 8) < 0f)
+            {
+                float o = 2;
+                var shader = ShaderRegistry.MiscSilPixelShader;
+                //The color to lerp to
+                shader.UseColor(Color.White);
+
+                //Should be between 0-1
+                //1 being fully opaque
+                //0 being the original color
+                shader.UseSaturation(1f);
+
+                // Call Apply to apply the shader to the SpriteBatch. Only 1 shader can be active at a time.
+                shader.Apply(null);
+
+                spriteBatch.Restart(sortMode: SpriteSortMode.Immediate, blendState: BlendState.AlphaBlend, effect: shader.Shader);
+
+
+                spriteBatch.Draw(texture,
+                        drawPos - Main.screenPosition + Vector2.UnitX * o,
+                        drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition - Vector2.UnitX * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition + Vector2.UnitY * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                spriteBatch.Draw(texture,
+                    drawPos - Main.screenPosition - Vector2.UnitY * o,
+                    drawFrame, Color.White, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+
+                spriteBatch.RestartDefaults();
+                if (HoverFunc != null)
+                {
+                    HoverFunc();
+                }
+
+            }
 
             if (isMouseHovering)
             {
@@ -248,6 +293,7 @@ namespace Urdveil.Tiles
                 shader.Apply(null);
 
                 spriteBatch.Restart(sortMode: SpriteSortMode.Immediate, blendState: BlendState.AlphaBlend, effect: shader.Shader);
+
 
                 spriteBatch.Draw(texture,
                         drawPos - Main.screenPosition + Vector2.UnitX * o,

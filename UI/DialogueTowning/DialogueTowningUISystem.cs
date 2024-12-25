@@ -204,7 +204,7 @@ namespace Urdveil.UI.DialogueTowning
                 if (_userInterface.CurrentState == null)
                 {
 
-                    SoundStyle soundStyle = SoundID.MenuClose;
+                    SoundStyle soundStyle = SoundID.MenuOpen;
                     SoundEngine.PlaySound(soundStyle);
                     _userInterface.SetState(dialogueTowningUIState);
                 }
