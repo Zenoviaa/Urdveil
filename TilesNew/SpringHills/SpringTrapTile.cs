@@ -110,14 +110,14 @@ namespace Urdveil.TilesNew.SpringHills
             int verticalDirection = (tile.TileFrameX < 36) ? 0 : ((tile.TileFrameX < 72) ? -1 : 1);
             // Each trap style within this Tile shoots different projectiles.
             // Wiring.CheckMech checks if the wiring cooldown has been reached. Put a longer number here for less frequent projectile spawns. 200 is the dart/flame cooldown. Spear is 90, spiky ball is 300
-            if (Wiring.CheckMech(i, j, 60))
+            if (Wiring.CheckMech(i, j, 150))
             {
                 spawnPosition = new Vector2(i * 16 + 8 + 0 * horizontalDirection, j * 16 + 9 + 0 * verticalDirection); // The extra numbers here help center the projectile spawn position if you need to.
 
                 // In a real mod you should be spawning projectiles that are both hostile and friendly to do damage to both players and NPC, as Terraria traps do.
                 // Make sure to change velocity, projectile, damage, and knockback.
                 Projectile.NewProjectile(Wiring.GetProjectileSource(i, j), spawnPosition, new Vector2(horizontalDirection, verticalDirection) * 6f,
-                    ModContent.ProjectileType<SpringArrow>(), 20, 2f, Main.myPlayer);
+                    ModContent.ProjectileType<SpringArrow>(), 80, 2f, Main.myPlayer);
             }
         }
     }

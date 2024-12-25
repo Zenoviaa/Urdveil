@@ -10,9 +10,10 @@ using Terraria.ModLoader;
 
 namespace Urdveil.WorldG.StructureManager
 {
-    internal class Save : ModProjectile
+    internal abstract class BaseSelectionProjectile : ModProjectile
     {
         private bool _pressed;
+        public float YOffset;
         private Rectangle Rectangle
         {
             get
@@ -60,12 +61,12 @@ namespace Urdveil.WorldG.StructureManager
             {
                 Projectile.position = Parent.TopRight;
                 Projectile.position.X += 8;
+                Projectile.position.Y += YOffset;
             }
 
             if (Main.mouseLeftRelease && _pressed)
             {
-                StructureSelection structureSelection = ModContent.GetInstance<StructureSelection>();
-                structureSelection.OpenSaveSelectionUI();
+                Press();
                 _pressed = false;
             }
             if (IsMouseHovering && Main.mouseLeft && !_pressed)
@@ -79,6 +80,11 @@ namespace Urdveil.WorldG.StructureManager
                 Main.LocalPlayer.itemAnimation = 12;
                 Main.LocalPlayer.heldProj = Projectile.whoAmI;
             }
+
+        }
+
+        protected virtual void Press()
+        {
 
         }
         public override bool PreDraw(ref Color lightColor)
@@ -97,6 +103,29 @@ namespace Urdveil.WorldG.StructureManager
             Vector2 drawPos = Projectile.Center - Main.screenPosition;
             spriteBatch.Draw(TextureAssets.Projectile[Type].Value, drawPos, null, drawColor, Projectile.rotation, TextureAssets.Projectile[Type].Value.Size() / 2, scale, SpriteEffects.None, 0);
             return false;
+        }
+    }
+    internal class Magic : BaseSelectionProjectile
+    {
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            YOffset = 24;
+        }
+        protected override void Press()
+        {
+            base.Press();
+            StructureSelection structureSelection = ModContent.GetInstance<StructureSelection>();
+            structureSelection.OpenMagicSelectionUI();
+        }
+    }
+    internal class Save : BaseSelectionProjectile
+    {
+        protected override void Press()
+        {
+            base.Press();
+            StructureSelection structureSelection = ModContent.GetInstance<StructureSelection>();
+            structureSelection.OpenSaveSelectionUI();
         }
     }
 
@@ -164,6 +193,8 @@ namespace Urdveil.WorldG.StructureManager
                 {
                     Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero,
                         ModContent.ProjectileType<Save>(), 1, 1, Projectile.owner, ai0: Projectile.whoAmI);
+                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Vector2.Zero,
+                        ModContent.ProjectileType<Magic>(), 1, 1, Projectile.owner, ai0: Projectile.whoAmI);
                 }
             }
 
@@ -304,11 +335,68 @@ namespace Urdveil.WorldG.StructureManager
         {
             ModContent.GetInstance<StructureSelectorUISystem>().OpenSaveUI();
         }
+        public void OpenMagicSelectionUI()
+        {
+            ModContent.GetInstance<StructureSelectorUISystem>().OpenMagicWandUI();
+        }
 
         public void SaveSelection(string fileName)
         {
             Structurizer.SaveStruct(fileName, BottomLeft, TopRight);
             SoundEngine.PlaySound(SoundID.AchievementComplete);
+        }
+
+        public void MagicWandReplace(Item targetItem, Item replaceItem)
+        {
+            //So you can undo this
+            if (targetItem.IsAir || replaceItem.IsAir)
+                return;
+            if (targetItem.createTile == -1 && targetItem.createWall == -1)
+                return;
+            if (replaceItem.createTile == -1 && replaceItem.createWall == -1)
+                return;
+
+            SnapshotSystem snapshotSystem = ModContent.GetInstance<SnapshotSystem>();
+            snapshotSystem.Save(BottomLeft, TopRight);
+            if(targetItem.createWall != -1)
+            {
+                MagicWandReplaceWall(targetItem.createWall, replaceItem.createWall);
+            }
+            else if (targetItem.createTile != -1)
+            {
+                MagicWandReplaceTile(targetItem.createTile, replaceItem.createTile);
+            }
+            SoundEngine.PlaySound(SoundID.AchievementComplete);
+        }
+
+        public void MagicWandReplaceTile(int targetTileType, int newTileType)
+        {
+            for (int x = (int)(BottomLeft.X); x <= TopRight.X; x++)
+            {
+                for (int y = (int)(TopRight.Y); y <= BottomLeft.Y; y++)
+                {
+                    Tile tile = Main.tile[x, y];
+                    if(tile.TileType == targetTileType)
+                    {
+                        tile.TileType = (ushort)newTileType;
+                    }
+                }
+            }
+        }
+
+        public void MagicWandReplaceWall(int targetWallType, int newWallType)
+        {
+            for (int x = (int)(BottomLeft.X); x <= TopRight.X; x++)
+            {
+                for (int y = (int)(TopRight.Y); y <= BottomLeft.Y; y++)
+                {
+                    Tile tile = Main.tile[x, y];
+                    if (tile.WallType == targetWallType)
+                    {
+                        tile.WallType = (ushort)newWallType;
+                    }
+                }
+            }
         }
     }
 }
