@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ModLoader;
 
 namespace Urdveil.WorldG.StructureManager
@@ -43,8 +44,6 @@ namespace Urdveil.WorldG.StructureManager
             int width = (int)(topRight.X - bottomLeft.X);
             int height = (int)(bottomLeft.Y - topRight.Y);
             snap = new TileData[width + 1, height + 1];
-            // Console.WriteLine(bottomLeft);
-            //    Console.WriteLine(topRight);
             for (int x = (int)(bottomLeft.X); x <= topRight.X; x++)
             {
                 for (int y = (int)(topRight.Y); y <= bottomLeft.Y; y++)
@@ -74,6 +73,15 @@ namespace Urdveil.WorldG.StructureManager
                     tile.Get<TileWallWireStateData>() = tileData.TileWallWireStateData;
                     tile.Get<LiquidData>() = tileData.LiquidData;
                     tile.Get<TileWallBrightnessInvisibilityData>() = tileData.TileWallBrightnessInvisibilityData;
+
+                    Point16 point = new Point16(x, y);
+                    if (TileEntity.ByPosition.ContainsKey(point))
+                    {
+                        ModTileEntity entity = TileEntity.ByPosition[point] as ModTileEntity;
+                        if (entity == null)
+                            continue;
+                        entity.Kill(x, y);
+                    }
                 }
             }
         }

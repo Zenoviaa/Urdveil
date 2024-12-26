@@ -7,6 +7,8 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 using Terraria.ObjectData;
+using Urdveil.Helpers;
+using Urdveil.Items.Test;
 
 namespace Urdveil.TilesNew.TriggerTiles
 {
@@ -28,8 +30,8 @@ namespace Urdveil.TilesNew.TriggerTiles
     {
         public string BossToSpawn;
         public Point SpawnOffset;
-        public int Width = 4;
-        public int Height = 4;
+        public Point TopLeftOffset;
+        public Point BottomRightOffset;
         public override void Update()
         {
             base.Update();
@@ -44,11 +46,14 @@ namespace Urdveil.TilesNew.TriggerTiles
                 if (NPC.AnyNPCs(modNpc.Type))
                     return;
 
-                Vector2 worldPos = Position.ToWorldCoordinates();
+                Point topLeft = new Point(Position.X + TopLeftOffset.X, Position.Y + TopLeftOffset.Y);
+                Point bottomRight = new Point(Position.X + BottomRightOffset.X, Position.Y + BottomRightOffset.Y);
+                Vector2 worldPos = topLeft.ToWorldCoordinates();
+                int width = (bottomRight.X - topLeft.X);
+                int height = (bottomRight.Y - topLeft.Y);
+                Rectangle rectangle = new Rectangle((int)worldPos.X, (int)worldPos.Y, width * 16, height * 16);
                 foreach (var player in Main.ActivePlayers)
                 {
-
-                    Rectangle rectangle = new Rectangle((int)worldPos.X, (int)worldPos.Y, Width * 16, Height * 16);
                     if (rectangle.Contains((int)player.position.X, (int)player.position.Y))
                     {
                         Point spawnPoint = new Point(Position.X, Position.Y);
@@ -105,8 +110,10 @@ namespace Urdveil.TilesNew.TriggerTiles
             writer.Write(BossToSpawn);
             writer.Write(SpawnOffset.X);
             writer.Write(SpawnOffset.Y);
-            writer.Write(Width);
-            writer.Write(Height);
+            writer.Write(TopLeftOffset.X);
+            writer.Write(TopLeftOffset.Y);
+            writer.Write(BottomRightOffset.X);
+            writer.Write(BottomRightOffset.Y);
         }
 
         public override void NetReceive(BinaryReader reader)
@@ -115,8 +122,10 @@ namespace Urdveil.TilesNew.TriggerTiles
             BossToSpawn = reader.ReadString();
             SpawnOffset.X = reader.ReadInt32();
             SpawnOffset.Y = reader.ReadInt32();
-            Width = reader.ReadInt32();
-            Height = reader.ReadInt32();
+            TopLeftOffset.X = reader.ReadInt32();
+            TopLeftOffset.Y = reader.ReadInt32();
+            BottomRightOffset.X = reader.ReadInt32();
+            BottomRightOffset.Y = reader.ReadInt32();
         }
 
         public override void SaveData(TagCompound tag)
@@ -124,8 +133,8 @@ namespace Urdveil.TilesNew.TriggerTiles
             base.SaveData(tag);
             tag["boss"] = BossToSpawn;
             tag["spawnOffset"] = SpawnOffset;
-            tag["width"] = Width;
-            tag["height"] = Height;
+            tag["left"] = TopLeftOffset;
+            tag["right"] = BottomRightOffset;
         }
 
         public override void LoadData(TagCompound tag)
@@ -133,8 +142,8 @@ namespace Urdveil.TilesNew.TriggerTiles
             base.LoadData(tag);
             BossToSpawn = tag.Get<string>("boss");
             SpawnOffset = tag.Get<Point>("spawnOffset");
-            Width = tag.Get<int>("width");
-            Height = tag.Get<int>("height");
+            TopLeftOffset = tag.Get<Point>("left");
+            BottomRightOffset = tag.Get<Point>("right");
         }
     }
 
@@ -169,6 +178,12 @@ namespace Urdveil.TilesNew.TriggerTiles
 
         public override bool PreDraw(int i, int j, SpriteBatch spriteBatch)
         {
+            if(Main.LocalPlayer.HeldItem.type == ModContent.ItemType<BossSpawnWand>())
+            {
+                Point16 point = TileUtils.GetTopLeftTileInMultitile(i, j);
+                Dust.QuickBox(new Vector2(point.X, point.Y) * 16, new Vector2(point.X + 1, point.Y + 1) * 16, 2, Color.Red, null);
+            }
+
             return true;
         }
 

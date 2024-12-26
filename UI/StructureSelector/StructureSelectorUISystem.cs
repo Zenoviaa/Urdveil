@@ -75,10 +75,12 @@ namespace Urdveil.UI.StructureSelector
 
         internal void OpenSaveUI()
         {
+         
             _saveUserInterface.SetState(saveUIState);
         }
         internal void CloseSaveUI()
         {
+            saveUIState.ui.Textbox.Unfocus();
             _saveUserInterface.SetState(null);
         }
         internal void OpenUI()

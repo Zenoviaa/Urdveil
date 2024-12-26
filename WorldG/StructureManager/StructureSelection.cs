@@ -170,6 +170,12 @@ namespace Urdveil.WorldG.StructureManager
         private ref float Timer => ref Projectile.ai[1];
 
         private Player Owner => Main.player[Projectile.owner];
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            ProjectileID.Sets.DrawScreenCheckFluff[Projectile.type] = 51200;
+        }
+
         public override void SetDefaults()
         {
             base.SetDefaults();
@@ -183,6 +189,7 @@ namespace Urdveil.WorldG.StructureManager
         public override void AI()
         {
             base.AI();
+     
             Player owner = Main.player[Projectile.owner];
             Timer++;
             if (Timer == 1)
@@ -343,6 +350,7 @@ namespace Urdveil.WorldG.StructureManager
         public void SaveSelection(string fileName)
         {
             Structurizer.SaveStruct(fileName, BottomLeft, TopRight);
+            TileEntityStructurizer.SaveStruct(fileName, BottomLeft, TopRight);
             SoundEngine.PlaySound(SoundID.AchievementComplete);
         }
 

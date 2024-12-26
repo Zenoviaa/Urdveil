@@ -371,7 +371,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             if (ComboIndex < 1)
             {
                 Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, Projectile.type, Projectile.damage, Projectile.knockBack,
-                            Owner.whoAmI, combo, dir);
+                            Owner.whoAmI, ai2: combo, ai1: dir);
             }
 
 

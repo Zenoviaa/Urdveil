@@ -149,7 +149,7 @@ namespace Urdveil.WorldG
         private void PlaceSpringHills(GenerationProgress progress, GameConfiguration configuration)
         {
             progress.Message = "Making the Spring Hills";
-            string path = "Structures/BigSprings";//
+            string path = "Structures/SpringHills";//
 
             int spawnX = Main.maxTilesX / 2;
             int spawnY = (int)GenVars.worldSurfaceHigh - 600;

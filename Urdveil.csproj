@@ -294,6 +294,10 @@
     <None Remove="Localization\en-US\Mods.Urdveil.Dialogue.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Elements.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Enchantments.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Items.AccessoriesUrdveil.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Items.Armors.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Items.Materials.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Items.Weapons.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Quests.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Tablets.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.TownDialogue.hjson" />
@@ -616,6 +620,7 @@
     <None Remove="UI\StructureSelector\PaperSelected.png" />
     <None Remove="UI\StructureSelector\Save.png" />
     <None Remove="UI\StructureSelector\UndoSelected.png" />
+    <None Remove="UI\TileEntityEditorSystem\DraggablePoint.png" />
     <None Remove="UI\ToolsSystem\Paper.png" />
     <None Remove="UI\ToolsSystem\PaperSelected.png" />
     <None Remove="UI\WeaponUpgradeSystem\NoMaterial.png" />

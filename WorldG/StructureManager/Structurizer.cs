@@ -765,6 +765,7 @@ namespace Urdveil.WorldG.StructureManager
                     SnapshotSystem snapshotSystem = ModContent.GetInstance<SnapshotSystem>();
                     snapshotSystem.Save(bottomLeft, topRight);
                     Structurizer.ReadSavedStruct(Structurizer.SelectedStructure, bottomLeft);
+                    TileEntityStructurizer.ReadSavedStruct(Structurizer.SelectedStructure, bottomLeft);
                 }
 
             }
@@ -789,44 +790,11 @@ namespace Urdveil.WorldG.StructureManager
             On_Main.DrawDust -= DrawPreview;
         }
 
-        /*
-        private Texture2D GetPreviewTexture()
-        {
-            using (FileStream stream = File.Open(Main.SavePath + "/SavedStruct.str", FileMode.Open))
-            {
-                Texture2D texture = StructurePreview.GeneratePreview(stream);
-                return texture;
-            }
-            
-        }*/
 
         private void DrawPreview(On_Main.orig_DrawDust orig, Main self)
         {
             orig(self);
             bool draw = Main.LocalPlayer.HeldItem.type == ModContent.ItemType<ModelizingPlacer>();
-            /*
-            if (draw)
-            {
-                SpriteBatch spriteBatch = Main.spriteBatch;
-
-                if (texturePreview == null)
-                    texturePreview = GetPreviewTexture();
-                //Apply Fog Shader
-                spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, Main.Rasterizer,
-                    null, Main.GameViewMatrix.TransformationMatrix);
-
-          
-                int x = (int)Main.MouseWorld.X / 16;
-                int y = (int)Main.MouseWorld.Y / 16;
-                Vector2 drawOring = texturePreview.Size();
-                drawOring.X = 0;
-                spriteBatch.Draw(texturePreview, new Vector2(x, y) - Main.screenPosition, null, Color.White, 0, drawOring, 1f, SpriteEffects.None, 0);
-
-                spriteBatch.End();
-            }
-
-            */
-
         }
     }
 }

@@ -11,6 +11,7 @@ using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Urdveil.TilesNew.TriggerTiles;
+using Urdveil.UI.TileEntityEditorSystem;
 
 namespace Urdveil.Items.Test
 {
@@ -34,30 +35,42 @@ namespace Urdveil.Items.Test
             Item.UseSound = new SoundStyle("Urdveil/Assets/Sounds/Balls");
         }
 
-        private ModTileEntity GetModTileEntityAtTile(int i, int j)
+        public override bool AltFunctionUse(Player player)
         {
-            foreach(var tileEntity in TileEntity.manager.EnumerateEntities())
-            {
-                if(tileEntity.Value.Position.X == i && tileEntity.Value.Position.Y == j)
-                {
-                    return (ModTileEntity)tileEntity.Value;
-                }
-            }
-            return null;
+            return true;
         }
-
         public override bool? UseItem(Player player)
         {
-            Main.tileSolid[ModContent.TileType<BossSpawnTile>()] = false;
-            int x = (int)Main.MouseWorld.X / 16;
-            int y = (int)Main.MouseWorld.Y / 16;
-            TileEntity tileEntity = TileEntity.ByPosition[new Point16(x, y)];
-            if(tileEntity is BossSpawnTileEntity bossSpawnTileEntity)
+            if(player.altFunctionUse == 2)
             {
-                bossSpawnTileEntity.BossToSpawn = "Urdveil/StarrVeriplant";
-                bossSpawnTileEntity.SpawnOffset = new Point(-36, -24);
-                SoundEngine.PlaySound(SoundID.AchievementComplete);
+                TileEntitySelector tileEntitySelector = ModContent.GetInstance<TileEntitySelector>();
+                tileEntitySelector.CloseUI();
             }
+            else
+            {
+                int x = (int)Main.MouseWorld.X / 16;
+                int y = (int)Main.MouseWorld.Y / 16;
+                Point16 point = new Point16(x, y);
+                if (TileEntity.ByPosition.ContainsKey(point))
+                {
+                    TileEntity tileEntity = TileEntity.ByPosition[new Point16(x, y)];
+                    if (tileEntity is BossSpawnTileEntity bossSpawnTileEntity)
+                    {
+                        TileEntitySelector tileEntitySelector = ModContent.GetInstance<TileEntitySelector>();
+                        TileEntitySelector.TargetTileEntityPoint = point;
+                        BossSpawnTileUIState bossSpawnUIState = new BossSpawnTileUIState();
+                        bossSpawnUIState.Activate();
+                        tileEntitySelector.OpenUI(bossSpawnUIState);
+                        Main.NewText("Editing Tile Entity");
+                        /*
+                        bossSpawnTileEntity.BossToSpawn = "Urdveil/StarrVeriplant";
+                        bossSpawnTileEntity.SpawnOffset = new Point(-36, -24);
+                        SoundEngine.PlaySound(SoundID.AchievementComplete);*/
+                    }
+                }
+
+            }
+
             return true;
         }
     }
