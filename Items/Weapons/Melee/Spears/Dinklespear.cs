@@ -332,7 +332,7 @@ namespace Urdveil.Items.Weapons.Melee.Spears
             nSpin.PitchVariance = 0.2f;
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 100,
+                swingTime = 80,
                 swingXRadius = 70,
                 swingYRadius = 70,
                 swingRange = MathHelper.ToRadians(2100),
@@ -425,6 +425,7 @@ namespace Urdveil.Items.Weapons.Melee.Spears
                 spearHit2.PitchVariance = 0.2f;
                 SoundEngine.PlaySound(spearHit2, Projectile.position);
                 modifiers.FinalDamage *= 5;
+                modifiers.Knockback *= 3;
             }
         }
 
