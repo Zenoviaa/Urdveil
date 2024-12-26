@@ -54,7 +54,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             //Set stamina to use
             staminaToUse = 1;
             //set staminacombo
-            maxStaminaCombo = 2;
+            maxStaminaCombo = 4;
             //Set stamina projectile
             staminaProjectileShoot = ModContent.ProjectileType<ThornsBladeStaminaSlash>();
         }
@@ -248,7 +248,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 }
     public class ThornsBladeStaminaSlash : BaseSwingProjectile
     {
-        public override string Texture => this.PathHere() + "/CrystallineSlasher";
+        public override string Texture => this.PathHere() + "/ThornsBlade";
 
         public bool Hit;
 
@@ -306,7 +306,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             base.SetComboDefaults(swings);
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 48,
+                swingTime = 28,
                 swingXRadius = 120 / 1.5f,
                 swingYRadius = 100 / 1.5f,
                 swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.PiOver4 + MathHelper.Pi,
@@ -318,7 +318,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 48,
+                swingTime = 28,
                 swingXRadius = 120 / 1.5f,
                 swingYRadius = 100 / 1.5f,
                 swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.PiOver4 + MathHelper.Pi,
@@ -329,7 +329,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 48,
+                swingTime = 28,
                 swingXRadius = 120 / 1.5f,
                 swingYRadius = 100 / 1.5f,
                 swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.PiOver4 + MathHelper.Pi,
@@ -340,7 +340,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 48,
+                swingTime = 28,
                 swingXRadius = 120 / 1.5f,
                 swingYRadius = 100 / 1.5f,
                 swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.PiOver4 + MathHelper.Pi,

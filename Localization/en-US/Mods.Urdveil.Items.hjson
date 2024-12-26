@@ -5540,3 +5540,10 @@ SpringTabletStaminaItem: {
 	DisplayName: Spring Tablet Stamina Item
 	Tooltip: ""
 }
+
+ThornsBlade: {
+	Tooltip: ""
+	DisplayName: Thorns Blade
+	StaminaSlash: Mods.Urdveil.Items.ThornsBlade.StaminaSlash
+	BasicSlash: Mods.Urdveil.Items.ThornsBlade.BasicSlash
+}
