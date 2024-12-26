@@ -122,13 +122,17 @@ namespace Urdveil.TilesNew.SpringHills
     public class SpringTrapTileEntity : ModTileEntity
     {
         public float Timer;
+       
         public override void Update()
         {
             base.Update();
+
             Timer++;
             int i = Position.X;
             int j = Position.Y;
             Tile tile = Main.tile[i, j];
+
+
             int style = tile.TileFrameY / 18;
             Vector2 spawnPosition;
             // This logic here corresponds to the orientation of the sprites in the spritesheet, change it if your tile is different in design.
@@ -147,7 +151,7 @@ namespace Urdveil.TilesNew.SpringHills
                     // In a real mod you should be spawning projectiles that are both hostile and friendly to do damage to both players and NPC, as Terraria traps do.
                     // Make sure to change velocity, projectile, damage, and knockback.
                     Projectile.NewProjectile(Wiring.GetProjectileSource(i, j), spawnPosition, new Vector2(horizontalDirection, 0) * 6f,
-                        ModContent.ProjectileType<SpringArrow>(), 80, 2f, Main.myPlayer);
+                        ModContent.ProjectileType<SpringArrow>(), 40, 2f, Main.myPlayer);
                 }
 
             }
@@ -198,7 +202,6 @@ namespace Urdveil.TilesNew.SpringHills
             TileID.Sets.DrawsWalls[Type] = true;
             TileID.Sets.DontDrawTileSliced[Type] = true;
             TileID.Sets.IgnoresNearbyHalfbricksWhenDrawn[Type] = true;
-            TileID.Sets.IsAMechanism[Type] = true;
 
             Main.tileSolid[Type] = true;
             Main.tileBlockLight[Type] = true;

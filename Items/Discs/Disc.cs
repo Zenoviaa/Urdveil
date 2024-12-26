@@ -4,22 +4,6 @@ using Terraria.ModLoader;
 
 namespace Urdveil.Items.Discs
 {
-    internal class AcidicNightmaresDisc : BaseDiscItem
-    {
-        public override string MusicPath => "Assets/Music/Acidic_Nightmares";
-        public override void SetDiscDefaults()
-        {
-            base.SetDiscDefaults();
-            TileToPlace = ModContent.TileType<AcidicNightmaresDiscTile>();
-            Penetrate = 2;
-            TrailColor = Color.DarkGreen;
-        }
-    }
-
-    internal class AcidicNightmaresDiscTile : BaseRecordTile
-    {
-
-    }
 
     internal class AurelusTempleDisc : BaseDiscItem
     {
@@ -38,22 +22,6 @@ namespace Urdveil.Items.Discs
 
     }
 
-    internal class AcidicTerrorsDisc : BaseDiscItem
-    {
-        public override string MusicPath => "Assets/Music/Acidic_Terors";
-        public override void SetDiscDefaults()
-        {
-            base.SetDiscDefaults();
-            TileToPlace = ModContent.TileType<AcidicTerrorsDiscTile>();
-            Penetrate = 2;
-            TrailColor = Color.ForestGreen;
-        }
-    }
-
-    internal class AcidicTerrorsDiscTile : BaseRecordTile
-    {
-
-    }
 
     internal class ADemiseDisc : BaseDiscItem
     {
@@ -141,19 +109,19 @@ namespace Urdveil.Items.Discs
 
     }
 
-    internal class Boss6Disc : BaseDiscItem
+    internal class STARBOMBERDisc : BaseDiscItem
     {
-        public override string MusicPath => "Assets/Music/Boss6";
+        public override string MusicPath => "Assets/Music/STARBOMBER";
         public override void SetDiscDefaults()
         {
             base.SetDiscDefaults();
-            TileToPlace = ModContent.TileType<Boss6DiscTile>();
+            TileToPlace = ModContent.TileType<STARBOMBERDiscTile>();
             Penetrate = 2;
             TrailColor = Color.Purple;
         }
     }
 
-    internal class Boss6DiscTile : BaseRecordTile
+    internal class STARBOMBERDiscTile : BaseRecordTile
     {
 
     }
@@ -329,36 +297,36 @@ namespace Urdveil.Items.Discs
 
     }
 
-    internal class HidingInTheShadowsDisc : BaseDiscItem
+    internal class AurelusBiomeDisc : BaseDiscItem
     {
-        public override string MusicPath => "Assets/Music/Hidding_In_The_Shadows";
+        public override string MusicPath => "Assets/Music/AurelusBiome";
         public override void SetDiscDefaults()
         {
             base.SetDiscDefaults();
-            TileToPlace = ModContent.TileType<HidingInTheShadowsDiscTile>();
+            TileToPlace = ModContent.TileType<AurelusBiomeDiscTile>();
             Penetrate = 2;
             TrailColor = Color.LightCyan;
         }
     }
 
-    internal class HidingInTheShadowsDiscTile : BaseRecordTile
+    internal class AurelusBiomeDiscTile : BaseRecordTile
     {
 
     }
 
-    internal class IrradiaDisc : BaseDiscItem
+    internal class PunkerSteamDisc : BaseDiscItem
     {
-        public override string MusicPath => "Assets/Music/Irradia";
+        public override string MusicPath => "Assets/Music/PunkerSteam";
         public override void SetDiscDefaults()
         {
             base.SetDiscDefaults();
-            TileToPlace = ModContent.TileType<IrradiaDiscTile>();
+            TileToPlace = ModContent.TileType<PunkerSteamDiscTile>();
             Penetrate = 2;
             TrailColor = Color.LightYellow;
         }
     }
 
-    internal class IrradiaDiscTile : BaseRecordTile
+    internal class PunkerSteamDiscTile : BaseRecordTile
     {
 
     }

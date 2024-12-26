@@ -5500,3 +5500,33 @@ XixianFlaskCollectibleItem: {
 	DisplayName: Xixian Flask Collectible Item
 	Tooltip: ""
 }
+
+AurelusBiomeDisc: {
+	DisplayName: Aurelus Biome Disc
+	Tooltip: ""
+}
+
+PunkerSteamDisc: {
+	DisplayName: Punker Steam Disc
+	Tooltip: ""
+}
+
+STARBOMBERDisc: {
+	DisplayName: S T A R B O M B E R Disc
+	Tooltip: ""
+}
+
+BossSpawnWand: {
+	DisplayName: Boss Spawn Wand
+	Tooltip: ""
+}
+
+StaminaFlaskCollectibleItem: {
+	DisplayName: Stamina Flask Collectible Item
+	Tooltip: ""
+}
+
+BossSpawnTileItem: {
+	DisplayName: Boss Spawn Tile Item
+	Tooltip: ""
+}

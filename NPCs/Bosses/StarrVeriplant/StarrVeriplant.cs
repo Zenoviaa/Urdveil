@@ -228,6 +228,19 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                 OutlineOpacity = MathHelper.Lerp(OutlineOpacity, 0f, 0.1f);
             }
 
+            
+            if (!NPC.HasValidTarget)
+            {
+                NPC.TargetClosest();
+                if (!NPC.HasValidTarget)
+                {
+                    NPC.noTileCollide = true;
+                    NPC.EncourageDespawn(60);
+                    NPC.velocity -= Vector2.UnitY;
+                    return;
+                }
+    
+            }
 
             //AI States
             switch (State)
@@ -259,7 +272,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                 NPC.TargetClosest();
                 if (NPC.HasValidTarget)
                 {
-                    NPC.Center = Target.Center + new Vector2(0, -384);
+                //    NPC.Center = Target.Center + new Vector2(0, -384);
                 }
                 NPC.velocity.Y = 1;
             }
