@@ -84,6 +84,7 @@ namespace Urdveil.WorldG
             DisableGenTask(tasks, "Mount Caves");
             DisableGenTask(tasks, "Surface Caves");
             DisableGenTask(tasks, "Mountain Caves");
+            DisableGenTask(tasks, "Pots");
             //  DisableGenTask(tasks, "Surface Chests");
             DisableGenTask(tasks, "Wavy Caves");
             DisableGenTask(tasks, "Living Trees");
