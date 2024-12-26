@@ -332,9 +332,9 @@ namespace Urdveil.Items.Weapons.Melee.Spears
             nSpin.PitchVariance = 0.2f;
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 150,
-                swingXRadius = 100,
-                swingYRadius = 100,
+                swingTime = 100,
+                swingXRadius = 70,
+                swingYRadius = 70,
                 swingRange = MathHelper.ToRadians(2100),
                 easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
                 swingSound = nSpin,
@@ -343,9 +343,9 @@ namespace Urdveil.Items.Weapons.Melee.Spears
 
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 48,
+                swingTime = 24,
                 swingXRadius = 100,
-                swingYRadius = 50,
+                swingYRadius = 90,
                 swingRange = MathHelper.Pi,
                 easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
                 ovalRotOffset = ovalRotOffset,
@@ -396,14 +396,15 @@ namespace Urdveil.Items.Weapons.Melee.Spears
         public override void AI()
         {
             base.AI();
-
-            if (!Jumped)
+            if (ComboIndex == 0)
             {
-                Owner.velocity += -Vector2.UnitY * 10;
-                Jumped = true;
-                Owner.AddBuff(BuffID.Featherfall, 120);
+                if (!Jumped)
+                {
+                    Owner.velocity += -Vector2.UnitY * 10;
+                    Jumped = true;
+                    Owner.AddBuff(BuffID.Featherfall, 80);
+                }
             }
-           
         }
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {

@@ -5547,3 +5547,10 @@ ThornsBlade: {
 	StaminaSlash: Mods.Urdveil.Items.ThornsBlade.StaminaSlash
 	BasicSlash: Mods.Urdveil.Items.ThornsBlade.BasicSlash
 }
+
+Dinklespear: {
+	BasicSlash: Mods.Urdveil.Items.Dinklespear.BasicSlash
+	StaminaSlash: Mods.Urdveil.Items.Dinklespear.StaminaSlash
+	DisplayName: Dinklespear
+	Tooltip: ""
+}
