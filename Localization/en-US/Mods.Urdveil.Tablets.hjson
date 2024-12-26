@@ -15,5 +15,5 @@ SpringTabletBoss: {
 
 SpringTabletStamina: {
 	Title: Stamina!
-	Message: Stamina appears in your bar at the top of your screen, this is a new stat for melee and ranger players to use specials alongside their regular attacks, they usually do much more damage and are not regenerative. You can refill it by dying or your stamina potion!
+	Message: Stamina appears in your bar at the top of your screen, this is a new stat for melee and ranger players to use specials alongside their regular attacks, they usually do much more damage and are not regenerative. You can refill it by dying or your stamina potion! You can use your special by right clicking on those types of weapons.
 }
