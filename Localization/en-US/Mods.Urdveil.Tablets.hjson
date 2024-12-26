@@ -7,3 +7,13 @@ SpringTabletDash: {
 	Title: Dash!
 	Message: You can dash through obstacles and attacks by double-tapping a direction or pressing the dash keybind! Each dash uses a point and recharges over time, so be sure to use them carefully! Try dashing through the trap up ahead...
 }
+
+SpringTabletBoss: {
+	Title: Mods.Urdveil.Tablets.SpringTabletBoss.Title
+	Message: Mods.Urdveil.Tablets.SpringTabletBoss.Message
+}
+
+SpringTabletStamina: {
+	Title: Stamina!
+	Message: Mods.Urdveil.Tablets.SpringTabletStamina.Message
+}

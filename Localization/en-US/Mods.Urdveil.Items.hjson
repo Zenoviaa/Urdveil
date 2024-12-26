@@ -5530,3 +5530,13 @@ BossSpawnTileItem: {
 	DisplayName: Boss Spawn Tile Item
 	Tooltip: ""
 }
+
+SpringTabletBossItem: {
+	DisplayName: Spring Tablet Boss Item
+	Tooltip: ""
+}
+
+SpringTabletStaminaItem: {
+	DisplayName: Spring Tablet Stamina Item
+	Tooltip: ""
+}
