@@ -53,6 +53,7 @@ namespace Urdveil.UI.TabletSystem
             Text.Height = Height;
             Text.MarginLeft = 16;
             Text.MarginRight = 16;
+            Text.DynamicallyScaleDownToWidth = true;
             Text.Top.Set(0, 0.75f);
             Text.IsWrapped = true;
             Append(Text); 
