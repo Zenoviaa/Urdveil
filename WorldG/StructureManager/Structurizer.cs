@@ -367,8 +367,11 @@ namespace Urdveil.WorldG.StructureManager
             using (Stream stream = Mod.GetFileStream(Path + ".str"))
             {
                 OnStructPlace?.Invoke(BottomLeft, Path);
-                return ReadStruct(stream, BottomLeft, tileBlend);
+                int[] indices = ReadStruct(stream, BottomLeft, tileBlend);
+                TileEntityStructurizer.ReadStruct(Path, BottomLeft);
+                return indices;
             }
+         
         }
 
         public static int[] ReadSavedStruct(Point BottomLeft, int[] tileBlend = null)

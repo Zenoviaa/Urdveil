@@ -94,9 +94,10 @@ namespace Urdveil.WorldG.StructureManager
             if (!filePath.Contains(FileExtension))
                 filePath += FileExtension;
             string savedPath = Main.SavePath + "/ModSources/" + Mod.Name + "/" + filePath;
-            using FileStream stream = File.Open(savedPath, FileMode.Open);
-            ReadStruct(stream, BottomLeft);
-            stream.Flush();
+            using (var stream = File.Open(savedPath, FileMode.Open))
+            {
+                ReadStruct(stream, BottomLeft);
+            }
         }
 
         /// <summary>
@@ -106,9 +107,14 @@ namespace Urdveil.WorldG.StructureManager
         /// <param name="bottomLeft"></param>
         public static void ReadStruct(string Path, Point bottomLeft)
         {
-            using Stream stream = Mod.GetFileStream(Path + FileExtension);
-            ReadStruct(stream, bottomLeft);
-            stream.Flush();
+            string path = Path + FileExtension;
+            if (!Mod.FileExists(path))
+                return;
+            using (var stream = Mod.GetFileStream(path))
+            {
+                ReadStruct(stream, bottomLeft);
+            }
+       
         }
     }
 }
