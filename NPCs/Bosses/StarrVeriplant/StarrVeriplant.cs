@@ -92,8 +92,8 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
         {
             NPC.width = 80;
             NPC.height = 44;
-            NPC.damage = 25;
-            NPC.lifeMax = 600;
+            NPC.damage = 50;
+            NPC.lifeMax = 400;
             NPC.HitSound = new SoundStyle("Urdveil/Assets/Sounds/Gintze_Hit") with { PitchVariance = 0.1f };
             NPC.DeathSound = new SoundStyle("Urdveil/Assets/Sounds/Gintze_Death") with { PitchVariance = 0.1f };
             NPC.knockBackResist = 0f;
@@ -556,7 +556,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                         {
                             //This is the part where you spawn the cool ahh shockwaves
                             //But we have to make cool ahh shockwaves :(
-                            int shockwaveDamage = 10;
+                            int shockwaveDamage = 20;
                             int knockback = 1;
                             Vector2 velocity = Vector2.UnitX;
                             velocity *= 4;
@@ -755,7 +755,7 @@ namespace Urdveil.NPCs.Bosses.StarrVeriplant
                         {
                             //This is the part where you spawn the cool ahh shockwaves
                             //But we have to make cool ahh shockwaves :(
-                            int shockwaveDamage = 20;
+                            int shockwaveDamage = 80;
                             int knockback = 1;
                             Vector2 velocity = Vector2.UnitX;
                             velocity *= 4;
