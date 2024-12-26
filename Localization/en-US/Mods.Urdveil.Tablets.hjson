@@ -9,11 +9,11 @@ SpringTabletDash: {
 }
 
 SpringTabletBoss: {
-	Title: Mods.Urdveil.Tablets.SpringTabletBoss.Title
-	Message: Mods.Urdveil.Tablets.SpringTabletBoss.Message
+	Title: Bosses...
+	Message:  Bosses are extremely common throughout this world, you'll often find bosses in dungeons, corridors and even outside! The bosses are mostly melee centric, with our playstyles opting to not have contact damage, tread carefully!
 }
 
 SpringTabletStamina: {
 	Title: Stamina!
-	Message: Mods.Urdveil.Tablets.SpringTabletStamina.Message
+	Message: Stamina appears in your bar at the top of your screen, this is a new stat for melee and ranger players to use specials alongside their regular attacks, they usually do much more damage and are not regenerative. You can refill it by dying or your stamina potion!
 }
