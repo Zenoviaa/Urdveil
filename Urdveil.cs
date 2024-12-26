@@ -423,11 +423,11 @@ namespace Urdveil
         //   public override Asset<Texture2D> MoonTexture => ModContent.Request<Texture2D>($"{menuAssetPath}/TheMoon");
 
 
-        public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/Menutheme");
+        public override int Music => MusicLoader.GetMusicSlot(Mod, "Assets/Music/GreatMenu");
 
         public override ModSurfaceBackgroundStyle MenuBackgroundStyle => ModContent.GetInstance<StarbloomBackgroundStyle>();
 
-        public override string DisplayName => "Lunar Veil";
+        public override string DisplayName => "Urdveil";
         public override void OnSelected()
         {
             SoundEngine.PlaySound(SoundID.Tink);

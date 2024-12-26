@@ -10,6 +10,7 @@ using Terraria.ModLoader;
 using Urdveil.Dusts;
 using Urdveil.Helpers;
 using Urdveil.Items.Flasks;
+using Urdveil.Items.Potions;
 using Urdveil.Tiles;
 
 namespace Urdveil.TilesNew.CollectibleTiles
@@ -246,5 +247,21 @@ namespace Urdveil.TilesNew.CollectibleTiles
             player.QuickSpawnItem(player.GetSource_FromThis(), ModContent.ItemType<HealthyInsource>());
         }
     }
+    internal class StaminaFlaskCollectibleItem : BaseCollectibleTileItem
+    {
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            Item.createTile = ModContent.TileType<StaminaFlaskCollectible>();
+        }
+    }
 
+    internal class StaminaFlaskCollectible : BaseCollectibleTile
+    {
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            CollectibleItem = ModContent.ItemType<StaminaPotion>();
+        }
+    }
 }
