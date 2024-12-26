@@ -1,25 +1,21 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Urdveil.Common.Bases;
+using Urdveil.Common.Particles;
 using Urdveil.Common.Players;
 using Urdveil.Common.Shaders;
 using Urdveil.Common.Shaders.MagicTrails;
 using Urdveil.Helpers;
 using Urdveil.Trails;
+using Urdveil.Visual.Particles;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
-
-namespace Urdveil.Items.Weapons.Melee.Swords
+namespace Urdveil.Items.Weapons.Melee.Spears
 {
-    // This is a basic item template.
-    // Please see tModLoader's ExampleMod for every other example:
-    // https://github.com/tModLoader/tModLoader/tree/stable/ExampleMod
-
-
-    public class ThornsBlade : BaseSwingItem
+    public class Dinklespear : BaseSwingItem
     {
         // The Display Name and Tooltip of this item can be edited in the 'Localization/en-US_Mods.Urdveil.hjson' file.
         public override DamageClass AlternateClass => DamageClass.Ranged;
@@ -31,38 +27,31 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             Item.height = 40;
             Item.noUseGraphic = true;
             Item.noMelee = true;
-            Item.useTime = 126;
-            Item.useAnimation = 126;
+            Item.useTime = 60;
+            Item.useAnimation = 60;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.knockBack = 6;
             Item.value = Item.buyPrice(silver: 1);
             Item.rare = ItemRarityID.Blue;
             Item.shootSpeed = 10;
-            Item.shoot = ModContent.ProjectileType<ThornsBladeSlash>();
+            Item.shoot = ModContent.ProjectileType<DinklespearStab>();
             Item.autoReuse = true;
 
-            //Combo variables
-            //Set combo wait time
-            comboWaitTime = 60;
-            //Set max combo
-            maxCombo = 6;
-
-
-
-
+            comboWaitTime = 70;
+            maxCombo = 9;
 
             //Set stamina to use
             staminaToUse = 1;
             //set staminacombo
-            maxStaminaCombo = 4;
+            maxStaminaCombo = 2;
             //Set stamina projectile
-            staminaProjectileShoot = ModContent.ProjectileType<ThornsBladeStaminaSlash>();
+            staminaProjectileShoot = ModContent.ProjectileType<DinklespearStaminaStab>();
         }
     }
 
-    public class ThornsBladeSlash : BaseSwingProjectile
+    public class DinklespearStab : BaseSwingProjectile
     {
-        public override string Texture => this.PathHere() + "/ThornsBlade";
+        public override string Texture => this.PathHere() + "/Dinklespear";
 
         public bool Hit;
 
@@ -74,6 +63,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
         public override void SetDefaults()
         {
+
             holdOffset = 40;
             trailStartOffset = 0.2f;
             Projectile.penetrate = -1;
@@ -93,83 +83,126 @@ namespace Urdveil.Items.Weapons.Melee.Swords
         public override void SetComboDefaults(List<BaseSwingStyle> swings)
         {
             base.SetComboDefaults(swings);
-
-            SoundStyle swingSound1 = SoundRegistry.NSwordSlash1;
-            swingSound1.PitchVariance = 0.5f;
-
-            SoundStyle swingSound2 = SoundRegistry.NSwordSlash2;
-            swingSound2.PitchVariance = 0.5f;
-
-            SoundStyle swingSound3 = SoundRegistry.NSwordSpin1;
-            swingSound3.PitchVariance = 0.5f;
-
-            swings.Add(new CircleSwingStyle
+            float ovalRotOffset = 0;
+            if (ComboDirection == 1)
             {
-                swingTime = 24,
-                startSwingRotOffset = -MathHelper.ToRadians(135),
-                endSwingRotOffset = MathHelper.ToRadians(135),
+                ovalRotOffset = 0;
+            }
+            else
+            {
+                ovalRotOffset = MathHelper.Pi + MathHelper.PiOver2;
+            }
+
+            SoundStyle spearSlash1 = SoundRegistry.SpearSlash1;
+            SoundStyle spearSlash2 = SoundRegistry.SpearSlash2;
+            SoundStyle nSpin = SoundRegistry.NSwordSpin1;
+            spearSlash1.PitchVariance = 0.25f;
+            spearSlash2.PitchVariance = 0.25f;
+            nSpin.PitchVariance = 0.2f;
+            swings.Add(new OvalSwingStyle
+            {
+                swingTime = 28,
+                swingXRadius = 100,
+                swingYRadius = 50,
+                swingRange = MathHelper.Pi / 2f,
                 easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
-                swingSound = swingSound1
+                ovalRotOffset = ovalRotOffset,
+                swingSound = spearSlash1,
+                swingSoundLerpValue = 0.5f
+            });
+
+            swings.Add(new OvalSwingStyle
+            {
+                swingTime = 28,
+                swingXRadius = 100,
+                swingYRadius = 50,
+                swingRange = MathHelper.Pi / 2f,
+                easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
+                ovalRotOffset = ovalRotOffset,
+                swingSound = spearSlash1,
+                swingSoundLerpValue = 0.5f
+            });
+
+            swings.Add(new SpearSwingStyle
+            {
+                swingTime = 12,
+                stabRange = 90,
+                thrustSpeed = 5,
+                easingFunc = (float lerpValue) => Easing.SpikeOutExpo(lerpValue),
+                swingSound = spearSlash2
+            });
+
+            swings.Add(new SpearSwingStyle
+            {
+                swingTime = 12,
+                stabRange = 90,
+                thrustSpeed = 5,
+                easingFunc = (float lerpValue) => Easing.SpikeOutExpo(lerpValue),
+                swingSound = spearSlash2
             });
 
             swings.Add(new OvalSwingStyle
             {
                 swingTime = 24,
-                swingXRadius = 128 / 1.5f,
-                swingYRadius = 64 / 1.5f,
-                swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4,
+                swingXRadius = 100,
+                swingYRadius = 50,
+                swingRange = MathHelper.Pi / 2f,
                 easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
-                swingSound = swingSound2,
+                ovalRotOffset = ovalRotOffset,
+                swingSound = spearSlash1,
                 swingSoundLerpValue = 0.5f
             });
 
             swings.Add(new OvalSwingStyle
             {
                 swingTime = 24,
-                swingXRadius = 128 / 1.5f,
-                swingYRadius = 64 / 1.5f,
-                swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4,
+                swingXRadius = 100,
+                swingYRadius = 50,
+                swingRange = MathHelper.Pi / 2f,
                 easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
-                swingSound = swingSound2,
+                ovalRotOffset = ovalRotOffset,
+                swingSound = spearSlash1,
                 swingSoundLerpValue = 0.5f
             });
 
+            float circleRange = MathHelper.TwoPi * 4;
             swings.Add(new CircleSwingStyle
             {
-                swingTime = 24,
-                startSwingRotOffset = -MathHelper.ToRadians(135),
-                endSwingRotOffset = MathHelper.ToRadians(135),
-                easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 7),
-                swingSound = swingSound1
-            });
-
-            swings.Add(new CircleSwingStyle
-            {
-                swingTime = 24,
-                startSwingRotOffset = -MathHelper.ToRadians(135),
-                endSwingRotOffset = MathHelper.ToRadians(135),
-                easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 7),
-                swingSound = swingSound1
-            });
-
-            float circleRange = MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.TwoPi;
-            swings.Add(new CircleSwingStyle
-            {
-                swingTime = 40,
+                swingTime = 60,
+                spinCenter = true,
+                spinCenterOffset = 12,
                 startSwingRotOffset = -circleRange,
                 endSwingRotOffset = circleRange,
-                easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
-                swingSound = swingSound3
+                easingFunc = (float lerpValue) => lerpValue,
+                swingSound = nSpin
+            });
+
+            swings.Add(new SpearSwingStyle
+            {
+                swingTime = 30,
+                stabRange = 128,
+                thrustSpeed = 5,
+                easingFunc = (float lerpValue) => Easing.SpikeOutExpo(lerpValue),
+                swingSound = spearSlash2
+            });
+
+            swings.Add(new SpearSwingStyle
+            {
+                swingTime = 60,
+                stabRange = 200,
+                thrustSpeed = 5,
+                easingFunc = (float lerpValue) => Easing.SpikeOutExpo(lerpValue),
+                swingSound = spearSlash2
             });
         }
-
 
         protected override void InitSwingAI()
         {
             base.InitSwingAI();
-            if (ComboIndex == 5)
+            if (ComboIndex == 6)
             {
-                Projectile.localNPCHitCooldown = 2 * ExtraUpdateMult;
+                //This npc local hit cooldown time makes it hit multiple times
+                Projectile.localNPCHitCooldown = 3 * ExtraUpdateMult;
             }
         }
 
@@ -179,28 +212,38 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             if (!Hit)
             {
                 FXUtil.ShakeCamera(target.Center, 1024, 8f);
+                Particle.NewParticle<IceStrikeParticle>(target.Center, Vector2.Zero, Color.White);
+
                 Hit = true;
                 hitstopTimer = 4 * ExtraUpdateMult;
             }
-
-
         }
+
         public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
         {
             base.ModifyHitNPC(target, ref modifiers);
             SoundStyle spearHit = SoundRegistry.SpearHit1;
-            spearHit.PitchVariance = 0.5f;
+            spearHit.PitchVariance = 0.1f;
             SoundEngine.PlaySound(spearHit, Projectile.position);
 
-
-            if (ComboIndex == 5)
+            if (ComboIndex == 7)
             {
                 modifiers.FinalDamage *= 2;
+            }
+
+            if (ComboIndex == 8)
+            {
+                modifiers.FinalDamage *= 3;
             }
         }
 
         //TRAIL VISUALS
-        #region Visuals
+        public override Vector2 GetFramingSize()
+        {
+            //Set this to the width and height of the sword sprite
+            return new Vector2(68, 72);
+        }
+
         public override Vector2 GetTrailOffset()
         {
             //Moves the trail along the blade, negative goes towards the player, positive goes away the player
@@ -209,7 +252,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
         private float WidthFunction(float p)
         {
-            float trailWidth = MathHelper.Lerp(0, 384, p);
+            float trailWidth = MathHelper.Lerp(0, 252, p);
             float fadeWidth = MathHelper.Lerp(trailWidth, 0, _smoothedLerpValue) * Easing.OutExpo(_smoothedLerpValue, 4);
             return fadeWidth;
         }
@@ -243,14 +286,14 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             shader.Speed = 25;
             TrailDrawer.Draw(Main.spriteBatch, trailPoints, Projectile.oldRot, ColorFunction, WidthFunction, shader, offset: GetFramingSize() / 2f);
         }
-        #endregion
-    
-}
-    public class ThornsBladeStaminaSlash : BaseSwingProjectile
+    }
+
+    public class DinklespearStaminaStab : BaseSwingProjectile
     {
-        public override string Texture => this.PathHere() + "/ThornsBlade";
+        public override string Texture => this.PathHere() + "/Dinklespear";
 
         public bool Hit;
+        public bool Jumped;
 
         public override void SetStaticDefaults()
         {
@@ -260,6 +303,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
         public override void SetDefaults()
         {
+
             holdOffset = 40;
             trailStartOffset = 0.2f;
             Projectile.penetrate = -1;
@@ -269,113 +313,45 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             Projectile.height = 38;
             Projectile.width = 38;
             Projectile.friendly = true;
-            Projectile.scale = 1.3f;
+            Projectile.scale = 1f;
 
             Projectile.extraUpdates = ExtraUpdateMult - 1;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.localNPCHitCooldown = 10000;
         }
 
-        private bool _thrust;
-        public float thrustSpeed = 5;
-        public float stabRange;
-        public override void AI()
-        {
-            base.AI();
-
-            Vector2 swingDirection = Projectile.velocity.SafeNormalize(Vector2.Zero);
-            if (_smoothedLerpValue > 0.5f)
-            {
-                if (!_thrust)
-                {
-                    Owner.velocity += swingDirection * thrustSpeed;
-                    _thrust = true;
-                }
-            }
-
-
-
-        }
         public override void SetComboDefaults(List<BaseSwingStyle> swings)
         {
-
-            SoundStyle swingSound1 = SoundRegistry.HeavySwordSlash1;
-            swingSound1.PitchVariance = 0.5f;
-
-
             base.SetComboDefaults(swings);
+            float ovalRotOffset = 0;
+            SoundStyle spearSlash1 = SoundRegistry.SpearSlash1;
+            SoundStyle spearSlash2 = SoundRegistry.SpearSlash2;
+            SoundStyle nSpin = SoundRegistry.NSwordSpin1;
+            spearSlash1.PitchVariance = 0.25f;
+            spearSlash2.PitchVariance = 0.25f;
+            nSpin.PitchVariance = 0.2f;
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 36,
-                swingXRadius = 120 / 1.5f,
-                swingYRadius = 100 / 1.5f,
-                swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.PiOver4 + MathHelper.Pi,
+                swingTime = 150,
+                swingXRadius = 100,
+                swingYRadius = 100,
+                swingRange = MathHelper.ToRadians(2100),
                 easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
-                swingSound = swingSound1,
-                swingSoundLerpValue = 0.5f
-
+                swingSound = nSpin,
+                swingSoundLerpValue = 0.15f
             });
 
             swings.Add(new OvalSwingStyle
             {
-                swingTime = 36,
-                swingXRadius = 120 / 1.5f,
-                swingYRadius = 100 / 1.5f,
-                swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.PiOver4 + MathHelper.Pi,
+                swingTime = 48,
+                swingXRadius = 100,
+                swingYRadius = 50,
+                swingRange = MathHelper.Pi,
                 easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
-                swingSound = swingSound1,
+                ovalRotOffset = ovalRotOffset,
+                swingSound = spearSlash1,
                 swingSoundLerpValue = 0.5f
             });
-
-            swings.Add(new OvalSwingStyle
-            {
-                swingTime = 36,
-                swingXRadius = 120 / 1.5f,
-                swingYRadius = 100 / 1.5f,
-                swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.PiOver4 + MathHelper.Pi,
-                easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
-                swingSound = swingSound1,
-                swingSoundLerpValue = 0.5f
-            });
-
-            swings.Add(new OvalSwingStyle
-            {
-                swingTime = 36,
-                swingXRadius = 120 / 1.5f,
-                swingYRadius = 100 / 1.5f,
-                swingRange = MathHelper.Pi + MathHelper.PiOver2 + MathHelper.PiOver4 + MathHelper.PiOver4 + MathHelper.Pi,
-                easingFunc = (float lerpValue) => Easing.InOutExpo(lerpValue, 10),
-                swingSound = swingSound1,
-                swingSoundLerpValue = 0.5f
-            });
-        }
-
-
-
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            base.OnHitNPC(target, hit, damageDone);
-            if (!Hit)
-            {
-                FXUtil.ShakeCamera(target.Center, 1024, 8f);
-                Hit = true;
-                hitstopTimer = 4 * ExtraUpdateMult;
-            }
-
-
-        }
-
-        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
-        {
-            base.ModifyHitNPC(target, ref modifiers);
-
-
-            SoundStyle spearHit2 = SoundRegistry.NSwordHit1;
-            spearHit2.PitchVariance = 0.5f;
-            SoundEngine.PlaySound(spearHit2, Projectile.position);
-
-            modifiers.FinalDamage *= 2.5f;
-            modifiers.Knockback *= 2;
 
         }
 
@@ -383,17 +359,75 @@ namespace Urdveil.Items.Weapons.Melee.Swords
         {
             base.OnKill(timeLeft);
             ComboPlayer comboPlayer = Owner.GetModPlayer<ComboPlayer>();
-            int combo = ComboIndex + 1;
+            int combo = (int)(ComboIndex + 1);
             int dir = comboPlayer.ComboDirection;
 
-            if (ComboIndex < 3)
+
+            if (ComboIndex < 1)
             {
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, Projectile.type, Projectile.damage, Projectile.knockBack,
+                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, (Main.MouseWorld - Owner.Center), Projectile.type, Projectile.damage, Projectile.knockBack,
                             Owner.whoAmI, ai2: combo, ai1: dir);
             }
         }
+
+        protected override void InitSwingAI()
+        {
+            base.InitSwingAI();
+            if (ComboIndex == 0)
+            {
+                //This npc local hit cooldown time makes it hit multiple times
+                Projectile.localNPCHitCooldown = 3 * ExtraUpdateMult;
+            }
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            base.OnHitNPC(target, hit, damageDone);
+            if (!Hit)
+            {
+                FXUtil.ShakeCamera(target.Center, 1024, 8f);
+                Particle.NewParticle<IceStrikeParticle>(target.Center, Vector2.Zero, Color.White);
+
+                Hit = true;
+                hitstopTimer = 4 * ExtraUpdateMult;
+            }
+        }
+
+        public override void AI()
+        {
+            base.AI();
+
+            if (!Jumped)
+            {
+                Owner.velocity += -Vector2.UnitY * 10;
+                Jumped = true;
+                Owner.AddBuff(BuffID.Featherfall, 120);
+            }
+           
+        }
+        public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers)
+        {
+            base.ModifyHitNPC(target, ref modifiers);
+
+            if (ComboIndex == 0)
+            {
+                SoundStyle spearHit = SoundRegistry.SpearHit1;
+                spearHit.PitchVariance = 0.1f;
+                SoundEngine.PlaySound(spearHit, Projectile.position);
+                modifiers.FinalDamage *= 2;
+                modifiers.Knockback *= 0.5f;
+            }
+
+            if (ComboIndex == 1)
+            {
+                SoundStyle spearHit2 = SoundRegistry.NSwordHit1;
+                spearHit2.PitchVariance = 0.2f;
+                SoundEngine.PlaySound(spearHit2, Projectile.position);
+                modifiers.FinalDamage *= 5;
+            }
+        }
+
         //TRAIL VISUALS
-        #region Visuals
         public override Vector2 GetTrailOffset()
         {
             //Moves the trail along the blade, negative goes towards the player, positive goes away the player
@@ -402,7 +436,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
         private float WidthFunction(float p)
         {
-            float trailWidth = MathHelper.Lerp(0, 484, p);
+            float trailWidth = MathHelper.Lerp(0, 252, p);
             float fadeWidth = MathHelper.Lerp(trailWidth, 0, _smoothedLerpValue) * Easing.OutExpo(_smoothedLerpValue, 4);
             return fadeWidth;
         }
@@ -436,6 +470,5 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             shader.Speed = 25;
             TrailDrawer.Draw(Main.spriteBatch, trailPoints, Projectile.oldRot, ColorFunction, WidthFunction, shader, offset: GetFramingSize() / 2f);
         }
-        #endregion
     }
 }
