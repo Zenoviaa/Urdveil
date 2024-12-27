@@ -10,6 +10,9 @@ using Terraria.Audio;
 using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework.Graphics;
+using Urdveil.Common.Shaders.MagicTrails;
+using Urdveil.Common.Shaders;
 
 namespace Urdveil.Items.Weapons.Melee.Swords
 {
@@ -235,19 +238,34 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             return MathHelper.Lerp(0f, 32, Easing.InExpo(completionRatio) * t) * Easing.SpikeOutCirc(uneasedLerpValue);
         }
 
-        public Color ColorFunction(float completionRatio)
+        private Color ColorFunction(float p)
         {
-            return Color.Lerp(Color.Transparent, Color.Lerp(Color.Goldenrod, Color.DarkGoldenrod, completionRatio), completionRatio);
+            Color trailColor = Color.Lerp(Color.White, Color.LightGray, p);
+            Color fadeColor = Color.Lerp(trailColor, Color.DarkGray, _smoothedLerpValue);
+            //This will make it fade out near the end
+            return fadeColor;
         }
 
-        public PrimDrawer TrailDrawer { get; private set; } = null;
         protected override void DrawSlashTrail(Vector2[] trailPoints, Vector2 drawOffset)
         {
             base.DrawSlashTrail(trailPoints, drawOffset);
-            TrailDrawer ??= new PrimDrawer(WidthFunction, ColorFunction, GameShaders.Misc["VampKnives:SuperSimpleTrail"]);
-            TrailDrawer.Shader = GameShaders.Misc["VampKnives:SuperSimpleTrail"];
-            GameShaders.Misc["VampKnives:SuperSimpleTrail"].SetShaderTexture(TrailRegistry.LightningTrail2);
-            TrailDrawer.DrawPrims(trailPoints, drawOffset, 252);
+
+            var shader = SimpleTrailShader.Instance;
+
+            //Main trailing texture
+            shader.TrailingTexture = TrailRegistry.GlowTrail;
+
+            //Blends with the main texture
+            shader.SecondaryTrailingTexture = TrailRegistry.GlowTrail;
+
+            //Used for blending the trail colors
+            //Set it to any noise texture
+            shader.TertiaryTrailingTexture = TrailRegistry.CrystalTrail2;
+            shader.PrimaryColor = Color.White;
+            shader.SecondaryColor = Color.DarkGray;
+            shader.BlendState = BlendState.Additive;
+            shader.Speed = 25;
+            TrailDrawer.Draw(Main.spriteBatch, trailPoints, Projectile.oldRot, ColorFunction, WidthFunction, shader, offset: GetFramingSize() / 2f);
         }
     }
     public class SpireStaminaSlash : BaseSwingProjectile
