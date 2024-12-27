@@ -57,7 +57,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             //Set stamina to use
             staminaToUse = 1;
             //set staminacombo
-            maxStaminaCombo = 2;
+            maxStaminaCombo = 1;
             //Set stamina projectile
             staminaProjectileShoot = ModContent.ProjectileType<VaelSwordStaminaSlash>();
         }
@@ -414,11 +414,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             int dir = comboPlayer.ComboDirection;
 
 
-            if (ComboIndex < 1)
-            {
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, Projectile.type, Projectile.damage, Projectile.knockBack,
-                            Owner.whoAmI, ai2: combo, ai1: dir);
-            }
+
 
 
         }

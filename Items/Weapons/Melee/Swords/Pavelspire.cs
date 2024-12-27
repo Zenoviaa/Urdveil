@@ -330,7 +330,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
                 swingXRadius = 80 / 1.5f,
                 swingYRadius = 80 / 1.5f,
                 swingRange = MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi ,
-                easingFunc = (lerpValue) => Easing.InCirc(lerpValue),
+                easingFunc = (lerpValue) => Easing.InOutCirc(lerpValue),
                 swingSound = swingSound1,
                 swingSoundLerpValue = 0.5f
 
@@ -376,12 +376,6 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             int combo = ComboIndex + 1;
             int dir = comboPlayer.ComboDirection;
 
-
-            if (ComboIndex < 1)
-            {
-                Projectile.NewProjectile(Projectile.GetSource_FromThis(), Projectile.position, Projectile.velocity, Projectile.type, Projectile.damage, Projectile.knockBack,
-                            Owner.whoAmI, ai2: combo, ai1: dir);
-            }
 
 
         }
