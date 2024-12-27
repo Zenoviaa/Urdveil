@@ -59,12 +59,6 @@ namespace Urdveil.NPCs.Town
 
         // AI counter
         public int counter;
-        public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-            spawner.structureToSpawnIn = "Struct/Overworld/WitchTown";
-            spawner.spawnTileOffset = new Point(190, -20);
-        }
-
         public override void SetDefaults()
         {
             NPC.friendly = true; // NPC Will not attack player

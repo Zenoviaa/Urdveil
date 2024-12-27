@@ -18,10 +18,6 @@ namespace Urdveil.Common
         public bool HasTownDialogue { get; set; }
         public bool SpawnAtPoint { get; set; }
         public virtual string QuestMarkTexture => "Urdveil/Common/QuestSystem/QuestMark";
-        public virtual void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-
-        }
 
         public virtual void OpenTownDialogue(
             ref string text,

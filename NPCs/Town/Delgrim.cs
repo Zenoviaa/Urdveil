@@ -233,14 +233,6 @@ namespace Urdveil.NPCs.Town
             npcShop.Register(); // Name of this shop tab		
         }
 
-        public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-            string structure = "Struct/Underground/DelgrimShop";
-            spawner.structureToSpawnIn = structure;
-            spawner.spawnTileOffset = new Point(12, -12);
-            spawner.always = true;
-        }
-
 
         public override void OpenTownDialogue(ref string text, ref string portrait, ref float timeBetweenTexts, ref SoundStyle? talkingSound, List<Tuple<string, Action>> buttons)
         {

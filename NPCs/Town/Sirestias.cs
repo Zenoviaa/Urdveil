@@ -93,12 +93,6 @@ namespace Urdveil.NPCs.Town
             NPC.frame.Y = frame * frameHeight;
         }
 
-        public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-            spawner.structureToSpawnIn = "Struct/Overworld/WitchTown";
-            spawner.spawnTileOffset = new Point(150, -35);
-        }
-
         public override ITownNPCProfile TownNPCProfile()
         {
             return new DelgrimPersonProfile();

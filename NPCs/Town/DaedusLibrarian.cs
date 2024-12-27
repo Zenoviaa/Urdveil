@@ -100,11 +100,6 @@ namespace Urdveil.NPCs.Town
                 return _robeSegment;
             }
         }
-        public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-            spawner.structureToSpawnIn = "Struct/Huntria/FableBiomeFinal";
-            spawner.spawnTileOffset = new Point(169, -23);
-        }
 
         public override void SetDefaults()
         {

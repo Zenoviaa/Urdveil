@@ -37,12 +37,6 @@ namespace Urdveil.NPCs.Town
             NPCID.Sets.NoTownNPCHappiness[Type] = true;
             Main.npcFrameCount[Type] = 30;
         }
-
-        public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-            spawner.structureToSpawnIn = "Struct/Overworld/WitchTown";
-            spawner.spawnTileOffset = new Point(150, -19);
-        }
         public override void OpenTownDialogue(ref string text, ref string portrait, ref float timeBetweenTexts, ref SoundStyle? talkingSound, List<Tuple<string, Action>> buttons)
         {
             base.OpenTownDialogue(ref text, ref portrait, ref timeBetweenTexts, ref talkingSound, buttons);

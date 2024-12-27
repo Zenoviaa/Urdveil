@@ -606,6 +606,8 @@
     <None Remove="TilesNew\SpringHills\StoneObelisk_S.png" />
     <None Remove="TilesNew\SpringHills\StoneTomb_S.png" />
     <None Remove="TilesNew\SpringHills\StoneUnder_S.png" />
+    <None Remove="TilesNew\TriggerTiles\SetNPCSpawnTile.png" />
+    <None Remove="TilesNew\TriggerTiles\SetNPCSpawnTileItem.png" />
     <None Remove="Tiles\Furniture\NestBossRelic.png" />
     <None Remove="Tiles\ShrineBreakers\Govheil\ShrineAlcaPowderC.png" />
     <None Remove="Tiles\ShrineBreakers\Govheil\ShrineBUAN.png" />

@@ -5554,3 +5554,8 @@ Dinklespear: {
 	DisplayName: Dinklespear
 	Tooltip: ""
 }
+
+SetNPCSpawnTileItem: {
+	DisplayName: Set N P C Spawn Tile Item
+	Tooltip: ""
+}

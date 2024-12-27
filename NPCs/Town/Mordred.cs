@@ -78,12 +78,6 @@ namespace Urdveil.NPCs.Town
             HasTownDialogue = true;
         }
 
-        public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-            spawner.structureToSpawnIn = "Struct/Overworld/VeizalManor";
-            spawner.spawnTileOffset = new Point(63, -35);
-        }
-
         public override void FindFrame(int frameHeight)
         {
             NPC.frameCounter += 0.50f;
@@ -199,7 +193,7 @@ namespace Urdveil.NPCs.Town
             buttons.Add(new Tuple<string, Action>("Shop", OpenShop));
             buttons.Add(new Tuple<string, Action>("WeaponUpgrade", OpenWeaponUpgradeMenu));
 
-            portrait = "VeldrisPortrait";
+            portrait = "MordredPortrait";
             timeBetweenTexts = 0.015f;
             talkingSound = SoundID.Item1;
 
@@ -210,7 +204,7 @@ namespace Urdveil.NPCs.Town
         public override void IdleChat(ref string text, ref string portrait, ref float timeBetweenTexts, ref SoundStyle? talkingSound)
         {
             base.IdleChat(ref text, ref portrait, ref timeBetweenTexts, ref talkingSound);
-            portrait = "VeldrisPortrait";
+            portrait = "MordredPortrait";
             timeBetweenTexts = 0.015f;
             talkingSound = SoundID.Item1;
 
@@ -230,15 +224,10 @@ namespace Urdveil.NPCs.Town
         {
             var npcShop = new NPCShop(Type, ShopName)
             .Add(new Item(ItemID.Mace) { shopCustomPrice = Item.buyPrice(gold: 5) })
-            .Add<AssassinsDischarge>()
-            .Add<AssassinsKnife>()
-            .Add<AssassinsShuriken>()
-            .Add<AssassinsSlash>()
             .Add(new Item(ItemID.ThrowingKnife) { shopCustomPrice = Item.buyPrice(copper: 5) })
             .Add(new Item(ItemID.Shuriken) { shopCustomPrice = Item.buyPrice(copper: 5) })
             .Add(new Item(ItemID.BorealWood) { shopCustomPrice = Item.buyPrice(copper: 7) })
-            .Add(new Item(ItemID.ApplePie) { shopCustomPrice = Item.buyPrice(silver: 50) })
-            .Add<AssassinsRecharge>(Condition.DownedGolem);
+            .Add(new Item(ItemID.ApplePie) { shopCustomPrice = Item.buyPrice(silver: 50) });
             npcShop.Register(); // Name of this shop t
         }
     }

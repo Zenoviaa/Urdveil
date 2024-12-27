@@ -60,6 +60,7 @@ namespace Urdveil.TilesNew.TriggerTiles
                         spawnPoint.X += SpawnOffset.X;
                         spawnPoint.Y += SpawnOffset.Y;
                         NPC.NewNPC(new EntitySource_TileBreak(Position.X, Position.Y), spawnPoint.X * 16, spawnPoint.Y * 16, modNpc.Type);
+                        break;
                     }
                 }
             }

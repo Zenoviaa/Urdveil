@@ -44,12 +44,6 @@ namespace Urdveil.NPCs.Town
             // Set Example Person's biome and neighbor preferences with the NPCHappiness hook. You can add happiness text and remarks with localization (See an example in ExampleMod/Localization/en-US.lang).
         }
 
-        public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-            spawner.structureToSpawnIn = "Struct/Huntria/FableBiomeFinal";
-            spawner.spawnTileOffset = new Point(190, -70);
-        }
-
         public override void SetDefaults()
         {
             NPC.friendly = true; // NPC Will not attack player

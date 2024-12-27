@@ -35,12 +35,14 @@ namespace Urdveil.NPCs.Colosseum.Common
         {
             get
             {
-                NPCPointSpawnSystem npcPointSpawnSystem = ModContent.GetInstance<NPCPointSpawnSystem>();
+                return Vector2.Zero;
+                /*
+         //       NPCPointSpawnSystem npcPointSpawnSystem = ModContent.GetInstance<NPCPointSpawnSystem>();
                 Point colosseumOriginTile = npcPointSpawnSystem.GetStructureTile("Struct/Colosseum/TheColosseum");
                 Point centerOffset = (_colosseumRectangle.Size() / 2).ToPoint();
                 Point colosseumCenterTile = colosseumOriginTile + new Point(centerOffset.X, -centerOffset.Y);
                 Vector2 gongSpawnWorld = colosseumCenterTile.ToWorldCoordinates();
-                return gongSpawnWorld;
+                return gongSpawnWorld;*/
             }
         }
         public override void OnModLoad()

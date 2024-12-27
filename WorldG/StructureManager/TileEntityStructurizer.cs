@@ -22,6 +22,10 @@ namespace Urdveil.WorldG.StructureManager
                     Point16 point = new Point16(x, y);
                     if (!TileEntity.ByPosition.ContainsKey(point))
                         continue;
+                    TileEntity tileEntity = TileEntity.ByPosition[point];
+                    ModTileEntity modTileEntity = tileEntity as ModTileEntity;
+                    if (modTileEntity == null)
+                        continue;
 
                     int xOffset = x - bottomLeft.X;
                     int yOffset = bottomLeft.Y - y;
@@ -29,7 +33,7 @@ namespace Urdveil.WorldG.StructureManager
                     tag["_x"] = xOffset;
                     tag["_y"] = yOffset;
 
-                    TileEntity tileEntity = TileEntity.ByPosition[point];
+                
                     tag["_type"] = tileEntity.GetType().Name;
 
                     tileEntity.SaveData(tag);

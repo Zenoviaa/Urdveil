@@ -67,6 +67,19 @@ namespace Urdveil.Items.Test
                         bossSpawnTileEntity.SpawnOffset = new Point(-36, -24);
                         SoundEngine.PlaySound(SoundID.AchievementComplete);*/
                     }
+                    if (tileEntity is SetNPCSpawnTileEntity setNpcSpawnTileEntity)
+                    {
+                        TileEntitySelector tileEntitySelector = ModContent.GetInstance<TileEntitySelector>();
+                        TileEntitySelector.TargetTileEntityPoint = point;
+                        SetNPCSpawnTileUIState setNpcSpawnTileUIState = new SetNPCSpawnTileUIState();
+                        setNpcSpawnTileUIState.Activate();
+                        tileEntitySelector.OpenUI(setNpcSpawnTileUIState);
+                        Main.NewText("Editing Tile Entity");
+                        /*
+                        bossSpawnTileEntity.BossToSpawn = "Urdveil/StarrVeriplant";
+                        bossSpawnTileEntity.SpawnOffset = new Point(-36, -24);
+                        SoundEngine.PlaySound(SoundID.AchievementComplete);*/
+                    }
                 }
 
             }

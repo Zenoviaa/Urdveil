@@ -72,12 +72,6 @@ namespace Urdveil.NPCs.Town
             HasTownDialogue = true;
         }
 
-        public override void SetPointSpawnerDefaults(ref NPCPointSpawner spawner)
-        {
-            spawner.structureToSpawnIn = "Struct/Overworld/WitchTown";
-            spawner.spawnTileOffset = new Point(28, -20);
-        }
-
         public override void FindFrame(int frameHeight)
         {
             NPC.frameCounter += 0.50f;
