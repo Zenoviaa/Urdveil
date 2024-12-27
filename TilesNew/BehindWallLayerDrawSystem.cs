@@ -69,6 +69,7 @@ namespace Urdveil.TilesNew
                         continue;
                     if (modWall is BehindDecorativeWall decorativeWall)
                     {
+                        decorativeWall.Update(x, y);
                         decorativeWall.DrawDecor(x, y, Main.spriteBatch);
                     }
                 }
@@ -109,6 +110,7 @@ namespace Urdveil.TilesNew
                         continue;
                     if (modWall is DecorativeWall decorativeWall)
                     {
+                        decorativeWall.Update(x, y);
                         decorativeWall.DrawDecor(x, y, Main.spriteBatch);
                     }
                 }

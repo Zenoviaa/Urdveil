@@ -117,14 +117,14 @@ namespace Urdveil.UI.CollectionSystem.Quests
 
             if (_descriptionText != null && Quest != null)
             {
-                _descriptionText.SetText(Quest.Description);
+                _descriptionText.SetText(Quest.Description.Value);
             }
 
             if (_objectiveText != null && Quest != null)
             {
 
                 _objectiveText.TextColor = Color.Lerp(Color.White, Main.DiscoColor, 0.2f);
-                _objectiveText.SetText(Quest.Objective);
+                _objectiveText.SetText(Quest.Objective.Value);
             }
 
 

@@ -63,7 +63,7 @@ namespace Urdveil.UI.CollectionSystem.Quests
             if (_text != null && Quest != null)
             {
                 _text.Top.Pixels = 4;
-                _text.SetText(Quest.DisplayName);
+                _text.SetText(Quest.DisplayName.Value);
                 if (Quest.IsSideQuest)
                 {
                     _text.TextColor = Color.LightPink;

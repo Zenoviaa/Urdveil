@@ -13,6 +13,7 @@ namespace Urdveil.Dusts
             dust.frame = new Rectangle(0, 0, 64, 64);
 
             dust.shader = new Terraria.Graphics.Shaders.ArmorShaderData(new Ref<Effect>(Urdveil.Instance.Assets.Request<Effect>("Effects/GlowingDust", ReLogic.Content.AssetRequestMode.ImmediateLoad).Value), "GlowingDustPass");
+            dust.position -= Vector2.One * 32 * dust.scale;
         }
 
         public override Color? GetAlpha(Dust dust, Color lightColor)
@@ -24,7 +25,7 @@ namespace Urdveil.Dusts
         {
             if (dust.customData is null)
             {
-                dust.position -= Vector2.One * 32 * dust.scale;
+    
                 dust.customData = true;
             }
 

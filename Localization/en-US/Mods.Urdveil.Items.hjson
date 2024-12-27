@@ -5559,3 +5559,18 @@ SetNPCSpawnTileItem: {
 	DisplayName: Set N P C Spawn Tile Item
 	Tooltip: ""
 }
+
+HangingBulbLargeItem: {
+	DisplayName: Hanging Bulb Large Item
+	Tooltip: ""
+}
+
+HangingBulbLongItem: {
+	DisplayName: Hanging Bulb Long Item
+	Tooltip: ""
+}
+
+HangingBulbSmallItem: {
+	DisplayName: Hanging Bulb Small Item
+	Tooltip: ""
+}
