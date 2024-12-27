@@ -357,27 +357,65 @@ namespace Urdveil.WorldG.StructureManager
         public void MagicWandReplace(Item targetItem, Item replaceItem)
         {
             //So you can undo this
-            if (targetItem.IsAir || replaceItem.IsAir)
-                return;
-            if (targetItem.createTile == -1 && targetItem.createWall == -1)
-                return;
-            if (replaceItem.createTile == -1 && replaceItem.createWall == -1)
-                return;
-
             SnapshotSystem snapshotSystem = ModContent.GetInstance<SnapshotSystem>();
             snapshotSystem.Save(BottomLeft, TopRight);
-            if(targetItem.createWall != -1)
+            if(targetItem.createTile != -1 && replaceItem.createWall != -1)
             {
-                MagicWandReplaceWall(targetItem.createWall, replaceItem.createWall);
-            }
-            else if (targetItem.createTile != -1)
+                MagicWandTileToWall(targetItem.createTile, replaceItem.createWall);
+            } else if (targetItem.createTile != -1 && replaceItem.createTile != -1)
             {
-                MagicWandReplaceTile(targetItem.createTile, replaceItem.createTile);
+                MagicWandTileToTile(targetItem.createTile, replaceItem.createTile);
             }
+            else if(targetItem.createWall != -1 && replaceItem.createTile != -1)
+            {
+                MagicWandWallToTile(targetItem.createWall, replaceItem.createTile);
+            } 
+            else if (targetItem.createWall != -1 && replaceItem.createWall != -1)
+            {
+                MagicWandWallToWall(targetItem.createWall, replaceItem.createWall);
+            }
+
             SoundEngine.PlaySound(SoundID.AchievementComplete);
         }
 
-        public void MagicWandReplaceTile(int targetTileType, int newTileType)
+
+        public void MagicWandTileToWall(int targetTileType, int newWallType)
+        {
+            for (int x = (int)(BottomLeft.X); x <= TopRight.X; x++)
+            {
+                for (int y = (int)(TopRight.Y); y <= BottomLeft.Y; y++)
+                {
+                    Tile tile = Main.tile[x, y];
+                    if (tile.TileType == targetTileType)
+                    {
+                        WorldGen.KillTile(x, y, noItem: true);
+                        if (tile.WallType != 0)
+                            tile.WallType = 0;
+                       
+                        WorldGen.PlaceWall(x, y, newWallType);
+                    }
+                }
+            }
+        }
+        public void MagicWandWallToTile(int targetWallType, int newTileType)
+        {
+            for (int x = (int)(BottomLeft.X); x <= TopRight.X; x++)
+            {
+                for (int y = (int)(TopRight.Y); y <= BottomLeft.Y; y++)
+                {
+                    Tile tile = Main.tile[x, y];
+                    if (tile.WallType == targetWallType)
+                    {
+                         tile.WallType = 0;
+                        WorldGen.PlaceTile(x, y, newTileType);
+                       // ModTile modTile = ModContent.GetModTile(newTileType);
+                       // modTile.PlaceInWorld(x, y, new Item());
+                        //WorldGen.PlaceTile(x, y, newTileType);
+                    }
+                }
+            }
+        }
+        public void MagicWandTileToTile(int targetTileType, int newTileType)
         {
             for (int x = (int)(BottomLeft.X); x <= TopRight.X; x++)
             {
@@ -392,7 +430,7 @@ namespace Urdveil.WorldG.StructureManager
             }
         }
 
-        public void MagicWandReplaceWall(int targetWallType, int newWallType)
+        public void MagicWandWallToWall(int targetWallType, int newWallType)
         {
             for (int x = (int)(BottomLeft.X); x <= TopRight.X; x++)
             {

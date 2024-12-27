@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Terraria;
 using Terraria.GameContent.Creative;
 using Terraria.ModLoader;
+using Urdveil.Dusts;
 using Urdveil.Tiles;
 
 namespace Urdveil.TilesNew.SpringHills
@@ -24,7 +27,17 @@ namespace Urdveil.TilesNew.SpringHills
             Item.createWall = ModContent.WallType<HangingBulbSmall>();
         }
     }
-    internal class HangingBulbSmall : DecorativeWall
+
+    internal abstract class BaseHangingBulbWall : DecorativeWall
+    {
+        public override void Update(int i, int j)
+        {
+            base.Update(i, j);
+         
+        }
+    }
+
+    internal class HangingBulbSmall : BaseHangingBulbWall
     {
         public override void SetStaticDefaults()
         {
@@ -39,6 +52,22 @@ namespace Urdveil.TilesNew.SpringHills
             //How fast it sways
             WindSwaySpeed = 0.02f;
         }
+        public override void Update(int i, int j)
+        {
+            base.Update(i, j);
+            Vector2 worldPos = new Point(i, j).ToWorldCoordinates();
+            worldPos += new Vector2(-12, 12).RotatedBy(Rotation);
+            if (Main.rand.NextBool(32))
+            {
+                Vector2 randPos = worldPos + new Vector2(Main.rand.NextFloat(0, 16), Main.rand.NextFloat(0, 16));
+                Dust.NewDustPerfect(randPos, ModContent.DustType<GlowDust>(),
+                    Velocity: Vector2.Zero,
+                    newColor: Color.LightGoldenrodYellow,
+                    Scale: Main.rand.NextFloat(0.1f, 0.15f)*2);
+            }
+            Lighting.AddLight(worldPos, Color.LightGoldenrodYellow.ToVector3() * 0.5f);
+        }
+
     }
 
     public class HangingBulbLongItem : DecorativeWallItem
@@ -56,7 +85,7 @@ namespace Urdveil.TilesNew.SpringHills
             Item.createWall = ModContent.WallType<HangingBulbLong>();
         }
     }
-    internal class HangingBulbLong : DecorativeWall
+    internal class HangingBulbLong : BaseHangingBulbWall
     {
         public override void SetStaticDefaults()
         {
@@ -71,6 +100,22 @@ namespace Urdveil.TilesNew.SpringHills
             //How fast it sways
             WindSwaySpeed = 0.02f;
         }
+        public override void Update(int i, int j)
+        {
+            base.Update(i, j);
+            Vector2 worldPos = new Point(i, j).ToWorldCoordinates();
+            worldPos += new Vector2(-8, 68).RotatedBy(Rotation);
+            if (Main.rand.NextBool(32))
+            {
+                Vector2 randPos = worldPos + new Vector2(Main.rand.NextFloat(0, 16), Main.rand.NextFloat(0, 16));
+                Dust.NewDustPerfect(randPos, ModContent.DustType<GlowDust>(),
+                    Velocity: Vector2.Zero,
+                    newColor: Color.LightGoldenrodYellow,
+                    Scale: Main.rand.NextFloat(0.1f, 0.15f)*2);
+            }
+            Lighting.AddLight(worldPos, Color.LightGoldenrodYellow.ToVector3() * 0.5f);
+        }
+
     }
 
     public class HangingBulbLargeItem : DecorativeWallItem
@@ -88,7 +133,7 @@ namespace Urdveil.TilesNew.SpringHills
         }
     }
 
-    internal class HangingBulbLarge : DecorativeWall
+    internal class HangingBulbLarge : BaseHangingBulbWall
     {
         public override void SetStaticDefaults()
         {
@@ -103,10 +148,26 @@ namespace Urdveil.TilesNew.SpringHills
             //How fast it sways
             WindSwaySpeed = 0.02f;
         }
+        public override void Update(int i, int j)
+        {
+            base.Update(i, j);
+            Vector2 worldPos = new Point(i, j).ToWorldCoordinates();
+            worldPos += new Vector2(-16, 38).RotatedBy(Rotation);
+            if (Main.rand.NextBool(32))
+            {
+                Vector2 randPos = worldPos + new Vector2(Main.rand.NextFloat(0, 16), Main.rand.NextFloat(0, 16));
+                Dust.NewDustPerfect(randPos, ModContent.DustType<GlowDust>(),
+                    Velocity: Vector2.Zero,
+                    newColor: Color.LightGoldenrodYellow,
+                    Scale: Main.rand.NextFloat(0.1f, 0.15f) * 2);
+            }
+            Lighting.AddLight(worldPos, Color.LightGoldenrodYellow.ToVector3() * 0.5f);
+        }
+
     }
 
-   
-    
- 
-   
+
+
+
+
 }

@@ -6,6 +6,8 @@ using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+using Terraria.Localization;
+using Urdveil.Items.Weapons.Melee.Greatswords;
 
 namespace Urdveil.Common.QuestSystem
 {
@@ -23,32 +25,13 @@ namespace Urdveil.Common.QuestSystem
         }
     }
 
-    public abstract class Quest : ModType
+    public abstract class Quest : ModType, ILocalizedModType
     {
         private List<Item> _rewards;
-        public string DisplayName
-        {
-            get
-            {
-                return LangText.Quest(this, "DisplayName");
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                return LangText.Quest(this, "Description");
-            }
-        }
-
-        public string Objective
-        {
-            get
-            {
-                return LangText.Quest(this, "Objective");
-            }
-        }
+        public string LocalizationCategory => "Quests";
+        public LocalizedText DisplayName { get; private set; }
+        public LocalizedText Description { get; private set; }
+        public LocalizedText Objective { get; private set; }
         public virtual string IconTexture => (GetType().Namespace + "." + Name).Replace('.', '/');
         public virtual string BigTexture => IconTexture + "_Big";
         public int Type { get; internal set; }
@@ -63,6 +46,8 @@ namespace Urdveil.Common.QuestSystem
             }
         }
 
+
+
         protected sealed override void Register()
         {
             ModTypeLookup<Quest>.Register(this);
@@ -74,6 +59,13 @@ namespace Urdveil.Common.QuestSystem
             SetStaticDefaults();
         }
 
+        public override void SetStaticDefaults()
+        {
+            base.SetStaticDefaults();
+            DisplayName = this.GetLocalization("DisplayName");
+            Description = this.GetLocalization("Description");
+            Objective = this.GetLocalization("Objective");
+        }
         public void AddReward(int itemId, int stack)
         {
             Item item = new Item(itemId);

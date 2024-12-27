@@ -96,6 +96,7 @@ namespace Urdveil.Tiles
         public Color ClickColor { get; set; }
         public Action HoverFunc { get; set; }
         public Action ClickFunc { get; set; }
+        public float Rotation { get; private set; }
         public override void SetStaticDefaults()
         {
             StructureColor = Color.White;
@@ -138,6 +139,7 @@ namespace Urdveil.Tiles
             return (float)Math.Sin(Main.GameUpdateCount * speed + offset) * magnitude;
         }
 
+        public virtual void Update(int i, int j) { }
         public void DrawDecor(int i, int j, SpriteBatch spriteBatch)
         {
 
@@ -236,6 +238,7 @@ namespace Urdveil.Tiles
                 drawColor = drawColor.MultiplyRGB(Color.Lerp(Color.White, Color.Goldenrod, _hoverLerp * 5));
             }
             drawColor *= Alpha;
+            Rotation = leafSway;
             if (ClickFunc != null && MathF.Sin(Main.GlobalTimeWrappedHourly * 8) < 0f)
             {
                 float o = 2;
@@ -314,6 +317,7 @@ namespace Urdveil.Tiles
                     HoverFunc();
                 }
    
+
             }
             spriteBatch.Draw(texture,
                 drawPos - Main.screenPosition,
