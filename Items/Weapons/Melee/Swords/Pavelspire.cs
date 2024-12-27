@@ -46,7 +46,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
             //Combo variables
             //Set combo wait time
-            comboWaitTime = 190;
+            comboWaitTime = 60;
             //Set max combo
             maxCombo = 9;
 
