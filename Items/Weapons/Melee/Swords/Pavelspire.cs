@@ -311,27 +311,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             {
 
             }
-            if (_smoothedLerpValue > 0.4f && _smoothedLerpValue < 0.6f)
-            {
-                ProjTimer++;
-                if (ProjTimer % 3 == 0 && Main.myPlayer == Projectile.owner)
-                {
-                    Vector2 shootVelocity = Projectile.velocity;
-                    shootVelocity = shootVelocity.RotatedByRandom(MathHelper.ToRadians(15));
-                    shootVelocity *= Main.rand.NextFloat(0.66f, 1f);
-                    Projectile.NewProjectile(Projectile.GetSource_FromThis(), Owner.Center, shootVelocity,
-                        ModContent.ProjectileType<LightSpandProg>(), Projectile.damage, Projectile.knockBack, Projectile.owner);
-                }
-            }
-            if (_smoothedLerpValue > 0.5f)
-            {
-
-                if (!_thrust)
-                {
-                    Owner.velocity += swingDirection * thrustSpeed;
-                    _thrust = true;
-                }
-            }
+            
 
 
 
@@ -348,8 +328,8 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             {
                 swingTime = 180,
                 swingXRadius = 160 / 1.5f,
-                swingYRadius = 80 / 1.5f,
-                swingRange = MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi,
+                swingYRadius = 160 / 1.5f,
+                swingRange = MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi ,
                 easingFunc = (lerpValue) => Easing.InCirc(lerpValue),
                 swingSound = swingSound1,
                 swingSoundLerpValue = 0.5f

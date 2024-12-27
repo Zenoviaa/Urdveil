@@ -5559,3 +5559,25 @@ SetNPCSpawnTileItem: {
 	DisplayName: Set N P C Spawn Tile Item
 	Tooltip: ""
 }
+
+Pavelspire: {
+	BasicSlash: Mods.Urdveil.Items.Pavelspire.BasicSlash
+	StaminaSlash: Mods.Urdveil.Items.Pavelspire.StaminaSlash
+	DisplayName: Pavelspire
+	Tooltip: ""
+}
+
+HangingBulbLargeItem: {
+	DisplayName: Hanging Bulb Large Item
+	Tooltip: ""
+}
+
+HangingBulbLongItem: {
+	DisplayName: Hanging Bulb Long Item
+	Tooltip: ""
+}
+
+HangingBulbSmallItem: {
+	DisplayName: Hanging Bulb Small Item
+	Tooltip: ""
+}
