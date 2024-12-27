@@ -8,6 +8,7 @@ using Terraria;
 using Terraria.DataStructures;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using System;
 
 namespace Urdveil.Common.Bases
 {
@@ -24,8 +25,8 @@ namespace Urdveil.Common.Bases
         public int staminaProjectileShoot;
         public int staminaToUse;
         public MeleeWeaponType meleeWeaponType;
-        public LocalizedText BasicSlash { get; private set; }
-        public LocalizedText StaminaSlash { get; private set; }
+        public LocalizedText BasicSlash { get; set; }
+        public LocalizedText StaminaSlash { get; set; }
         public override void SetStaticDefaults()
         {
             // Step 2: Assign RestoreLifeText to the result of GetLocalization
@@ -36,16 +37,18 @@ namespace Urdveil.Common.Bases
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             base.ModifyTooltips(tooltips);
-            return;
+
             TooltipLine line = new TooltipLine(Mod, "WeaponType", LangText.Common("WeaponType" + meleeWeaponType.ToString()));
             line.OverrideColor = ColorFunctions.GreatswordWeaponType;
             tooltips.Add(line);
 
-            line = new TooltipLine(Mod, "BasicSlash", LangText.Common("BasicSlash", BasicSlash.Value));
+            
+            line = new TooltipLine(Mod, "BasicSlash", LangText.Common("BasicSlash", LangText.Item(this, "BasicSlash")));
             line.OverrideColor = new Color(124, 187, 80);
             tooltips.Add(line);
 
-            line = new TooltipLine(Mod, "StaminaSlash", LangText.Common("StaminaSlash", StaminaSlash.Value));
+            
+            line = new TooltipLine(Mod, "StaminaSlash", LangText.Common("StaminaSlash", LangText.Item(this, "StaminaSlash")));
             line.OverrideColor = new Color(187, 80, 124);
             tooltips.Add(line);
         }

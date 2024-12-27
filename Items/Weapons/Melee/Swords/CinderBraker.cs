@@ -27,11 +27,6 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             Item.mana = 3;
         }
 
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Cinder Braker");
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 25;
@@ -54,6 +49,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             //Combo variables
             //Set combo wait time
             comboWaitTime = 60;
+        
             //Set max combo
             maxCombo = 5;
 
