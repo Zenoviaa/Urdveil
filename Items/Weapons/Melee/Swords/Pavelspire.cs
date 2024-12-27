@@ -46,7 +46,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
             //Combo variables
             //Set combo wait time
-            comboWaitTime = 90;
+            comboWaitTime = 180;
             //Set max combo
             maxCombo = 9;
 
@@ -327,8 +327,8 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             swings.Add(new OvalSwingStyle
             {
                 swingTime = 180,
-                swingXRadius = 160 / 1.5f,
-                swingYRadius = 160 / 1.5f,
+                swingXRadius = 80 / 1.5f,
+                swingYRadius = 80 / 1.5f,
                 swingRange = MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi + MathHelper.TwoPi ,
                 easingFunc = (lerpValue) => Easing.InCirc(lerpValue),
                 swingSound = swingSound1,
