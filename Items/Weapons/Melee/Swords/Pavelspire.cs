@@ -46,7 +46,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
             //Combo variables
             //Set combo wait time
-            comboWaitTime = 180;
+            comboWaitTime = 190;
             //Set max combo
             maxCombo = 9;
 
@@ -54,7 +54,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             //Set stamina to use
             staminaToUse = 1;
             //set staminacombo
-            maxStaminaCombo = 2;
+            maxStaminaCombo = 1;
             //Set stamina projectile
             staminaProjectileShoot = ModContent.ProjectileType<SpireStaminaSlash>();
         }
