@@ -57,9 +57,6 @@ namespace Urdveil.WorldG
                 if (tasks[i].Name == "Gems In Ice Biome")
                     continue;
 
-                if (tasks[i].Name == "Pots")
-                    continue;
-
                 if (tasks[i].Name == "Tile Cleanup")
                     continue;
 
@@ -68,38 +65,11 @@ namespace Urdveil.WorldG
 
                 tasks[i].Disable();
             }
-
         }
 
         private void DisableGenTask(List<GenPass> tasks, string passName)
         {
             tasks.Find(x => x.Name.Equals(passName)).Disable();
-        }
-
-        private void DisableVanillaPasses(List<GenPass> tasks)
-        {
-            //Disable Some Passes
-            DisableGenTask(tasks, "Terrain");
-            DisableGenTask(tasks, "Tunnels");
-            DisableGenTask(tasks, "Mount Caves");
-            DisableGenTask(tasks, "Surface Caves");
-            DisableGenTask(tasks, "Mountain Caves");
-            DisableGenTask(tasks, "Pots");
-            DisableGenTask(tasks, "Wavy Caves");
-            DisableGenTask(tasks, "Living Trees");
-            DisableGenTask(tasks, "Dirt Layer Caves");
-            DisableGenTask(tasks, "Rock Layer Caves");
-            DisableGenTask(tasks, "Small Holes");
-            DisableGenTask(tasks, "Corruption");
-            DisableGenTask(tasks, "Floating Islands");
-            DisableGenTask(tasks, "Shimmer");
-            DisableGenTask(tasks, "Jungle Temple");
-            DisableGenTask(tasks, "Temple");
-            DisableGenTask(tasks, "Lihzahrd Altars");
-            DisableGenTask(tasks, "Sand Patches");
-            DisableGenTask(tasks, "Dunes");
-            DisableGenTask(tasks, "Marble");
-            DisableGenTask(tasks, "Granite");
         }
 
         private int FindIndex(List<GenPass> tasks, string passName)

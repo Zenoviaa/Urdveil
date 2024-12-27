@@ -136,7 +136,7 @@ namespace Urdveil.TilesNew.SpringHills
             int style = tile.TileFrameY / 18;
             Vector2 spawnPosition;
             // This logic here corresponds to the orientation of the sprites in the spritesheet, change it if your tile is different in design.
-            int horizontalDirection = (tile.TileFrameY == 0) ? -1 : ((tile.TileFrameY == 72) ? 1 : 0);
+            int horizontalDirection = -1;
             // Each trap style within this Tile shoots different projectiles.
             // Wiring.CheckMech checks if the wiring cooldown has been reached. Put a longer number here for less frequent projectile spawns. 200 is the dart/flame cooldown. Spear is 90, spiky ball is 300
             if (Timer >= 150)
@@ -230,7 +230,7 @@ namespace Urdveil.TilesNew.SpringHills
             base.KillMultiTile(i, j, frameX, frameY);
             // ModTileEntity.Kill() handles checking if the tile entity exists and destroying it if it does exist in the world for you
             // The tile coordinate parameters already refer to the top-left corner of the multitile
-            ModContent.GetInstance<SpringTrapTileEntity>().Kill(i, j);
+            ModContent.GetInstance<SpringTrapTileEntity>().Kill(i, j); 
         }
 
         public override bool IsTileDangerous(int i, int j, Player player) => true;
@@ -241,47 +241,153 @@ namespace Urdveil.TilesNew.SpringHills
         {
             int style = Main.LocalPlayer.HeldItem.placeStyle;
             Tile tile = Main.tile[i, j];
-            if (Main.LocalPlayer.direction == 1)
-            {
-                tile.TileFrameY += 72;
-            }
             if (Main.netMode == NetmodeID.MultiplayerClient)
             {
                 NetMessage.SendTileSquare(-1, Player.tileTargetX, Player.tileTargetY, 1, TileChangeType.None);
             }
         }
+    }
 
-        // This progression matches vanilla tiles, you don't have to follow it if you don't want. Some vanilla traps don't have 6 states, only 4. This can be implemented with different logic in Slope. Making 8 directions is also easily done in a similar manner.
-        private static int[] frameXCycle = { 1, 0 };
-        // We can use the Slope method to override what happens when this tile is hammered.
-        public override bool Slope(int i, int j)
+    public class SpringTrapRight : ModItem
+    {
+
+        public override void SetDefaults()
         {
-            Point16 topLeftTile = TileUtils.GetTopLeftTileInMultitile(i, j);
-  
-            for (int x = topLeftTile.X; x < topLeftTile.X + 4; x++)
+            // With all the setup above, placeStyle will be either 0 or 1 for the 2 ExampleTrap instances we've loaded.
+            Item.DefaultToPlaceableTile(ModContent.TileType<SpringTrapTileRight>());
+
+            Item.width = 12;
+            Item.height = 12;
+            Item.value = 10000;
+            Item.mech = true; // lets you see wires while holding.
+        }
+    }
+    public class SpringTrapTileEntityRight : ModTileEntity
+    {
+        public float Timer;
+
+        public override void Update()
+        {
+            base.Update();
+
+            Timer++;
+            int i = Position.X;
+            int j = Position.Y;
+            Tile tile = Main.tile[i, j];
+
+
+            int style = tile.TileFrameY / 18;
+            Vector2 spawnPosition;
+            // This logic here corresponds to the orientation of the sprites in the spritesheet, change it if your tile is different in design.
+            int horizontalDirection = 1;
+            // Each trap style within this Tile shoots different projectiles.
+            // Wiring.CheckMech checks if the wiring cooldown has been reached. Put a longer number here for less frequent projectile spawns. 200 is the dart/flame cooldown. Spear is 90, spiky ball is 300
+            if (Timer >= 150)
             {
-                for(int y = topLeftTile.Y; y < topLeftTile.Y + 4; y++)
+                Timer = 0;
+                for (int x = 0; x < 4; x++)
                 {
-                    Tile tile = Main.tile[x, y];
-                    int nextFrameX = frameXCycle[tile.TileFrameY / 72];
-                    if(nextFrameX == 1)
-                    {
-                        tile.TileFrameY += 72;
-                    }
-                    else
-                    {
-                        tile.TileFrameY -= 72;
-                    }
-                   
-                    if (Main.netMode == NetmodeID.MultiplayerClient)
-                    {
-                        NetMessage.SendTileSquare(-1, i, j, 1, TileChangeType.None);
-                    }
+                    int y = j + x;
+                    spawnPosition = new Vector2(i * 16 + 8, y * 16 + 9 + 0); // The extra numbers here help center the projectile spawn position if you need to.
+                    if (horizontalDirection > 0)
+                        spawnPosition.X += 72;
+                    // In a real mod you should be spawning projectiles that are both hostile and friendly to do damage to both players and NPC, as Terraria traps do.
+                    // Make sure to change velocity, projectile, damage, and knockback.
+                    Projectile.NewProjectile(Wiring.GetProjectileSource(i, j), spawnPosition, new Vector2(horizontalDirection, 0) * 6f,
+                        ModContent.ProjectileType<SpringArrow>(), 40, 2f, Main.myPlayer);
                 }
+
             }
-    
-       
-            return false;
+        }
+
+        public override void OnNetPlace()
+        {
+            if (Main.netMode == NetmodeID.Server)
+            {
+                NetMessage.SendData(MessageID.TileEntitySharing, number: ID, number2: Position.X, number3: Position.Y);
+            }
+        }
+
+        public override int Hook_AfterPlacement(int i, int j, int type, int style, int direction, int alternate)
+        {
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                // Sync the entire multitile's area.  Modify "width" and "height" to the size of your multitile in tiles
+                int width = 4;
+                int height = 4;
+                NetMessage.SendTileSquare(Main.myPlayer, i, j, width, height);
+
+                // Sync the placement of the tile entity with other clients
+                // The "type" parameter refers to the tile type which placed the tile entity, so "Type" (the type of the tile entity) needs to be used here instead
+                NetMessage.SendData(MessageID.TileEntityPlacement, number: i, number2: j, number3: Type);
+                return -1;
+            }
+
+            // ModTileEntity.Place() handles checking if the entity can be placed, then places it for you
+            int placedEntity = Place(i, j);
+
+            return placedEntity;
+        }
+
+
+        public override bool IsTileValidForEntity(int x, int y)
+        {
+            Tile tile = Main.tile[x, y];
+            //The MyTile class is shown later
+            return tile.HasTile && tile.TileType == ModContent.TileType<SpringTrapTileRight>();
+        }
+    }
+
+    public class SpringTrapTileRight : ModTile
+    {
+        public override void SetStaticDefaults()
+        {
+            TileID.Sets.DrawsWalls[Type] = true;
+            TileID.Sets.DontDrawTileSliced[Type] = true;
+            TileID.Sets.IgnoresNearbyHalfbricksWhenDrawn[Type] = true;
+
+            Main.tileSolid[Type] = true;
+            Main.tileBlockLight[Type] = true;
+            Main.tileFrameImportant[Type] = true;
+            TileObjectData.newTile.CopyFrom(TileObjectData.Style2xX);
+            TileObjectData.newTile.Height = 4;
+            TileObjectData.newTile.Width = 4;
+
+            TileObjectData.newTile.CoordinateHeights = new int[] { 16, 16, 16, 16, 16 };
+            TileObjectData.newTile.StyleHorizontal = true;
+            TileObjectData.newAlternate.CopyFrom(TileObjectData.newTile);
+            // MyTileEntity refers to the tile entity mentioned in the previous section
+            TileObjectData.newTile.HookPostPlaceMyPlayer = new PlacementHook(ModContent.GetInstance<SpringTrapTileEntityRight>().Hook_AfterPlacement, -1, 0, true);
+
+            // This is required so the hook is actually called.
+            TileObjectData.newTile.UsesCustomCanPlace = true;
+            TileObjectData.addTile(Type);
+
+            // These 2 AddMapEntry and GetMapOption show off multiple Map Entries per Tile. Delete GetMapOption and all but 1 of these for your own ModTile if you don't actually need it.
+            AddMapEntry(new Color(21, 179, 192), Language.GetText("MapObject.Trap")); // localized text for "Trap"
+        }
+
+
+        public override void KillMultiTile(int i, int j, int frameX, int frameY)
+        {
+            base.KillMultiTile(i, j, frameX, frameY);
+            // ModTileEntity.Kill() handles checking if the tile entity exists and destroying it if it does exist in the world for you
+            // The tile coordinate parameters already refer to the top-left corner of the multitile
+            ModContent.GetInstance<SpringTrapTileEntityRight>().Kill(i, j);
+        }
+
+        public override bool IsTileDangerous(int i, int j, Player player) => true;
+
+
+        // PlaceInWorld is needed to facilitate styles and alternates since this tile doesn't use a TileObjectData. Placing left and right based on player direction is usually done in the TileObjectData, but the specifics of that don't work for how we want this tile to work. 
+        public override void PlaceInWorld(int i, int j, Item item)
+        {
+            int style = Main.LocalPlayer.HeldItem.placeStyle;
+            Tile tile = Main.tile[i, j];
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+            {
+                NetMessage.SendTileSquare(-1, Player.tileTargetX, Player.tileTargetY, 1, TileChangeType.None);
+            }
         }
     }
 }

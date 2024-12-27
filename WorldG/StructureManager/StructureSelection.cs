@@ -378,7 +378,6 @@ namespace Urdveil.WorldG.StructureManager
             SoundEngine.PlaySound(SoundID.AchievementComplete);
         }
 
-
         public void MagicWandTileToWall(int targetTileType, int newWallType)
         {
             for (int x = (int)(BottomLeft.X); x <= TopRight.X; x++)
@@ -397,6 +396,7 @@ namespace Urdveil.WorldG.StructureManager
                 }
             }
         }
+
         public void MagicWandWallToTile(int targetWallType, int newTileType)
         {
             for (int x = (int)(BottomLeft.X); x <= TopRight.X; x++)
