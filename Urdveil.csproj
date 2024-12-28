@@ -599,6 +599,8 @@
     <None Remove="TilesNew\FogSpawnerTile.png" />
     <None Remove="TilesNew\SpringHills\BaseTablet_S.png" />
     <None Remove="TilesNew\SpringHills\SpringTabletXixianFlask.png" />
+    <None Remove="TilesNew\SpringHills\SpringTrapRight.png" />
+    <None Remove="TilesNew\SpringHills\SpringTrapTileRight.png" />
     <None Remove="TilesNew\SpringHills\SpringTree.png" />
     <None Remove="TilesNew\SpringHills\SpringTreeSapling.png" />
     <None Remove="TilesNew\SpringHills\SpringTree_Branches.png" />
@@ -618,6 +620,8 @@
     <None Remove="Tiles\ShrineBreakers\Underground\ShrineBridgetC.png" />
     <None Remove="UI\ArmorReforgeSystem\ReforgeButton.png" />
     <None Remove="UI\ArmorReforgeSystem\ReforgeButtonSelected.png" />
+    <None Remove="UI\CollectionSystem\Medallion\BackgroundDarkMedallion.png" />
+    <None Remove="ui\collectionsystem\medallion\MedallionBackgroundMiddle.png" />
     <None Remove="UI\StructureSelector\Paper.png" />
     <None Remove="UI\StructureSelector\PaperSelected.png" />
     <None Remove="UI\StructureSelector\Save.png" />

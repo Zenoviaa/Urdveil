@@ -52,6 +52,16 @@ Common: {
 	WeaponTypeKnives: Knives Weapon Type
 }
 
+Medallion: {
+	Sporecrowe: Fast fall, jumping is higher and increased movement speed by 20%
+	RyaAshoti: When hitting enemies, flying objects will surround you and create a barrier, giving you invulnerability for each object, maximun is 3, takes 1.5 minutes each to regenerate
+	Gothivia: Strike enemies, gain bleeding strikes that can take out percentages of enemies AND bosses' health bars taking out 15% after hitting bosses multiple times (cooldown is 2 minutes)
+	Verlia: Have a moon follow the player and if an enemy attack hits it, it absorbs projectiles and attacks, once it dies it explodes causing the player to recieve health and deal a small explosion percentage damage to the area (10%) before having to recharge again
+	Gintzia: Gain a carpet that allows you to ride along the ground and skies for a prolonged period of time but is very slow and cannot gain vertical movement
+	Niivi: Prismatic balls surround the player and when attacking little orbs will orbit enemies and allow the player to do more damage to the targeted enemy or boss (10% with each orb)
+	Sanguimi: Attacks have chances to heal the player and increases defense with each hit up to 100, inflicts Dreaded Poison against enemies and bosses also. The more dread an enemy/boss has, the more damage it will take and deal out (up to 50% more damage dealt and 100% more damage at it's highest after 100 hits constantly). Not dealing damage and getting hit by enemies with dread gives the enemy/boss health back from however much they hit you with (you also get a cool crown)
+}
+
 VeilGenTester: {
 	Tooltip: ""
 	DisplayName: Veil Gen Tester
@@ -5566,9 +5576,44 @@ QuestResetter: {
 	DisplayName: Quest Resetter
 }
 
-Pyslocke: {
-	BasicSlash: Mods.Urdveil.Items.Pyslocke.BasicSlash
-	StaminaSlash: Mods.Urdveil.Items.Pyslocke.StaminaSlash
-	DisplayName: Pyslocke
+AshotiMedallionFragment: {
+	Effect: When hitting enemies, flying objects will surround you and create a barrier, giving you invulnerability for each object, maximun is 3, takes 1.5 minutes each to regenerate
+	DisplayName: Ashoti Medallion Fragment
+	Tooltip: ""
+}
+
+GintziaMedallionFragment: {
+	Effect: Gain a carpet that allows you to ride along the ground and skies for a prolonged period of time but is very slow and cannot gain vertical movement
+	DisplayName: Gintzia Medallion Fragment
+	Tooltip: ""
+}
+
+GothiviaMedallionFragment: {
+	Effect: Strike enemies, gain bleeding strikes that can take out percentages of enemies AND bosses' health bars taking out 15% after hitting bosses multiple times. There is a 2 minute cooldown on this effect
+	DisplayName: Gothivia Medallion Fragment
+	Tooltip: ""
+}
+
+NiiviMedallionFragment: {
+	Effect: Prismatic balls surround the player and when attacking little orbs will orbit enemies and allow the player to do more damage to the targeted enemy or boss
+	DisplayName: Niivi Medallion Fragment
+	Tooltip: ""
+}
+
+SanguimiMedallionFragment: {
+	Effect: Attacks have chances to heal the player and increases defense with each hit up to 100, inflicts Dreaded Poison against enemies and bosses also. The more dread an enemy/boss has, the more damage it will take and deal out (up to 50% more damage dealt and 100% more damage at it's highest after 100 hits constantly). Not dealing damage and getting hit by enemies with dread gives the enemy/boss health back from however much they hit you with
+	DisplayName: Sanguimi Medallion Fragment
+	Tooltip: ""
+}
+
+SporecroweMedallionFragment: {
+	Effect: Fast fall, jumping is higher and increased movement speed by 20%
+	DisplayName: Sporecrowe Medallion Fragment
+	Tooltip: ""
+}
+
+VerliaMedallionFragment: {
+	Effect: Have a moon follow the player and if an enemy attack hits it, it absorbs projectiles and attacks, once it dies it explodes causing the player to recieve health and deal a small explosion percentage damage to the area (10%) before having to recharge again
+	DisplayName: Verlia Medallion Fragment
 	Tooltip: ""
 }

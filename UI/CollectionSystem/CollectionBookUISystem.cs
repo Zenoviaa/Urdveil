@@ -27,7 +27,8 @@ namespace Urdveil.UI.CollectionSystem
 
         public QuestTabUIState questTabUIState;
         public ActiveQuestUIState activeQuestUIState;
-
+        public FragmentsTabUIState fragmentsTabUIState;
+        public FragmentDescriptionTabUIState fragmentDescriptionTabUIState;
         public override int uiSlot => Slot_MajorUI;
         public override void OnModLoad()
         {
@@ -54,6 +55,12 @@ namespace Urdveil.UI.CollectionSystem
 
             activeQuestUIState = new ActiveQuestUIState();
             activeQuestUIState.Activate();
+
+            fragmentsTabUIState = new FragmentsTabUIState();
+            fragmentsTabUIState.Activate();
+
+            fragmentDescriptionTabUIState = new FragmentDescriptionTabUIState();
+            fragmentDescriptionTabUIState.Activate();
 
             _userInterface.SetState(null);
             _hudUserInterface.SetState(null);
@@ -180,6 +187,16 @@ namespace Urdveil.UI.CollectionSystem
             _tabsUserInterface.SetState(questTabUIState);
             _rightInfoUserInterface.SetState(null);
         }
+        internal void OpenFragmentsTabUI()
+        {
+            SoundStyle soundStyle = new SoundStyle("Urdveil/Assets/Sounds/BookPageTurn");
+            soundStyle.PitchVariance = 0.1f;
+            SoundEngine.PlaySound(soundStyle);
+            questTabUIState.ui.Glow = 1f;
+            _tabsUserInterface.SetState(fragmentsTabUIState);
+            _rightInfoUserInterface.SetState(null);
+        }
+
 
         internal void OpenQuestInfoUI(Quest quest)
         {
@@ -196,6 +213,11 @@ namespace Urdveil.UI.CollectionSystem
         internal void OpenLoreTabUI()
         {
 
+        }
+
+        internal void OpenDescriptionUI()
+        {
+            _rightInfoUserInterface.SetState(fragmentDescriptionTabUIState);
         }
 
         internal void CloseTabUI()

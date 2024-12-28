@@ -103,4 +103,13 @@ namespace Urdveil.UI.CollectionSystem
             uiSystem.OpenQuestsTabUI();
         }
     }
+    internal class FragmentTab : BaseBookMark
+    {
+        public FragmentTab() : base() { }
+        public override string TextureAsset => "FragmentTab";
+        protected override void Trigger(CollectionBookUISystem uiSystem)
+        {
+            uiSystem.OpenFragmentsTabUI();
+        }
+    }
 }

@@ -10,6 +10,10 @@ namespace Urdveil.Helpers
         {
             return Language.GetTextValue($"Mods.Urdveil.Quests.{quest.Name}." + Path);
         }
+        public static string Medallion(string Path)
+        {
+            return Language.GetTextValue($"Mods.Urdveil.Items.Medallion." + Path);
+        }
 
         public static string TownDialogue(string Path)
         {
