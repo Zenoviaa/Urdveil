@@ -6,6 +6,10 @@ namespace Urdveil.Helpers
 {
     public static class LangText
     {
+        public static string Map(string localizationKey, string Path)
+        {
+            return Language.GetTextValue($"Mods.Urdveil.Map.{localizationKey}." + Path);
+        }
         public static string Quest(Quest quest, string Path)
         {
             return Language.GetTextValue($"Mods.Urdveil.Quests.{quest.Name}." + Path);

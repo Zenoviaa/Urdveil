@@ -202,13 +202,19 @@
     <None Remove="Items\Armors\Miracle\MiracleHead.png" />
     <None Remove="Items\Armors\Miracle\MiracleHead_Head.png" />
     <None Remove="Items\Armors\Terric\TericGramNPC2.png" />
+    <None Remove="Items\Consumables\AshotiMedallionFragment.png" />
     <None Remove="Items\Consumables\DreadmireBag.png" />
     <None Remove="Items\Consumables\EDR.png" />
+    <None Remove="Items\Consumables\GintziaMedallionFragment.png" />
+    <None Remove="Items\Consumables\GothiviaMedallionFragment.png" />
     <None Remove="Items\Consumables\JackoBag.png" />
     <None Remove="Items\Consumables\NestBag.png" />
+    <None Remove="Items\Consumables\NiiviMedallionFragment.png" />
+    <None Remove="Items\Consumables\SanguimiMedallionFragment.png" />
     <None Remove="Items\Consumables\SingularityBag.png" />
     <None Remove="Items\Consumables\SunClaw.png" />
     <None Remove="Items\Consumables\SunStalkerBag.png" />
+    <None Remove="Items\Consumables\VerliaMedallionFragment.png" />
     <None Remove="Items\Consumables\VoidLantern.png" />
     <None Remove="Items\Consumables\WanderingEssence.png" />
     <None Remove="Items\Materials\AcidicalDirtBlock.png" />
@@ -298,6 +304,7 @@
     <None Remove="Localization\en-US\Mods.Urdveil.Items.Armors.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Items.Materials.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Items.Weapons.hjson" />
+    <None Remove="Localization\en-US\Mods.Urdveil.Map.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Quests.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.Tablets.hjson" />
     <None Remove="Localization\en-US\Mods.Urdveil.TownDialogue.hjson" />
@@ -622,6 +629,7 @@
     <None Remove="UI\ArmorReforgeSystem\ReforgeButtonSelected.png" />
     <None Remove="UI\CollectionSystem\Medallion\BackgroundDarkMedallion.png" />
     <None Remove="ui\collectionsystem\medallion\MedallionBackgroundMiddle.png" />
+    <None Remove="UI\MapSystem\AreaPreviewInner.png" />
     <None Remove="UI\StructureSelector\Paper.png" />
     <None Remove="UI\StructureSelector\PaperSelected.png" />
     <None Remove="UI\StructureSelector\Save.png" />
