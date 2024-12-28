@@ -25,16 +25,18 @@ namespace Urdveil.UI.MapSystem
 
         public Asset<Texture2D> TabletCardTexture;
         public Asset<Texture2D> InnerTexture;
+        public MapUI MapUI;
         public UIText Title;
         public UIText Text;
         public Color TabletColor;
         public Vector2 DrawOffset;
-        internal AreaPreview() : base()
+        internal AreaPreview(MapUI mapUI) : base()
         {
+            MapUI = mapUI;
             InnerTexture = ModContent.Request<Texture2D>(this.MyDirectory() + "/AreaPreviewInner");
             TabletCardTexture = ModContent.Request<Texture2D>(this.MyDirectory() + "/AreaPreview");
-            Text = new UIText("This is placeholder text This is placeholder textThis is placeholder textThis is placeholder textThis is placeholder textThis is placeholder textThis is placeholder textThis is placeholder textThis is placeholder textThis is placeholder text");
-            Title = new UIText("This is placeholder text", 1.2f);
+            Text = new UIText("");
+            Title = new UIText("", 1.2f);
         }
 
         public override void OnInitialize()
@@ -87,16 +89,24 @@ namespace Urdveil.UI.MapSystem
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
             base.DrawSelf(spriteBatch);
-      
-            CalculatedStyle dimensions = GetDimensions();
-            Point point = new Point((int)dimensions.X, (int)dimensions.Y);
-            Rectangle drawRectangle = new Rectangle(point.X, point.Y,
-                TabletCardTexture.Value.Width, TabletCardTexture.Value.Height);
-            drawRectangle.Location += new Point(0, (int)VectorHelper.Osc(-4f, 4f));
+            if (MapUI.ShowAreaPreview)
+            {
+                Title.TextColor = TabletColor;
+                Text.TextColor = TabletColor;
+                CalculatedStyle dimensions = GetDimensions();
+                Point point = new Point((int)dimensions.X, (int)dimensions.Y);
+                Rectangle drawRectangle = new Rectangle(point.X, point.Y,
+                    TabletCardTexture.Value.Width, TabletCardTexture.Value.Height);
+                drawRectangle.Location += new Point(0, (int)VectorHelper.Osc(-4f, 4f));
 
-            spriteBatch.Draw(InnerTexture.Value, drawRectangle, null, TabletColor);
-            spriteBatch.Draw(TabletCardTexture.Value, drawRectangle, null, TabletColor);
-
+                spriteBatch.Draw(InnerTexture.Value, drawRectangle, null, TabletColor);
+                spriteBatch.Draw(TabletCardTexture.Value, drawRectangle, null, TabletColor);
+            }
+            else
+            {
+                Title.TextColor = Color.Transparent;
+                Text.TextColor = Color.Transparent;
+            }
         }
     }
 }

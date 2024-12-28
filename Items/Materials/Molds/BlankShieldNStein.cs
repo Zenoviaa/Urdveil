@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace Urdveil.Items.Materials.Molds
 {
-    internal class BlankStein : BaseMold
+    internal class BlankShieldNStein : BaseMold
     {
         public override void SetStaticDefaults()
         {

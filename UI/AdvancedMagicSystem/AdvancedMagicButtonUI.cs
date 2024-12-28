@@ -52,7 +52,7 @@ namespace Urdveil.UI.AdvancedMagicSystem
             base.Update(gameTime);
             BackgroundColor = Color.Transparent;
             //Constantly lock the UI in the position regardless of resolution changes
-            Left.Pixels = RelativeLeft;
+            Left.Pixels = RelativeLeft + 16;
             Top.Pixels = RelativeTop;
         }
 
@@ -64,8 +64,6 @@ namespace Urdveil.UI.AdvancedMagicSystem
             Texture2D textureToDraw;
             if (IsMouseHovering)
             {
-                point.X -= 2;
-                point.Y -= 10;
                 textureToDraw = ModContent.Request<Texture2D>("Urdveil/UI/AdvancedMagicSystem/PaperSelected").Value;
             }
             else

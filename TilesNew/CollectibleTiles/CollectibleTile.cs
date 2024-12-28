@@ -143,7 +143,7 @@ namespace Urdveil.TilesNew.CollectibleTiles
             Color drawColor = Color.White.MultiplyRGB(Lighting.GetColor(i, j));
             if (!CanCollect(player, drawPos))
             {
-                drawColor = drawColor.MultiplyRGB(Color.DarkGray);
+                drawColor = drawColor.MultiplyRGB(Color.Lerp(Color.White, Color.Black, 0.75f));
             }
 
             float drawRotation = VectorHelper.Osc(-0.2f, 0.2f, speed: 2);

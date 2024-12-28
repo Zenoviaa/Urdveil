@@ -16,6 +16,11 @@ namespace Urdveil.UI.MapSystem
 
     }
 
+    internal class Border2 : SimpleUIBackground
+    {
+
+    }
+
     internal class Compass : SimpleUIBackground
     {
 

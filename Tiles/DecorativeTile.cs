@@ -97,6 +97,7 @@ namespace Urdveil.Tiles
         public Action HoverFunc { get; set; }
         public Action ClickFunc { get; set; }
         public float Rotation { get; private set; }
+        public bool AdditiveDraw { get; set; }
         public override void SetStaticDefaults()
         {
             StructureColor = Color.White;
@@ -319,9 +320,25 @@ namespace Urdveil.Tiles
    
 
             }
-            spriteBatch.Draw(texture,
+            if (AdditiveDraw)
+            {
+                spriteBatch.Restart(blendState: BlendState.Additive);
+
+                for(int w =0; w < 3; w++)
+                {
+                    spriteBatch.Draw(texture, drawPos - Main.screenPosition, drawFrame, drawColor * 0.75f, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+                }
+
+                spriteBatch.RestartDefaults();
+            }
+            else
+            {
+                spriteBatch.Draw(texture,
                 drawPos - Main.screenPosition,
                 drawFrame, drawColor, leafSway, drawOrigin, DrawScale + _hoverLerp, GetSpriteEffects(i, j), 0);
+
+            }
+     
 
             ToolsUISystem uiSystem = ModContent.GetInstance<ToolsUISystem>();
             if (uiSystem.ShowHitboxes)

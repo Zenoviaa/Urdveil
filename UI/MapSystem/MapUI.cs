@@ -1,7 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
+using Terraria.ModLoader;
 using Terraria.UI;
+using Urdveil.Common.Players;
+using Urdveil.TilesNew.TriggerTiles;
 
 namespace Urdveil.UI.MapSystem
 {
@@ -16,12 +19,15 @@ namespace Urdveil.UI.MapSystem
         public Compass Compass { get; set; }    
         public Border Border { get; set; }
 
+        public Border2 Border2 { get; set; }
         public MapButton SpringHillsInnerButton { get; set; }
         public MapButton SpringHillsOuterButton { get; set; }
         public MapButton WarriorsDoorButton { get; set; }
         public MapButton WitchTownButton { get; set; }
         public MapMarker MapMarker { get; set; }
         public AreaPreview AreaPreview { get; set; }
+        public bool ShowAreaPreview => HoverTimer > 0;
+        public float HoverTimer { get; set; }
         public MapUI()
         {
             Background = new Background();
@@ -30,13 +36,21 @@ namespace Urdveil.UI.MapSystem
             WitchTown = new WitchTown();
             Compass = new Compass();
             Border = new Border();
+            Border2 = new Border2();
             MapMarker = new MapMarker();
-            AreaPreview = new AreaPreview();
+            AreaPreview = new AreaPreview(this);
 
-            SpringHillsInnerButton = new MapButton("SpringHillsInner", this, TeleportToSpringHillsInner);
-            SpringHillsOuterButton = new MapButton("SpringHillsOuter", this, TeleportToSpringHillsOuter);
-            WarriorsDoorButton = new MapButton("WarriorsDoor", this, TeleportToSpringHillsWarriorsDoor);
-            WitchTownButton = new MapButton("WitchTown", this, TeleportToSpringHillsWitchTown);
+            ModWall marker = ModContent.GetModWall(ModContent.WallType<SpringHillsInnerMarker>());
+            SpringHillsInnerButton = new MapButton("SpringHillsInner", this, marker);
+
+            marker = ModContent.GetModWall(ModContent.WallType<SpringHillsOuterMarker>());
+            SpringHillsOuterButton = new MapButton("SpringHillsOuter", this, marker);
+
+            marker = ModContent.GetModWall(ModContent.WallType<WarriorsDoorMarker>());
+            WarriorsDoorButton = new MapButton("WarriorsDoor", this, marker);
+
+            marker = ModContent.GetModWall(ModContent.WallType<WitchTownMarker>());
+            WitchTownButton = new MapButton("WitchTown", this, marker);
         }
 
         public override void OnInitialize()
@@ -47,32 +61,29 @@ namespace Urdveil.UI.MapSystem
             BackgroundColor = Color.Transparent;
             BorderColor = Color.Transparent;
 
-
-
-
-    
             Append(Background);
             Append(SpringHills);
             Append(WarriorsDoor);
             Append(WitchTown);
             Append(Compass);
             Append(Border);
-     
+            Append(Border2);
 
             Append(SpringHillsInnerButton);
             Append(SpringHillsOuterButton);
             Append(WarriorsDoorButton);
             Append(WitchTownButton);
             Append(MapMarker); 
-            
             Append(AreaPreview);
+     
         }
+
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            HoverTimer--;
             Left.Pixels = RelativeLeft;
             Top.Pixels = RelativeTop;
-
 
             //Set inner button hitbox
             SpringHillsInnerButton.Left.Pixels = 580;
@@ -100,27 +111,9 @@ namespace Urdveil.UI.MapSystem
 
             AreaPreview.Left.Pixels = 16;
             AreaPreview.Top.Pixels = 32;
-        }
 
-
-        private void TeleportToSpringHillsInner()
-        {
-
-        }
-
-        private void TeleportToSpringHillsOuter()
-        {
-
-        }
-
-        private void TeleportToSpringHillsWarriorsDoor()
-        {
-
-        }
-
-        private void TeleportToSpringHillsWitchTown()
-        {
-
+            Border2.Left.Pixels = -50;
+            Border2.Top.Pixels = -30;
         }
     }
 

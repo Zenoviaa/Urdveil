@@ -25,7 +25,6 @@ namespace Urdveil.NPCs.Town
 {
     // [AutoloadHead] and NPC.townNPC are extremely important and absolutely both necessary for any Town NPC to work at all.
     //[AutoloadHead]
-    [AutoloadBossHead]
     public class Delgrim : VeilTownNPC
     {
         public int NumberOfTimesTalkedTo = 0;
@@ -88,32 +87,6 @@ namespace Urdveil.NPCs.Town
             NPC.frameCounter %= Main.npcFrameCount[NPC.type];
             int frame = (int)NPC.frameCounter;
             NPC.frame.Y = frame * frameHeight;
-        }
-
-
-
-        public override ITownNPCProfile TownNPCProfile()
-        {
-            return new DelgrimPersonProfile();
-        }
-
-        public class DelgrimPersonProfile : ITownNPCProfile
-        {
-            public int RollVariation() => 0;
-            public string GetNameForVariant(NPC npc) => npc.getNewNPCName();
-
-            public Asset<Texture2D> GetTextureNPCShouldUse(NPC npc)
-            {
-                if (npc.IsABestiaryIconDummy && !npc.ForcePartyHatOn)
-                    return ModContent.Request<Texture2D>("Urdveil/NPCs/Town/Delgrim");
-
-                if (npc.altTexture == 1)
-                    return ModContent.Request<Texture2D>("Urdveil/NPCs/Town/Delgrim_Head");
-
-                return ModContent.Request<Texture2D>("Urdveil/NPCs/Town/Delgrim");
-            }
-
-            public int GetHeadTextureIndex(NPC npc) => ModContent.GetModHeadSlot("Urdveil/NPCs/Town/Delgrim_Head");
         }
 
         public override bool CanChat()
@@ -203,33 +176,87 @@ namespace Urdveil.NPCs.Town
 
         public override void AddShops()
         {
-            var npcShop = new NPCShop(Type, ShopName)
-            //.Add(new Item(ItemID.WaterBolt) { shopCustomPrice = Item.buyPrice(gold: 40) })
-            .Add<BlankCard>()
-            .Add<BlankAccessory>()
-            .Add<BlankBag>()
-            .Add<BlankBow>()
-            .Add<BlankSword>()
-            .Add<BlankGun>()
-            .Add<BlankJuggler>()
-            .Add<BlankStaff>()
-            .Add<BlankStein>()
-            .Add<BlankSafunai>()
-            .Add<BlankRune>()
-            .Add<BlankShield>()
-            .Add<BlankBrooch>()
-            .Add<BlankOrb>()
-            .Add<GunHolster>()
-            .Add<Pulsing>()
+            var npcShop = new NPCShop(Type, ShopName); 
+            npcShop.Add(new Item(ModContent.ItemType<BlankScorpion>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
 
-            .Add<Hitme>()
-            .Add<VillagersBroochA>()
-            .Add<CogBomber>(Condition.Hardmode)
-            .Add<TheTingler>(Condition.Hardmode)
-            .Add<GearGutter>(Condition.Hardmode)
-            .Add<DelgrimsHammer>(Condition.Hardmode)
-            .Add(new Item(ItemID.Wire) { shopCustomPrice = Item.buyPrice(copper: 5) })
-            ;
+            npcShop.Add(new Item(ModContent.ItemType<BlankCard>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+
+            npcShop.Add(new Item(ModContent.ItemType<BlankPot>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+
+            npcShop.Add(new Item(ModContent.ItemType<BlankBow>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+
+            npcShop.Add(new Item(ModContent.ItemType<BlankSword>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+            
+            npcShop.Add(new Item(ModContent.ItemType<BlankGun>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+
+            npcShop.Add(new Item(ModContent.ItemType<BlankOrbNChimes>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            }); 
+            
+            npcShop.Add(new Item(ModContent.ItemType<BlankStaff>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+
+            npcShop.Add(new Item(ModContent.ItemType<BlankShieldNStein>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+            
+            npcShop.Add(new Item(ModContent.ItemType<BlankSafunai>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            }); 
+            
+            npcShop.Add(new Item(ModContent.ItemType<BlankScroll>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+
+
+            npcShop.Add(new Item(ModContent.ItemType<GunHolster>())
+            {
+                shopCustomPrice = 0,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+
+            npcShop.Add(new Item(ModContent.ItemType<DelgrimsHammer>())
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID
+            });
+
+            
             npcShop.Register(); // Name of this shop tab		
         }
 

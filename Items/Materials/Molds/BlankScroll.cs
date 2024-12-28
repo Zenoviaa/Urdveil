@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace Urdveil.Items.Materials.Molds
 {
-    internal class BlankOrb : BaseMold
+    internal class BlankScroll : BaseMold
     {
         public override void SetStaticDefaults()
         {

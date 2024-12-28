@@ -5624,3 +5624,88 @@ Pyslocke: {
 	StaminaSlash: Mods.Urdveil.Items.Pyslocke.StaminaSlash
 	BasicSlash: Mods.Urdveil.Items.Pyslocke.BasicSlash
 }
+
+SpringHillsInnerMarkerItem: {
+	DisplayName: Spring Hills Inner Marker Item
+	Tooltip: ""
+}
+
+SpringHillsOuterMarkerItem: {
+	DisplayName: Spring Hills Outer Marker Item
+	Tooltip: ""
+}
+
+WarriorsDoorMarkerItem: {
+	DisplayName: Warriors Door Marker Item
+	Tooltip: ""
+}
+
+WitchTownMarkerItem: {
+	DisplayName: Witch Town Marker Item
+	Tooltip: ""
+}
+
+SpringHillsOuterPieceItem: {
+	Tooltip: ""
+	DisplayName: Spring Hills Outer Piece Item
+}
+
+SpringHillsInnerPieceItem: {
+	Tooltip: ""
+	DisplayName: Spring Hills Inner Piece Item
+}
+
+WarriorsDoorPieceItem: {
+	DisplayName: Warriors Door Piece Item
+	Tooltip: ""
+}
+
+WitchTownPieceItem: {
+	DisplayName: Witch Town Piece Item
+	Tooltip: ""
+}
+
+SpringHillsInnerMapCollectibleItem: {
+	DisplayName: Spring Hills Inner Map Collectible Item
+	Tooltip: ""
+}
+
+WarriorsDoorCollectibleItem: {
+	DisplayName: Warriors Door Collectible Item
+	Tooltip: ""
+}
+
+WitchTownMapCollectibleItem: {
+	DisplayName: Witch Town Map Collectible Item
+	Tooltip: ""
+}
+
+MapResetter: {
+	DisplayName: Map Resetter
+	Tooltip: ""
+}
+
+BlankOrbNChimes: {
+	DisplayName: Blank Orb N Chimes
+	Tooltip: ""
+}
+
+BlankPot: {
+	DisplayName: Blank Pot
+	Tooltip: ""
+}
+
+BlankScorpion: {
+	DisplayName: Blank Scorpion
+	Tooltip: ""
+}
+
+BlankScroll: {
+	DisplayName: Blank Scroll
+	Tooltip: ""
+}
+
+BlankShieldNStein: {
+	DisplayName: Blank Shield N Stein
+	Tooltip: ""
+}

@@ -119,6 +119,12 @@ namespace Urdveil.Helpers
             boomParticle.Pixelation = 0.0015f;
             return boomParticle;
         }
+        public static void SnapFocusCamera(Vector2 position, float duration, string uniqueIdentity = null)
+        {
+            SnapFocusCameraModifier focusCameraModifier = new SnapFocusCameraModifier(position, duration, uniqueIdentity);
+            Main.instance.CameraModifiers.Add(focusCameraModifier);
+        }
+
         public static void FocusCamera(Vector2 position, float duration, string uniqueIdentity = null)
         {
             FocusCameraModifier focusCameraModifier = new FocusCameraModifier(position, duration, uniqueIdentity);

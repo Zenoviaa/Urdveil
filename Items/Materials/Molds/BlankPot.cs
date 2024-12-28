@@ -4,7 +4,7 @@ using Terraria.ID;
 
 namespace Urdveil.Items.Materials.Molds
 {
-    internal class BlankJuggler : BaseMold
+    internal class BlankPot : BaseMold
     {
         public override void SetStaticDefaults()
         {

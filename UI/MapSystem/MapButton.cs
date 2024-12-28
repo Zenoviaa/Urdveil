@@ -10,24 +10,28 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Urdveil.Helpers;
+using Urdveil.TilesNew.TriggerTiles;
 
 namespace Urdveil.UI.MapSystem
 {
     internal class MapButton : UIPanel
     {
+        private static MapButton _hoverTarget;
+        private static bool _hasDecreasedHoverTimer;
         private readonly string _localizationKey;
-        private readonly Action _teleportFunc;
         private readonly MapUI _mapUI;
+        private readonly BaseMapMarker _marker;
         public string Texture => (GetType().Namespace + "." + "MapPin").Replace('.', '/');
         public Asset<Texture2D> TextureAsset;
-        public MapButton(string localizationKey, MapUI mapUI, Action teleportFunction) : base()
+        public MapButton(string localizationKey, MapUI mapUI, ModWall marker) : base()
         {
+            _marker = marker as BaseMapMarker;
             _mapUI = mapUI;
-            _teleportFunc = teleportFunction;
             _localizationKey = localizationKey;
             TextureAsset = ModContent.Request<Texture2D>(Texture, AssetRequestMode.ImmediateLoad);
             OnLeftClick += OnButtonClick;
             OnMouseOver += OnMouseHover;
+            OnMouseOut += OnMouseHoverOut;
         }
 
 
@@ -42,12 +46,24 @@ namespace Urdveil.UI.MapSystem
         private void OnButtonClick(UIMouseEvent evt, UIElement listeningElement)
         {
             // We can do stuff in here!
-            _teleportFunc();
-            
+            if (_marker.CanTeleport())
+            {
+                _marker.Teleport();
+                MapUISystem uiSystem = ModContent.GetInstance<MapUISystem>();
+                uiSystem.CloseThis();
+                Main.playerInventory = false;
+            }   
+        }
+        private void OnMouseHoverOut(UIMouseEvent evt, UIElement listeningElement)
+        {
+
         }
 
         private void OnMouseHover(UIMouseEvent evt, UIElement listeningElement)
         {
+            if (!_marker.CanTeleport())
+                return;
+            _hoverTarget = this;
             _mapUI.MapMarker.Left.Pixels = Left.Pixels + Width.Pixels / 2 - (int)TextureAsset.Width() / 2 - 2f;
             _mapUI.MapMarker.Top.Pixels = Top.Pixels + Height.Pixels / 2 - (int)TextureAsset.Height() / 2 - 16;
             _mapUI.AreaPreview.Title.SetText(LangText.Map(_localizationKey, "DisplayName"));
@@ -58,7 +74,15 @@ namespace Urdveil.UI.MapSystem
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            if (_marker.CanTeleport())
+            {
+                if (_hoverTarget == this && IsMouseHovering)
+                {
+                    _mapUI.HoverTimer = 15;
+                }
+            }
 
+   
             if (IsMouseHovering)
             {
                 HoverColor = Color.Lerp(HoverColor, Color.Goldenrod, 0.1f);
@@ -74,6 +98,7 @@ namespace Urdveil.UI.MapSystem
             {
                 Main.LocalPlayer.mouseInterface = true;
             }
+
             //Comment this out if you wanna see the hitbox locations
             BackgroundColor = Color.Transparent;
             BorderColor = Color.Transparent;
@@ -81,8 +106,11 @@ namespace Urdveil.UI.MapSystem
         protected override void DrawSelf(SpriteBatch spriteBatch)
         {
             base.DrawSelf(spriteBatch);
-            Rectangle rectangle = GetDimensions().ToRectangle();
+            if (!_marker.CanTeleport())
+                return;
 
+            Rectangle rectangle = GetDimensions().ToRectangle();
+                
             //Draw Backing
             Color color2 = Color.White;
             Vector2 pos = rectangle.TopLeft();
