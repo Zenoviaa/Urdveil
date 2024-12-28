@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 
 namespace Urdveil.Common.EnemySystem
@@ -20,7 +21,7 @@ namespace Urdveil.Common.EnemySystem
         }
 
         //Joint Vars
-        public Texture2D Texture { get; set; }
+        public Asset<Texture2D> Texture { get; set; }
         public Vector2 Position { get; set; }
 
         //This variable will be used to calculate the rig
@@ -48,7 +49,7 @@ namespace Urdveil.Common.EnemySystem
             Vector2 drawPosition = basePosition + Position - Main.screenPosition;
             Color drawColor = Color.MultiplyRGB(lightColor);
             float drawRotation = Rotation;
-            spriteBatch.Draw(Texture, drawPosition, null, drawColor, drawRotation, DrawOrigin, DrawScale, SpriteEffects, layerDepth: 0);
+            spriteBatch.Draw(Texture.Value, drawPosition, null, drawColor, drawRotation, DrawOrigin, DrawScale, SpriteEffects, layerDepth: 0);
         }
     }
 }

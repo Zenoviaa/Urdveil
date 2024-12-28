@@ -14,7 +14,7 @@ namespace Urdveil.UI.CollectionSystem
         public QuestTab questTab;
         public LoreTab loreTab;
         public CollectionTab collectionTab;
-
+        public FragmentTab fragmentTab;
         internal int RelativeLeft => Main.screenWidth / 2 - width / 2;
         internal int RelativeTop => Main.screenHeight / 2 - height / 2 + 128;
 
@@ -46,6 +46,11 @@ namespace Urdveil.UI.CollectionSystem
             collectionTab.Left.Pixels = loreTab.Left.Pixels + o;
             collectionTab.Top.Pixels = loreTab.Top.Pixels;
             Append(collectionTab);
+
+            fragmentTab = new FragmentTab();
+            fragmentTab.Left.Pixels = collectionTab.Left.Pixels + o;
+            fragmentTab.Top.Pixels = collectionTab.Top.Pixels;
+            Append(fragmentTab);
         }
 
         public override void Update(GameTime gameTime)
@@ -56,15 +61,18 @@ namespace Urdveil.UI.CollectionSystem
             Left.Pixels = RelativeLeft;
             Top.Pixels = RelativeTop;
 
-            questTab.Left.Pixels = 252;
+            questTab.Left.Pixels = 242;
             questTab.Top.Pixels = 420;
 
-            int o = 64;
+            int o = 42;
             loreTab.Left.Pixels = questTab.Left.Pixels + o;
             loreTab.Top.Pixels = questTab.Top.Pixels;
 
             collectionTab.Left.Pixels = loreTab.Left.Pixels + o;
             collectionTab.Top.Pixels = loreTab.Top.Pixels;
+
+            fragmentTab.Left.Pixels = collectionTab.Left.Pixels + o;
+            fragmentTab.Top.Pixels = collectionTab.Top.Pixels;
         }
     }
 }

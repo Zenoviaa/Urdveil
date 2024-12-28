@@ -1,9 +1,39 @@
 ﻿using Terraria.UI;
+using Urdveil.UI.CollectionSystem.Medallion;
 
 namespace Urdveil.UI.CollectionSystem
 {
 
+    internal class FragmentDescriptionTabUIState : UIState
+    {
+        public DescriptionPageUI ui;
+        public FragmentDescriptionTabUIState() : base()
+        {
 
+        }
+
+        public override void OnInitialize()
+        {
+            ui = new DescriptionPageUI();
+            Append(ui);
+        }
+    }
+
+
+    internal class FragmentsTabUIState : UIState
+    {
+        public MedallionPageUI ui;
+        public FragmentsTabUIState() : base()
+        {
+
+        }
+
+        public override void OnInitialize()
+        {
+            ui = new MedallionPageUI();
+            Append(ui);
+        }
+    }
 
 
     internal class CollectionItemTabRecipeUIState : UIState

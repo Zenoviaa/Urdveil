@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using System.Collections.Generic;
 using Terraria;
 using Terraria.ModLoader;
@@ -33,12 +34,15 @@ namespace Urdveil.Common.EnemySystem
             return this;
         }
         
-        public Limb AddNewJoint(Vector2 direction, float length, string texture)
+
+        public Limb AddNewJoint(Asset<Texture2D> textureAsset)
         {
+            float length = textureAsset.Height();
             Joint joint = new Joint(_prevLocalPosition);
-            joint.StartDirection = direction.SafeNormalize(Vector2.Zero);
+            joint.StartDirection = Vector2.UnitY;
             joint.Length = length;
-            joint.Texture = ModContent.Request<Texture2D>(texture).Value;
+            joint.Texture = textureAsset;
+            joint.DrawOrigin = new Vector2(textureAsset.Width() / 2, textureAsset.Height() / 4);
             AddJoint(joint);
             _prevLocalPosition += joint.StartDirection * length;
             return this;
