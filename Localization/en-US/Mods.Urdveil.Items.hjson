@@ -5617,3 +5617,10 @@ VerliaMedallionFragment: {
 	DisplayName: Verlia Medallion Fragment
 	Tooltip: ""
 }
+
+Pyslocke: {
+	Tooltip: ""
+	DisplayName: Pyslocke
+	StaminaSlash: Mods.Urdveil.Items.Pyslocke.StaminaSlash
+	BasicSlash: Mods.Urdveil.Items.Pyslocke.BasicSlash
+}

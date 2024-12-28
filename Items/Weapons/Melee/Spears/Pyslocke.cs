@@ -590,7 +590,6 @@ namespace Urdveil.Items.Weapons.Melee.Spears
                 //Resets to the default settings for this shader
                 shader.SetDefaults();
                 shader.PrimaryColor = Color.Lerp(Color.Pink, Color.CadetBlue, VectorHelper.Osc(0,1));
-                shader.NoiseColor = Color.LightGoldenrodYellow;
 
               _lightningTrail ??= new();
             
