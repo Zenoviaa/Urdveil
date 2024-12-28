@@ -82,6 +82,41 @@ EreshkigalStatueItem: {
 	DisplayName: Ereshkigal Statue Item
 }
 
+SetNPCSpawnTileItem: {
+	Tooltip: ""
+	DisplayName: Set N P C Spawn Tile Item
+}
+
+BossSpawnTileItem: {
+	Tooltip: ""
+	DisplayName: Boss Spawn Tile Item
+}
+
+SpringTabletXixianFlaskItem: {
+	Tooltip: ""
+	DisplayName: Spring Tablet Xixian Flask Item
+}
+
+SpringTabletStaminaItem: {
+	Tooltip: ""
+	DisplayName: Spring Tablet Stamina Item
+}
+
+SpringTabletItem: {
+	Tooltip: ""
+	DisplayName: Spring Tablet Item
+}
+
+SpringTabletDashItem: {
+	Tooltip: ""
+	DisplayName: Spring Tablet Dash Item
+}
+
+SpringTabletBossItem: {
+	Tooltip: ""
+	DisplayName: Spring Tablet Boss Item
+}
+
 StoneUnderBlock: {
 	Tooltip: ""
 	DisplayName: Stone Under Block
@@ -97,14 +132,14 @@ StoneObeliskBlock: {
 	DisplayName: Stone Obelisk Block
 }
 
+SpringTrapRight: {
+	Tooltip: ""
+	DisplayName: Spring Trap Right
+}
+
 SpringTrap: {
 	Tooltip: ""
 	DisplayName: Spring Trap
-}
-
-SpringTabletItem: {
-	Tooltip: ""
-	DisplayName: Spring Tablet Item
 }
 
 SpringRockTinyItem: {
@@ -245,6 +280,21 @@ HangingSpringPotFlowerItem: {
 HangingSpringPotFlowerBlueItem: {
 	Tooltip: ""
 	DisplayName: Hanging Spring Pot Flower Blue Item
+}
+
+HangingBulbSmallItem: {
+	Tooltip: ""
+	DisplayName: Hanging Bulb Small Item
+}
+
+HangingBulbLongItem: {
+	Tooltip: ""
+	DisplayName: Hanging Bulb Long Item
+}
+
+HangingBulbLargeItem: {
+	Tooltip: ""
+	DisplayName: Hanging Bulb Large Item
 }
 
 BrokenCarraigeBlock: {
@@ -615,6 +665,21 @@ GintzeSpectatorItem2: {
 GintzeSpectatorItem1: {
 	Tooltip: ""
 	DisplayName: Gintze Spectator Item1
+}
+
+XixianFlaskCollectibleItem: {
+	Tooltip: ""
+	DisplayName: Xixian Flask Collectible Item
+}
+
+XixianFlask: {
+	Tooltip: ""
+	DisplayName: Xixian Flask
+}
+
+StaminaFlaskCollectibleItem: {
+	Tooltip: ""
+	DisplayName: Stamina Flask Collectible Item
 }
 
 BloodHallItem: {
@@ -1758,6 +1823,13 @@ Vael: {
 	BasicSlash: Mods.Urdveil.Items.Vael.BasicSlash
 }
 
+ThornsBlade: {
+	Tooltip: ""
+	DisplayName: Thorns Blade
+	StaminaSlash: Mods.Urdveil.Items.ThornsBlade.StaminaSlash
+	BasicSlash: Mods.Urdveil.Items.ThornsBlade.BasicSlash
+}
+
 Starvast: {
 	Tooltip: ""
 	DisplayName: Starvast
@@ -1765,11 +1837,18 @@ Starvast: {
 	BasicSlash: Mods.Urdveil.Items.Starvast.BasicSlash
 }
 
+Pavelspire: {
+	Tooltip: ""
+	DisplayName: Pavelspire
+	StaminaSlash: Test
+	BasicSlash: Test 2
+}
+
 LightSpand: {
 	Tooltip: ""
 	DisplayName: Light Spand
-	StaminaSlash: Mods.Urdveil.Items.LightSpand.StaminaSlash
-	BasicSlash: Mods.Urdveil.Items.LightSpand.BasicSlash
+	StaminaSlash: Test
+	BasicSlash: Test 2
 }
 
 CrystallineSlasher: {
@@ -1782,11 +1861,15 @@ CrystallineSlasher: {
 CinderBraker: {
 	Tooltip: ""
 	DisplayName: Cinder Braker
+	StaminaSlash: Mods.Urdveil.Items.CinderBraker.StaminaSlash
+	BasicSlash: Mods.Urdveil.Items.CinderBraker.BasicSlash
 }
 
 AssassinsSlash: {
 	Tooltip: ""
 	DisplayName: Assassins Slash
+	StaminaSlash: Mods.Urdveil.Items.AssassinsSlash.StaminaSlash
+	BasicSlash: Mods.Urdveil.Items.AssassinsSlash.BasicSlash
 }
 
 SwordOfTheJungleGoddess: {
@@ -1817,6 +1900,13 @@ Infernis: {
 GladiatorSpear: {
 	Tooltip: ""
 	DisplayName: Gladiator Spear
+}
+
+Dinklespear: {
+	Tooltip: ""
+	DisplayName: Dinklespear
+	StaminaSlash: Mods.Urdveil.Items.Dinklespear.StaminaSlash
+	BasicSlash: Mods.Urdveil.Items.Dinklespear.BasicSlash
 }
 
 CrystalPointer: {
@@ -2658,6 +2748,11 @@ ExtraBlockRange: {
 ColosseumResetter: {
 	Tooltip: ""
 	DisplayName: Colosseum Resetter
+}
+
+BossSpawnWand: {
+	Tooltip: ""
+	DisplayName: Boss Spawn Wand
 }
 
 VeiledScriptureSigfried: {
@@ -3891,11 +3986,6 @@ Cinderscrap: {
 	DisplayName: Cinderscrap
 }
 
-XixianFlask: {
-	Tooltip: ""
-	DisplayName: Xixian Flask
-}
-
 VitalityInsource: {
 	Tooltip: ""
 	DisplayName: Vitality Insource
@@ -3921,19 +4011,19 @@ EpsidonInsource: {
 	DisplayName: Epsidon Insource
 }
 
+STARBOMBERDisc: {
+	Tooltip: ""
+	DisplayName: S T A R B O M B E R Disc
+}
+
+PunkerSteamDisc: {
+	Tooltip: ""
+	DisplayName: Punker Steam Disc
+}
+
 IshtarDisc: {
 	Tooltip: ""
 	DisplayName: Ishtar Disc
-}
-
-IrradiaDisc: {
-	Tooltip: ""
-	DisplayName: Irradia Disc
-}
-
-HidingInTheShadowsDisc: {
-	Tooltip: ""
-	DisplayName: Hiding In The Shadows Disc
 }
 
 GovheilCastleDisc: {
@@ -3986,11 +4076,6 @@ CatacombsDisc: {
 	DisplayName: Catacombs Disc
 }
 
-Boss6Disc: {
-	Tooltip: ""
-	DisplayName: Boss6 Disc
-}
-
 BloodCathedralDisc: {
 	Tooltip: ""
 	DisplayName: Blood Cathedral Disc
@@ -3999,6 +4084,11 @@ BloodCathedralDisc: {
 AurelusTempleDisc: {
 	Tooltip: ""
 	DisplayName: Aurelus Temple Disc
+}
+
+AurelusBiomeDisc: {
+	Tooltip: ""
+	DisplayName: Aurelus Biome Disc
 }
 
 AshotiDisc: {
@@ -4019,16 +4109,6 @@ AlcadizHurricaneDisc: {
 ADemiseDisc: {
 	Tooltip: ""
 	DisplayName: A Demise Disc
-}
-
-AcidicTerrorsDisc: {
-	Tooltip: ""
-	DisplayName: Acidic Terrors Disc
-}
-
-AcidicNightmaresDisc: {
-	Tooltip: ""
-	DisplayName: Acidic Nightmares Disc
 }
 
 StoneKey: {
@@ -5484,100 +5564,4 @@ PlaceItem: {
 QuestResetter: {
 	Tooltip: ""
 	DisplayName: Quest Resetter
-}
-
-SpringTabletXixianFlaskItem: {
-	DisplayName: Spring Tablet Xixian Flask Item
-	Tooltip: ""
-}
-
-SpringTabletDashItem: {
-	DisplayName: Spring Tablet Dash Item
-	Tooltip: ""
-}
-
-XixianFlaskCollectibleItem: {
-	DisplayName: Xixian Flask Collectible Item
-	Tooltip: ""
-}
-
-AurelusBiomeDisc: {
-	DisplayName: Aurelus Biome Disc
-	Tooltip: ""
-}
-
-PunkerSteamDisc: {
-	DisplayName: Punker Steam Disc
-	Tooltip: ""
-}
-
-STARBOMBERDisc: {
-	DisplayName: S T A R B O M B E R Disc
-	Tooltip: ""
-}
-
-BossSpawnWand: {
-	DisplayName: Boss Spawn Wand
-	Tooltip: ""
-}
-
-StaminaFlaskCollectibleItem: {
-	DisplayName: Stamina Flask Collectible Item
-	Tooltip: ""
-}
-
-BossSpawnTileItem: {
-	DisplayName: Boss Spawn Tile Item
-	Tooltip: ""
-}
-
-SpringTabletBossItem: {
-	DisplayName: Spring Tablet Boss Item
-	Tooltip: ""
-}
-
-SpringTabletStaminaItem: {
-	DisplayName: Spring Tablet Stamina Item
-	Tooltip: ""
-}
-
-ThornsBlade: {
-	Tooltip: ""
-	DisplayName: Thorns Blade
-	StaminaSlash: Mods.Urdveil.Items.ThornsBlade.StaminaSlash
-	BasicSlash: Mods.Urdveil.Items.ThornsBlade.BasicSlash
-}
-
-Dinklespear: {
-	BasicSlash: Mods.Urdveil.Items.Dinklespear.BasicSlash
-	StaminaSlash: Mods.Urdveil.Items.Dinklespear.StaminaSlash
-	DisplayName: Dinklespear
-	Tooltip: ""
-}
-
-SetNPCSpawnTileItem: {
-	DisplayName: Set N P C Spawn Tile Item
-	Tooltip: ""
-}
-
-Pavelspire: {
-	BasicSlash: Mods.Urdveil.Items.Pavelspire.BasicSlash
-	StaminaSlash: Mods.Urdveil.Items.Pavelspire.StaminaSlash
-	DisplayName: Pavelspire
-	Tooltip: ""
-}
-
-HangingBulbLargeItem: {
-	DisplayName: Hanging Bulb Large Item
-	Tooltip: ""
-}
-
-HangingBulbLongItem: {
-	DisplayName: Hanging Bulb Long Item
-	Tooltip: ""
-}
-
-HangingBulbSmallItem: {
-	DisplayName: Hanging Bulb Small Item
-	Tooltip: ""
 }

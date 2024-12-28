@@ -27,6 +27,7 @@ namespace Urdveil.Items.Weapons.Melee.Swords
         int cauldronMaterial;
         public override void SetDefaults()
         {
+            base.SetDefaults();
             Item.damage = 5;
             Item.DamageType = DamageClass.Melee;
             Item.width = 40;

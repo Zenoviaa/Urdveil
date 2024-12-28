@@ -25,13 +25,6 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             Item.mana = 6;
         }
 
-        public override void SetStaticDefaults()
-        {
-            // DisplayName.SetDefault("Ivyen Saber");
-            // Tooltip.SetDefault("Has a chance to poison enemies.");
-            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-        }
-
         public override void SetDefaults()
         {
             Item.damage = 16;
