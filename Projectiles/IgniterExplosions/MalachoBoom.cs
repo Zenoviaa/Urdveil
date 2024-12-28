@@ -1,10 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Urdveil.Helpers;
+using Urdveil.Trails;
 using Terraria;
+using Terraria.GameContent;
 using Terraria.ModLoader;
-
-
 
 namespace Urdveil.Projectiles.IgniterExplosions
 {
@@ -16,44 +15,39 @@ namespace Urdveil.Projectiles.IgniterExplosions
             Main.projFrames[Projectile.type] = 30;
         }
 
-        private int _frameCounter;
-        private int _frameTick;
         public override void SetDefaults()
         {
+            Projectile.tileCollide = false;
             Projectile.localNPCHitCooldown = -1;
             Projectile.usesLocalNPCImmunity = true;
             Projectile.friendly = true;
-            Projectile.width = 300;
+            Projectile.width = 300 ;
             Projectile.height = 264;
             Projectile.penetrate = -1;
             Projectile.timeLeft = 30;
-            Projectile.scale = 1f;
+            Projectile.hostile = true;
         }
 
-        public float Timer
-        {
-            get => Projectile.ai[0];
-            set => Projectile.ai[0] = value;
-        }
         public override void AI()
         {
-
-            Vector3 RGB = new(0.89f, 2.53f, 2.55f);
-            // The multiplication here wasn't doing anything
-            Lighting.AddLight(Projectile.position, RGB.X, RGB.Y, RGB.Z);
-
+            Lighting.AddLight(Projectile.position, Color.HotPink.ToVector3() * 1.5f);
         }
 
-
+        public override bool ShouldUpdatePosition()
+        {
+            return false;
+        }
 
         public override bool PreAI()
         {
-            if (++_frameTick >= 1)
+
+            Projectile.tileCollide = false;
+            if (++Projectile.frameCounter >= 1)
             {
-                _frameTick = 0;
-                if (++_frameCounter >= 30)
+                Projectile.frameCounter = 0;
+                if (++Projectile.frame >= 30)
                 {
-                    _frameCounter = 0;
+                    Projectile.frame = 0;
                 }
             }
             return true;
@@ -61,24 +55,13 @@ namespace Urdveil.Projectiles.IgniterExplosions
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Texture2D texture = ModContent.Request<Texture2D>(Texture).Value;
-            Vector2 drawPosition = Projectile.Center - Main.screenPosition;
-
-            float width = 300;
-            float height = 264;
-            Vector2 origin = new Vector2(width / 2, height / 2);
-            int frameSpeed = 1;
-            int frameCount = 30;
+            Color drawColor = Color.White;
+            //	drawColor = drawColor.MultiplyRGB(lightColor);
+            drawColor.A = 0;
+            Texture2D texture = TextureAssets.Projectile[Type].Value;
             SpriteBatch spriteBatch = Main.spriteBatch;
-            spriteBatch.Draw(texture, drawPosition,
-                texture.AnimationFrame(ref _frameCounter, ref _frameTick, frameSpeed, frameCount, false),
-                (Color)GetAlpha(lightColor), 0f, origin, 2f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(texture, Projectile.Center - Main.screenPosition, Projectile.Frame(), drawColor, Projectile.velocity.ToRotation() - MathHelper.PiOver2, Projectile.Frame().Size() / 2f, 1.5f, SpriteEffects.None, 0);
             return false;
-        }
-
-        public override Color? GetAlpha(Color lightColor)
-        {
-            return new Color(255, 255, 255, 0) * (1f - Projectile.alpha / 50f);
         }
 
 

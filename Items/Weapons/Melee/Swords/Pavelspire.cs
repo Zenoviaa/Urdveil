@@ -201,6 +201,11 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             {
                 Projectile.localNPCHitCooldown = 2 * ExtraUpdateMult;
             }
+
+            if (ComboIndex == 6)
+            {
+                Projectile.localNPCHitCooldown = 2 * ExtraUpdateMult;
+            }
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
@@ -316,6 +321,14 @@ namespace Urdveil.Items.Weapons.Melee.Swords
 
 
         }
+
+        protected override void InitSwingAI()
+        {
+            base.InitSwingAI();
+
+                Projectile.localNPCHitCooldown = 2 * ExtraUpdateMult;
+            
+        }
         public override void SetComboDefaults(List<BaseSwingStyle> swings)
         {
 
@@ -403,4 +416,9 @@ namespace Urdveil.Items.Weapons.Melee.Swords
             TrailDrawer.DrawPrims(trailPoints, drawOffset, 155);
         }
     }
+
+
+
+
+
 }
