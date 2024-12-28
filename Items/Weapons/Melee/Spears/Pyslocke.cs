@@ -54,7 +54,7 @@ namespace Urdveil.Items.Weapons.Melee.Spears
             //Set stamina to use
             staminaToUse = 1;
             //set staminacombo
-            maxStaminaCombo = 3;
+            maxStaminaCombo = 1;
             //Set stamina projectile
             staminaProjectileShoot = ModContent.ProjectileType<PyslockeStaminaStab>();
         }
