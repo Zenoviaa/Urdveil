@@ -34,7 +34,6 @@ namespace Urdveil.UI.MapSystem
             OnMouseOut += OnMouseHoverOut;
         }
 
-
         public float HoverProgress { get; set; }
         public Color HoverColor { get; set; }
         public override void OnInitialize()

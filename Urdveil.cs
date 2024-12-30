@@ -1,4 +1,8 @@
-﻿using Microsoft.Xna.Framework;
+﻿//This will make it stop trying to use other things oh my god let's goooo
+global using Vector2 = Microsoft.Xna.Framework.Vector2;
+global using Point = Microsoft.Xna.Framework.Point;
+
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Urdveil.Backgrounds;
@@ -19,7 +23,7 @@ using Terraria.ID;
 using Terraria.IO;
 using Terraria.ModLoader;
 using Terraria.UI;
-using Vector2 = Microsoft.Xna.Framework.Vector2;
+
 
 namespace Urdveil
 {

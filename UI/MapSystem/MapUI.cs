@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using System;
 using Terraria;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
@@ -10,6 +11,7 @@ namespace Urdveil.UI.MapSystem
 {
     internal class MapUI : UIPanel
     {
+        private bool _initFog;
         internal int RelativeLeft => Main.screenWidth / 2 - (int)Width.Pixels / 2;
         internal int RelativeTop => Main.screenHeight / 2 - (int)Height.Pixels / 2;
         public Background Background { get; set; }
@@ -20,6 +22,7 @@ namespace Urdveil.UI.MapSystem
         public Border Border { get; set; }
 
         public Border2 Border2 { get; set; }
+        public MapFog MapFog { get; set; }
         public MapButton SpringHillsInnerButton { get; set; }
         public MapButton SpringHillsOuterButton { get; set; }
         public MapButton WarriorsDoorButton { get; set; }
@@ -38,26 +41,67 @@ namespace Urdveil.UI.MapSystem
             Border = new Border();
             Border2 = new Border2();
             MapMarker = new MapMarker();
+            MapFog = new MapFog();
             AreaPreview = new AreaPreview(this);
 
             ModWall marker = ModContent.GetModWall(ModContent.WallType<SpringHillsInnerMarker>());
             SpringHillsInnerButton = new MapButton("SpringHillsInner", this, marker);
+            //Set inner button hitbox
+            SpringHillsInnerButton.Left.Pixels = 580;
+            SpringHillsInnerButton.Top.Pixels = 300;
+            SpringHillsInnerButton.Width.Pixels = 24;
+            SpringHillsInnerButton.Height.Pixels = 80;
 
             marker = ModContent.GetModWall(ModContent.WallType<SpringHillsOuterMarker>());
             SpringHillsOuterButton = new MapButton("SpringHillsOuter", this, marker);
 
+            //Set outer button hitbox
+            SpringHillsOuterButton.Left.Pixels = 656;
+            SpringHillsOuterButton.Top.Pixels = 300;
+            SpringHillsOuterButton.Width.Pixels = 32;
+            SpringHillsOuterButton.Height.Pixels = 96;
+
             marker = ModContent.GetModWall(ModContent.WallType<WarriorsDoorMarker>());
             WarriorsDoorButton = new MapButton("WarriorsDoor", this, marker);
 
+            //Set warriors door button hitbox
+            WarriorsDoorButton.Left.Pixels = 605;
+            WarriorsDoorButton.Top.Pixels = 320;
+            WarriorsDoorButton.Width.Pixels = 48;
+            WarriorsDoorButton.Height.Pixels = 48;
+
             marker = ModContent.GetModWall(ModContent.WallType<WitchTownMarker>());
             WitchTownButton = new MapButton("WitchTown", this, marker);
+            //Set witch town hitbox
+            WitchTownButton.Left.Pixels = 605;
+            WitchTownButton.Top.Pixels = 293;
+            WitchTownButton.Width.Pixels = 48;
+            WitchTownButton.Height.Pixels = 24;
+
+            //Setup area visibilities
+
         }
 
+        private void FogUp(MapButton btn, Func<bool> checkFunc)
+        {
+            int x = (int)(Left.Pixels + btn.Left.Pixels);
+            int y = (int)(Top.Pixels + btn.Top.Pixels);
+            int width = (int)btn.Width.Pixels;
+            int height = (int)btn.Height.Pixels;
+            MapFog.AddHiddenArea(new Rectangle(x, y, width, height), checkFunc);
+        }
+
+        private void FogUp(int left, int top, int width, int height, Func<bool> checkFunc)
+        {
+
+        }
         public override void OnInitialize()
         {
             base.OnInitialize();
             Width.Pixels = 1280;
             Height.Pixels = 720;
+            Left.Pixels = RelativeLeft;
+            Top.Pixels = RelativeTop;
             BackgroundColor = Color.Transparent;
             BorderColor = Color.Transparent;
 
@@ -75,39 +119,30 @@ namespace Urdveil.UI.MapSystem
             Append(WitchTownButton);
             Append(MapMarker); 
             Append(AreaPreview);
-     
+            Append(MapFog);
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            if (!_initFog)
+            {
+                MapPlayer mapPlayer = Main.LocalPlayer.GetModPlayer<MapPlayer>();
+                FogUp(SpringHillsInnerButton, () => !mapPlayer.mapPieceSpringHillsInner);
+                FogUp(SpringHillsOuterButton, () => !mapPlayer.mapPieceWarriorsDoor);
+                FogUp(WitchTownButton, () => !mapPlayer.mapPieceWitchTown);
+                _initFog = true;
+            }
             HoverTimer--;
             Left.Pixels = RelativeLeft;
             Top.Pixels = RelativeTop;
 
-            //Set inner button hitbox
-            SpringHillsInnerButton.Left.Pixels = 580;
-            SpringHillsInnerButton.Top.Pixels = 300;
-            SpringHillsInnerButton.Width.Pixels = 24;
-            SpringHillsInnerButton.Height.Pixels = 80;
 
-            //Set outer button hitbox
-            SpringHillsOuterButton.Left.Pixels = 656;
-            SpringHillsOuterButton.Top.Pixels = 300;
-            SpringHillsOuterButton.Width.Pixels = 32;
-            SpringHillsOuterButton.Height.Pixels = 96;
 
-            //Set warriors door button hitbox
-            WarriorsDoorButton.Left.Pixels = 605;
-            WarriorsDoorButton.Top.Pixels = 320;
-            WarriorsDoorButton.Width.Pixels = 48;
-            WarriorsDoorButton.Height.Pixels = 48;
 
-            //Set witch town hitbox
-            WitchTownButton.Left.Pixels = 605;
-            WitchTownButton.Top.Pixels = 293;
-            WitchTownButton.Width.Pixels = 48;
-            WitchTownButton.Height.Pixels = 24;
+
+
+ 
 
             AreaPreview.Left.Pixels = 16;
             AreaPreview.Top.Pixels = 32;

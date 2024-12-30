@@ -279,6 +279,7 @@
     <None Remove="Items\Special\VeiledScriptureMiner1.png" />
     <None Remove="Items\Special\VeiledScriptureSigfried.png" />
     <None Remove="Items\Test\ColosseumResetter.png" />
+    <None Remove="Items\Test\MapResetter.png" />
     <None Remove="Items\Weapons\Melee\Greatswords\NoxianRider.png" />
     <None Remove="Items\Weapons\Melee\Greatswords\NoxianRider_White.png" />
     <None Remove="Items\Weapons\Melee\Greatswords\PhantasmalFall.png" />

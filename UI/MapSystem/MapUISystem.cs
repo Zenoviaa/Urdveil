@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System.Collections.Generic;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ModLoader;
 using Terraria.UI;
 using Urdveil.UI.CollectionSystem;
@@ -84,12 +85,18 @@ namespace Urdveil.UI.MapSystem
         internal void OpenUI()
         {
             //Set State
+            SoundStyle soundStyle = new SoundStyle("Urdveil/Assets/Sounds/BookOpen");
+            soundStyle.PitchVariance = 0.1f;
+            SoundEngine.PlaySound(soundStyle);
             TakeSlot();
             _userInterface.SetState(mapUIState);
         }
 
         internal void CloseUI()
         {
+            SoundStyle soundStyle = new SoundStyle("Urdveil/Assets/Sounds/BookClose");
+            soundStyle.PitchVariance = 0.1f;
+            SoundEngine.PlaySound(soundStyle);
             ClearSlot();
             _userInterface.SetState(null);
         }

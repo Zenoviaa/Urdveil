@@ -36,6 +36,7 @@ namespace Urdveil.Helpers
         public static string VoxTexture4 => "Urdveil/Assets/Effects/VoxTexture5";
 
         public static string BoreParticleWhite => "Urdveil/Particles/BoreParticleWhite";
+        public static Asset<Texture2D> Clouds7 => ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/Clouds7");
         public static Asset<Texture2D> Clouds6 => ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/Clouds6");
         public static Asset<Texture2D> BasicGlow => ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/BasicGlow");
         public static Asset<Texture2D> StarNoise => ModContent.Request<Texture2D>("Urdveil/Assets/NoiseTextures/StarNoise");
