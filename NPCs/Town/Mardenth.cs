@@ -322,18 +322,32 @@ namespace Urdveil.NPCs.Town
 
 
             var npcShop = new NPCShop(Type, ShopName)
+            .Add(new Item(ModContent.ItemType<TheMarksman>())
+            {
+                shopCustomPrice = 200,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-
-            .Add<TheMarksman>(Condition.DownedEyeOfCthulhu)
-            .Add<MardenthMask>(CustomConditions.PostDaedus)
-            .Add<MardenthRobe>(CustomConditions.PostDaedus)
-            .Add<MardenthPants>(CustomConditions.PostDaedus)
-            .Add(new Item(ModContent.ItemType<Plate>()) { shopCustomPrice = Item.buyPrice(silver: 1) })
-            .Add(new Item(ItemID.GravediggerShovel) { shopCustomPrice = Item.buyPrice(gold: 5) })
-                ;
-
-
-
+            .Add(new Item(ModContent.ItemType<MardenthMask>())
+            {
+                shopCustomPrice = 75,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ModContent.ItemType<MardenthRobe>())
+            {
+                shopCustomPrice = 75,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ModContent.ItemType<MardenthPants>())
+            {
+                shopCustomPrice = 75,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ItemID.GravediggerShovel)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            });
             npcShop.Register(); // Name of this shop tab
         }
 

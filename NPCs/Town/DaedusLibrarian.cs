@@ -271,16 +271,64 @@ namespace Urdveil.NPCs.Town
         public override void AddShops()
         {
             var npcShop = new NPCShop(Type, ShopName)
-            .Add(new Item(ItemID.Book) { shopCustomPrice = Item.buyPrice(silver: 10) })
-            .Add<WintersStom>()
-            .Add<SandStorm>()
-            .Add<Aneuriliac>()
-            .Add<CocoSpark>(Condition.DownedEowOrBoc)
-            .Add<ShinobiTome>(Condition.DownedEowOrBoc)
-            .Add<ShadeHandTome>(Condition.DownedEowOrBoc)
-            .Add<VoidsGrasp>(Condition.DownedSkeletron)
-            .Add<Astalaiya>(Condition.DownedSkeletron)
-            .Add<TheDeafen>(Condition.DownedSkeletron);
+            .Add(new Item(ItemID.Book)
+            {
+                shopCustomPrice = 2,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+
+            //Tier 1
+            .Add(new Item(ModContent.ItemType<WintersStom>())
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ModContent.ItemType<SandStorm>())
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ModContent.ItemType<Aneuriliac>())
+            {
+                shopCustomPrice = 50,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+
+            //Tier 2
+            .Add(new Item(ModContent.ItemType<CocoSpark>())
+            {
+                shopCustomPrice = 100,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ModContent.ItemType<ShinobiTome>())
+            {
+                shopCustomPrice = 100,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ModContent.ItemType<ShadeHandTome>())
+            {
+                shopCustomPrice = 100,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+
+
+            //Tier 3
+            .Add(new Item(ModContent.ItemType<VoidsGrasp>())
+            {
+                shopCustomPrice = 150,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ModContent.ItemType<Astalaiya>())
+            {
+                shopCustomPrice = 150,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
+            .Add(new Item(ModContent.ItemType<TheDeafen>())
+            {
+                shopCustomPrice = 150,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            });
+
             npcShop.Register();
         }
     }

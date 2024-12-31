@@ -305,172 +305,153 @@ namespace Urdveil.NPCs.Town
 
         public override void AddShops()
         {
-
-
             var npcShop = new NPCShop(Type, ShopName)
-                .Add(new Item(ItemID.Wood)
-                {
-                    shopCustomPrice = Item.sellPrice(copper: 2)
-                })
-                .Add(new Item(ModContent.ItemType<DaggerDagger>()) { shopCustomPrice = 100, shopSpecialCurrency = Urdveil.MedalCurrencyID }, CustomConditions.PostFenix)
-                .Add(new Item(ModContent.ItemType<DiariBroochA>())
-                {
-                    shopCustomPrice = 1,
-                    shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                })
+            .Add(new Item(ItemID.Wood)
+            {
+                shopCustomPrice = Item.sellPrice(copper: 2)
+            })
+              
+            .Add(new Item(ModContent.ItemType<AimacraWig>())
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                .Add(new Item(ModContent.ItemType<SlimeBroochA>())
-                {
-                    shopCustomPrice = 3,
-                    shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                })
+            .Add(new Item(ItemID.BattlePotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ModContent.ItemType<AimacraWig>())
-                    {
-                        shopCustomPrice = 5,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.WormholePotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.BattlePotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.CalmingPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.WormholePotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.CratePotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.CalmingPotion)
-                    {
-                        shopCustomPrice = 2,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.GreaterManaPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.CratePotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.BuilderPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.GreaterManaPotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.GravitationPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.BuilderPotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.LifeforcePotion)
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.GravitationPotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
-
-                    .Add(new Item(ItemID.LifeforcePotion)
-                    {
-                        shopCustomPrice = 3,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
-
-                    .Add(new Item(ItemID.RagePotion)
-                    {
-                        shopCustomPrice = 3,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.RagePotion)
+            {
+                shopCustomPrice = 10,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
 
-                    .Add(new Item(ItemID.GillsPotion)
-                    {
-                        shopCustomPrice = 2,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.GillsPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.FlipperPotion)
-                    {
-                        shopCustomPrice = 2,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.FlipperPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.ManaRegenerationPotion)
-                    {
-                        shopCustomPrice = 2,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.ManaRegenerationPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.NightOwlPotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.NightOwlPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.SpelunkerPotion)
-                    {
-                        shopCustomPrice = 3,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.SpelunkerPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.ThornsPotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.ThornsPotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.LovePotion)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.LovePotion)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.PadThai)
-                    {
-                        shopCustomPrice = 1,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.PadThai)
+            {
+                shopCustomPrice = 5,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.ClimbingClaws)
-                    {
-                        shopCustomPrice = 3,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.ClimbingClaws)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.ShoeSpikes)
-                    {
-                        shopCustomPrice = 3,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.ShoeSpikes)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.Aglet)
-                    {
-                        shopCustomPrice = 3,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
+            .Add(new Item(ItemID.Aglet)
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
-                    .Add(new Item(ItemID.AnkletoftheWind)
-                    {
-                        shopCustomPrice = 10,
-                        shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                    })
-
-
-                     .Add(new Item(ModContent.ItemType<IllurineBrew>())
-                     {
-                         shopCustomPrice = 3,
-                         shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
-                     })
+            .Add(new Item(ItemID.AnkletoftheWind)
+            {
+                shopCustomPrice = 25,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            })
 
 
-                ;
+            .Add(new Item(ModContent.ItemType<IllurineBrew>())
+            {
+                shopCustomPrice = 15,
+                shopSpecialCurrency = Urdveil.MedalCurrencyID // omit this line if shopCustomPrice should be in regular coins.
+            });
 
-
-
-            npcShop.Register(); // Name of this shop tab
+            npcShop.Register();
         }
 
 

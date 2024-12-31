@@ -190,7 +190,6 @@ namespace Urdveil.NPCs.Town
             base.OpenTownDialogue(ref text, ref portrait, ref timeBetweenTexts, ref talkingSound, buttons);
             //Set buttons
             buttons.Add(new Tuple<string, Action>("Talk", Talk));
-            buttons.Add(new Tuple<string, Action>("Shop", OpenShop));
             buttons.Add(new Tuple<string, Action>("WeaponUpgrade", OpenWeaponUpgradeMenu));
 
             portrait = "MordredPortrait";
@@ -218,17 +217,6 @@ namespace Urdveil.NPCs.Town
             Main.playerInventory = true;
             WeaponUpgradeUISystem uiSystem = ModContent.GetInstance<WeaponUpgradeUISystem>();
             uiSystem.OpenUI();
-        }
-
-        public override void AddShops()
-        {
-            var npcShop = new NPCShop(Type, ShopName)
-            .Add(new Item(ItemID.Mace) { shopCustomPrice = Item.buyPrice(gold: 5) })
-            .Add(new Item(ItemID.ThrowingKnife) { shopCustomPrice = Item.buyPrice(copper: 5) })
-            .Add(new Item(ItemID.Shuriken) { shopCustomPrice = Item.buyPrice(copper: 5) })
-            .Add(new Item(ItemID.BorealWood) { shopCustomPrice = Item.buyPrice(copper: 7) })
-            .Add(new Item(ItemID.ApplePie) { shopCustomPrice = Item.buyPrice(silver: 50) });
-            npcShop.Register(); // Name of this shop t
         }
     }
 }
