@@ -12,7 +12,7 @@ namespace Urdveil.Common.EnemySystem
 {
     internal abstract class BaseKnightNPC : BaseRiggedNPC
     {
-        public static Asset<Texture2D>[] Textures { get; private set; }
+        public Asset<Texture2D>[] Textures { get; private set; }
 
         //Joints
         public Joint FrontForeArmJoint;
@@ -44,6 +44,24 @@ namespace Urdveil.Common.EnemySystem
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
+
+        }
+
+
+        public override void SetDefaults()
+        {
+            base.SetDefaults();
+            NPC.width = 30;
+            NPC.height = 80;
+            NPC.damage = 32;
+            NPC.knockBackResist = 0.5f;
+            NPC.lifeMax = 120;
+
+        }
+
+        public override void SetLimbDefaults()
+        {
+            base.SetLimbDefaults();
             Textures = new Asset<Texture2D>[13];
             Textures[0] = ModContent.Request<Texture2D>(Texture + "_FrontForeArm");
             Textures[1] = ModContent.Request<Texture2D>(Texture + "_FrontShoulder");
@@ -62,35 +80,12 @@ namespace Urdveil.Common.EnemySystem
             Textures[10] = ModContent.Request<Texture2D>(Texture + "_Head");
             Textures[11] = ModContent.Request<Texture2D>(Texture + "_Torso");
             Textures[12] = ModContent.Request<Texture2D>(Texture + "_Waist");
-        }
 
-
-        public override void SetDefaults()
-        {
-            base.SetDefaults();
-            NPC.width = 30;
-            NPC.height = 80;
-            NPC.damage = 32;
-            NPC.knockBackResist = 0.5f;
-            NPC.lifeMax = 120;
-
-        }
-
-        public override void SetLimbDefaults()
-        {
-            base.SetLimbDefaults();
             BackArmLimb = MakeLimb()
                 .AddNewJoint(Textures[1])
                 .AddNewJoint(Textures[0]);
 
-            FrontArmLimb = MakeLimb()
-                .AddNewJoint(Textures[3])
-                .AddNewJoint(Textures[2]);
 
-            FrontLegLimb = MakeLimb()
-                .AddNewJoint(Textures[4])
-                .AddNewJoint(Textures[5])
-                .AddNewJoint(Textures[6]);
 
             BackLegLimb = MakeLimb()
                 .AddNewJoint(Textures[7])
@@ -102,6 +97,14 @@ namespace Urdveil.Common.EnemySystem
                 .AddNewJoint(Textures[11])
                 .AddNewJoint(Textures[12]);
 
+            FrontLegLimb = MakeLimb()
+                .AddNewJoint(Textures[4])
+                .AddNewJoint(Textures[5])
+                .AddNewJoint(Textures[6]);
+
+            FrontArmLimb = MakeLimb()
+                .AddNewJoint(Textures[3])
+                .AddNewJoint(Textures[2]);
 
             //Back Arm Joints
             BackShoulderJoint = BackArmLimb.Joints[0];
@@ -128,8 +131,9 @@ namespace Urdveil.Common.EnemySystem
 
             //Connect Arms
             BackArmLimb.ParentJoint = TorsoJoint;
-            BackArmLimb.LocalOffset = new Vector2(0, -8);
+            BackArmLimb.LocalOffset = new Vector2(8, 6);
             FrontArmLimb.ParentJoint = TorsoJoint;
+            FrontArmLimb.LocalOffset = new Vector2(-8, 6);
 
             //Connect Legs
             BackLegLimb.ParentJoint = WaistJoint;

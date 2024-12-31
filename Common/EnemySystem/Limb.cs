@@ -42,7 +42,7 @@ namespace Urdveil.Common.EnemySystem
             joint.StartDirection = Vector2.UnitY;
             joint.Length = length;
             joint.Texture = textureAsset;
-            joint.DrawOrigin = new Vector2(textureAsset.Width() / 2, textureAsset.Height() / 4);
+            joint.DrawOrigin = new Vector2(textureAsset.Width() / 2,0);
             AddJoint(joint);
             _prevLocalPosition += joint.StartDirection * length;
             return this;

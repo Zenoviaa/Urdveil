@@ -11,10 +11,11 @@ namespace Urdveil.UI
     internal abstract class SimpleUIBackground : UIElement
     {
         public string Texture => (GetType().Namespace + "." + GetType().Name).Replace('.', '/');
+        public Color Color;
         public Asset<Texture2D> TextureAsset;
         public SimpleUIBackground() : base()
         {
-
+            Color = Color.White;
         }
 
         public override void OnInitialize()
@@ -37,9 +38,8 @@ namespace Urdveil.UI
             Rectangle rectangle = GetDimensions().ToRectangle();
 
             //Draw Backing
-            Color color2 = Color.White;
             Vector2 pos = rectangle.TopLeft();
-            spriteBatch.Draw(TextureAsset.Value, rectangle.TopLeft(), null, color2, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
+            spriteBatch.Draw(TextureAsset.Value, rectangle.TopLeft(), null, Color, 0f, default(Vector2), 1f, SpriteEffects.None, 0f);
         }
     }
 }

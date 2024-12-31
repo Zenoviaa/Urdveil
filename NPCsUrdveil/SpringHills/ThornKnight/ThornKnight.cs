@@ -13,8 +13,10 @@ namespace Urdveil.NPCsUrdveil.SpringHills.ThornKnight
         public override void AI()
         {
             base.AI();
-            BackShoulderJoint.Rotation += 0.01f;
-            BackForeArmJoint.Rotation += 0.01f;
+            BackShoulderJoint.Rotation -= 0.01f;
+            BackForeArmJoint.Rotation -= 0.01f;
+            FrontShoulderJoint.Rotation += 0.01f;
+            FrontForeArmJoint.Rotation += 0.01f;
             FrontThighJoint.Rotation += 0.01f;
         }
     }

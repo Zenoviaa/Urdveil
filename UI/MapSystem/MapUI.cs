@@ -22,7 +22,6 @@ namespace Urdveil.UI.MapSystem
         public Border Border { get; set; }
 
         public Border2 Border2 { get; set; }
-        public MapFog MapFog { get; set; }
         public MapButton SpringHillsInnerButton { get; set; }
         public MapButton SpringHillsOuterButton { get; set; }
         public MapButton WarriorsDoorButton { get; set; }
@@ -41,7 +40,6 @@ namespace Urdveil.UI.MapSystem
             Border = new Border();
             Border2 = new Border2();
             MapMarker = new MapMarker();
-            MapFog = new MapFog();
             AreaPreview = new AreaPreview(this);
 
             ModWall marker = ModContent.GetModWall(ModContent.WallType<SpringHillsInnerMarker>());
@@ -82,15 +80,6 @@ namespace Urdveil.UI.MapSystem
 
         }
 
-        private void FogUp(MapButton btn, Func<bool> checkFunc)
-        {
-            int x = (int)(Left.Pixels + btn.Left.Pixels);
-            int y = (int)(Top.Pixels + btn.Top.Pixels);
-            int width = (int)btn.Width.Pixels;
-            int height = (int)btn.Height.Pixels;
-            MapFog.AddHiddenArea(new Rectangle(x, y, width, height), checkFunc);
-        }
-
         private void FogUp(int left, int top, int width, int height, Func<bool> checkFunc)
         {
 
@@ -119,20 +108,11 @@ namespace Urdveil.UI.MapSystem
             Append(WitchTownButton);
             Append(MapMarker); 
             Append(AreaPreview);
-            Append(MapFog);
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (!_initFog)
-            {
-                MapPlayer mapPlayer = Main.LocalPlayer.GetModPlayer<MapPlayer>();
-                FogUp(SpringHillsInnerButton, () => !mapPlayer.mapPieceSpringHillsInner);
-                FogUp(SpringHillsOuterButton, () => !mapPlayer.mapPieceWarriorsDoor);
-                FogUp(WitchTownButton, () => !mapPlayer.mapPieceWitchTown);
-                _initFog = true;
-            }
             HoverTimer--;
             Left.Pixels = RelativeLeft;
             Top.Pixels = RelativeTop;

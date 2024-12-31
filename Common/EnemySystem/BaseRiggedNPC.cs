@@ -53,7 +53,7 @@ namespace Urdveil.Common.EnemySystem
         {
             foreach (Limb limb in Limbs)
             {
-                limb.Draw(spriteBatch, NPC.Center, screenPos, drawColor);
+                limb.Draw(spriteBatch, NPC.Center - new Vector2(0, NPC.Size.Y), screenPos, drawColor);
             }
             return false;
         }
