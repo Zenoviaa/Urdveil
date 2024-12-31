@@ -36,6 +36,7 @@ namespace Urdveil.NPCs.Colosseum.Common
         public override void AI()
         {
             base.AI();
+            NPC.velocity = Vector2.Zero;
             Timer++;
             if (Timer >= 2)
             {

@@ -54,8 +54,7 @@ namespace Urdveil.NPCs.Colosseum
             Projectile.Left = OriginalCenter + new Vector2(-leftLength, 0) + new Vector2(8, 0);
             Length = ProjectileHelper.PerformBeamHitscan(Projectile.Left, Vector2.UnitX, 2400);
 
-            ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            if (!colosseumSystem.IsActive())
+            if (!ColosseumSystem.IsActive)
             {
                 Die = true;
             }

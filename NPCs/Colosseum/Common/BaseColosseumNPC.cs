@@ -9,21 +9,19 @@ namespace Urdveil.NPCs.Colosseum.Common
     {
         public override bool CheckActive()
         {
-            ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            return !colosseumSystem.IsActive();
+            return !ColosseumSystem.IsActive;
         }
 
         public override void OnKill()
         {
             base.OnKill();
             ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            colosseumSystem.Progress();
+            colosseumSystem.enemyCount--;
         }
 
         protected bool IsColosseumActive()
         {
-            ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            return colosseumSystem.IsActive();
+            return ColosseumSystem.IsActive;
         }
 
         protected void DespawnExplosion()

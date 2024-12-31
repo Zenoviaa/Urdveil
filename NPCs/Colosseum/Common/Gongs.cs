@@ -8,8 +8,11 @@ namespace Urdveil.NPCs.Colosseum.Common
         protected override void StartColosseum()
         {
             base.StartColosseum();
-            ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            colosseumSystem.StartColosseum(0, NPC.Bottom.ToTileCoordinates());
+            if (StellaMultiplayer.IsHost)
+            {
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Bottom.X, (int)NPC.Bottom.Y, ModContent.NPCType<ColosseumWaveNPC>(), ai0: 0);
+            }
+
         }
     }
 
@@ -18,8 +21,10 @@ namespace Urdveil.NPCs.Colosseum.Common
         protected override void StartColosseum()
         {
             base.StartColosseum();
-            ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            colosseumSystem.StartColosseum(1, NPC.Bottom.ToTileCoordinates());
+            if (StellaMultiplayer.IsHost)
+            {
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Bottom.X, (int)NPC.Bottom.Y, ModContent.NPCType<ColosseumWaveNPC>(), ai0: 1);
+            }
         }
     }
 
@@ -28,8 +33,10 @@ namespace Urdveil.NPCs.Colosseum.Common
         protected override void StartColosseum()
         {
             base.StartColosseum();
-            ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            colosseumSystem.StartColosseum(2, NPC.Bottom.ToTileCoordinates());
+            if (StellaMultiplayer.IsHost)
+            {
+                NPC.NewNPC(NPC.GetSource_FromThis(), (int)NPC.Bottom.X, (int)NPC.Bottom.Y, ModContent.NPCType<ColosseumWaveNPC>(), ai0: 2);
+            }
         }
     }
 }

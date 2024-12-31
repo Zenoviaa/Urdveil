@@ -12,8 +12,7 @@ namespace Urdveil.Assets.Biomes
         {
             get
             {
-                ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-                if (colosseumSystem.IsActive())
+                if (NPC.AnyNPCs(ModContent.NPCType<ColosseumWaveNPC>()))
                 {
                     return MusicLoader.GetMusicSlot(Mod, "Assets/Music/The_Gintzing_Winds");
                 }

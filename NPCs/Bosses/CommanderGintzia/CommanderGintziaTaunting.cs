@@ -7,13 +7,16 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System.IO;
+using Urdveil.NPCs.Bosses.EliteCommander;
 
 namespace Urdveil.NPCs.Bosses.CommanderGintzia
 {
     internal class CommanderGintziaTaunting : ModNPC
     {
         private Vector2 FollowCenter;
-
+        private bool _setSpawnPos;
+        private Vector2 SpawnPos;
         private enum AIState
         {
             Spawn,
@@ -31,6 +34,20 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
 
         private float FadeProgress;
         private Player Target => Main.player[NPC.target];
+        public override void SendExtraAI(BinaryWriter writer)
+        {
+            base.SendExtraAI(writer);
+            writer.Write(_setSpawnPos);
+            writer.WriteVector2(SpawnPos);
+        }
+
+        public override void ReceiveExtraAI(BinaryReader reader)
+        {
+            base.ReceiveExtraAI(reader);
+            _setSpawnPos = reader.ReadBoolean();
+            SpawnPos = reader.ReadVector2();
+        }
+
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
@@ -85,7 +102,13 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
         public override void AI()
         {
             base.AI();
-            FollowCenter = ModContent.GetInstance<ColosseumSystem>().GongSpawnWorld + new Vector2(MathF.Sin(Timer * 0.01f) * 800, -168);
+            if (!_setSpawnPos)
+            {
+                SpawnPos = NPC.Center;
+                _setSpawnPos = true;
+                NPC.netUpdate = true;
+            }
+            FollowCenter = SpawnPos + new Vector2(MathF.Sin(Timer * 0.01f) * 800, -168);
             NPC.TargetClosest();
             NPC.spriteDirection = NPC.direction;
             switch (State)
@@ -114,8 +137,7 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
 
         public override bool CheckActive()
         {
-            ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            return !colosseumSystem.IsActive();
+            return !ColosseumSystem.IsActive;
         }
 
         private void AI_Spawn()
@@ -169,9 +191,7 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
 
             float targetRotation = NPC.velocity.X * 0.025f;
             NPC.rotation = MathHelper.Lerp(NPC.rotation, targetRotation, 0.1f);
-            ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-            if (!colosseumSystem.IsActive() ||
-                (colosseumSystem.waveIndex == 6 && colosseumSystem.colosseumIndex == 2))
+            if (!ColosseumSystem.IsActive || NPC.AnyNPCs(ModContent.NPCType<EliteCommander.EliteCommander>()))
             {
                 SwitchState(AIState.Despawn);
             }

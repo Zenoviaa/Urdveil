@@ -42,7 +42,9 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
             Despawn
         }
 
+        private bool _setSpawnPos;
         private Vector2 FollowCenter;
+        private Vector2 SpawnPos;
 
         private ref float Timer => ref NPC.ai[0];
         private AIState State
@@ -71,6 +73,8 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
             writer.Write(_evilCarpetIndex);
             writer.WriteVector2(FollowCenter);
             writer.Write(Phase2Transition);
+            writer.Write(_setSpawnPos);
+            writer.WriteVector2(SpawnPos);
         }
 
         public override void ReceiveExtraAI(BinaryReader reader)
@@ -86,6 +90,8 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
             _evilCarpetIndex = reader.ReadInt32();
             FollowCenter = reader.ReadVector2();
             Phase2Transition = reader.ReadBoolean();
+            _setSpawnPos = reader.ReadBoolean();
+            SpawnPos = reader.ReadVector2();
         }
 
         public override void SetStaticDefaults()
@@ -757,9 +763,7 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
         {
             Timer++;
             ColosseumSystem colosseum = ModContent.GetInstance<ColosseumSystem>();
-            Point colosseumTile = colosseum.colosseumTile;
-            Vector2 colosseumWorld = colosseum.GongSpawnWorld;
-
+            Vector2 colosseumWorld = SpawnPos;
             Vector2 velocity = (colosseumWorld - NPC.Center).SafeNormalize(Vector2.Zero);
             float distance = Vector2.Distance(NPC.Center, colosseumWorld);
             float maxSpeed = 6;
@@ -810,8 +814,7 @@ namespace Urdveil.NPCs.Bosses.CommanderGintzia
             {
                 NPC.SetEventFlagCleared(ref DownedBossSystem.downedCommanderGintziaBoss, -1);
                 ColosseumSystem colosseumSystem = ModContent.GetInstance<ColosseumSystem>();
-                colosseumSystem.Progress();
-
+                colosseumSystem.enemyCount--;
             }
             if (Timer == 241)
             {

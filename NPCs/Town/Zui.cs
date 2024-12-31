@@ -27,7 +27,6 @@ namespace Urdveil.NPCs.Town
             // DisplayName automatically assigned from localization files, but the commented line below is the normal approach.
             // DisplayName.SetDefault("Example Person");
             Main.npcFrameCount[Type] = 4; // The amount of frames the NPC has
-
             NPCID.Sets.ActsLikeTownNPC[Type] = true;
 
             //To reiterate, since this NPC isn't technically a town NPC, we need to tell the game that we still want this NPC to have a custom/randomized name when they spawn.
@@ -40,8 +39,6 @@ namespace Urdveil.NPCs.Town
             {
                 Velocity = 1f, // Draws the NPC in the bestiary as if its walking +1 tiles in the x direction
                 Direction = 1 // -1 is left and 1 is right. NPCs are drawn facing the left by default but ExamplePerson will be drawn facing the right
-                              // Rotation = MathHelper.ToRadians(180) // You can also change the rotation of an NPC. Rotation is measured in radians
-                              // If you want to see an example of manually modifying these when the NPC is drawn, see PreDraw
             };
 
 
@@ -50,18 +47,8 @@ namespace Urdveil.NPCs.Town
             // Set Example Person's biome and neighbor preferences with the NPCHappiness hook. You can add happiness text and remarks with localization (See an example in ExampleMod/Localization/en-US.lang).
         }
 
-        // Current frame
-        public int frameCounter;
-        // Current frame's progress
-        public int frameTick;
-        // Current state's timer
-        public float timer;
-
-        // AI counter
-        public int counter;
         public override void SetDefaults()
         {
-            NPC.friendly = true; // NPC Will not attack player
             NPC.width = 54;
             NPC.height = 65;
             NPC.aiStyle = 0;
@@ -73,6 +60,7 @@ namespace Urdveil.NPCs.Town
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             NPC.dontTakeDamageFromHostiles = true;
+            NPC.friendly = true; // NPC Will not attack player
             NPC.BossBar = Main.BigBossProgressBar.NeverValid;
             SpawnAtPoint = true;
             HasTownDialogue = true;
@@ -130,8 +118,8 @@ namespace Urdveil.NPCs.Town
             }
 
             return true;
-
         }
+
         public override string GetChat()
         {
             WeightedRandom<string> chat = new WeightedRandom<string>();
@@ -200,12 +188,9 @@ namespace Urdveil.NPCs.Town
 
         public override void AI()
         {
-            timer++;
-            NPC.CheckActive();
             NPC.spriteDirection = NPC.direction;
             if (NPC.AnyNPCs(ModContent.NPCType<ZuiTheTraveller>()))
             {
-
                 NPC.Kill();
             }
         }
@@ -233,8 +218,6 @@ namespace Urdveil.NPCs.Town
 
             //This pulls from the new Dialogue localization
             text = "ZuiIdleChat1";
-
-
         }
 
         public override void SetQuestLine(List<int> quests)
@@ -242,6 +225,5 @@ namespace Urdveil.NPCs.Town
             base.SetQuestLine(quests);
             quests.Add(QuestLoader.QuestType<CauldronCrafting>());
         }
-
     }
 }
